@@ -73,6 +73,9 @@ export default function Explore({ drinks, imageMap }) {
           </div>
         </Card>
       </CollapsibleSection>
+      <Link className="button" to="/help-me-decide">
+        Help me decide
+      </Link>
       <DrinkList drinks={filtered} imageMap={imageMap} />
     </>
   );
