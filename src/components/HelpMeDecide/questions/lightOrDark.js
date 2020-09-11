@@ -10,7 +10,7 @@ const lightOrDark = {
       const score = scoreDrink(drink, answer);
       scores[i] = {
         ...drink,
-        score: drinks.score ? drinks.score + score : score,
+        score: drink.score ? drink.score + score : score,
       };
     });
     return scores;

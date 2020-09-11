@@ -4,6 +4,7 @@ import Question from './Question';
 import Results from './Results';
 
 export default function HelpMeDecide({ drinks, imageMap }) {
+  console.log(drinks);
   const questions = useQuestions();
   const [answers, setAnswers] = useState([]);
   const questionNumber = answers.length;
@@ -18,7 +19,7 @@ export default function HelpMeDecide({ drinks, imageMap }) {
     );
   }
   const results = questions.reduce((acc, question, index) => {
-    return question.score(drinks, answers[index]);
+    return question.score(acc, answers[index]);
   }, drinks);
   return <Results drinks={results} imageMap={imageMap} />;
 }

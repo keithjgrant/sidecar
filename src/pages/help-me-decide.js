@@ -16,7 +16,7 @@ export default function HelpMeDecidePage({ data: { drinks, images } }) {
       <Meta title="Sidecar: Help Me Decide" />
       <HelpMeDecide
         drinks={drinks.edges.map((item) => ({
-          html: item.html,
+          html: item.node.html,
           ...item.node.frontmatter,
         }))}
         imageMap={imageMap}
@@ -39,6 +39,7 @@ export const pageQuery = graphql`
             path
             glass
             tags
+            ingredients
             family
             booziness
             sweetness

@@ -10,7 +10,7 @@ const refreshingOrIntense = {
       const score = scoreDrink(drink, answer);
       scores[i] = {
         ...drink,
-        score: drinks.score ? drinks.score + score : score,
+        score: drink.score ? drink.score + score : score,
       };
     });
     return scores;
@@ -26,12 +26,12 @@ function scoreDrink(drink, answer) {
   if (!drink) {
     throw new Error(`No drink given ${drink}`);
   }
-  let score = 0;
-  if (drink.tags.includes('refreshing')) {
-    score += answer === 'refreshing' ? 3 : -3;
-    return score;
-  }
   const unit = answer === 'refreshing' ? 1 : -1;
+  if (drink.tags.includes('refreshing')) {
+    return unit * 3;
+  }
+
+  let score = 0;
   if (drink.family === 'highball') {
     score += unit * 2;
   }

@@ -1,9 +1,9 @@
-const sweetOrStiff = {
-  prompt: 'Sweet or dry?',
+const boozyOrMild = {
+  prompt: 'Boozy or mild?',
   options: [
-    ['sweet', 'Sweet'],
+    ['boozy', 'Boozy'],
     ['middle', 'Somewhere in between'],
-    ['dry', 'Dry'],
+    ['mild', 'Mild'],
   ],
   score: (drinks, answer) => {
     const scores = [];
@@ -18,21 +18,22 @@ const sweetOrStiff = {
   },
 };
 
-export default sweetOrStiff;
+export default boozyOrMild;
 
 function scoreDrink(drink, answer) {
-  const sweetness = drink.sweetness || 2;
+  const booziness = drink.booziness || 2;
+
   let map;
-  if (answer === 'sweet') {
+  if (answer === 'boozy') {
     map = {
       3: 3,
-      2: -3,
-      1: 0,
+      2: 1,
+      1: -3,
     };
-  } else if (answer === 'dry') {
+  } else if (answer === 'mild') {
     map = {
-      3: 0,
-      2: -3,
+      3: -3,
+      2: 1,
       1: 3,
     };
   } else {
@@ -43,5 +44,5 @@ function scoreDrink(drink, answer) {
     };
   }
 
-  return map[sweetness];
+  return map[booziness];
 }
