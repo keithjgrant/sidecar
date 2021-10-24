@@ -14,7 +14,7 @@ ingredients: [
   "1 egg white",
   "top with about 3 oz floral IPA"
 ]
-garnish:
+garnish: lime twist
 tags: [
   fizz,
   rye-whiskey,
@@ -40,3 +40,5 @@ Remove the ice from the shaker.
 Pour in the IPA to combine it with the remnants of the drink still in the shaker.
 Swirl the shaker a little so the IPA froths up a bit.
 Pour frothy IPA over the drink.
+
+Garnish with a lime twist.

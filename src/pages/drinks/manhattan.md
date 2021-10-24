@@ -16,6 +16,7 @@ tags: [
   ten-bottle-bar,
   classic-cocktail,
   rye-whiskey,
+  whiskey,
   sweet-vermouth,
   stirred,
 ]

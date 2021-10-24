@@ -16,6 +16,7 @@ ingredients: [
 garnish: orange twist
 tags: [
   fall,
+  herbal,
   rye-whiskey,
   whiskey,
   apple-brandy,
