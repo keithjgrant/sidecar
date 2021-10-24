@@ -15,12 +15,13 @@ ingredients: [
 ]
 garnish: 1 star anise
 tags: [
-  "winter",
-  "vodka",
-  "lemon",
-  "honey",
-  "egg",
-  "shaken"
+  winter,
+  vodka,
+  lemon,
+  honey,
+  egg,
+  special-syrup,
+  shaken
 ]
 source: http://thecharmingdetroiter.com/indian-winter-a-cardamom-winter-cocktail/
 

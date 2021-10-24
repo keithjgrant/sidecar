@@ -12,10 +12,11 @@ ingredients: [
   "3 oz fresh grapefruit juice"
 ]
 tags: [
-  "vodka",
-  "grapefruit",
-  "black-pepper-syrup",
-  "shaken"
+  vodka,
+  grapefruit,
+  black-pepper,
+  special-syrup,
+  shaken"
 ]
 tenBottleCandidate: true
 ---

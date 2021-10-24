@@ -13,12 +13,13 @@ ingredients: [
 ]
 garnish: lime wheel
 tags: [
-  "gin",
-  "london-dry-gin",
-  "lime",
-  "jalapeno-syrup",
-  "sidecar-original",
-  "shaken"
+  sidecar-original,
+  gin,
+  london-dry-gin,
+  lime,
+  jalapeno-syrup,
+  special-syrup,
+  shaken
 ]
 image:
   url: "/images/drinks/monkey-grass.jpg"

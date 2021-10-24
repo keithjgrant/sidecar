@@ -21,6 +21,7 @@ tags: [
   orange-liqueur,
   lemon,
   blackberry,
+  special-syrup,
   shaken,
 ]
 tenBottleCandidate: true

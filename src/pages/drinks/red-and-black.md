@@ -14,12 +14,13 @@ ingredients: [
 ]
 garnish: salt, sugar, & pepper (for rim)
 tags: [
-  "strawberry",
-  "tequila",
-  "tequila-blanco",
-  "lime",
-  "black-pepper-syrup",
-  "shaken",
+  strawberry,
+  tequila,
+  tequila-blanco,
+  lime,
+  black-pepper,
+  special-syrup,
+  shaken,
 ]
 tenBottleCandidate: true
 ---

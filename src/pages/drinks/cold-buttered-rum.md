@@ -12,12 +12,12 @@ ingredients: [
   "½ oz lime juice, strained"
 ]
 tags: [
-  "rum",
-  "spiced-rum",
-  "butter-syrup",
-  "lime",
-  "shaken",
-  "sweet"
+  rum,
+  spiced-rum,
+  butter-syrup,
+  lime,
+  shaken,
+  sweet,
 ]
 intro: From Dave Arnold’s [Liquid Intelligence](https://www.amazon.com/Liquid-Intelligence-Science-Perfect-Cocktail/dp/0393089037)
 ---

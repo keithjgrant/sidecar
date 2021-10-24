@@ -16,6 +16,7 @@ garnish: grapfruit wheel
 tags: [
   tequila,
   grapefruit,
+  special-syrup,
   built
 ]
 
