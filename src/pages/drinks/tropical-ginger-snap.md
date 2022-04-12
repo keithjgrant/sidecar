@@ -7,7 +7,7 @@ sweetness: 3
 booziness: 2
 family: sour
 ingredients: [
-  "2 oz silver rum",
+  "2 oz white rum",
   "¾ oz lime juice",
   "¾ oz [ginger syrup](/ingredients/ginger-syrup)",
 ]

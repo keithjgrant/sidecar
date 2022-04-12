@@ -8,7 +8,7 @@ booziness: 2
 family: flip
 ingredients: [
   "1 oz ouzo (anise flavored spirit)",
-  "1 oz silver rum",
+  "1 oz white rum",
   "1 oz heavy cream",
   "½ oz simple syrup",
 ]

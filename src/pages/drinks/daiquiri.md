@@ -12,11 +12,12 @@ ingredients: [
   "¾ oz simple syrup"
 ]
 tags: [
-  "ten-bottle-bar",
-  "rum",
-  "lime",
-  "classic-cocktail",
-  "shaken"
+  ten-bottle-bar,
+  bright,
+  rum,
+  lime,
+  classic-cocktail,
+  shaken
 ]
 tenBottleCandidate: true
 ---

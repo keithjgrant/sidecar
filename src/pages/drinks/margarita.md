@@ -16,6 +16,7 @@ ingredients: [
 garnish:
 tags: [
   ten-bottle-bar,
+  polished-recipe,
   classic-cocktail,
   tequila,
   orange-liqueur,

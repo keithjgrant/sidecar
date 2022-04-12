@@ -16,6 +16,7 @@ garnish: orange twist
 tags: [
   ten-bottle-bar,
   classic-cocktail,
+  polished-recipe,
   whiskey,
   rye-whiskey,
   burnt-sugar-syrup,
