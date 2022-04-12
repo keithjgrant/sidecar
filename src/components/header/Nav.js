@@ -33,6 +33,7 @@ export default function Nav() {
   return (
     <Navbar>
       <Link to="/drinks">Drinks</Link>
+      <Link to="/tags">Tags</Link>
       <Link to="/ingredients">Ingredients</Link>
       <Link to="/techniques">Techniques</Link>
       <Link to="/about">About</Link>
