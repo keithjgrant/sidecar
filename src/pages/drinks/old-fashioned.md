@@ -7,9 +7,9 @@ sweetness: 2
 booziness: 3
 family: old fashioned
 ingredients: [
-  "2 oz rye whiskey",
+  "1¾ oz rye whiskey",
   "½ oz [burnt sugar syrup](/ingredients/burnt-sugar-syrup)",
-  "2 dashes Angostura bitters",
+  "3 dashes Angostura bitters",
   "2 dashes orange bitters"
 ]
 garnish: orange twist

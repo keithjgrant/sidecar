@@ -7,16 +7,17 @@ sweetness: 3
 booziness: 2
 family: sour
 ingredients: [
-  "1½ oz amaretto liqueur",
-  "½ oz high-proof bourbon",
-  "1 oz lemon juice",
-  "1 barspoon simple syrup",
+  "1 oz amaretto liqueur",
+  "1 oz high-proof rye whiskey or bourbon",
+  "¾ oz lemon juice",
+  "¼ oz simple syrup",
   "½ egg white"
 ]
 garnish: brandied cherry
 tags: [
   amaretto,
   bourbon,
+  rye-whiskey,
   whiskey,
   lemon,
   egg,

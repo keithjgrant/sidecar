@@ -26,7 +26,7 @@ Some sours call for the addition of an egg white.
 This does two things to the drink.
 First, it foams up during shaking, adding a thicker, slightly creamy quality to the drink.
 Second, the proteins in the egg binds to the tannins present in aged spirits, such as whiskey, making the flavor smoother.
-This is why an egg white is added to a [Whiskey Sour](/drinks/maple-bourbon-sour/).
+This is why an egg white is added to a [Whiskey Sour](/drinks/whiskey-sour/).
 When doubling a recipe, one egg white is often enough for two drinks shaken together.
 
 ## The Fizz
