@@ -14,10 +14,11 @@ ingredients: [
 ]
 garnish: grapefruit wedge
 tags: [
-  "vodka",
-  "campari",
-  "grapefruit",
-  "shaken"
+  vodka,
+  campari,
+  grenadine,
+  grapefruit,
+  shaken
 ]
 ---
 Shake vodka, Campari, grapefruit juice, and grenadine. Strain into rocks glass over ice.

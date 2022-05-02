@@ -13,16 +13,13 @@ ingredients: [
 ]
 garnish:
 tags: [
-
+  gin,
+  grapefruit,
+  grenadine,
+  shaken,
 ]
 featured:
 tenBottleCandidate:
-image:
-  url: "/images/drinks/.jpg"
-  alt: ""
-  align: "50% 50%"
-  photographer: ""
-  creditUrl: ""
 source:
 intro:
 
