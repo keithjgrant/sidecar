@@ -1,0 +1,50 @@
+export default function getWeightedRandom(drinks, numResults) {
+  if (drinks.length <= numResults) {
+    return drinks;
+  }
+
+  const cumulativeWeights = [];
+  // idea: make 1 selection from only highest scored drinks, then expand list for each
+  // successive selection (to ensure at least one high-scoring match)
+  drinks.forEach((drink, i) => {
+    cumulativeWeights[i] = drink.score * 2 + (cumulativeWeights[i - 1] || 0);
+  });
+  console.log({ cumulativeWeights });
+
+  const results = [];
+  let attempts = 0;
+
+  while (results.length < numResults && attempts < 100) {
+    const selection = select(drinks, cumulativeWeights);
+
+    if (!results.find((d) => d.path === selection.path)) {
+      results.push(selection);
+    }
+
+    attempts++;
+  }
+
+  return results.sort(byScore);
+}
+
+function select(drinks, cumulativeWeights) {
+  const maxCumulative = cumulativeWeights[cumulativeWeights.length - 1];
+  const randomNumber = maxCumulative * Math.random();
+  for (let i = 0; i < drinks.length; i++) {
+    if (cumulativeWeights[i] >= randomNumber) {
+      return drinks[i];
+    }
+  }
+}
+
+export function byScore(a, b) {
+  if (a.score > b.score) {
+    return -1;
+  }
+  if (a.score < b.score) {
+    return 1;
+  }
+  if (a.score === b.score) {
+    return 0;
+  }
+}
