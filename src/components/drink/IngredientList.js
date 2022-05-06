@@ -44,12 +44,13 @@ export default function IngredientList({
   items = [],
   garnish,
   isBeneathIntro,
+  className,
 }) {
   if (!items) {
     return null;
   }
   return (
-    <Ingredients isBeneathIntro={isBeneathIntro}>
+    <Ingredients isBeneathIntro={isBeneathIntro} className={className}>
       {items.map((ingredient, i) => (
         <Ingredient key={i} className="p-ingredient">
           <InlineMarkdown source={ingredient} />

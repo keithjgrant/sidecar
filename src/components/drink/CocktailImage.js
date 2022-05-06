@@ -47,7 +47,7 @@ const SvgWrapper = styled.div`
 
 export default function CocktailImage({ drink, imageData }) {
   let { image, glass } = drink;
-  // TODO: share lookup function with ../CocktailThumbnail?
+  // TODO: share lookup function with ../CocktailThumbnail and ResultImage?
   const GlassSvg = glasses[glass] || glasses.rocks;
 
   return (

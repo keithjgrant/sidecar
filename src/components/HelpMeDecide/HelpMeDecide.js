@@ -7,7 +7,15 @@ export default function HelpMeDecide({ drinks, imageMap }) {
   const questions = useQuestions();
   const [answers, setAnswers] = useState([]);
 
-  // TODO make answers immutable
+  const handleAnswer = (i) => {
+    return (answer) => {
+      if (answer == answers[i]) {
+        return;
+      }
+      setAnswers([...answers.slice(0, i), answer, ...answers.slice(i + 1)]);
+    };
+  };
+
   return (
     <div>
       {questions.map((question, i) =>
@@ -15,11 +23,12 @@ export default function HelpMeDecide({ drinks, imageMap }) {
           <Question
             key={`question-${i}`}
             question={question}
-            onAnswer={(answer) => setAnswers(answers.concat(answer))}
+            selectedAnswer={answers[i] || null}
+            onAnswer={handleAnswer(i)}
           />
         ) : null
       )}
-      {answers.length === questions.length ? (
+      {answers.length >= questions.length ? (
         <Results
           drinks={drinks}
           questions={questions}

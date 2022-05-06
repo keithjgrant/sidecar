@@ -8,7 +8,7 @@ export default function HelpMeDecidePage({ data: { drinks, images } }) {
   const imageMap = {};
   if (images && images.edges) {
     images.edges.forEach(({ node: { name, childImageSharp } }) => {
-      imageMap[name] = childImageSharp;
+      imageMap[name] = { childImageSharp };
     });
   }
   return (
@@ -40,6 +40,7 @@ export const pageQuery = graphql`
             glass
             tags
             ingredients
+            garnish
             family
             booziness
             sweetness
@@ -62,7 +63,7 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(maxWidth: 130, webpQuality: 80) {
+            fluid(maxWidth: 100, webpQuality: 85) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
