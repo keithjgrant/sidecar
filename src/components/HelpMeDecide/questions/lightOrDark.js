@@ -1,5 +1,6 @@
 const lightOrDark = {
-  prompt: 'Brown spirit or clear spirit?',
+  key: 'light',
+  prompt: 'with a brown spirit or a clear spirit?',
   options: [
     ['brown', 'Brown'],
     ['clear', 'Clear'],
@@ -29,7 +30,7 @@ function scoreDrink(drink, answer) {
   let score = 0;
   const unit = answer === 'brown' ? -1 : 1;
   if (doListsIntersect(drink.tags, ['gin', 'vodka', 'mezcal', 'white-rum'])) {
-    score += unit * 3;
+    score += unit * 4;
   }
   if (
     doListsIntersect(drink.tags, [
@@ -39,9 +40,9 @@ function scoreDrink(drink, answer) {
       'tequila-reposado',
     ])
   ) {
-    score -= unit * 3;
+    score -= unit * 4;
   }
-  if (score === 3 || score === -3) {
+  if (score === 4 || score === -4) {
     return score;
   }
   if (drink.tags.includes('tequila')) {

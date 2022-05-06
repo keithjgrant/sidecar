@@ -1,5 +1,6 @@
 const simpleOrElaborate = {
-  prompt: 'Simple or eloborate?',
+  key: 'simple',
+  prompt: 'simple or eloborate?',
   options: [
     ['simple', 'Simple'],
     ['elaborate', 'Elaborate'],

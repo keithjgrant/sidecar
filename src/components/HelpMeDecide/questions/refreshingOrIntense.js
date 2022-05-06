@@ -1,5 +1,6 @@
 const refreshingOrIntense = {
-  prompt: 'Refreshing or intensely flavored?',
+  key: 'refreshing',
+  prompt: 'refreshing or intensely flavored?',
   options: [
     ['refreshing', 'Refreshing'],
     ['intense', 'Intense'],
@@ -53,8 +54,5 @@ function scoreDrink(drink, answer) {
     score -= unit;
   }
 
-  if (score > 3) {
-    console.debug(`${drink.path} scored ${answer} of ${score}`);
-  }
   return score;
 }

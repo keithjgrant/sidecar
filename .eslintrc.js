@@ -27,6 +27,7 @@ module.exports = {
   globals: {
     document: true,
     window: true,
+    location,
     localStorage: true,
     setTimeout: true,
     clearTimeout: true,
@@ -42,6 +43,7 @@ module.exports = {
     __dirname: true,
     exports: true,
     Image: true,
+    URL,
     navigator: true,
   },
 };

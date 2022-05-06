@@ -1,8 +1,7 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import ResultItem from './ResultItem';
-import getWeightedRandom, { byScore } from './getWeightedRandom';
+import getWeightedRandom from './getWeightedRandom';
 
 const Header = styled.div`
   margin-top: 1em;
@@ -81,10 +80,8 @@ export default function Results({ drinks, questions, answers, imageMap }) {
       {/* <ul>
         {results.sort(byScore).map((drink) => (
           <li key={drink.path}>
-            <Link to={drink.path}>
-              {weightedSelection.includes(drink) ? '***' : null}
-              {drink.title} ({drink.score})
-            </Link>
+            {weightedSelection.includes(drink) ? '***' : null}
+            {drink.title} ({drink.score})
           </li>
         ))}
       </ul> */}

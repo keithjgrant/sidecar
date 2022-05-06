@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { navigate } from 'gatsby';
 
 const Selections = styled.div`
   display: flex;
@@ -53,6 +54,14 @@ const SelectionButton = styled.button`
 `;
 
 export default function Question({ question, selectedAnswer, onAnswer }) {
+  useEffect(() => {
+    const url = new URL(location);
+    const answer = url.searchParams.get(question.key);
+    if (answer) {
+      onAnswer(answer);
+    }
+  }, []);
+
   return (
     <div>
       <p>{question.prompt}</p>
@@ -62,7 +71,10 @@ export default function Question({ question, selectedAnswer, onAnswer }) {
             type="button"
             key={value}
             isSelected={selectedAnswer === value}
-            onClick={() => onAnswer(value)}
+            onClick={() => {
+              setUrlParam(question.key, value);
+              onAnswer(value);
+            }}
           >
             {label}
           </SelectionButton>
@@ -70,4 +82,10 @@ export default function Question({ question, selectedAnswer, onAnswer }) {
       </Selections>
     </div>
   );
+}
+
+function setUrlParam(key, value) {
+  const url = new URL(location);
+  url.searchParams.set(key, value);
+  navigate(`${url.pathname}${url.search}`, { replace: true });
 }

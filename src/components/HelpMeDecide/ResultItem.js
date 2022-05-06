@@ -28,6 +28,12 @@ const CardLink = styled(Link)`
 
   &:hover {
     color: inherit;
+    border-color: var(--gray-4);
+    background-image: linear-gradient(
+      to right,
+      hsl(315, 3.2%, 25%),
+      var(--gray-2)
+    );
   }
 `;
 

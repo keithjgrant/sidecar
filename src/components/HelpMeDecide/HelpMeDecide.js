@@ -18,6 +18,7 @@ export default function HelpMeDecide({ drinks, imageMap }) {
 
   return (
     <div>
+      <p>Are you in the mood for something...</p>
       {questions.map((question, i) =>
         answers.length >= i ? (
           <Question

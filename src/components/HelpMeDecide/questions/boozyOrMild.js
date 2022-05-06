@@ -1,5 +1,6 @@
 const boozyOrMild = {
-  prompt: 'Boozy or mild?',
+  key: 'boozy',
+  prompt: 'boozy or mild?',
   options: [
     ['boozy', 'Boozy'],
     ['middle', 'Somewhere in between'],

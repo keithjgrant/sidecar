@@ -1,5 +1,6 @@
 const sweetOrStiff = {
-  prompt: 'Sweet or dry?',
+  key: 'sweet',
+  prompt: 'sweet or dry?',
   options: [
     ['sweet', 'Sweet'],
     ['middle', 'Somewhere in between'],
@@ -26,13 +27,13 @@ function scoreDrink(drink, answer) {
   if (answer === 'sweet') {
     map = {
       3: 3,
-      2: -3,
-      1: 0,
+      2: 0,
+      1: -3,
     };
   } else if (answer === 'dry') {
     map = {
-      3: 0,
-      2: -3,
+      3: -3,
+      2: 0,
       1: 3,
     };
   } else {
