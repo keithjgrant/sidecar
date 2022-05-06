@@ -16,7 +16,7 @@ tags: [
   grapefruit,
   black-pepper,
   special-syrup,
-  shaken"
+  shaken
 ]
 tenBottleCandidate: true
 ---
