@@ -64,7 +64,7 @@ export default function Question({ question, selectedAnswer, onAnswer }) {
 
   return (
     <div>
-      <p>{question.prompt}</p>
+      <p>...{question.prompt}</p>
       <Selections>
         {question.options.map(([value, label]) => (
           <SelectionButton

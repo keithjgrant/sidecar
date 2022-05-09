@@ -56,23 +56,20 @@ When you’re ready to rotate it out, try a blanc vermouth like Dolin Blanc.
 Or go for a traditional dry vermouth like Dolin dry, though I’ve found dry vermouth just isn’t used in as many drinks outside a classic martini.
 Sweet vermouth is definitely the style I use the most.
 
-## 4. Brandy
-Many cocktails call for a Cognac.
-But let’s be honest: that’s a lot to spend on something unless you’re sipping it neat.
-While I enjoy Cognac as much as the next guy, I typically stock a less expensive brandy like St. Remy VSOP or Paul Mason VSOP.
-Just make sure it’s a regular grape brandy though.
+## 4. Brandy/Cognac
+If you’re just building up your bar, it might make sense to start with a more affordable brandy like St. Remy VSOP or Paul Mason VSOP.
+Many cocktails can get away with this over a more expensive cognac.
 
-I have less experience with a broad range of brandies, however, so this is an area where I’m still trying different things to see what I like.
-I will say I’ve started shying away from E&J VSOP as it’s a bit sweeter its mellow flavor doesn’t stand up as well when mixed.
+That said, a true Cognac really is superior, and later on when you’re restocking, consider upgrading to one.
+Some drinks, such as a [sidecar](/drinks/sidecar) really do need a proper cognac.
 
 ## 5. Silver Rum
-This should be your cheapest item on the list.
-Get a bottle of Cruzan or similar for around $10.
-
 This is the one item I was most reluctant to put on this list.
-I personally don’t make a large variety of drinks with this — I use a aged rum more frequently —
+I personally don’t make a large variety of drinks with this — I use an aged rum more frequently —
 but this will come in handy if you get into the world of Tiki drinks.
 And if you’ve never had a [classic daiquiri](/drinks/daiquiri), now is your chance.
+
+You can start with a simple $10 bottle such as Cruzan, but a nicer one such as Plantation 3 Stars can be truly fantastic.
 
 When you run out, you can certainly swap in a spiced rum or a nice aged rum.
 You can substitute aged rum as the base spirit for almost any [classic cocktail](/tags/classic-cocktail) and end up with a delicious drink.
@@ -83,7 +80,7 @@ But a lot of distilleries offer a reposado for a comparable price, so I figure w
 
 Expect to spend around $25 for this, but you can occasionally find a better deal.
 I generally shop by price on this one.
-Some I’ve found myself coming back to when the price is right are Camarena and Lanazul.
+Some I’ve found myself coming back to when the price is right are Camarena and Lunazul.
 
 ## 7. Orange Liqueur
 As an essential ingredient for a [margarita](/drinks/margarita) or [sidecar](/drinks/sidecar), orange liqueur is a must in every home bar. Unfortunately, just like so many other sprits on this list, the variety of styles of this spirit make for complicated decision making. There are triple secs, brandy-based options like Grand Marnier, and dry curaçaos.
