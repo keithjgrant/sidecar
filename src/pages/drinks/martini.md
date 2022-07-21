@@ -7,11 +7,11 @@ sweetness: 1
 booziness: 3
 family: martini
 ingredients: [
-  "2¼ oz gin",
-  "¾ oz dry vermouth",
-  "1 dash orange bitters"
+  "2 oz gin",
+  "½ oz dry vermouth",
+  "2 dashes orange bitters"
 ]
-garnish: lemon twist
+garnish: lemon twist or green olives
 tags: [
   classic-cocktail,
   gin,
@@ -24,9 +24,9 @@ image:
   align: "0% 50%"
 tenBottleCandidate: true
 intro: |
-  Everyone has an opinion about martinis, and, I’ll be honest, mine is always changing.
-  So here’s a great starting point.
+  In my opinion, olives go well with a bolder or more juniper heavy gin (such as Tanqueray), while a lemon twist is best if your gin is more mild or sweet.
 ---
-Add to cocktail shaker with plenty of ice. Stir well, then strain into a martini glass or Nick and Nora.
+Add to cocktail shaker with plenty of ice.
+Stir for at least 30 seconds, then strain into a martini glass or Nick and Nora.
 
-Garnish with a lemon twist.
+Garnish with a lemon twist or a couple green olives.
