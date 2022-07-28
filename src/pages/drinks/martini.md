@@ -24,7 +24,7 @@ image:
   align: "0% 50%"
 tenBottleCandidate: true
 intro: |
-  In my opinion, olives go well with a bolder or more juniper heavy gin (such as Tanqueray), while a lemon twist is best if your gin is more mild or sweet.
+  Olives tend to go well in a dryer martini (less vermouth or a bolder/more juniper heavy gin), while a lemon twist is best if the martini is sweeter (either more vermouth or a more mild/sweet gin).
 ---
 Add to cocktail shaker with plenty of ice.
 Stir for at least 30 seconds, then strain into a martini glass or Nick and Nora.
