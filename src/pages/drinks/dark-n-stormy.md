@@ -1,5 +1,5 @@
 ---
-title: "Dark and Stormy"
+title: "Dark n Stormy"
 path: "/drinks/dark-and-stormy"
 date: 2020-05-29T14:05:30-08:00
 glass: collins

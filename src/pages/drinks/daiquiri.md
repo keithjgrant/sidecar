@@ -15,6 +15,7 @@ tags: [
   ten-bottle-bar,
   bright,
   rum,
+  white-rum,
   lime,
   classic-cocktail,
   shaken

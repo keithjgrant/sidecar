@@ -14,6 +14,7 @@ ingredients: [
 garnish: fresh grated nutmeg
 tags: [
   sweet,
+  rum,
   aged-rum,
   cream,
   shaken,

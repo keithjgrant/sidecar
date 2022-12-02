@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  rum,
   aged-rum,
   campari,
   sweet-vermouth,

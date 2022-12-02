@@ -18,6 +18,7 @@ garnish: grated cinnamon and nutmeg
 tags: [
   winter,
   sweet,
+  rum,
   aged-rum,
   brandy,
   whiskey,
@@ -29,7 +30,7 @@ tags: [
 tenBottleCandidate: true
 intro:
   Making a large batch of egg nog is a bit of work. This single-serve recipe
-  is nearly as good and a lot less work.
+  is nearly as good and a lot less effort.
 
   If you're able to plan ahead, freeze whole milk in an ice cube tray
   and use the milk ice cubes for shaking rather than regular water ice.

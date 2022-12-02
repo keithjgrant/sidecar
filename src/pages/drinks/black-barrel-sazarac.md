@@ -16,6 +16,7 @@ ingredients: [
 ]
 garnish: lemon twist
 tags: [
+  rum,
   aged-rum,
   creme-de-cacao,
   stirred,

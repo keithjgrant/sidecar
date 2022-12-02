@@ -15,6 +15,7 @@ ingredients: [
 garnish: orange twist and a cocktail cherry
 tags: [
   rum,
+  white-rum,
   blanc-vermouth,
   orange-liqueur,
   grenadine,

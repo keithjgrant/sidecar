@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: candied ginger
 tags: [
+  rum,
   aged-rum,
   cinnamon,
   shaken,

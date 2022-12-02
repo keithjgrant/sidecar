@@ -15,6 +15,7 @@ garnish: lime wheel
 tags: [
   sidecar-original,
   rum,
+  white-rum,
   ginger,
   lime,
   shaken,

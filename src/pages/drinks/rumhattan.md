@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: maraschino cherry
 tags: [
+  rum,
   aged-rum,
   sweet-vermouth,
   stirred,
