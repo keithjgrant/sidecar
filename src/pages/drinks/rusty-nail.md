@@ -10,7 +10,7 @@ ingredients: [
   "1½ oz Scotch",
   "¾ oz Drambuie",
 ]
-garnish:
+garnish: lemon twist, discarded
 tags: [
   whiskey,
   scotch,
@@ -22,4 +22,6 @@ intro: I like this best with a good peaty Scotch.
 
 ---
 
-Build in a rocks glass over ice. Stir briefly and serve.
+Build in a rocks glass over ice. Stir briefly.
+
+Express oil from a lemon twist over the top and serve.
