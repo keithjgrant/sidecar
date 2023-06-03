@@ -3,8 +3,8 @@ title: "Bitter in Brazil"
 path: "/drinks/bitter-in-brazil"
 date: 2021-10-23T17:10:35-08:00
 glass: rocks
-sweetness:
-booziness:
+sweetness: 3
+booziness: 2
 family: martini
 ingredients: [
   "1½ oz Cachaça",
@@ -19,7 +19,7 @@ tags: [
   orange-liqueur,
   sweet-vermouth,
   fernet-branca,
-  shaken,
+  stirred,
 ]
 featured:
 tenBottleCandidate:
