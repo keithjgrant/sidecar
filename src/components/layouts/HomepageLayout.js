@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import LogoSvg from '../header/LogoSvg';
 
 const nbsp = '\u00A0';
 
-const Banner = styled(Img)`
+const Banner = styled(GatsbyImage)`
   width: 100%;
   height: 50vh;
   object-fit: cover;
@@ -80,7 +80,7 @@ export default function HomepageLayout({ heroImage, children }) {
             for the home bartender
           </div>
         </Header>
-        <Banner fluid={heroImage.childImageSharp.fluid} />
+        <Banner image={heroImage.childImageSharp.gatsbyImageData} />
       </Back>
       <Front>{children}</Front>
     </Parallax>

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import glasses from '../svg/glasses';
 
 const Wrapper = styled.div`
   grid-column: 1;
 `;
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   width: 100%;
   max-height: 25vh;
   border-top-right-radius: var(--border-radius);
@@ -54,8 +54,7 @@ export default function CocktailImage({ drink, imageData }) {
     <Wrapper>
       {image && imageData ? (
         <Image
-          fluid={imageData.childImageSharp.fluid}
-          fixed={imageData.childImageSharp.fixed}
+          image={imageData.childImageSharp.gatsbyImageData}
           alt={image.alt}
           style={{ minWidth: '100%' }}
           imgStyle={{ objectPosition: image.align }}

@@ -13,7 +13,6 @@ export default function HelpMeDecidePage({ data: { drinks, images } }) {
   }
   return (
     <DrinkListLayout title="Help Me Decide">
-      <Meta title="Sidecar: Help Me Decide" />
       <HelpMeDecide
         drinks={drinks.edges.map((item) => ({
           html: item.node.html,
@@ -29,7 +28,7 @@ export const pageQuery = graphql`
   query AllDrinksDecide {
     drinks: allMarkdownRemark(
       filter: { frontmatter: { path: { regex: "/^/drinks//" } } }
-      sort: { order: ASC, fields: [frontmatter___path] }
+      sort: { frontmatter: { path: ASC } }
     ) {
       edges {
         node {
@@ -63,12 +62,12 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(maxWidth: 100, webpQuality: 85) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 80, quality: 85)
           }
         }
       }
     }
   }
 `;
+
+export const Head = () => <Meta title="Help Me Decide" />;

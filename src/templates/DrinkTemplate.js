@@ -13,7 +13,6 @@ export default function DrinkTemplate({ data }) {
   };
   const slug = drink.path.replace('/drinks/', '');
 
-  const image = drink.image ? drink.image.url : null;
   let photoCredit;
   if (drink.image && drink.image.photographer) {
     const name = drink.image.photographer.replace(' ', nbsp);
@@ -31,15 +30,14 @@ export default function DrinkTemplate({ data }) {
 
   return (
     <CardLayout drinkName={slug} footerContent={photoCredit}>
-      <Meta title={drink.title} image={image} />
       <DrinkCard drink={drink} imageData={data.image} />
     </CardLayout>
   );
 }
 
 export const pageQuery = graphql`
-  query DrinkPostByPath($path: String!, $imagePath: String!) {
-    post: markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query DrinkPostByPath($filePath: String!, $imagePath: String!) {
+    post: markdownRemark(frontmatter: { path: { eq: $filePath } }) {
       html
       frontmatter {
         title
@@ -66,10 +64,14 @@ export const pageQuery = graphql`
     image: file(relativePath: { eq: $imagePath }) {
       relativePath
       childImageSharp {
-        fixed(width: 290, webpQuality: 85) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(layout: CONSTRAINED, width: 290, quality: 85)
       }
     }
   }
 `;
+
+export const Head = ({ data }) => {
+  const title = data?.post?.frontmatter?.title;
+  const image = data.image ? `/images/${data.image.relativePath}` : null;
+  return <Meta title={title} image={image} />;
+};

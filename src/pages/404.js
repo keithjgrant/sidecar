@@ -5,7 +5,6 @@ import Meta from '../components/Meta';
 
 const NotFoundPage = () => (
   <ArticleLayout>
-    <Meta title="Not found" />
     <h1>Not Found</h1>
     <p>No page found at this address.</p>
     <p>
@@ -15,3 +14,5 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
+export const Head = () => <Meta title="Not found" />;

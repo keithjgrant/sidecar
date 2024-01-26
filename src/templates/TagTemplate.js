@@ -15,7 +15,6 @@ export default function TagTemplate({
   });
   return (
     <DrinkListLayout title={`Tag: ${tag}`}>
-      <Meta title={`Drinks Tagged ‘${tag}’`} />
       {content ? (
         <SimpleContent dangerouslySetInnerHTML={{ __html: content.html }} />
       ) : null}
@@ -34,7 +33,7 @@ export const pageQuery = graphql`
   query DrinksByTag($tag: String!, $contentPath: String!) {
     drinks: allMarkdownRemark(
       filter: { frontmatter: { tags: { in: [$tag] } } }
-      sort: { order: ASC, fields: [frontmatter___path] }
+      sort: { frontmatter: { path: ASC } }
     ) {
       edges {
         node {
@@ -66,12 +65,14 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fixed(width: 130, webpQuality: 80) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, width: 130, quality: 80)
           }
         }
       }
     }
   }
 `;
+
+export const Head = ({ pageContext }) => {
+  return <Meta title={`Drinks Tagged ${pageContext.tag}`} />;
+};

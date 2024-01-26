@@ -1,13 +1,14 @@
 import React, { createElement } from 'react';
 import Markdown from 'react-markdown';
 
-export default function InlineMarkdown({ source }) {
+export default function InlineMarkdown({ children }) {
   return (
     <Markdown
-      source={source}
-      renderers={{
-        paragraph: (props) => createElement('span', props),
+      components={{
+        p: ({ node, ...props }) => <span {...props} />,
       }}
-    />
+    >
+      {children}
+    </Markdown>
   );
 }

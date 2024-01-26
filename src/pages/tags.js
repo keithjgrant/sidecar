@@ -12,7 +12,6 @@ export default function TagsPage({ data: { drinks } }) {
 
   return (
     <SimpleListLayout title="All Tags">
-      <Meta title="Sidecar: All Tags" />
       <TagList tags={[...tags].sort()} />
     </SimpleListLayout>
   );
@@ -33,3 +32,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = () => <Meta title="Sidecar: All Tags" />;

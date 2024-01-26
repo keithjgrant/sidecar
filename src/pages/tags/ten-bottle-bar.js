@@ -12,7 +12,6 @@ export default function TenBottleBarPage({ data: { drinks, images } }) {
   });
   return (
     <DrinkListLayout title="Your Ten Bottle Bar">
-      <Meta title="Drinks From Your Ten Bottle Bar" />
       <SimpleContent>
         <p>
           If you’ve stocked your{' '}
@@ -33,7 +32,7 @@ export const pageQuery = graphql`
   query TenBottleBarDrinks {
     drinks: allMarkdownRemark(
       filter: { frontmatter: { tenBottleCandidate: { eq: true } } }
-      sort: { order: ASC, fields: [frontmatter___path] }
+      sort: { frontmatter: { path: ASC } }
     ) {
       edges {
         node {
@@ -62,12 +61,12 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fixed(width: 130, webpQuality: 80) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 130, quality: 80)
           }
         }
       }
     }
   }
 `;
+
+export const Head = () => <Meta title="Drinks From Your Ten Bottle Bar" />;

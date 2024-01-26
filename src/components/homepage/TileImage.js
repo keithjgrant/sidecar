@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import glasses from '../svg/glasses';
 
 const Wrapper = styled.div`
@@ -52,8 +52,8 @@ export default function TileImage({ drink, image }) {
   return (
     <Wrapper>
       {drink.image && image ? (
-        <Image
-          fixed={image.fixed}
+        <GatsbyImage
+          image={image.gatsbyImageData}
           alt={drink.image.alt}
           style={{ width: '100%' }}
           imgStyle={{ objectPosition: drink.image.align }}

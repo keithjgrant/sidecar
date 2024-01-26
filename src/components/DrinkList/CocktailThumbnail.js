@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import glasses from '../svg/glasses';
 
 const ThumbnailWrapper = styled.div`
@@ -21,9 +21,8 @@ export default function CocktailThumbnail({ drink, image }) {
   return (
     <ThumbnailWrapper>
       {drink.image && image ? (
-        <Image
-          fixed={image.fixed}
-          fluid={image.fluid}
+        <GatsbyImage
+          image={image.gatsbyImageData}
           alt={drink.image.alt}
           style={{ height: '100%', maxWidth: 'var(--thumbnail-size)' }}
           imgStyle={{ objectPosition: drink.image.align }}

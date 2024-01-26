@@ -17,7 +17,6 @@ export default function IndexPage({
   });
   return (
     <HomepageLayout heroImage={heroImage}>
-      <Meta title="Sidecar — Cocktails for the home bartender" />
       <HomeTiles
         recent={getDrinkObjects(recent)}
         featured={getDrinkObjects(featured)}
@@ -52,7 +51,7 @@ export const pageQuery = graphql`
     }
     recent: allMarkdownRemark(
       filter: { frontmatter: { path: { regex: "/^/drinks//" } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       limit: 3
     ) {
       edges {
@@ -82,9 +81,7 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fixed(width: 250, webpQuality: 80) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 250, quality: 80)
           }
         }
       }
@@ -92,10 +89,12 @@ export const pageQuery = graphql`
     heroImage: file(relativePath: { eq: "hero.jpg" }) {
       relativePath
       childImageSharp {
-        fluid(maxHeight: 800, webpQuality: 85) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: FULL_WIDTH, height: 800, quality: 85)
       }
     }
   }
 `;
+
+export const Head = () => (
+  <Meta title="Sidecar — Cocktails for the home bartender" />
+);

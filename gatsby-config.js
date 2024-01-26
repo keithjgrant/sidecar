@@ -1,41 +1,34 @@
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
-    title: 'Sidecar',
+    title: `Sidecar`,
+    siteUrl: `https://sidecar.us`,
     description: 'A curated collection of cocktails for the home bartender',
     author: '@keithjgrant',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-catch-links',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
-      },
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-remark',
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        plugins: ['gatsby-remark-slug'],
+        name: 'pages',
+        path: './src/pages/',
       },
+      __key: 'pages',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+      __key: 'pages',
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -59,5 +52,6 @@ module.exports = {
         precachePages: ['/drinks/', '/drinks/*'],
       },
     },
+    'gatsby-plugin-netlify',
   ],
 };

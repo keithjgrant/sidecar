@@ -13,7 +13,6 @@ export default function FavoritesPage({ data: { drinks, images } }) {
   }
   return (
     <DrinkListLayout title="Favorites">
-      <Meta title="Sidecar: Favorites" />
       <Favorites
         allDrinks={drinks.edges.map((item) => item.node.frontmatter)}
         imageMap={imageMap}
@@ -26,7 +25,7 @@ export const pageQuery = graphql`
   query Favorites {
     drinks: allMarkdownRemark(
       filter: { frontmatter: { path: { regex: "/^/drinks//" } } }
-      sort: { order: ASC, fields: [frontmatter___path] }
+      sort: { frontmatter: { path: ASC } }
     ) {
       edges {
         node {
@@ -56,12 +55,12 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(maxWidth: 130, webpQuality: 80) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 130, quality: 80)
           }
         }
       }
     }
   }
 `;
+
+export const Head = () => <Meta title="Sidecar: Favorites" />;

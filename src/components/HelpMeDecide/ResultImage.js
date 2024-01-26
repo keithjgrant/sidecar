@@ -1,9 +1,9 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import glasses from '../svg/glasses';
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   object-fit: cover;
 
   @media (min-width: 480px) {
@@ -46,8 +46,7 @@ export default function ResultImage({ drink, imageData }) {
     <div>
       {image && imageData ? (
         <Image
-          fluid={imageData.childImageSharp.fluid}
-          fixed={imageData.childImageSharp.fixed}
+          image={imageData.childImageSharp.gatsbyImageData}
           alt={image.alt}
           style={{ height: '80px', width: '80px', overflow: 'hidden' }}
           imgStyle={{

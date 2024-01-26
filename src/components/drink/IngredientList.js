@@ -53,12 +53,12 @@ export default function IngredientList({
     <Ingredients isBeneathIntro={isBeneathIntro} className={className}>
       {items.map((ingredient, i) => (
         <Ingredient key={i} className="p-ingredient">
-          <InlineMarkdown source={ingredient} />
+          <InlineMarkdown>{ingredient}</InlineMarkdown>
         </Ingredient>
       ))}
       {garnish && (
         <Garnish className="p-ingredient">
-          <Label>garnish:</Label> <InlineMarkdown source={garnish} />
+          <Label>garnish:</Label> <InlineMarkdown>{garnish}</InlineMarkdown>
         </Garnish>
       )}
     </Ingredients>

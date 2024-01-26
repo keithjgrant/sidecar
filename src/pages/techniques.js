@@ -8,7 +8,6 @@ import TechniquesList from '../components/TechniquesList';
 export default function TechniquesPage({ data }) {
   return (
     <IndexLayout title="Techniques">
-      <Meta title="Essential Techniques for Cocktail Making" />
       <BrowserHeading bleed>
         Essential Techniques for Cocktail Making
       </BrowserHeading>
@@ -24,9 +23,7 @@ export const pageQuery = graphql`
       sourceInstanceName: { eq: "images" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 250, webpQuality: 80) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: CONSTRAINED, width: 250, quality: 80)
       }
     }
     shaking: file(
@@ -34,9 +31,7 @@ export const pageQuery = graphql`
       sourceInstanceName: { eq: "images" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 250, webpQuality: 80) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: CONSTRAINED, width: 250, quality: 80)
       }
     }
     stirring: file(
@@ -44,10 +39,12 @@ export const pageQuery = graphql`
       sourceInstanceName: { eq: "images" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 250, webpQuality: 80) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: CONSTRAINED, width: 250, quality: 80)
       }
     }
   }
 `;
+
+export const Head = () => (
+  <Meta title="Essential Techniques for Cocktail Making" />
+);

@@ -148,7 +148,7 @@ export default function DrinkCard({ drink, imageData }) {
           <DrinkTags tags={drink.tags} />
           {drink.intro ? (
             <Intro className="p-summary">
-              <Markdown source={drink.intro} />
+              <Markdown>{drink.intro}</Markdown>
             </Intro>
           ) : null}
           <IngredientList

@@ -7,7 +7,6 @@ import IngredientsList from '../components/IngredientsList';
 export default function IngredientsPage() {
   return (
     <IndexLayout title="Ingredients">
-      <Meta title="Ingredients: Spirits, Syrups, & Mixers" />
       <BrowserHeading bleed>
         Ingredients: Spirits, Syrups, & Mixers
       </BrowserHeading>
@@ -40,3 +39,7 @@ export default function IngredientsPage() {
 //     }
 //   }
 // `;
+
+export const Head = () => (
+  <Meta title="Ingredients: Spriits, Syrups, & Mixers" />
+);

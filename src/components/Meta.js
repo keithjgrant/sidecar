@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import 'typeface-playfair-display';
 import 'typeface-lato';
 
-function Meta({ description, lang, meta, title, image }) {
+function Meta({ description, meta, title = 'Sidecar', image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -22,61 +21,24 @@ function Meta({ description, lang, meta, title, image }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const metaImage = image || '/icons/icon-144x144.png';
+  const metaTags = getMeta(
+    {
+      title,
+      metaDescription,
+      metaImage,
+      site,
+    },
+    meta
+  );
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: 'description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:title',
-          content: title,
-        },
-        {
-          property: 'og:description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          property: 'og:image',
-          content: `https://sidecar.us${metaImage}`,
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary',
-        },
-        {
-          name: 'twitter:creator',
-          content: site.siteMetadata.author,
-        },
-        {
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription,
-        },
-        {
-          name: 'twitter:image:src',
-          content: `https://sidecar.us${metaImage}`,
-        },
-        {
-          name: 'apple-mobile-web-app-status-bar-style',
-          content: 'black-translucent',
-        },
-      ].concat(meta)}
-    />
+    <>
+      <html lang="en-US" />
+      <title>{title}</title>
+      {metaTags.map((props) => (
+        <meta {...props} />
+      ))}
+    </>
   );
 }
 
@@ -94,3 +56,52 @@ Meta.propTypes = {
 };
 
 export default Meta;
+
+function getMeta({ title, metaDescription, metaImage, site }, additional) {
+  return [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+    {
+      property: 'og:title',
+      content: title,
+    },
+    {
+      property: 'og:description',
+      content: metaDescription,
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:image',
+      content: `https://sidecar.us${metaImage}`,
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:creator',
+      content: site.siteMetadata.author,
+    },
+    {
+      name: 'twitter:title',
+      content: title,
+    },
+    {
+      name: 'twitter:description',
+      content: metaDescription,
+    },
+    {
+      name: 'twitter:image:src',
+      content: `https://sidecar.us${metaImage}`,
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: 'black-translucent',
+    },
+  ].concat(additional || []);
+}
