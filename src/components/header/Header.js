@@ -20,7 +20,7 @@ const HeaderBar = styled.header`
   }
 
   @media (display-mode: standalone) {
-    display none;
+    display: none;
   }
 `;
 
