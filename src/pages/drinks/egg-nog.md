@@ -7,14 +7,13 @@ sweetness: 3
 booziness: 2
 family: flip
 ingredients: [
-  "½ oz aged rum",
+  "1 oz aged rum",
   "½ oz brandy",
-  "½ oz bourbon",
   "¾ oz simple syrup",
   "1 whole egg",
   "1 oz cream",
 ]
-garnish: grated cinnamon and nutmeg
+garnish: grated nutmeg
 tags: [
   winter,
   sweet,
@@ -37,4 +36,4 @@ intro:
 ---
 Add ingredients to a cocktail shaker and [dry shake](/techniques/shaking#dry-shaking). Add ice and shake vigorously. Double strain into a rocks glass or small mug.
 
-Garnish with grated nutmeg and cinnamon.
+Garnish with grated nutmeg.

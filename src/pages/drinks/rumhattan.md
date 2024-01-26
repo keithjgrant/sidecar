@@ -3,7 +3,7 @@ title: "Rumhattan"
 path: "/drinks/rumhattan"
 date: 2020-05-14T10:05:12-08:00
 glass: coupe
-sweetness: 2
+sweetness: 3
 booziness: 2
 family: martini
 ingredients: [
@@ -20,7 +20,7 @@ tags: [
 ]
 tenBottleCandidate: true
 intro: |
-  This is a [Manhatta](/drinks/manhattan) with rum in place of the whiskey.
+  This is a [Manhattan](/drinks/manhattan) with rum in place of the whiskey.
 ---
 Stir with plenty of ice. Strain into a coupe glass.
 

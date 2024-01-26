@@ -7,8 +7,8 @@ sweetness: 1
 booziness: 3
 family: martini
 ingredients: [
-  "2 oz gin",
-  "½ oz dry vermouth",
+  "2½ oz gin",
+  "¾ oz dry vermouth",
   "2 dashes orange bitters"
 ]
 garnish: lemon twist or green olives

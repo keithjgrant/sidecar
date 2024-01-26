@@ -7,11 +7,11 @@ sweetness: 2
 booziness: 2
 family: sidecar
 ingredients: [
-  "1½ oz Cognac or brandy",
-  "1 oz orange liqueur",
-  "¾ oz lemon juice",
+  "1½ oz cognac",
+  "1 oz dry curaçao",
+  "½ oz lemon juice",
 ]
-garnish: orange twist, discarded
+garnish: sugared rim and an orange twist, discarded
 tags: [
   ten-bottle-bar,
   classic-cocktail,
@@ -22,10 +22,10 @@ tags: [
 ]
 tenBottleCandidate: true
 intro: |
-  Getting the balance right on this drink is challenging.
-  It can certainly vary depending on which orange liqueur you are using.
-  This is the ratio I currently use.
+  A good sidecar requires decent quality cognac. A cheap brandy won’t cut it here.
 ---
-Shake vigorously with ice. Strain into a coupe glass.
+Rim a coupe glass with sugar.
+
+Shake vigorously with ice. Strain into the prepared coupe.
 
 Express the oils from an orange twist over the drink, then [discard the peel](/techniques/twist/#discarding).

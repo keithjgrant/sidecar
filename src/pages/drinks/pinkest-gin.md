@@ -3,7 +3,7 @@ title: "Pinkest Gin"
 path: "/drinks/pinkest-gin"
 date: 2018-01-17T21:42:47-05:00
 glass: coupe
-sweetness: 2
+sweetness: 3
 booziness: 2
 family: sour
 ingredients: [

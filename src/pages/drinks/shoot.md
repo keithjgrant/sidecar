@@ -6,24 +6,22 @@ glass: coupe
 sweetness: 3
 booziness: 3
 family: old fashioned
-ingredients:
-  [
-    '1 oz rye whiskey',
-    '1 oz cognac',
-    '½ oz elderflower liqueur',
-    '2 dashes orange bitters',
-    '1 barspoon [ginger syrup](/ingredients/ginger-syrup)',
-  ]
+ingredients: [
+  '1 oz rye whiskey',
+  '1 oz cognac',
+  '⅜ oz elderflower liqueur',
+  '2 dashes orange bitters',
+  '1 barspoon [ginger syrup](/ingredients/ginger-syrup)',
+]
 garnish:
-tags:
-  [
-    'cognac',
-    'brandy',
-    'rye-whiskey',
-    'elderflower-liqueur',
-    'ginger',
-    'stirred',
-  ]
+tags: [
+  cognac,
+  brandy,
+  rye-whiskey,
+  elderflower-liqueur,
+  ginger,
+  stirred,
+]
 tenBottleCandidate: true
 intro: |
   This is my recreation of a drink I once had. The original was made with Templeton Rye and Hennessy Cognac.
