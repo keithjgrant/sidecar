@@ -21,6 +21,7 @@ tags: [
   sloe-gin,
   gin,
   maple-syrup,
+  cinnamon,
   stirred,
 ]
 featured:

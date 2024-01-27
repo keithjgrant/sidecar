@@ -7,17 +7,18 @@ sweetness: 3
 booziness: 2
 family: sidecar
 ingredients: [
-  "2 oz silver tequila",
+  "2 oz tequila blanco",
   "½ oz blanc vermouth",
   "½ oz lime juice",
   "½ oz agave syrup",
   "1 dash orange bitters"
 ]
 tags: [
-  "tequila",
-  "blanc-vermouth",
-  "lime",
-  "shaken"
+  tequila,
+  tequila-blanco,
+  blanc-vermouth,
+  lime,
+  shaken
 ]
 tenBottleCandidate: true
 ---

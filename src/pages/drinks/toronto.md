@@ -16,7 +16,7 @@ garnish: flamed orange zest
 tags: [
   rye-whiskey,
   whiskey,
-  fernet,
+  fernet-branca,
   demerara,
   stirred,
 ]

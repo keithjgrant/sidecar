@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const COUNT_TAGS = false;
 const path = require('path');
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
@@ -32,6 +33,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
   const pages = result.data.allMarkdownRemark.edges;
   const tags = new Set();
+  const tagCount = {};
   pages.forEach(({ node: { frontmatter } }) => {
     if (!frontmatter.path) {
       return;
@@ -47,9 +49,32 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
 
     if (frontmatter.tags) {
-      frontmatter.tags.forEach((tag) => tags.add(tag));
+      frontmatter.tags.forEach((tag) => {
+        tags.add(tag);
+        if (!tagCount[tag]) {
+          tagCount[tag] = 1;
+        } else {
+          tagCount[tag]++;
+        }
+      });
     }
   });
+
+  if (COUNT_TAGS) {
+    const orderedTags = [...tags];
+    orderedTags
+      .sort((a, b) => {
+        if (tagCount[a] < tagCount[b]) {
+          return -1;
+        } else if (tagCount[a] > tagCount[b]) {
+          return 1;
+        }
+        return 0;
+      })
+      .forEach((tag) => {
+        console.log(`${tag}: ${tagCount[tag]}`);
+      });
+  }
 
   const customTagPages = ['ten-bottle-bar'];
 

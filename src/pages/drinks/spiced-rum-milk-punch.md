@@ -14,12 +14,13 @@ ingredients: [
 ]
 garnish: nutmeg & cinnamon
 tags: [
-  "rum",
-  "spiced-rum",
-  "milk",
-  "shaken",
-  "hot",
-  "sweet",
+  rum,
+  spiced-rum,
+  milk,
+  shaken,
+  hot,
+  sweet,
+  cinnamon
 ]
 intro: This is typically done as a cold drink, but I’ve found it truly shines when the milk is warmed and frothed instead.
 ---

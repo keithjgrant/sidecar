@@ -18,6 +18,7 @@ tags: [
   fennel,
   special-syrup,
   shaken,
+  rosemary,
 ]
 featured:
 tenBottleCandidate: true
