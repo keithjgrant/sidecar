@@ -91,7 +91,7 @@ export default function TenBottleBar({ allDrinks, imageMap }) {
             css="justify-self: start"
             options={[
               ['none', 'None'],
-              // ['absinthe', 'Absinthe'],
+              ['absinthe', 'Absinthe'],
               ['aged-rum', 'Aged Rum'],
               ['apple-brandy', 'Apple Brandy'],
               ['benedictine', 'Bénédictine'],

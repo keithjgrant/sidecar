@@ -18,6 +18,7 @@ tags: [
   london-dry-gin,
   blanc-vermouth,
   apricot-liqueur,
+  absinthe,
   stirred,
 ]
 featured:

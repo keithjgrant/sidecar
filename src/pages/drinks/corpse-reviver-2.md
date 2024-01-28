@@ -21,6 +21,7 @@ tags: [
   gin,
   blanc-vermouth,
   lemon,
+  absinthe,
   orange-liqueur,
 ]
 featured:

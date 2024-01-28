@@ -1,5 +1,5 @@
 ---
-title: "À la Louisiane"
+title: "A la Louisiane"
 path: "/drinks/a-la-louisiane"
 date: 2020-05-08T15:05:34-08:00
 glass: coupe
@@ -19,6 +19,7 @@ tags: [
   rye-whiskey,
   whiskey,
   sweet-vermouth,
+  absinthe,
   stirred,
 ]
 featured:
