@@ -7,7 +7,7 @@ sweetness: 1
 booziness: 3
 family: martini
 ingredients: [
-  "2 oz bourbon",
+  "2 oz rye whiskey",
   "1 oz sweet vermouth",
   "2 dashes Angostura bitters",
 ]
@@ -15,7 +15,7 @@ garnish: maraschino cherry
 tags: [
   ten-bottle-bar,
   classic-cocktail,
-  bourbon,
+  rye-whiskey,
   whiskey,
   sweet-vermouth,
   stirred,
