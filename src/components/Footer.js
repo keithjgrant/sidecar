@@ -30,7 +30,7 @@ export default function Footer({ content, className }) {
           All rights reserved.
         </div>
         <div css="text-align: right">
-          {content || 'Don’t you dare drink and drive.'}
+          {content || 'Please drink responsibly.'}
         </div>
       </Split>
     </Wrapper>

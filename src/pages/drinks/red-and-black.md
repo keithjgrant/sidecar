@@ -21,6 +21,7 @@ tags: [
   black-pepper,
   special-syrup,
   shaken,
+  muddled,
 ]
 tenBottleCandidate: true
 ---

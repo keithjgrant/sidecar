@@ -7,7 +7,7 @@ sweetness: 2
 booziness: 3
 family: old fashioned
 ingredients: [
-  "1¾ oz rye whiskey",
+  "1¾ oz good-quality bourbon",
   "½ oz [burnt sugar syrup](/ingredients/burnt-sugar-syrup)",
   "3 dashes Angostura bitters",
   "2 dashes orange bitters"
@@ -17,13 +17,14 @@ tags: [
   ten-bottle-bar,
   classic-cocktail,
   polished-recipe,
+  bourbon,
   whiskey,
-  rye-whiskey,
   burnt-sugar-syrup,
   built,
 ]
 tenBottleCandidate: true
 intro: Some will argue an Old Fashioned must be made with a sugar cube. Those people haven't tried it with burnt sugar syrup. My measurement here may seem like a lot of syrup, but burnt sugar isn’t quite as sweet as normal simple syrup, and its bitterness adds extra complexity, so I find this amount provides a good balance.
+
 ---
 Build in rocks glass. Add ice and stir briefly.
 

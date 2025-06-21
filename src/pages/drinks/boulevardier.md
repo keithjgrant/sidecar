@@ -7,16 +7,16 @@ sweetness: 2
 booziness: 3
 family: martini
 ingredients: [
-  "1½ oz bourbon or rye",
+  "1½ oz bourbon",
   "¾ oz Campari",
   "¾ oz sweet vermouth"
 ]
 garnish: orange twist or brandied cherry
 tags: [
   classic-cocktail,
+  negroni,
   whiskey,
   bourbon,
-  rye-whiskey,
   campari,
   sweet-vermouth,
   stirred,
@@ -31,6 +31,6 @@ image:
 intro: A close cousin of the [Negroni](/drinks/negroni/). For a more earthy variation, try substituting St. George [Bruto Americano](http://stgeorgespirits.com/spirits/bruto-americano/) for Campari.
 ---
 
-Stir whiskey, Campari, and vermouth with ice. Strain into rocks glass over fresh ice.
+Stir bourbon, Campari, and vermouth with ice. Strain into rocks glass over fresh ice.
 
 Garnish with orange twist or a brandied cherry.

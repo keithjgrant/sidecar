@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  margarita,
   ten-bottle-bar,
   polished-recipe,
   classic-cocktail,
@@ -22,6 +23,7 @@ tags: [
   orange-liqueur,
   lime,
   shaken,
+  muddled,
 ]
 tenBottleCandidate: true
 intro: If you’re feeling extra adventurous, muddle one or two slices of jalapeño in your shaker before adding the ingredients.

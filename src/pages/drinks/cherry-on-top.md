@@ -15,11 +15,12 @@ ingredients: [
 ]
 garnish: 1 fresh cherry
 tags: [
-  "vodka",
-  "maraschino",
-  "cherry",
-  "lemon",
-  "shaken"
+  vodka,
+  maraschino,
+  cherry,
+  lemon,
+  shaken,
+  muddled,
 ]
 image:
   url: "/images/drinks/cherry-on-top.jpg"

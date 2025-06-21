@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: orange peel spiral
 tags: [
+  negroni,
   campari,
   sweet-vermouth,
   sparkling-wine,

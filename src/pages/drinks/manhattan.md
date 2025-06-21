@@ -27,7 +27,6 @@ image:
   align: "30% 60%"
   photographer: "Drew Beamer"
   creditUrl: "https://unsplash.com/@drew_beamer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-intro: I typically favor rye over bourbon in most cocktails, but a Manhattan is truly better made with bourbon.
 ---
 Combine in a shaker with ice. Stir, then strain into a coupe glass.
 

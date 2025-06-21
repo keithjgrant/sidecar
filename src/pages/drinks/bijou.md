@@ -10,6 +10,7 @@ ingredients: [
   "1¼ oz Plymouth gin or london dry gin",
   "¾ oz sweet vermouth (Cocchi di Torino)",
   "¼ oz Green Chartreuse",
+  "1 dash orange bitters (Regan’s)",
 ]
 garnish: lemon twist and cocktail cherry
 tags: [

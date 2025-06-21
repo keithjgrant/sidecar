@@ -23,6 +23,7 @@ tags: [
   lemon,
   raspberry,
   shaken,
+  muddled,
 ]
 image:
   url: "/images/drinks/clover-club.jpg"

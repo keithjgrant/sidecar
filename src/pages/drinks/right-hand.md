@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  negroni,
   rum,
   aged-rum,
   campari,

@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: orange twist
 tags: [
+  negroni,
   gin,
   london-dry-gin,
   campari,

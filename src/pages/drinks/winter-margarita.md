@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: salted rim
 tags: [
+  margarita,
   winter,
   tequila,
   mezcal,

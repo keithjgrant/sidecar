@@ -17,11 +17,12 @@ ingredients: [
 ]
 garnish: orange and lemon twists
 tags: [
-  "whiskey",
-  "rye-whiskey",
-  "cognac",
-  "brandy",
-  "stirred"
+  whiskey,
+  rye-whiskey,
+  bourbon,
+  cognac,
+  brandy,
+  stirred,
 ]
 intro: This is like a kitchen sink of cocktails, almost like somebody couldn’t decide what they wanted in the drink, so they added a bit of everything—it even has two different twists! Yet somehow, it works out.
 

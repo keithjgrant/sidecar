@@ -7,16 +7,16 @@ sweetness: 3
 booziness: 3
 family: martini
 ingredients: [
-  "1½ oz bourbon or rye",
+  "1½ oz bourbon",
   "¾ oz Campari",
   "¾ oz sweet vermouth",
   "2 dashes chocolate bitters",
 ]
 garnish: orange twist
 tags: [
+  negroni,
   winter,
   bourbon,
-  rye-whiskey,
   whiskey,
   campari,
   sweet-vermouth,

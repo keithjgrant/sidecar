@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  margarita,
   winter,
   mezcal,
   orange-liqueur,

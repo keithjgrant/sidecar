@@ -14,6 +14,7 @@ ingredients: [
 garnish: grapefruit twist or orange twist
 tags: [
   classic-cocktail,
+  negroni,
   aperitif,
   gin,
   campari,

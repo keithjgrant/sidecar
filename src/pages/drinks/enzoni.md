@@ -20,6 +20,7 @@ tags: [
   campari,
   lemon,
   shaken,
+  muddled,
 ]
 featured: true
 tenBottleCandidate:

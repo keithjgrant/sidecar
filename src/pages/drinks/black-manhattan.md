@@ -7,7 +7,7 @@ sweetness: 3
 booziness: 2
 family: martini
 ingredients: [
-  "2 oz rye whiskey or bourbon",
+  "2 oz rye whiskey",
   "1 oz Averna",
   "2 dashes Angostura bitters",
   "2 dashes orange bitters (Regan’s)",
@@ -17,7 +17,6 @@ tags: [
   whiskey,
   averna,
   rye-whiskey,
-  bourbon,
   stirred,
 ]
 featured:

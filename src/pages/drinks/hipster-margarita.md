@@ -13,6 +13,7 @@ ingredients: [
 ]
 tags: [
   sidecar-original,
+  margarita,
   tequila,
   ipa-syrup,
   lime,

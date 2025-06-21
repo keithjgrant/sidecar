@@ -25,6 +25,7 @@ tags: [
   lime,
   summer,
   built,
+  muddled,
 ]
 image:
   url: "/images/drinks/gbc.jpg"
