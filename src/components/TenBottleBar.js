@@ -140,6 +140,7 @@ const fancySyrups = [
   'jalapeno-syrup',
   'muscovado-syrup',
   'special-syrup',
+  'orgeat',
 ];
 // non-fancy: simple syrup, demarara, agave
 
