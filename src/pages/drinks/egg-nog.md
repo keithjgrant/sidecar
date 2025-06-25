@@ -7,9 +7,9 @@ sweetness: 3
 booziness: 2
 family: flip
 ingredients: [
-  "1 oz aged rum",
-  "½ oz brandy",
-  "¾ oz simple syrup",
+  "1 oz bourbon",
+  "½ oz aged rum",
+  "½ oz rich demerara syrup",
   "1 whole egg",
   "1 oz cream",
 ]
@@ -34,6 +34,8 @@ intro:
   If you're able to plan ahead, freeze whole milk in an ice cube tray
   and use the milk ice cubes for shaking rather than regular water ice.
 ---
-Add ingredients to a cocktail shaker and [dry shake](/techniques/shaking#dry-shaking). Add ice and shake vigorously. Double strain into a rocks glass or small mug.
+Add ingredients to a cocktail shaker and [dry shake](/techniques/shaking#dry-shaking).
+Add about five ice cubes and shake vigorously to completion (until all the ice is melted).
+Pour without straining into a rocks glass or small mug.
 
 Garnish with grated nutmeg.
