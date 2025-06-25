@@ -8,7 +8,7 @@ booziness: 2
 family: sour
 ingredients: [
   "1½ oz mezcal",
-  "¾ oz orgeat",
+  "¾ oz [orgeat](/ingredients/orgeat/)",
   "¾ oz lime juice",
   "3 dashes Tabasco or other hot sauce",
   "4–5 dashes Angostura bitters (floated)",

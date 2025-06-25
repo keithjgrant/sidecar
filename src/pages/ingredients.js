@@ -41,5 +41,5 @@ export default function IngredientsPage() {
 // `;
 
 export const Head = () => (
-  <Meta title="Ingredients: Spriits, Syrups, & Mixers" />
+  <Meta title="Ingredients: Spirits, Syrups, & Mixers" />
 );

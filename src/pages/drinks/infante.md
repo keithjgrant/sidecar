@@ -8,7 +8,7 @@ booziness: 2
 family: sour
 ingredients: [
   "2 oz tequila",
-  "¾ oz orgeat",
+  "¾ oz [orgeat](/ingredients/orgeat/)",
   "¾ oz lime juice",
   "2 dashes Angostura bitters",
 ]

@@ -8,7 +8,7 @@ booziness: 1
 family: sour
 ingredients: [
   "2 oz London dry gin",
-  "¾ oz orgeat",
+  "¾ oz [orgeat](/ingredients/orgeat/)",
   "¾ oz lemon juice",
   "2 dashes Angostura bitters",
 ]

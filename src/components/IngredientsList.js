@@ -40,6 +40,9 @@ export default function IngredientsIndex() {
           <TileLink href="/ingredients/ipa-syrup">IPA Syrup</TileLink>
         </li>
         <li>
+          <TileLink href="/ingredients/orgeat">Orgeat</TileLink>
+        </li>
+        <li>
           <TileLink href="/ingredients/butter-syrup">Butter Syrup</TileLink>
         </li>
       </TileLinkList>
