@@ -30,7 +30,7 @@ function scoreDrink(drink, answer) {
   let score = 0;
   const unit = answer === 'brown' ? -1 : 1;
   if (doListsIntersect(drink.tags, ['gin', 'vodka', 'mezcal', 'white-rum'])) {
-    score += unit * 4;
+    score += unit * 5; // Very strong clear spirit indicator
   }
   if (
     doListsIntersect(drink.tags, [
@@ -40,19 +40,19 @@ function scoreDrink(drink, answer) {
       'tequila-reposado',
     ])
   ) {
-    score -= unit * 4;
+    score -= unit * 5; // Very strong brown spirit indicator
   }
-  if (score === 4 || score === -4) {
-    return score;
+  if (score === 5 || score === -5) {
+    return score; // Strong match, no need for additional scoring
   }
   if (drink.tags.includes('tequila')) {
-    score += 1;
+    score += 1; // Tequila leans clear but not strongly
   }
   if (doListsIntersect(drink.tags, ['dry-vermouth', 'blanc-vermouth'])) {
-    score += unit;
+    score += unit * 1; // Dry vermouths lean clear
   }
   if (drink.tags.includes('sweet-vermouth')) {
-    score -= unit;
+    score -= unit * 1; // Sweet vermouth leans brown
   }
   return score;
 }

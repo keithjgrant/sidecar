@@ -33,10 +33,10 @@ function getCurrentSeason() {
 
 function getSeasonalWeights(currentSeason) {
   const weights = {
-    spring: { spring: 4, summer: 1, fall: -1, winter: -2 },
-    summer: { summer: 4, spring: 1, fall: -1, winter: -2 },
-    fall: { fall: 4, winter: 1, spring: -1, summer: -2 },
-    winter: { winter: 4, fall: 1, summer: -2, spring: -1 },
+    spring: { spring: 5, summer: 2, fall: -2, winter: -3 },
+    summer: { summer: 5, spring: 2, fall: -2, winter: -3 },
+    fall: { fall: 5, winter: 2, spring: -2, summer: -3 },
+    winter: { winter: 5, fall: 2, summer: -3, spring: -2 },
   };
   return weights[currentSeason];
 }
@@ -54,17 +54,17 @@ function scoreDrink(drink, answer) {
   if (answer === 'timeless') {
     // Classic cocktail is a strong timeless indicator
     if (drink.tags.includes('classic-cocktail')) {
-      score += 4;
+      score += 5;
     }
 
     // Seasonal tags count against timeless
     if (doListsIntersect(drink.tags, ['winter', 'summer', 'fall', 'spring'])) {
-      score -= 3;
+      score -= 4;
     }
 
     // Hot drinks are less timeless
     if (drink.tags.includes('hot')) {
-      score -= 2;
+      score -= 3;
     }
 
     // Sidecar originals are less timeless than classics
@@ -89,17 +89,17 @@ function scoreDrink(drink, answer) {
 
   // Additional seasonal scoring based on characteristics
   if (currentSeason === 'winter') {
-    if (drink.tags.includes('hot')) score += 3;
+    if (drink.tags.includes('hot')) score += 3; // Strong winter indicator
     if (doListsIntersect(drink.tags, ['egg', 'cream', 'nutmeg', 'cinnamon']))
       score += 1;
     if (drink.tags.includes('refreshing')) score -= 2; // Less appealing in winter
   } else if (currentSeason === 'summer') {
-    if (drink.tags.includes('refreshing')) score += 3;
+    if (drink.tags.includes('refreshing')) score += 3; // Strong summer indicator
     if (
       doListsIntersect(drink.tags, ['cucumber', 'mint', 'watermelon', 'citrus'])
     )
       score += 1;
-    if (drink.tags.includes('hot')) score -= 3; // Hot drinks in summer
+    if (drink.tags.includes('hot')) score -= 4; // Very inappropriate in summer
     if (drink.booziness === 3) score -= 1; // Heavy drinks less appealing in heat
   } else if (currentSeason === 'fall') {
     if (
@@ -119,9 +119,9 @@ function scoreDrink(drink, answer) {
     if (drink.tags.includes('refreshing')) score += 2;
   }
 
-  // Holiday-specific drinks
+  // Holiday-specific drinks - strong seasonal indicator
   if (doListsIntersect(drink.tags, ['christmas', 'holiday', 'thanksgiving'])) {
-    score += currentSeason === 'winter' ? 3 : -1;
+    score += currentSeason === 'winter' ? 4 : -2;
   }
 
   return score;

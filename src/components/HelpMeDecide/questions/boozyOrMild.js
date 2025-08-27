@@ -27,21 +27,21 @@ function scoreDrink(drink, answer) {
   let map;
   if (answer === 'boozy') {
     map = {
-      3: 3,
-      2: 1,
-      1: -3,
+      3: 5,  // Very boozy drinks are perfect matches
+      2: 2,  // Medium booziness is good but not perfect
+      1: -4, // Mild drinks are poor matches
     };
   } else if (answer === 'mild') {
     map = {
-      3: -3,
-      2: 1,
-      1: 3,
+      3: -4, // Very boozy drinks are poor matches for mild preference
+      2: 2,  // Medium booziness is acceptable for mild
+      1: 5,  // Very mild drinks are perfect matches
     };
   } else {
     map = {
-      3: 0,
-      2: 3,
-      1: 0,
+      3: -1, // Very boozy is slightly off for "in between"
+      2: 5,  // Medium booziness is perfect for "in between"
+      1: -1, // Very mild is slightly off for "in between"
     };
   }
 

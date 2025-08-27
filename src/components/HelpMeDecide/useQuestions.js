@@ -6,6 +6,11 @@ import refreshingOrIntense from './questions/refreshingOrIntense';
 import simpleOrElaborate from './questions/simpleOrElaborate';
 import boozyOrMild from './questions/boozyOrMild';
 import seasonalOrTimeless from './questions/seasonalOrTimeless';
+import citrusyOrRich from './questions/citrusyOrRich';
+import fruityOrHerbal from './questions/fruityOrHerbal';
+import smokyOrClean from './questions/smokyOrClean';
+import spicyOrMellow from './questions/spicyOrMellow';
+import bitterOrSmooth from './questions/bitterOrSmooth';
 
 const NUM_QUESTIONS = 2;
 
@@ -16,6 +21,11 @@ const allQuestions = [
   simpleOrElaborate,
   boozyOrMild,
   seasonalOrTimeless,
+  citrusyOrRich,
+  fruityOrHerbal,
+  smokyOrClean,
+  spicyOrMellow,
+  bitterOrSmooth,
 ];
 
 export default function useQuestions() {
