@@ -18,6 +18,7 @@ tags: [
   rye-whiskey,
   sweet-vermouth,
   blackberry,
+  stirred,
 ]
 featured: true
 tenBottleCandidate:

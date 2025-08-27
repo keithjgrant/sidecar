@@ -35,11 +35,7 @@ fixed
 
 ### 2. Missing Technique Tags
 
-Found 4 recipes missing preparation technique tags:
-- **Corpse Reviver No. 2**: should add `shaken`
-- **Blackberry Manhattan**: should add `stirred`
-- **Neptune's Wrath**: should add `shaken`
-- **Ritz Bijou**: should add `stirred`
+fixed
 
 ### 3. Inconsistent Seasonal Tagging
 

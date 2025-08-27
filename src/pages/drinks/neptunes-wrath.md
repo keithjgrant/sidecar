@@ -22,6 +22,7 @@ tags: [
   lemon,
   egg,
   green-chartreuse,
+  shaken,
 ]
 featured:
 intro: Lighting alcohol on fire can be dangerous. Do it over a bar mat or sink so a spill doesn’t spread and have a fire extinguisher nearby.

@@ -23,6 +23,7 @@ tags: [
   lemon,
   absinthe,
   orange-liqueur,
+  shaken,
 ]
 featured:
 tenBottleCandidate: true

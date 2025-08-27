@@ -19,6 +19,7 @@ tags: [
   dry-vermouth,
   orange-liqueur,
   rosemary,
+  stirred,
 ]
 featured:
 intro: This is a much drier adaptation on the [Bijou](/drinks/bijou).
