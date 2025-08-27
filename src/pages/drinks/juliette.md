@@ -17,6 +17,7 @@ ingredients: [
 garnish:
 tags: [
   bourbon,
+  whiskey,
   peach,
   lemon,
   maple-syrup,

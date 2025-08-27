@@ -15,6 +15,7 @@ garnish: grapefruit twist
 tags: [
   "ten-bottle-bar",
   "bourbon",
+  "whiskey",
   "grapefruit",
   "shaken"
 ]

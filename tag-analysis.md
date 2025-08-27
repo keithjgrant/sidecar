@@ -45,11 +45,8 @@ fixed
 - Examples: GBC (summer, afternoon), Whiskey Sour (fall), Clover Club (summer)
 
 **Missing seasonal opportunities (35+ recipes):**
-Based on ingredient analysis, these could benefit from seasonal tags:
-- **Summer candidates**: Paloma, Weekday Fizz, Ramos Gin Fizz (grapefruit, fizz, refreshing ingredients)
-- **Winter candidates**: Tortuga, Angel Face, Rye & Spice (cinnamon, ginger, warming spices)
-- **Fall candidates**: Churchill's Breakfast, The Conference (apple, spice, warming elements)
-- **Spring candidates**: Elder Fashioned, La Chilena (elderflower, light, fresh ingredients)
+
+fixed
 
 ## Recommended Improvements
 

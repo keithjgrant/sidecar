@@ -13,7 +13,7 @@ ingredients: [
 garnish: orange twist and cocktail cherry
 tags: [
   classic-cocktail,
-  scotch-whisky,
+  scotch,
   whiskey,
   amaretto,
   stirred,

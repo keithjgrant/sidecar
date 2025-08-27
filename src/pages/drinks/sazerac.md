@@ -18,6 +18,7 @@ tags: [
   classic-cocktail,
   anise,
   rye-whiskey,
+  whiskey,
   absinthe,
   stirred,
 ]

@@ -15,6 +15,7 @@ ingredients: [
 garnish: 
 tags: [
   bourbon,
+  whiskey,
   amaro,
   amaro-nonino,
   aperol,

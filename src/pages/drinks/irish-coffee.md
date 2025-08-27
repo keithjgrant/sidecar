@@ -16,6 +16,7 @@ garnish:
 tags: [
   hot,
   irish-whiskey,
+  whiskey,
   coffee,
   burnt-sugar-syrup,
   dessert-drink,
