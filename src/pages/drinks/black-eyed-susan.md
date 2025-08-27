@@ -16,6 +16,7 @@ garnish: salt and black pepper rim
 tags: [
   sidecar-original,
   gin,
+  london-dry-gin,
   suze,
   lemon,
   black-pepper,

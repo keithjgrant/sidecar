@@ -16,6 +16,7 @@ tags: [
   sidecar-original,
   refreshing,
   gin,
+  london-dry-gin,
   lemon,
   special-syrup,
   shaken,

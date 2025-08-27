@@ -15,6 +15,7 @@ ingredients: [
 garnish:
 tags: [
   gin,
+  london-dry-gin,
   grapefruit,
   wine,
   shaken,

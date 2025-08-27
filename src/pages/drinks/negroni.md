@@ -17,6 +17,7 @@ tags: [
   negroni,
   aperitif,
   gin,
+  london-dry-gin,
   campari,
   sweet-vermouth,
   stirred,

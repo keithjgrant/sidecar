@@ -15,6 +15,7 @@ ingredients: [
 garnish: lime wheel
 tags: [
   refreshing,
+  rum,
   dark-rum,
   aged-rum,
   ginger,

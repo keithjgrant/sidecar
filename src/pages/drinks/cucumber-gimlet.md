@@ -16,6 +16,7 @@ garnish: cucumber wheel
 tags: [
   ten-bottle-bar,
   gin,
+  london-dry-gin,
   cucumber,
   lime,
   sour,

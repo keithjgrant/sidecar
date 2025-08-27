@@ -31,21 +31,7 @@
 
 ### 1. Ingredient Tagging Inconsistencies
 
-**Gin Specificity Issues:**
-Many recipes specify "London dry gin" in ingredients but only have the generic "gin" tag, missing the more specific "london-dry-gin" tag.
-
-Examples:
-- Angel Face: "1½ oz London dry gin" → has `gin` and `london-dry-gin` ✓
-- Asp: "2 oz London dry gin" → only has `gin` ❌
-- Cucumber Gimlet: "2 oz London dry gin" → only has `gin` ❌
-
-**Rum Standardization:**
-Most rum recipes correctly use both general "rum" and specific type tags, but not consistently applied.
-
-Good examples:
-- El Presidente: "white rum" → `rum`, `white-rum` ✓
-- Tortuga: "aged rum" → `rum`, `aged-rum` ✓
-- Dark n Stormy: uses both `dark-rum` and `aged-rum` (appropriate for the ingredient)
+fixed
 
 ### 2. Missing Technique Tags
 
