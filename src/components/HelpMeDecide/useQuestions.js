@@ -5,6 +5,7 @@ import sweetOrStiff from './questions/sweetOrStiff';
 import refreshingOrIntense from './questions/refreshingOrIntense';
 import simpleOrElaborate from './questions/simpleOrElaborate';
 import boozyOrMild from './questions/boozyOrMild';
+import seasonalOrTimeless from './questions/seasonalOrTimeless';
 
 const NUM_QUESTIONS = 2;
 
@@ -14,6 +15,7 @@ const allQuestions = [
   refreshingOrIntense,
   simpleOrElaborate,
   boozyOrMild,
+  seasonalOrTimeless,
 ];
 
 export default function useQuestions() {

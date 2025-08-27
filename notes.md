@@ -28,3 +28,12 @@ ten-bottle-bar tag
 •  Purpose: Used for runtime filtering logic within the TenBottleBar component
 •  Used in: src/components/TenBottleBar.js (line 61): if (drink.tags.includes('ten-bottle-bar'))
 •  Function: Fine-grained filtering based on user selections (vermouth type, tenth bottle choice, etc.)
+
+# Help me decide questions:
+
+- seasonal or timeless (based on seasonal tags (winter, summer, fall, spring) vs classic-cocktail tag)
+- citrusy or rich (citrus tags (lemon, lime, grapefruit) vs rich ingredients (cream, egg, amaretto))
+- fruity or herbal (fruit tags vs herbal ingredients (gin, chartreuse, etc.))
+- smoky or clean (mezcal, peaty scotch, smokey tags vs clean spirits)
+- spicy or mellow (based on spicy tag and ingredients like jalapeño, black pepper)
+- bitter or smooth (Campari, Aperol, amaro tags vs smooth ingredients)
