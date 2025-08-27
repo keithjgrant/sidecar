@@ -48,11 +48,51 @@ function scoreDrink(drink, answer) {
   if (drink.tags.includes('tequila')) {
     score += 1; // Tequila leans clear but not strongly
   }
+
+  // Clear-leaning ingredients
   if (doListsIntersect(drink.tags, ['dry-vermouth', 'blanc-vermouth'])) {
-    score += unit * 1; // Dry vermouths lean clear
+    score += unit * 2;
   }
-  if (drink.tags.includes('sweet-vermouth')) {
-    score -= unit * 1; // Sweet vermouth leans brown
+  if (
+    doListsIntersect(drink.tags, [
+      'cointreau',
+      'grand-marnier',
+      'elderflower-liqueur',
+    ])
+  ) {
+    score += unit * 1;
+  }
+
+  // Dark-leaning ingredients
+  if (
+    doListsIntersect(drink.tags, [
+      'campari',
+      'averna',
+      'amaro',
+      'amaro-nonino',
+      'cynar',
+      'fernet',
+      'kahlua',
+      'benedictine',
+      'sweet-vermouth',
+    ])
+  ) {
+    score -= unit * 2;
+  }
+  if (
+    doListsIntersect(drink.tags, [
+      'drambuie',
+      'yellow-chartreuse',
+      'green-chartreuse',
+      'amaretto',
+      'frangelico',
+      'baileys',
+      'port',
+      'sherry',
+      'madeira',
+    ])
+  ) {
+    score -= unit * 1;
   }
   return score;
 }

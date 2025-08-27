@@ -75,20 +75,22 @@ function testQuestion(question, cocktails) {
     console.log(`\n=== ${question.prompt} → ${label} ===`);
 
     const scoredDrinks = question.score(cocktails, answer);
-    const sorted = scoredDrinks
-      .filter((drink) => drink.score !== 0)
-      .sort((a, b) => b.score - a.score);
+    const sorted = scoredDrinks.sort((a, b) => b.score - a.score);
     const top = sorted.slice(0, 15); // Top 15 results
     const bottom = sorted.slice(-15); // Bottom 5 results
 
-    console.log('Top scoring cocktails:');
-    top.forEach((drink) => {
+    console.log('Ranked cocktails:');
+    sorted.forEach((drink) => {
       console.log(`${drink.score.toString().padStart(3)}: ${drink.title}`);
     });
-    console.log('Bottom scoring cocktails:');
-    bottom.forEach((drink) => {
-      console.log(`${drink.score.toString().padStart(3)}: ${drink.title}`);
-    });
+    // console.log('Top scoring cocktails:');
+    // top.forEach((drink) => {
+    //   console.log(`${drink.score.toString().padStart(3)}: ${drink.title}`);
+    // });
+    // console.log('Bottom scoring cocktails:');
+    // bottom.forEach((drink) => {
+    //   console.log(`${drink.score.toString().padStart(3)}: ${drink.title}`);
+    // });
 
     results[answer] = sorted;
   });
