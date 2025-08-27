@@ -28,11 +28,11 @@ function scoreDrink(drink, answer) {
     map = {
       3: 5,
       2: 0,
-      1: -4,
+      1: -5,
     };
   } else if (answer === 'dry') {
     map = {
-      3: -4,
+      3: -5,
       2: 0,
       1: 5,
     };

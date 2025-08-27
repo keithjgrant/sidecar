@@ -37,35 +37,45 @@ function scoreDrink(drink, answer) {
   let score = 0;
 
   // Drink family indicators
-  if (drink.family === 'highball') {
-    score += unit * 4; // Highballs are very refreshing
-  }
-  if (drink.family === 'sour') {
-    score += unit * 2; // Sours are moderately refreshing
-  }
-  if (drink.family === 'martini') {
-    score -= unit * 4; // Martinis are intense, not refreshing
-  }
-  if (drink.family === 'old fashioned') {
-    score -= unit * 2; // Old fashioneds are intense
+  switch (drink.family) {
+    case 'highball':
+      score += unit * 3;
+      break;
+    case 'sour':
+    case 'sidecar':
+      score += unit * 2;
+      break;
+    case 'martini':
+      score -= unit * 3;
+      break;
+    case 'old fashioned':
+      score -= unit * 2;
+      break;
   }
 
   // Spirit-based indicators
   if (drink.tags.includes('gin')) {
-    score += unit * 1; // Gin leans refreshing
+    score += unit * 1;
   }
   if (drink.tags.includes('whiskey')) {
-    score -= unit * 2; // Whiskey leans intense
+    score -= unit * 1;
   }
   if (drink.tags.includes('mezcal')) {
-    score -= unit * 3; // Mezcal is very intense
+    score -= unit * 1;
+  }
+  if (drink.tags.includes('dark-rum')) {
+    score -= unit * 2;
   }
 
   // Booziness indicators
   if (drink.booziness === 1) {
-    score += unit * 2; // Low alcohol is more refreshing
+    score += unit * 2;
   } else if (drink.booziness === 3) {
-    score -= unit * 2; // High alcohol is more intense
+    score -= unit * 2;
+  }
+
+  if (drink.tags.includes('hot') && answer === 'refreshing') {
+    return Math.min(score, -1);
   }
 
   return score;
