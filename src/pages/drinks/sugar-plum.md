@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  summer,
   gin,
   grapefruit,
   grenadine,

@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: grapefruit twist
 tags: [
+  "spring",
   "gin",
   "plymouth-gin",
   "elderflower-liqueur",

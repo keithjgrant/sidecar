@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: nutmeg & cinnamon
 tags: [
+  winter,
   rum,
   spiced-rum,
   milk,

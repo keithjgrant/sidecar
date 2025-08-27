@@ -15,6 +15,8 @@ ingredients: [
 ]
 garnish:
 tags: [
+  summer,
+  refreshing,
   mocktail,
   sidecar-original,
   grapefruit,

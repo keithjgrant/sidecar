@@ -14,6 +14,8 @@ ingredients: [
 ]
 garnish: grapfruit wheel
 tags: [
+  summer,
+  refreshing,
   tequila,
   grapefruit,
   special-syrup,

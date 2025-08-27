@@ -14,11 +14,13 @@ ingredients: [
 ]
 garnish: cinnamon stick
 tags: [
+  winter,
   coffee,
   smokey,
   whiskey,
   rye-whiskey,
   maple-syrup,
+  cinnamon,
   shaken,
 ]
 

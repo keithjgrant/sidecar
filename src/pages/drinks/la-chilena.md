@@ -16,7 +16,9 @@ ingredients: [
 ]
 garnish:
 tags: [
+  spring,
   tequila,
+  tequila-reposado,
   elderflower-liqueur,
   lime,
   shaken,

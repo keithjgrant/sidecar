@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: orange twist or lemon twist
 tags: [
+  fall,
   gin,
   london-dry-gin,
   apple-brandy,
