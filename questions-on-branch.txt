@@ -937,8 +937,8 @@ TESTING: SIMPLE OR ELABORATE?
 
 === simple or elaborate? → Simple ===
 Ranked cocktails:
-  7: French Kiss
-  6: Rusty Nail
+  5: French Kiss
+  5: Rusty Nail
   3: Asp
   3: Dalmatian
   3: Godfather
@@ -1194,8 +1194,8 @@ Ranked cocktails:
  -3: Pilot’s License
  -3: Sugar Plum
  -3: White Negroni
- -6: Rusty Nail
- -7: French Kiss
+ -5: French Kiss
+ -5: Rusty Nail
 
 ============================================================
 TESTING: BOOZY OR MILD?
@@ -1600,15 +1600,15 @@ TESTING: SEASONAL OR TIMELESS?
 
 === seasonal or timeless? → Something seasonal ===
 Ranked cocktails:
-  9: Weekday Fizz
-  8: Clover Club
-  8: GBC
-  8: Paloma
-  8: Yellow Jacket Trap
-  6: Cucumber Gimlet
   5: Bannon Tantrum
+  5: Clover Club
   5: Corpse Reviver No. 2
+  5: Cucumber Gimlet
+  5: GBC
+  5: Paloma
   5: Sugar Plum
+  5: Weekday Fizz
+  5: Yellow Jacket Trap
   3: Asp
   3: Dark n Stormy
   3: Gin and Tonic
@@ -1726,8 +1726,8 @@ Ranked cocktails:
  -4: Irish Coffee
  -4: Left Hand
  -5: Fort Washington Flip
- -7: Hot Toddy
- -7: Spiced Rum Milk Punch
+ -5: Hot Toddy
+ -5: Spiced Rum Milk Punch
 
 === seasonal or timeless? → A timeless classic ===
 Ranked cocktails:
@@ -1821,16 +1821,16 @@ Ranked cocktails:
   0: Vigo
   0: White Lady
   0: White Negroni
- -1: Asp
- -1: Black-eyed Susan
- -1: Hipster Margarita
- -1: Lemon Bomb
- -1: Monkey Grass
- -1: No True Scotsman
- -1: Pilot’s License
- -1: Tabs vs. Spaces
- -1: Tropical Ginger Snap
- -3: Irish Coffee
+ -2: Asp
+ -2: Black-eyed Susan
+ -2: Hipster Margarita
+ -2: Irish Coffee
+ -2: Lemon Bomb
+ -2: Monkey Grass
+ -2: No True Scotsman
+ -2: Pilot’s License
+ -2: Tabs vs. Spaces
+ -2: Tropical Ginger Snap
  -4: Angel Face
  -4: Churchill’s Breakfast
  -4: Clover Club
@@ -1855,10 +1855,10 @@ Ranked cocktails:
  -4: The Conference
  -4: Winter Margarita
  -5: Bannon Tantrum
+ -5: Hot Toddy
+ -5: Spiced Rum Milk Punch
  -5: Weekday Fizz
  -5: Yellow Jacket Trap
- -7: Hot Toddy
- -7: Spiced Rum Milk Punch
 
 ============================================================
 TESTING: CITRUSY OR RICH AND WARMING?
