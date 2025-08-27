@@ -15,6 +15,7 @@ tags: [
   sidecar-original,
   margarita,
   tequila,
+  tequila-reposado,
   ipa-syrup,
   lime,
   shaken,

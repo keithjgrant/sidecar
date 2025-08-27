@@ -15,6 +15,7 @@ ingredients: [
 garnish: flamed orange twist
 tags: [
   tequila,
+  tequila-reposado,
   mezcal,
   stirred,
 ]

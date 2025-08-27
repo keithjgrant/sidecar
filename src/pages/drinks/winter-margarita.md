@@ -18,6 +18,7 @@ tags: [
   margarita,
   winter,
   tequila,
+  tequila-reposado,
   mezcal,
   lime,
   shaken,

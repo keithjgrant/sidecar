@@ -16,6 +16,7 @@ ingredients: [
 garnish: orange twist
 tags: [
   tequila,
+  tequila-reposado,
   dry-vermouth,
   sweet-vermouth,
   campari,

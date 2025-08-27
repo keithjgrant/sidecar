@@ -17,6 +17,7 @@ garnish: grapefruit twist
 tags: [
   spicy,
   tequila,
+  tequila-blanco,
   rye-whiskey,
   whiskey,
   ancho-reyes,
