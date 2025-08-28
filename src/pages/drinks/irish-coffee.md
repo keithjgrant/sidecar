@@ -19,6 +19,7 @@ tags: [
   whiskey,
   coffee,
   burnt-sugar-syrup,
+  cream,
   dessert-drink,
   built,
 ]
