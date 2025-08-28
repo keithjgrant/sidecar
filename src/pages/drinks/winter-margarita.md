@@ -21,6 +21,7 @@ tags: [
   tequila-reposado,
   mezcal,
   lime,
+  egg,
   shaken,
 ]
 image:

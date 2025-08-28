@@ -22,6 +22,7 @@ tags: [
   london-dry-gin,
   lemon,
   raspberry,
+  egg,
   shaken,
   muddled,
 ]

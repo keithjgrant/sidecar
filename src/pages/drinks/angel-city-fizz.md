@@ -23,6 +23,7 @@ tags: [
   ginger,
   honey,
   beer,
+  egg,
   shaken,
 ]
 image:

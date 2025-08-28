@@ -21,6 +21,7 @@ tags: [
   peach,
   lemon,
   maple-syrup,
+  egg,
   shaken,
 ]
 featured:
