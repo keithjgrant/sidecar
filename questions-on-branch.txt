@@ -1861,270 +1861,270 @@ Ranked cocktails:
  -5: Yellow Jacket Trap
 
 ============================================================
-TESTING: CITRUSY OR RICH AND WARMING?
+TESTING: CITRUSY OR RICH?
 ============================================================
 
-=== citrusy or rich and warming? → Citrusy and bright ===
+=== citrusy or rich? → Citrusy and bright ===
 Ranked cocktails:
-  5: Amaretto Sour
-  5: Angel City Fizz
+  6: Asp
+  6: Black-eyed Susan
+  6: Bramble
+  6: Corpse Reviver No. 2
+  6: Cucumber Gimlet
+  6: Drowning Ophelia
+  6: Enzoni
+  6: Last Word
+  6: Monkey Grass
+  6: Pinkest Gin
+  6: Rosé Fizz
+  6: Sugar Plum
   5: Army & Navy
-  5: Asp
-  5: Bannon Tantrum
   5: Bees Knees
-  5: Black-eyed Susan
   5: Blanc-arita
-  5: Blushing Betty
-  5: Bramble
   5: Cable Car
-  5: Champs Élysées
   5: Cherry on Top
-  5: Chocolate Negroni
-  5: Clover Club
-  5: Cold Buttered Rum
-  5: Corpse Reviver No. 2
-  5: Cucumber Gimlet
   5: Daiquiri
   5: Dalmatian
-  5: Dark n Stormy
   5: Death in Oaxaca
-  5: Drowning Ophelia
-  5: Egg Sour
-  5: Enzoni
-  5: Final Word
   5: GBC
   5: Gin and Tonic
   5: Ginger Margarita
   5: Hipster Margarita
-  5: Honeymoon
-  5: Indian Winter
-  5: Infante
-  5: Juliette
-  5: Kentucky Mule
   5: La Chilena
   5: Last of the Oaxacans
-  5: Last Word
-  5: Lemon Bomb
   5: Little Bit Bittah
-  5: Man About Town
   5: Margarita
-  5: Monkey Grass
   5: Muscovado Margarita
-  5: Negroni
-  5: Neptune’s Wrath
-  5: New York Sour
-  5: No True Scotsman
-  5: Paloma
-  5: Paper Plane
-  5: Pennington Daiquiri
-  5: Pinkest Gin
   5: Queen's Park Hotel Super Cocktail
-  5: Ramos Gin Fizz
   5: Red and Black
-  5: Rosé Fizz
-  5: See No Evil
-  5: Sidecar
-  5: Sugar Plum
   5: Tabs vs. Spaces
-  5: Tequila Sour
   5: Tropical Ginger Snap
   5: Weekday Fizz
-  5: Whiskey Sour
-  5: Winter Margarita
-  5: Yellow Jacket Trap
-  4: La Rosita
-  4: Negroni Sbagliato
-  4: Right Hand
-  3: Bijou
-  3: Employee’s Only Martinez
-  3: Erickson Martinez
-  3: Martinez
-  3: Martini
-  3: Pilot’s License
-  3: Ritz Bijou
-  3: Self Starter
-  3: White Negroni
-  2: Bitter in Brazil
-  2: Boulevardier
-  2: El Presidente
-  2: French Kiss
-  2: Left Hand
-  2: Mexico City
-  2: Pura Vida
-  2: Rumhattan
-  2: South by Southwest
-  2: Star Cocktail
-  2: Vermouth Cocktail
+  4: Bannon Tantrum
+  4: Blushing Betty
+  4: Dark n Stormy
+  4: Final Word
+  4: Infante
+  4: Man About Town
+  4: New York Sour
+  4: Paloma
+  4: See No Evil
+  4: Sidecar
+  4: Yellow Jacket Trap
+  3: Honeymoon
+  3: No True Scotsman
+  3: Pennington Daiquiri
+  2: Champs Élysées
+  2: Clover Club
+  2: Neptune’s Wrath
+  2: Ramos Gin Fizz
   1: Angel Face
-  1: Rolls Royce
-  0: Black Manhattan
-  0: Blackberry Manhattan
-  0: Chrysanthemum
-  0: Early House
-  0: Harvest Moon
-  0: Manhattan
-  0: Rye & Spice
+  1: Bijou
+  1: Black Walnut Social
+  1: Chocolate Negroni
+  1: Cold Buttered Rum
+  1: Elder Fashioned
+  1: Employee’s Only Martinez
+  1: Erickson Martinez
+  1: Kentucky Mule
+  1: Martinez
+  1: Martini
+  1: Negroni
+  1: Pilot’s License
+  1: Ritz Bijou
+  1: Self Starter
+  1: Tequila Sour
+  1: White Negroni
+  1: Winter Margarita
+  0: Bitter in Brazil
+  0: Black Barrel Sazarac
+  0: Caneflower
+  0: El Presidente
+  0: French Kiss
+  0: Indian Winter
+  0: La Rosita
+  0: Mexico City
+  0: Negroni Sbagliato
+  0: Oaxaca Old Fashioned
+  0: Right Hand
+  0: Rolls Royce
+  0: Rumhattan
+  0: Star Cocktail
+  0: Vermouth Cocktail
   0: Vigo
- -1: Caneflower
+ -1: Angel City Fizz
+ -1: Chrysanthemum
+ -1: Lemon Bomb
  -1: Nouveau Sangaree
- -2: A la Louisiane
- -2: Black Walnut Social
- -2: Elder Fashioned
- -3: Black Barrel Sazarac
- -3: Oaxaca Old Fashioned
- -4: Churchill’s Breakfast
- -4: Tortuga
- -4: Vieux Carré
- -5: Brandy Alexander
- -5: Brandy Cocktail No. 2
- -5: Brandy Flip
- -5: Cooper Union
- -5: Egg Nog
- -5: Fort Washington Flip
+ -1: Paper Plane
+ -1: Tortuga
+ -1: Whiskey Sour
+ -2: Amaretto Sour
+ -2: Brandy Cocktail No. 2
+ -2: La Tour Eiffel
+ -2: Pura Vida
+ -2: Shoot
+ -2: White Lady
+ -3: Blackberry Manhattan
+ -3: Boulevardier
+ -3: Cooper Union
+ -3: Early House
+ -3: Egg Sour
+ -3: Harvest Moon
+ -3: Left Hand
+ -3: Manhattan
+ -3: Old Fashioned
+ -3: Rye & Spice
+ -3: Sazerac
+ -3: South by Southwest
+ -3: The Conference
+ -3: Toronto
+ -4: A la Louisiane
+ -4: Juliette
+ -4: Rusty Nail
+ -4: Spiced Rum Milk Punch
+ -5: Black Manhattan
+ -5: Churchill’s Breakfast
  -5: Godfather
  -5: Hot Toddy
- -5: Irish Coffee
- -5: La Tour Eiffel
- -5: Old Fashioned
  -5: Rum Alexander
- -5: Rusty Nail
- -5: Sazerac
- -5: Shoot
- -5: Spiced Rum Milk Punch
- -5: The Conference
- -5: Toronto
- -5: White Lady
+ -6: Brandy Alexander
+ -6: Brandy Flip
+ -6: Egg Nog
+ -6: Fort Washington Flip
+ -6: Irish Coffee
+ -6: Vieux Carré
 
-=== citrusy or rich and warming? → Rich and warming ===
+=== citrusy or rich? → Rich and warming ===
 Ranked cocktails:
-  5: Brandy Alexander
-  5: Brandy Cocktail No. 2
-  5: Brandy Flip
-  5: Cooper Union
-  5: Egg Nog
-  5: Fort Washington Flip
+  6: Brandy Alexander
+  6: Brandy Flip
+  6: Egg Nog
+  6: Fort Washington Flip
+  6: Irish Coffee
+  6: Vieux Carré
+  5: Black Manhattan
+  5: Churchill’s Breakfast
   5: Godfather
   5: Hot Toddy
-  5: Irish Coffee
-  5: La Tour Eiffel
-  5: Old Fashioned
   5: Rum Alexander
-  5: Rusty Nail
-  5: Sazerac
-  5: Shoot
-  5: Spiced Rum Milk Punch
-  5: The Conference
-  5: Toronto
-  5: White Lady
-  4: Churchill’s Breakfast
-  4: Tortuga
-  4: Vieux Carré
-  3: Black Barrel Sazarac
-  3: Oaxaca Old Fashioned
-  2: A la Louisiane
-  2: Black Walnut Social
-  2: Elder Fashioned
-  1: Caneflower
+  4: A la Louisiane
+  4: Juliette
+  4: Rusty Nail
+  4: Spiced Rum Milk Punch
+  3: Blackberry Manhattan
+  3: Boulevardier
+  3: Cooper Union
+  3: Early House
+  3: Egg Sour
+  3: Harvest Moon
+  3: Left Hand
+  3: Manhattan
+  3: Old Fashioned
+  3: Rye & Spice
+  3: Sazerac
+  3: South by Southwest
+  3: The Conference
+  3: Toronto
+  2: Amaretto Sour
+  2: Brandy Cocktail No. 2
+  2: La Tour Eiffel
+  2: Pura Vida
+  2: Shoot
+  2: White Lady
+  1: Angel City Fizz
+  1: Chrysanthemum
+  1: Lemon Bomb
   1: Nouveau Sangaree
-  0: Black Manhattan
-  0: Blackberry Manhattan
-  0: Chrysanthemum
-  0: Early House
-  0: Harvest Moon
-  0: Manhattan
-  0: Rye & Spice
+  1: Paper Plane
+  1: Tortuga
+  1: Whiskey Sour
+  0: Bitter in Brazil
+  0: Black Barrel Sazarac
+  0: Caneflower
+  0: El Presidente
+  0: French Kiss
+  0: Indian Winter
+  0: La Rosita
+  0: Mexico City
+  0: Negroni Sbagliato
+  0: Oaxaca Old Fashioned
+  0: Right Hand
+  0: Rolls Royce
+  0: Rumhattan
+  0: Star Cocktail
+  0: Vermouth Cocktail
   0: Vigo
  -1: Angel Face
- -1: Rolls Royce
- -2: Bitter in Brazil
- -2: Boulevardier
- -2: El Presidente
- -2: French Kiss
- -2: Left Hand
- -2: Mexico City
- -2: Pura Vida
- -2: Rumhattan
- -2: South by Southwest
- -2: Star Cocktail
- -2: Vermouth Cocktail
- -3: Bijou
- -3: Employee’s Only Martinez
- -3: Erickson Martinez
- -3: Martinez
- -3: Martini
- -3: Pilot’s License
- -3: Ritz Bijou
- -3: Self Starter
- -3: White Negroni
- -4: La Rosita
- -4: Negroni Sbagliato
- -4: Right Hand
- -5: Amaretto Sour
- -5: Angel City Fizz
+ -1: Bijou
+ -1: Black Walnut Social
+ -1: Chocolate Negroni
+ -1: Cold Buttered Rum
+ -1: Elder Fashioned
+ -1: Employee’s Only Martinez
+ -1: Erickson Martinez
+ -1: Kentucky Mule
+ -1: Martinez
+ -1: Martini
+ -1: Negroni
+ -1: Pilot’s License
+ -1: Ritz Bijou
+ -1: Self Starter
+ -1: Tequila Sour
+ -1: White Negroni
+ -1: Winter Margarita
+ -2: Champs Élysées
+ -2: Clover Club
+ -2: Neptune’s Wrath
+ -2: Ramos Gin Fizz
+ -3: Honeymoon
+ -3: No True Scotsman
+ -3: Pennington Daiquiri
+ -4: Bannon Tantrum
+ -4: Blushing Betty
+ -4: Dark n Stormy
+ -4: Final Word
+ -4: Infante
+ -4: Man About Town
+ -4: New York Sour
+ -4: Paloma
+ -4: See No Evil
+ -4: Sidecar
+ -4: Yellow Jacket Trap
  -5: Army & Navy
- -5: Asp
- -5: Bannon Tantrum
  -5: Bees Knees
- -5: Black-eyed Susan
  -5: Blanc-arita
- -5: Blushing Betty
- -5: Bramble
  -5: Cable Car
- -5: Champs Élysées
  -5: Cherry on Top
- -5: Chocolate Negroni
- -5: Clover Club
- -5: Cold Buttered Rum
- -5: Corpse Reviver No. 2
- -5: Cucumber Gimlet
  -5: Daiquiri
  -5: Dalmatian
- -5: Dark n Stormy
  -5: Death in Oaxaca
- -5: Drowning Ophelia
- -5: Egg Sour
- -5: Enzoni
- -5: Final Word
  -5: GBC
  -5: Gin and Tonic
  -5: Ginger Margarita
  -5: Hipster Margarita
- -5: Honeymoon
- -5: Indian Winter
- -5: Infante
- -5: Juliette
- -5: Kentucky Mule
  -5: La Chilena
  -5: Last of the Oaxacans
- -5: Last Word
- -5: Lemon Bomb
  -5: Little Bit Bittah
- -5: Man About Town
  -5: Margarita
- -5: Monkey Grass
  -5: Muscovado Margarita
- -5: Negroni
- -5: Neptune’s Wrath
- -5: New York Sour
- -5: No True Scotsman
- -5: Paloma
- -5: Paper Plane
- -5: Pennington Daiquiri
- -5: Pinkest Gin
  -5: Queen's Park Hotel Super Cocktail
- -5: Ramos Gin Fizz
  -5: Red and Black
- -5: Rosé Fizz
- -5: See No Evil
- -5: Sidecar
- -5: Sugar Plum
  -5: Tabs vs. Spaces
- -5: Tequila Sour
  -5: Tropical Ginger Snap
  -5: Weekday Fizz
- -5: Whiskey Sour
- -5: Winter Margarita
- -5: Yellow Jacket Trap
+ -6: Asp
+ -6: Black-eyed Susan
+ -6: Bramble
+ -6: Corpse Reviver No. 2
+ -6: Cucumber Gimlet
+ -6: Drowning Ophelia
+ -6: Enzoni
+ -6: Last Word
+ -6: Monkey Grass
+ -6: Pinkest Gin
+ -6: Rosé Fizz
+ -6: Sugar Plum
 
 ============================================================
 TESTING: FRUITY OR HERBAL?
@@ -2669,7 +2669,6 @@ Ranked cocktails:
   5: See No Evil
   5: Shoot
   3: A la Louisiane
-  3: Angel City Fizz
   3: Black Manhattan
   3: Blackberry Manhattan
   3: Early House
@@ -2689,6 +2688,7 @@ Ranked cocktails:
   2: Pura Vida
   2: Spiced Rum Milk Punch
   2: Tortuga
+  1: Angel City Fizz
   1: Final Word
   1: French Kiss
   1: Man About Town
@@ -2716,7 +2716,6 @@ Ranked cocktails:
   0: GBC
   0: Gin and Tonic
   0: Godfather
-  0: Irish Coffee
   0: La Rosita
   0: La Tour Eiffel
   0: Last of the Oaxacans
@@ -2739,7 +2738,6 @@ Ranked cocktails:
  -1: Death in Oaxaca
  -1: Paper Plane
  -1: Weekday Fizz
- -1: Winter Margarita
  -2: Amaretto Sour
  -2: Blanc-arita
  -2: Blushing Betty
@@ -2747,7 +2745,6 @@ Ranked cocktails:
  -2: Champs Élysées
  -2: Corpse Reviver No. 2
  -2: Honeymoon
- -2: Juliette
  -2: La Chilena
  -2: Last Word
  -2: Margarita
@@ -2762,7 +2759,6 @@ Ranked cocktails:
  -3: Army & Navy
  -3: Asp
  -3: Bramble
- -3: Clover Club
  -3: Cold Buttered Rum
  -3: Cooper Union
  -3: Cucumber Gimlet
@@ -2778,12 +2774,16 @@ Ranked cocktails:
  -3: Pennington Daiquiri
  -3: Queen's Park Hotel Super Cocktail
  -3: White Lady
+ -3: Winter Margarita
  -4: Bees Knees
  -4: Cherry on Top
+ -4: Irish Coffee
+ -4: Juliette
  -4: Neptune’s Wrath
  -5: Bannon Tantrum
  -5: Brandy Alexander
  -5: Brandy Flip
+ -5: Clover Club
  -5: Egg Nog
  -5: Egg Sour
  -5: Fort Washington Flip
@@ -2798,6 +2798,7 @@ Ranked cocktails:
   5: Bannon Tantrum
   5: Brandy Alexander
   5: Brandy Flip
+  5: Clover Club
   5: Egg Nog
   5: Egg Sour
   5: Fort Washington Flip
@@ -2808,11 +2809,12 @@ Ranked cocktails:
   5: Tequila Sour
   4: Bees Knees
   4: Cherry on Top
+  4: Irish Coffee
+  4: Juliette
   4: Neptune’s Wrath
   3: Army & Navy
   3: Asp
   3: Bramble
-  3: Clover Club
   3: Cold Buttered Rum
   3: Cooper Union
   3: Cucumber Gimlet
@@ -2828,6 +2830,7 @@ Ranked cocktails:
   3: Pennington Daiquiri
   3: Queen's Park Hotel Super Cocktail
   3: White Lady
+  3: Winter Margarita
   2: Amaretto Sour
   2: Blanc-arita
   2: Blushing Betty
@@ -2835,7 +2838,6 @@ Ranked cocktails:
   2: Champs Élysées
   2: Corpse Reviver No. 2
   2: Honeymoon
-  2: Juliette
   2: La Chilena
   2: Last Word
   2: Margarita
@@ -2850,7 +2852,6 @@ Ranked cocktails:
   1: Death in Oaxaca
   1: Paper Plane
   1: Weekday Fizz
-  1: Winter Margarita
   0: Angel Face
   0: Bijou
   0: Bitter in Brazil
@@ -2869,7 +2870,6 @@ Ranked cocktails:
   0: GBC
   0: Gin and Tonic
   0: Godfather
-  0: Irish Coffee
   0: La Rosita
   0: La Tour Eiffel
   0: Last of the Oaxacans
@@ -2889,6 +2889,7 @@ Ranked cocktails:
   0: South by Southwest
   0: Star Cocktail
   0: Vermouth Cocktail
+ -1: Angel City Fizz
  -1: Final Word
  -1: French Kiss
  -1: Man About Town
@@ -2908,7 +2909,6 @@ Ranked cocktails:
  -2: Spiced Rum Milk Punch
  -2: Tortuga
  -3: A la Louisiane
- -3: Angel City Fizz
  -3: Black Manhattan
  -3: Blackberry Manhattan
  -3: Early House
@@ -2967,7 +2967,6 @@ Ranked cocktails:
   2: Harvest Moon
   2: Rolls Royce
   2: See No Evil
-  2: Winter Margarita
   1: Blackberry Manhattan
   1: Blanc-arita
   1: Cable Car
@@ -2992,14 +2991,12 @@ Ranked cocktails:
   1: Vieux Carré
   1: Weekday Fizz
   1: Yellow Jacket Trap
-  0: Angel City Fizz
   0: Army & Navy
   0: Asp
   0: Bijou
   0: Bitter in Brazil
   0: Blushing Betty
   0: Bramble
-  0: Clover Club
   0: Cold Buttered Rum
   0: Cucumber Gimlet
   0: Daiquiri
@@ -3010,7 +3007,6 @@ Ranked cocktails:
   0: Hipster Margarita
   0: Hot Toddy
   0: Infante
-  0: Juliette
   0: Martinez
   0: Mexico City
   0: Monkey Grass
@@ -3036,16 +3032,19 @@ Ranked cocktails:
  -1: Black Walnut Social
  -1: Brandy Cocktail No. 2
  -1: Elder Fashioned
- -1: Irish Coffee
  -1: Queen's Park Hotel Super Cocktail
+ -1: Winter Margarita
  -2: Cherry on Top
  -2: Nouveau Sangaree
  -2: Spiced Rum Milk Punch
  -2: White Lady
+ -3: Angel City Fizz
  -3: Bannon Tantrum
+ -3: Clover Club
  -3: Cooper Union
  -3: Dalmatian
  -3: Godfather
+ -3: Juliette
  -3: Tequila Sour
  -3: Whiskey Sour
  -4: Amaretto Sour
@@ -3055,6 +3054,7 @@ Ranked cocktails:
  -5: Egg Sour
  -5: Fort Washington Flip
  -5: Indian Winter
+ -5: Irish Coffee
  -5: Lemon Bomb
  -5: Ramos Gin Fizz
  -5: Rum Alexander
@@ -3067,14 +3067,18 @@ Ranked cocktails:
   5: Egg Sour
   5: Fort Washington Flip
   5: Indian Winter
+  5: Irish Coffee
   5: Lemon Bomb
   5: Ramos Gin Fizz
   5: Rum Alexander
   4: Amaretto Sour
+  3: Angel City Fizz
   3: Bannon Tantrum
+  3: Clover Club
   3: Cooper Union
   3: Dalmatian
   3: Godfather
+  3: Juliette
   3: Tequila Sour
   3: Whiskey Sour
   2: Cherry on Top
@@ -3086,16 +3090,14 @@ Ranked cocktails:
   1: Black Walnut Social
   1: Brandy Cocktail No. 2
   1: Elder Fashioned
-  1: Irish Coffee
   1: Queen's Park Hotel Super Cocktail
-  0: Angel City Fizz
+  1: Winter Margarita
   0: Army & Navy
   0: Asp
   0: Bijou
   0: Bitter in Brazil
   0: Blushing Betty
   0: Bramble
-  0: Clover Club
   0: Cold Buttered Rum
   0: Cucumber Gimlet
   0: Daiquiri
@@ -3106,7 +3108,6 @@ Ranked cocktails:
   0: Hipster Margarita
   0: Hot Toddy
   0: Infante
-  0: Juliette
   0: Martinez
   0: Mexico City
   0: Monkey Grass
@@ -3159,7 +3160,6 @@ Ranked cocktails:
  -2: Harvest Moon
  -2: Rolls Royce
  -2: See No Evil
- -2: Winter Margarita
  -3: Caneflower
  -3: French Kiss
  -3: Last of the Oaxacans
