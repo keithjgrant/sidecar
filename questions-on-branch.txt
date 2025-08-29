@@ -2398,265 +2398,265 @@ TESTING: SMOKY OR CLEAN?
 
 === smoky or clean? → Smoky ===
 Ranked cocktails:
+  6: Rusty Nail
   5: Churchill’s Breakfast
   5: Cooper Union
-  5: Death in Oaxaca
-  5: Last of the Oaxacans
-  5: Muscovado Margarita
+  5: Godfather
   5: No True Scotsman
   5: Oaxaca Old Fashioned
-  5: Pura Vida
-  5: Rusty Nail
-  5: See No Evil
   5: South by Southwest
-  5: Winter Margarita
-  4: A la Louisiane
-  4: Amaretto Sour
-  4: The Conference
-  4: Vieux Carré
-  3: Godfather
-  2: Angel City Fizz
-  2: Black Manhattan
-  2: Blackberry Manhattan
-  2: Blushing Betty
-  2: Boulevardier
-  2: Chrysanthemum
-  2: Early House
-  2: Egg Nog
-  2: Final Word
-  2: Fort Washington Flip
-  2: Harvest Moon
-  2: Honeymoon
-  2: Hot Toddy
-  2: Juliette
-  2: Left Hand
-  2: Man About Town
-  2: Manhattan
-  2: New York Sour
-  2: Old Fashioned
-  2: Paper Plane
-  2: Sazerac
-  2: Toronto
-  2: Whiskey Sour
-  1: Hipster Margarita
+  4: Last of the Oaxacans
+  4: Muscovado Margarita
+  4: Pura Vida
+  4: Winter Margarita
+  3: Death in Oaxaca
+  3: See No Evil
+  2: A la Louisiane
+  2: Vieux Carré
+  1: Black Manhattan
+  1: Blackberry Manhattan
+  1: Boulevardier
+  1: Chrysanthemum
+  1: Early House
+  1: Egg Nog
+  1: Final Word
+  1: Fort Washington Flip
+  1: Harvest Moon
+  1: Honeymoon
+  1: Hot Toddy
+  1: Irish Coffee
+  1: Juliette
   1: La Rosita
+  1: Left Hand
+  1: Man About Town
+  1: Manhattan
   1: Mexico City
+  1: Old Fashioned
+  1: Paper Plane
+  1: Sazerac
+  1: The Conference
+  1: Toronto
+  0: Amaretto Sour
+  0: Angel City Fizz
   0: Bitter in Brazil
   0: Black Barrel Sazarac
+  0: Blushing Betty
   0: Brandy Alexander
   0: Brandy Cocktail No. 2
   0: Brandy Flip
   0: Cable Car
   0: Champs Élysées
-  0: Cold Buttered Rum
+  0: Cherry on Top
   0: Egg Sour
   0: French Kiss
   0: Ginger Margarita
-  0: Infante
-  0: Kentucky Mule
+  0: Hipster Margarita
+  0: La Chilena
   0: La Tour Eiffel
   0: Lemon Bomb
+  0: Little Bit Bittah
   0: Margarita
   0: Negroni Sbagliato
+  0: New York Sour
   0: Pennington Daiquiri
-  0: Queen's Park Hotel Super Cocktail
   0: Right Hand
   0: Rum Alexander
   0: Rumhattan
-  0: Shoot
+  0: Rye & Spice
   0: Sidecar
   0: Spiced Rum Milk Punch
   0: Star Cocktail
   0: Tabs vs. Spaces
-  0: Tequila Sour
   0: Tortuga
   0: Vermouth Cocktail
- -1: Irish Coffee
- -1: La Chilena
- -1: Rye & Spice
- -2: Caneflower
+  0: Whiskey Sour
+ -1: Blanc-arita
+ -1: Caneflower
+ -1: Cold Buttered Rum
+ -1: Dalmatian
+ -1: Indian Winter
+ -1: Infante
+ -1: Kentucky Mule
+ -1: Queen's Park Hotel Super Cocktail
+ -1: Shoot
+ -1: Tequila Sour
+ -2: Black Walnut Social
+ -2: Corpse Reviver No. 2
  -2: Dark n Stormy
+ -2: El Presidente
+ -2: Erickson Martinez
+ -2: Martinez
+ -2: Martini
+ -2: Nouveau Sangaree
  -2: Paloma
+ -2: Pilot’s License
+ -2: Red and Black
+ -2: Rolls Royce
  -2: Weekday Fizz
+ -2: White Lady
+ -2: White Negroni
  -2: Yellow Jacket Trap
+ -3: Angel Face
+ -3: Bannon Tantrum
  -3: Bees Knees
- -3: Black Walnut Social
- -3: Blanc-arita
+ -3: Bijou
+ -3: Black-eyed Susan
  -3: Bramble
- -3: Corpse Reviver No. 2
+ -3: Chocolate Negroni
  -3: Daiquiri
  -3: Drowning Ophelia
- -3: El Presidente
- -3: Erickson Martinez
- -3: Martinez
- -3: Martini
- -3: Nouveau Sangaree
- -3: Pilot’s License
- -3: Red and Black
+ -3: Elder Fashioned
+ -3: Employee’s Only Martinez
+ -3: Last Word
+ -3: Negroni
+ -3: Neptune’s Wrath
+ -3: Ritz Bijou
+ -3: Self Starter
  -3: Sugar Plum
  -3: Tropical Ginger Snap
- -3: White Lady
- -3: White Negroni
- -5: Bannon Tantrum
- -5: Cherry on Top
- -5: Dalmatian
- -5: Elder Fashioned
- -5: GBC
- -5: Gin and Tonic
- -5: Indian Winter
- -5: Little Bit Bittah
+ -3: Vigo
+ -4: Army & Navy
+ -4: Cucumber Gimlet
+ -4: Enzoni
+ -4: GBC
+ -4: Gin and Tonic
+ -4: Monkey Grass
+ -4: Pinkest Gin
+ -4: Rosé Fizz
  -5: Ramos Gin Fizz
- -5: Rolls Royce
- -7: Angel Face
- -7: Army & Navy
- -7: Bijou
- -7: Black-eyed Susan
- -7: Chocolate Negroni
- -7: Cucumber Gimlet
- -7: Employee’s Only Martinez
- -7: Enzoni
- -7: Last Word
- -7: Monkey Grass
- -7: Negroni
- -7: Neptune’s Wrath
- -7: Pinkest Gin
- -7: Ritz Bijou
- -7: Rosé Fizz
- -7: Self Starter
- -7: Vigo
- -9: Asp
- -9: Clover Club
+ -6: Asp
+ -6: Clover Club
 
 === smoky or clean? → Clean and crisp ===
 Ranked cocktails:
-  9: Asp
-  9: Clover Club
-  7: Angel Face
-  7: Army & Navy
-  7: Bijou
-  7: Black-eyed Susan
-  7: Chocolate Negroni
-  7: Cucumber Gimlet
-  7: Employee’s Only Martinez
-  7: Enzoni
-  7: Last Word
-  7: Monkey Grass
-  7: Negroni
-  7: Neptune’s Wrath
-  7: Pinkest Gin
-  7: Ritz Bijou
-  7: Rosé Fizz
-  7: Self Starter
-  7: Vigo
-  5: Bannon Tantrum
-  5: Cherry on Top
-  5: Dalmatian
-  5: Elder Fashioned
-  5: GBC
-  5: Gin and Tonic
-  5: Indian Winter
-  5: Little Bit Bittah
+  6: Asp
+  6: Clover Club
   5: Ramos Gin Fizz
-  5: Rolls Royce
+  4: Army & Navy
+  4: Cucumber Gimlet
+  4: Enzoni
+  4: GBC
+  4: Gin and Tonic
+  4: Monkey Grass
+  4: Pinkest Gin
+  4: Rosé Fizz
+  3: Angel Face
+  3: Bannon Tantrum
   3: Bees Knees
-  3: Black Walnut Social
-  3: Blanc-arita
+  3: Bijou
+  3: Black-eyed Susan
   3: Bramble
-  3: Corpse Reviver No. 2
+  3: Chocolate Negroni
   3: Daiquiri
   3: Drowning Ophelia
-  3: El Presidente
-  3: Erickson Martinez
-  3: Martinez
-  3: Martini
-  3: Nouveau Sangaree
-  3: Pilot’s License
-  3: Red and Black
+  3: Elder Fashioned
+  3: Employee’s Only Martinez
+  3: Last Word
+  3: Negroni
+  3: Neptune’s Wrath
+  3: Ritz Bijou
+  3: Self Starter
   3: Sugar Plum
   3: Tropical Ginger Snap
-  3: White Lady
-  3: White Negroni
-  2: Caneflower
+  3: Vigo
+  2: Black Walnut Social
+  2: Corpse Reviver No. 2
   2: Dark n Stormy
+  2: El Presidente
+  2: Erickson Martinez
+  2: Martinez
+  2: Martini
+  2: Nouveau Sangaree
   2: Paloma
+  2: Pilot’s License
+  2: Red and Black
+  2: Rolls Royce
   2: Weekday Fizz
+  2: White Lady
+  2: White Negroni
   2: Yellow Jacket Trap
-  1: Irish Coffee
-  1: La Chilena
-  1: Rye & Spice
+  1: Blanc-arita
+  1: Caneflower
+  1: Cold Buttered Rum
+  1: Dalmatian
+  1: Indian Winter
+  1: Infante
+  1: Kentucky Mule
+  1: Queen's Park Hotel Super Cocktail
+  1: Shoot
+  1: Tequila Sour
+  0: Amaretto Sour
+  0: Angel City Fizz
   0: Bitter in Brazil
   0: Black Barrel Sazarac
+  0: Blushing Betty
   0: Brandy Alexander
   0: Brandy Cocktail No. 2
   0: Brandy Flip
   0: Cable Car
   0: Champs Élysées
-  0: Cold Buttered Rum
+  0: Cherry on Top
   0: Egg Sour
   0: French Kiss
   0: Ginger Margarita
-  0: Infante
-  0: Kentucky Mule
+  0: Hipster Margarita
+  0: La Chilena
   0: La Tour Eiffel
   0: Lemon Bomb
+  0: Little Bit Bittah
   0: Margarita
   0: Negroni Sbagliato
+  0: New York Sour
   0: Pennington Daiquiri
-  0: Queen's Park Hotel Super Cocktail
   0: Right Hand
   0: Rum Alexander
   0: Rumhattan
-  0: Shoot
+  0: Rye & Spice
   0: Sidecar
   0: Spiced Rum Milk Punch
   0: Star Cocktail
   0: Tabs vs. Spaces
-  0: Tequila Sour
   0: Tortuga
   0: Vermouth Cocktail
- -1: Hipster Margarita
+  0: Whiskey Sour
+ -1: Black Manhattan
+ -1: Blackberry Manhattan
+ -1: Boulevardier
+ -1: Chrysanthemum
+ -1: Early House
+ -1: Egg Nog
+ -1: Final Word
+ -1: Fort Washington Flip
+ -1: Harvest Moon
+ -1: Honeymoon
+ -1: Hot Toddy
+ -1: Irish Coffee
+ -1: Juliette
  -1: La Rosita
+ -1: Left Hand
+ -1: Man About Town
+ -1: Manhattan
  -1: Mexico City
- -2: Angel City Fizz
- -2: Black Manhattan
- -2: Blackberry Manhattan
- -2: Blushing Betty
- -2: Boulevardier
- -2: Chrysanthemum
- -2: Early House
- -2: Egg Nog
- -2: Final Word
- -2: Fort Washington Flip
- -2: Harvest Moon
- -2: Honeymoon
- -2: Hot Toddy
- -2: Juliette
- -2: Left Hand
- -2: Man About Town
- -2: Manhattan
- -2: New York Sour
- -2: Old Fashioned
- -2: Paper Plane
- -2: Sazerac
- -2: Toronto
- -2: Whiskey Sour
- -3: Godfather
- -4: A la Louisiane
- -4: Amaretto Sour
- -4: The Conference
- -4: Vieux Carré
+ -1: Old Fashioned
+ -1: Paper Plane
+ -1: Sazerac
+ -1: The Conference
+ -1: Toronto
+ -2: A la Louisiane
+ -2: Vieux Carré
+ -3: Death in Oaxaca
+ -3: See No Evil
+ -4: Last of the Oaxacans
+ -4: Muscovado Margarita
+ -4: Pura Vida
+ -4: Winter Margarita
  -5: Churchill’s Breakfast
  -5: Cooper Union
- -5: Death in Oaxaca
- -5: Last of the Oaxacans
- -5: Muscovado Margarita
+ -5: Godfather
  -5: No True Scotsman
  -5: Oaxaca Old Fashioned
- -5: Pura Vida
- -5: Rusty Nail
- -5: See No Evil
  -5: South by Southwest
- -5: Winter Margarita
+ -6: Rusty Nail
 
 ============================================================
 TESTING: SPICY OR MELLOW?

@@ -17,7 +17,7 @@ tags: [
   whiskey,
   irish-whiskey,
   scotch,
-  smokey,
+  smoky,
   elderflower-liqueur,
   stirred,
 ]

@@ -16,7 +16,7 @@ ingredients: [
 garnish:
 tags: [
   sidecar-original,
-  smokey,
+  smoky,
   scotch,
   whiskey,
   apple-brandy,

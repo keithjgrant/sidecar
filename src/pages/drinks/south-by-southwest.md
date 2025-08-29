@@ -14,7 +14,7 @@ ingredients: [
 ]
 garnish: orange twist
 tags: [
-  smokey,
+  smoky,
   scotch,
   whiskey,
   campari,

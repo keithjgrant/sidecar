@@ -16,7 +16,7 @@ garnish: cinnamon stick
 tags: [
   winter,
   coffee,
-  smokey,
+  smoky,
   whiskey,
   rye-whiskey,
   maple-syrup,

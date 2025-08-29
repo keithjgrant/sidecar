@@ -29,82 +29,61 @@ function scoreDrink(drink, answer) {
   if (!drink) {
     throw new Error(`No drink given ${drink}`);
   }
-  
+
   let score = 0;
   const unit = answer === 'smoky' ? 1 : -1;
-  
-  // Strong smoky indicators (±5) - perfect matches
-  if (doListsIntersect(drink.tags, ['mezcal', 'smoky', 'smokey'])) {
-    return unit * 5; // Perfect smoky match
+
+  // Strong smoky indicators
+  if (drink.tags.includes('smoky')) {
+    return unit * 5;
   }
-  
-  // Peaty/Islay Scotch is also a perfect smoky match (±5)
-  if (drink.tags.includes('scotch') && doListsIntersect(drink.tags, ['peaty', 'islay'])) {
-    return unit * 5; // Perfect smoky match for peaty Scotch
+
+  // Strong clean indicators
+  if (doListsIntersect(drink.tags, ['clean', 'crisp'])) {
+    return -unit * 5;
   }
-  
-  // Strong clean indicators (±5) - perfect matches  
-  if (doListsIntersect(drink.tags, ['vodka', 'clean', 'crisp'])) {
-    return -unit * 5; // Perfect clean match
+
+  if (doListsIntersect(drink.tags, ['scotch', 'mezcal'])) {
+    score += unit * 4;
   }
-  
-  // Since no perfect match found, evaluate other indicators
-  
-  // Regular Scotch (without peaty indicators) is moderately smoky
-  if (drink.tags.includes('scotch')) {
-    score += unit * 3; // Regular scotch has some smokiness/character
+
+  if (drink.family === 'sour') {
+    score -= unit;
   }
-  
-  // Spirit-based indicators (±2-4)
+
+  // Spirit-based indicators
   if (drink.tags.includes('gin')) {
-    score -= unit * 3; // Gin is clean and botanical
+    score -= unit * 2;
   }
   if (drink.tags.includes('london-dry-gin')) {
-    score -= unit * 4; // London dry gin is very clean
+    score -= unit;
   }
   if (drink.tags.includes('white-rum')) {
-    score -= unit * 3; // White rum is clean
+    score -= unit * 2;
   }
-  if (drink.tags.includes('silver-tequila') || drink.tags.includes('tequila-blanco')) {
-    score -= unit * 3; // Blanco tequila is clean
+  if (drink.tags.includes('tequila-blanco')) {
+    score -= unit;
   }
   if (drink.tags.includes('tequila-reposado')) {
-    score += unit * 1; // Aged tequila has more character
+    score += unit;
   }
-  
-  // Whiskey indicators (±1-2)
-  if (drink.tags.includes('rye-whiskey')) {
-    score += unit * 2; // Rye has spicy, complex character
+  if (drink.tags.includes('whiskey')) {
+    score += unit;
   }
-  if (drink.tags.includes('bourbon')) {
-    score += unit * 2; // Bourbon has richness/character
-  }
-  if (drink.tags.includes('irish-whiskey')) {
-    score -= unit * 1; // Irish whiskey is typically smoother/cleaner
-  }
-  
-  // Liqueur and modifier indicators (±1-2)
+
+  // herbal liqueurs
   if (doListsIntersect(drink.tags, ['chartreuse', 'benedictine', 'drambuie'])) {
-    score += unit * 2; // Complex herbal liqueurs add character
+    score += unit;
   }
-  if (doListsIntersect(drink.tags, ['elderflower-liqueur', 'st-germain'])) {
-    score -= unit * 2; // Clean floral liqueurs
+  // floral liqueurs
+  if (doListsIntersect(drink.tags, ['elderflower-liqueur'])) {
+    score -= unit;
   }
-  
-  // Technique and preparation indicators (±1)
-  if (drink.tags.includes('stirred')) {
-    score -= unit * 1; // Stirred drinks are often cleaner
-  }
-  if (drink.tags.includes('built')) {
-    score += unit * 1; // Built drinks can be more rustic/smoky
-  }
-  
-  // Additional clean indicators (±1)
+
   if (drink.tags.includes('refreshing')) {
-    score -= unit * 2; // Refreshing drinks are clean/crisp
+    score -= unit * 2;
   }
-  
+
   // Cap the score at ±5
   return Math.max(-5, Math.min(5, score));
 }
-
