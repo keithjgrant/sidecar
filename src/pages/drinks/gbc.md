@@ -23,6 +23,8 @@ tags: [
   low-abv,
   gin,
   lime,
+  basil,
+  cucumber,
   summer,
   built,
   muddled,

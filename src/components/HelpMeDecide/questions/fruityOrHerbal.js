@@ -66,9 +66,13 @@ function scoreDrink(drink, answer) {
     return score;
   }
 
+  // NOTE: these modifiers are kinda huge compared to other questions,
+  // but they seem to work and very few drinks exceed +/-5
+  // this could perphaps be tweaked further
+
   // citrus
   if (doListsIntersect(drink.tags, ['lemon', 'lime', 'grapefruit', 'orange'])) {
-    score += unit * 4;
+    score += unit * 3;
   }
 
   // Gin-based indicators (±3-4) - gin is botanical/herbal
@@ -104,7 +108,7 @@ function scoreDrink(drink, answer) {
     score -= unit * 2;
   }
   // Check for bitters in ingredients (not tags)
-  if (hasIngredientsContaining(drink.ingredients, ['angostura', 'orange bitters', 'orange-bitters'])) {
+  if (hasIngredientsContaining(drink.ingredients, ['angostura'])) {
     score -= unit * 1;
   }
 
@@ -127,12 +131,6 @@ function scoreDrink(drink, answer) {
     score -= unit * 1;
   }
 
-  // if (drink.family === 'sour') {
-  //   score += unit * 1;
-  // }
-
-  return score;
   // Cap the score at ±5
   return Math.max(-5, Math.min(5, score));
 }
-
