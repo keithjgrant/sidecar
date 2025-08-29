@@ -1,3 +1,5 @@
+import { hasIngredientsContaining, doListsIntersect } from '../util.js';
+
 const fruityOrHerbal = {
   key: 'fruity',
   prompt: 'fruity or herbal?',
@@ -101,7 +103,8 @@ function scoreDrink(drink, answer) {
   if (doListsIntersect(drink.tags, ['campari', 'aperol'])) {
     score -= unit * 2;
   }
-  if (doListsIntersect(drink.tags, ['angostura', 'orange-bitters'])) {
+  // Check for bitters in ingredients (not tags)
+  if (hasIngredientsContaining(drink.ingredients, ['angostura', 'orange bitters', 'orange-bitters'])) {
     score -= unit * 1;
   }
 
@@ -133,11 +136,3 @@ function scoreDrink(drink, answer) {
   return Math.max(-5, Math.min(5, score));
 }
 
-function doListsIntersect(listA, listB) {
-  for (var item of listA) {
-    if (listB.includes(item)) {
-      return true;
-    }
-  }
-  return false;
-}

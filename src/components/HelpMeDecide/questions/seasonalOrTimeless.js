@@ -1,3 +1,5 @@
+import { doListsIntersect } from '../util.js';
+
 const seasonalOrTimeless = {
   key: 'seasonal',
   prompt: 'seasonal or timeless?',
@@ -76,14 +78,6 @@ function scoreDrink(drink, answer) {
   return Math.max(-5, Math.min(5, score));
 }
 
-function doListsIntersect(listA, listB) {
-  for (var item of listA) {
-    if (listB.includes(item)) {
-      return true;
-    }
-  }
-  return false;
-}
 
 function getTimelessScore(drink) {
   let score = 0;

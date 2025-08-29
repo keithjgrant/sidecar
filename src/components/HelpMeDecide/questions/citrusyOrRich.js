@@ -1,3 +1,5 @@
+import { doListsIntersect } from '../util.js';
+
 const citrusyOrRich = {
   key: 'citrusy',
   prompt: 'citrusy or rich?',
@@ -113,11 +115,3 @@ function scoreDrink(drink, answer) {
   return Math.max(-6, Math.min(6, score));
 }
 
-function doListsIntersect(listA, listB) {
-  for (var item of listA) {
-    if (listB.includes(item)) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -1,3 +1,5 @@
+import { doListsIntersect } from '../util.js';
+
 const bitterOrSmooth = {
   key: 'bitter',
   prompt: 'bitter or smooth?',
@@ -126,11 +128,3 @@ function scoreDrink(drink, answer) {
   return Math.max(-5, Math.min(5, score));
 }
 
-function doListsIntersect(listA, listB) {
-  for (var item of listA) {
-    if (listB.includes(item)) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -1,3 +1,5 @@
+import { doListsIntersect } from '../util.js';
+
 const lightOrDark = {
   key: 'light',
   prompt: 'with a brown spirit or a clear spirit?',
@@ -97,11 +99,3 @@ function scoreDrink(drink, answer) {
   return score;
 }
 
-function doListsIntersect(listA, listB) {
-  for (var item of listA) {
-    if (listB.includes(item)) {
-      return true;
-    }
-  }
-  return false;
-}
