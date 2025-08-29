@@ -1,5 +1,6 @@
 import { doListsIntersect } from '../util.js';
 
+// TODO tweak & balance
 const bitterOrSmooth = {
   key: 'bitter',
   prompt: 'bitter or smooth?',
