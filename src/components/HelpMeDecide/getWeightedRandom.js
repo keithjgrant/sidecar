@@ -12,10 +12,13 @@ export default function getWeightedRandom(drinks, numResults) {
   const results = [];
   let attempts = 0;
 
+  const cutoffs = getScoreBasedCutoffs(sorted, numResults);
+
   while (results.length < numResults && attempts < 100) {
     // make earlier selections from closer to top of list to ensure
     // at least one strong match result
-    const partialList = getPartialList(sorted, results.length + 1, numResults);
+    const tierIndex = Math.min(results.length, cutoffs.length - 1);
+    const partialList = sorted.slice(0, cutoffs[tierIndex]);
     const selection = select(partialList, cumulativeWeights);
 
     if (!results.find((d) => d.path === selection.path)) {
@@ -50,7 +53,32 @@ export function byScore(a, b) {
   }
 }
 
-function getPartialList(allItems, portion, numPortions) {
-  const numItems = Math.round((allItems.length * portion) / numPortions);
-  return allItems.slice(0, numItems);
+function getScoreBasedCutoffs(sortedDrinks, numResults) {
+  if (sortedDrinks.length <= numResults) {
+    return Array(numResults).fill(sortedDrinks.length);
+  }
+
+  const targetPositions = [
+    Math.floor(sortedDrinks.length * 0.33), // Target 1/3
+    Math.floor(sortedDrinks.length * 0.67), // Target 2/3
+    sortedDrinks.length, // Full list
+  ];
+
+  return targetPositions.map((target) => {
+    if (target >= sortedDrinks.length) return sortedDrinks.length;
+
+    // score of the drink at the target cutoff
+    const scoreAtTarget = sortedDrinks[target].score;
+    let cutoff = target;
+
+    // Extend cutoff to include all drinks with same score
+    while (
+      cutoff < sortedDrinks.length &&
+      sortedDrinks[cutoff].score === scoreAtTarget
+    ) {
+      cutoff++;
+    }
+
+    return cutoff;
+  });
 }
