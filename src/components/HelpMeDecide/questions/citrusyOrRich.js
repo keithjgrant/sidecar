@@ -46,14 +46,7 @@ function scoreDrink(drink, answer) {
   if (
     doListsIntersect(drink.tags, ['cream', 'egg', 'butter', 'butter-syrup'])
   ) {
-    score -= unit * 4;
-  }
-
-  // Drink family indicators (±3-4)
-  if (drink.family === 'sour' || drink.family === 'sidecar') {
-    score += unit;
-  } else if (drink.family === 'flip') {
-    score -= unit;
+    score -= unit * 3;
   }
 
   // rich liqueurs/amari
@@ -64,12 +57,13 @@ function scoreDrink(drink, answer) {
       'kahlua',
       'averna',
       'amaro-nonino',
+      'campari',
     ])
   ) {
-    score -= unit * 2;
+    score -= unit;
   }
   // herbal liqueurs
-  if (doListsIntersect(drink.tags, ['benedictine', 'drambuie'])) {
+  if (doListsIntersect(drink.tags, ['benedictine'])) {
     score -= unit;
   }
 
@@ -111,7 +105,5 @@ function scoreDrink(drink, answer) {
     score += unit;
   }
 
-  // Cap the score at ±6 (beyond ±5 is rare)
-  return Math.max(-6, Math.min(6, score));
+  return Math.max(-5, Math.min(5, score));
 }
-
