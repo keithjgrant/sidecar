@@ -48,6 +48,10 @@ fixed
 
 fixed
 
+### 4. liqueurs
+
+'blackberry' tag for creme de mure but 'elderflower-liqueur' for st gemain ?
+
 ## Recommended Improvements
 
 ### 1. New Tag Categories

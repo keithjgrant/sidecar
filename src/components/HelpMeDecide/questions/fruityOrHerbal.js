@@ -27,86 +27,108 @@ function scoreDrink(drink, answer) {
   if (!drink) {
     throw new Error(`No drink given ${drink}`);
   }
-  
+
   let score = 0;
   const unit = answer === 'fruity' ? 1 : -1;
-  
-  // Strong fruity indicators (±5) - perfect matches
-  if (doListsIntersect(drink.tags, ['apple', 'pear', 'peach', 'cherry', 'blackberry', 'raspberry', 'strawberry', 'cranberry'])) {
-    return unit * 5; // Perfect fruity match, no need to check further
+
+  // Strong fruity indicator
+  if (
+    doListsIntersect(drink.tags, [
+      'apple',
+      'pear',
+      'peach',
+      'cherry',
+      'blackberry',
+      'raspberry',
+      'strawberry',
+      'cranberry',
+      'fruity',
+    ])
+  ) {
+    score += unit * 5;
   }
-  
-  // Strong herbal indicators (±5) - perfect matches
-  if (doListsIntersect(drink.tags, ['green-chartreuse', 'yellow-chartreuse', 'benedictine', 'herbal'])) {
-    return -unit * 5; // Perfect herbal match, no need to check further
+
+  // Strong herbal indicators
+  if (
+    doListsIntersect(drink.tags, [
+      'green-chartreuse',
+      'yellow-chartreuse',
+      'benedictine',
+      'herbal',
+    ])
+  ) {
+    score -= unit * 5;
   }
-  
-  // Since no perfect match found, evaluate other indicators
-  
-  // Citrus fruits are fruity but not as strong as other fruits (±4)
+
+  if (score === 5 || score === -5) {
+    return score;
+  }
+
+  // citrus
   if (doListsIntersect(drink.tags, ['lemon', 'lime', 'grapefruit', 'orange'])) {
-    score += unit * 4; // Citrus is fruity but more tart than sweet fruit
+    score += unit * 4;
   }
-  
+
   // Gin-based indicators (±3-4) - gin is botanical/herbal
   if (drink.tags.includes('gin')) {
-    score -= unit * 3; // Gin is herbal/botanical
+    score -= unit * 3;
+    if (drink.tags.includes('london-dry-gin')) {
+      score -= unit;
+    }
   }
-  if (drink.tags.includes('london-dry-gin')) {
-    score -= unit * 4; // London dry gin is very botanical
+
+  // fruity liqueur
+  if (doListsIntersect(drink.tags, ['maraschino-liqueur', 'creme-de-cassis'])) {
+    score += unit * 4;
   }
-  
-  // Liqueur indicators (±2-4)
-  if (doListsIntersect(drink.tags, ['maraschino-liqueur', 'crème-de-cassis', 'chambord'])) {
-    score += unit * 4; // Fruit liqueurs are very fruity
+  // herbal liqueurs
+  if (doListsIntersect(drink.tags, ['elderflower-liqueur'])) {
+    score -= unit * 3;
   }
-  if (doListsIntersect(drink.tags, ['elderflower-liqueur', 'st-germain'])) {
-    score -= unit * 3; // Elderflower is floral/herbal
-  }
+  // nutty liqueurs
   if (doListsIntersect(drink.tags, ['amaretto', 'frangelico'])) {
-    score += unit * 2; // Nut liqueurs have fruity sweetness
+    score += unit * 2;
   }
-  
-  // Fresh herb and botanical indicators (±2-3)
+
+  // herbs
   if (doListsIntersect(drink.tags, ['mint', 'basil', 'rosemary', 'thyme'])) {
-    score -= unit * 3; // Fresh herbs are clearly herbal
+    score -= unit * 3;
   }
   if (doListsIntersect(drink.tags, ['lavender', 'sage'])) {
-    score -= unit * 2; // Aromatic herbs
+    score -= unit * 2;
   }
-  
-  // Bitters and aperitifs (±1-2)
+
   if (doListsIntersect(drink.tags, ['campari', 'aperol'])) {
-    score -= unit * 2; // Bitter herbal aperitifs
+    score -= unit * 2;
   }
   if (doListsIntersect(drink.tags, ['angostura', 'orange-bitters'])) {
-    score -= unit * 1; // Herbal bitters
+    score -= unit * 1;
   }
-  
-  // Wine-based indicators (±1-2)
+
+  // wine & vermouth
   if (doListsIntersect(drink.tags, ['red-wine', 'port'])) {
-    score += unit * 2; // Wine often has fruity notes
+    score += unit * 2;
   }
   if (drink.tags.includes('dry-vermouth')) {
-    score -= unit * 2; // Dry vermouth is herbal
+    score -= unit * 2;
   }
   if (drink.tags.includes('sweet-vermouth')) {
-    score += unit * 1; // Sweet vermouth has some fruit character
+    score += unit * 1;
   }
-  
-  // Seasonal and fresh indicators (±1)
+
+  // Seasonal and fresh indicators
   if (doListsIntersect(drink.tags, ['watermelon', 'cucumber'])) {
-    score += unit * 1; // Fresh, fruity (though cucumber is mild)
+    score += unit * 1;
   }
   if (drink.tags.includes('floral')) {
-    score -= unit * 1; // Floral leans herbal/botanical
+    score -= unit * 1;
   }
-  
-  // Drink family context (±1)
-  if (drink.family === 'sour') {
-    score += unit * 1; // Sours often feature fruit
-  }
-  
+
+  // if (drink.family === 'sour') {
+  //   score += unit * 1;
+  // }
+
+  return score;
   // Cap the score at ±5
   return Math.max(-5, Math.min(5, score));
 }
