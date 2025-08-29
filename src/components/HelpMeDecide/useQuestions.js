@@ -24,8 +24,8 @@ const allQuestions = [
   citrusyOrRich,
   fruityOrHerbal,
   smokyOrClean,
-  spicyOrMellow,
-  bitterOrSmooth,
+  spicyOrMellow, // TODO: spicy or floral?
+  bitterOrSmooth, // TODO: test balance
 ];
 
 export default function useQuestions() {
@@ -50,8 +50,11 @@ export default function useQuestions() {
 
 function loadFromQuery(query) {
   const selected = [];
-  const indexes = query.split(',').map(Number).filter(n => !isNaN(n));
-  indexes.forEach(index => {
+  const indexes = query
+    .split(',')
+    .map(Number)
+    .filter((n) => !isNaN(n));
+  indexes.forEach((index) => {
     const q = allQuestions[index];
     if (q) {
       selected.push(q);

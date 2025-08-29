@@ -6,6 +6,7 @@ Flavor profile spectrums (from noillyprat.com):
 - floral to spicy
 
 
+- add a skip question option to Help Me Decide
 
 Future possible homepage links:
 * tags
