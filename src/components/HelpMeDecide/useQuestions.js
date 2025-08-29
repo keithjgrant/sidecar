@@ -40,7 +40,7 @@ export default function useQuestions() {
     }
 
     const [selected, indexes] = selectQuestions();
-    url.searchParams.set('q', indexes.join(''));
+    url.searchParams.set('q', indexes.join(','));
     navigate(`${url.pathname}${url.search}`, { replace: true });
     setQuestions(selected);
   }, []);
@@ -50,12 +50,13 @@ export default function useQuestions() {
 
 function loadFromQuery(query) {
   const selected = [];
-  for (let i = 0; i < query.length; i++) {
-    const q = allQuestions[query[i]];
+  const indexes = query.split(',').map(Number).filter(n => !isNaN(n));
+  indexes.forEach(index => {
+    const q = allQuestions[index];
     if (q) {
       selected.push(q);
     }
-  }
+  });
   return selected;
 }
 

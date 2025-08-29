@@ -57,6 +57,7 @@ function loadCocktails() {
       title: frontMatter.title,
       path: frontMatter.path,
       tags: frontMatter.tags || [],
+      garnish: frontMatter.garnish || '',
       ingredients: frontMatter.ingredients || [],
       family: frontMatter.family,
       booziness: frontMatter.booziness,

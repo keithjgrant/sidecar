@@ -21,6 +21,7 @@ tags: [
   honey,
   egg,
   special-syrup,
+  cardamom,
   shaken
 ]
 source: http://thecharmingdetroiter.com/indian-winter-a-cardamom-winter-cocktail/
