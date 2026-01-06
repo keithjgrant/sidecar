@@ -45,7 +45,7 @@ Using an electric milk frother, whip the egg white and cream for several minutes
 until thick and creamy but still pourable.
 Then, whip the other ingredients briefly to break up the yolk.
 
-Pour the yolk mixture into the white mixture, then pour into a rocks glass.
+Pour the yolk mixture into the white mixture, then pour into a chilled rocks glass.
 
 Garnish with grated nutmeg.
 
