@@ -41,15 +41,21 @@ intro:
 In one half of a boston shaker, add the egg white and cream.
 Add egg yolk and other remaining ingredients to the other half of the shaker.
 
-Using an electric milk frother, whip the egg white and cream for several minutes,
-until thick and creamy but still pourable.
+Using an electric milk frother, whip the egg white and cream for a few minutes.
+It will get thick and creamy, but it should not be quite as thick as whipped cream;
+it should still be pourable.
 Then, whip the other ingredients briefly to break up the yolk.
 
-Pour the yolk mixture into the white mixture, then pour into a chilled rocks glass.
+Pour the yolk mixture into the white mixture to gently mix the two,
+then pour into a chilled rocks glass.
 
 Garnish with grated nutmeg.
 
-**Modified version**: If you don’t have a milk frother, you can still make
+---
+
+**Modified version**
+
+If you don’t have a milk frother, you can still make
 this, though the texture won’t be quite as thick and velvety.
 
 Omit the milk, add all other ingredients to a cocktail shaker and
