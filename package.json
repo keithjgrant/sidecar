@@ -33,7 +33,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
-    "styled-components": "^6.2.0",
+    "styled-components": "^6.3.8",
     "typeface-lato": "^1.1.13",
     "typeface-playfair-display": "^1.1.13"
   },
