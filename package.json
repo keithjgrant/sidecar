@@ -26,7 +26,7 @@
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-styled-components": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.1",
-    "gatsby-transformer-remark": "^6.13.1",
+    "gatsby-transformer-remark": "^6.16.0",
     "gatsby-transformer-sharp": "^5.13.1",
     "idb": "^8.0.3",
     "querystring": "^0.2.1",
