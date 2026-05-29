@@ -3,8 +3,8 @@ title: "Self Starter"
 path: "/drinks/self-starter"
 date: 2024-01-26T15:01:04-08:00
 glass: coupe
-sweetness:
-booziness:
+sweetness: 3
+booziness: 2
 family: martini
 ingredients: [
   "1½ oz London dry gin",

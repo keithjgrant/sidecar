@@ -11,11 +11,12 @@ ingredients: [
   "¾ oz Suze",
   "¾ oz Lillet blanc or blanc vermouth",
 ]
-garnish: grapefruit twist
+garnish: lemon or grapefruit twist
 tags: [
   gin,
   suze,
   blanc-vermouth,
+  negroni,
   built
 ]
 featured:
@@ -33,4 +34,4 @@ intro:
 Combine ingredients in a rocks glass.
 Add a large cube of ice and stir briefly to dilute.
 
-Garnish with grapefruit twist.
+Garnish with lemon or grapefruit twist.
