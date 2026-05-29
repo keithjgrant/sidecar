@@ -1,6 +1,6 @@
 ---
-title: "A la Louisiane"
-path: "/drinks/a-la-louisiane"
+title: "La Louisiane"
+path: "/drinks/la-louisiane"
 date: 2020-05-08T15:05:34-08:00
 glass: coupe
 sweetness: 3
