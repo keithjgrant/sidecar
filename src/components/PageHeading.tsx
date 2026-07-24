@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const PageHeading = styled.h1`
+const PageHeading = styled.h1<{ bleed?: boolean }>`
   align-self: stretch;
   text-align: left;
   font-size: 2rem;

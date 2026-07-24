@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useWebP() {
+export default function useWebP(): boolean {
   const [supported, setSupported] = useState(true);
 
   useEffect(() => {
@@ -10,9 +10,9 @@ export default function useWebP() {
   return supported;
 }
 
-function canUseWebP() {
-  const promise = new Promise((resolve) => {
-    var img = new Image();
+function canUseWebP(): Promise<boolean> {
+  return new Promise((resolve) => {
+    const img = new Image();
     img.onload = function () {
       resolve(!!(img.height > 0 && img.width > 0));
     };
@@ -22,5 +22,4 @@ function canUseWebP() {
     img.src =
       'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';
   });
-  return promise;
 }

@@ -43,14 +43,19 @@ const IN = 'in';
 const FADE = 'in fade';
 const DURATION = 3000;
 
-export default function Toast({ message, onDone }) {
+interface ToastProps {
+  message: string;
+  onDone: () => void;
+}
+
+export default function Toast({ message, onDone }: ToastProps) {
   const [isIn, setIsIn] = useState(OUT);
-  const inTimeout = useRef(null);
-  const fadeTimeout = useRef(null);
+  const inTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   function show() {
-    clearTimeout(inTimeout.current);
-    clearTimeout(fadeTimeout.current);
+    if (inTimeout.current) clearTimeout(inTimeout.current);
+    if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
     setIsIn(IN);
     inTimeout.current = setTimeout(fadeOut, DURATION);
   }
@@ -71,8 +76,8 @@ export default function Toast({ message, onDone }) {
     }
     show();
     return () => {
-      clearTimeout(inTimeout.current);
-      clearTimeout(fadeTimeout.current);
+      if (inTimeout.current) clearTimeout(inTimeout.current);
+      if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
     };
   }, [message]);
 

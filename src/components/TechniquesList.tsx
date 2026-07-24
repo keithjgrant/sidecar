@@ -1,9 +1,13 @@
 import React from 'react';
 import SectionHeading from './SectionHeading';
 import TileLinkList from './tiles/TileLinkList';
-import TileLink from './tiles/TileLink';
+import TileLink, { type TileLinkProps } from './tiles/TileLink';
 
-export default function TechniquesList({ thumbnails }) {
+interface TechniquesListProps {
+  thumbnails: Record<string, TileLinkProps['image']>;
+}
+
+export default function TechniquesList({ thumbnails }: TechniquesListProps) {
   return (
     <>
       <SectionHeading>Skills</SectionHeading>

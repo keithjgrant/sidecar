@@ -1,7 +1,11 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import Markdown from 'react-markdown';
 
-export default function InlineMarkdown({ children }) {
+interface InlineMarkdownProps {
+  children: string;
+}
+
+export default function InlineMarkdown({ children }: InlineMarkdownProps) {
   return (
     <Markdown
       components={{

@@ -21,7 +21,12 @@ const Label = styled.label`
   }
 `;
 
-export function GridFormLabel({ props, children }) {
+interface GridFormLabelProps {
+  props?: React.LabelHTMLAttributes<HTMLLabelElement>;
+  children: React.ReactNode;
+}
+
+export function GridFormLabel({ props, children }: GridFormLabelProps) {
   if (typeof children === 'string') {
     return <Label {...props}>{children.replace(' ', nbsp)}</Label>;
   }

@@ -14,7 +14,11 @@ const TagLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default function TagList({ tags }) {
+interface TagListProps {
+  tags: string[];
+}
+
+export default function TagList({ tags }: TagListProps) {
   return (
     <List>
       {tags.map((tag) => {

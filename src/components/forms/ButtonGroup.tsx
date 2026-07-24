@@ -40,7 +40,16 @@ const RadioButton = styled.button`
   }
 `;
 
-export default function ButtonGroup({ value, options, onChange }) {
+type Option = string | [string, string];
+
+interface ButtonGroupProps {
+  value: string;
+  name?: string;
+  options: Option[];
+  onChange: (value: string) => void;
+}
+
+export default function ButtonGroup({ value, options, onChange }: ButtonGroupProps) {
   return (
     <div>
       {options.map((option) => {

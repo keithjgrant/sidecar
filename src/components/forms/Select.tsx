@@ -43,6 +43,15 @@ const Arrow = styled.div`
   }
 `;
 
+interface SelectProps {
+  id?: string;
+  name?: string;
+  className?: string;
+  value: string;
+  options: [string, string][];
+  onChange: (value: string) => void;
+}
+
 export default function Select({
   id,
   name,
@@ -50,7 +59,7 @@ export default function Select({
   value,
   options,
   onChange,
-}) {
+}: SelectProps) {
   return (
     <Container className={className}>
       <StyledSelect
@@ -59,7 +68,7 @@ export default function Select({
         onChange={(event) => onChange(event.target.value)}
       >
         {options.map(([key, label]) => (
-          <option key={key} type="radio" name={name} value={key}>
+          <option key={key} value={key}>
             {label}
           </option>
         ))}

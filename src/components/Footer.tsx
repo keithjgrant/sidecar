@@ -21,7 +21,12 @@ const Split = styled.div`
 
 const year = new Date().getFullYear();
 
-export default function Footer({ content, className }) {
+interface FooterProps {
+  content?: string;
+  className?: string;
+}
+
+export default function Footer({ content, className }: FooterProps) {
   return (
     <Wrapper className={className}>
       <Split>
@@ -29,7 +34,7 @@ export default function Footer({ content, className }) {
           © 2018–{year} <a href="https://keithjgrant.com">Keith J. Grant</a>.
           All rights reserved.
         </div>
-        <div css="text-align: right">
+        <div style={{ textAlign: 'right' }}>
           {content || 'Please drink responsibly.'}
         </div>
       </Split>

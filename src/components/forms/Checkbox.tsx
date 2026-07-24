@@ -51,7 +51,15 @@ const Indicator = styled.div`
   }
 `;
 
-export default function Checkbox({ id, checked, onChange, label, className }) {
+interface CheckboxProps {
+  id: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  label: React.ReactNode;
+  className?: string;
+}
+
+export default function Checkbox({ id, checked, onChange, label, className }: CheckboxProps) {
   return (
     <Label className={className}>
       <Input
