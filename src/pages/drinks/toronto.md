@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: flamed orange zest
 tags: [
+  bitter,
   rye-whiskey,
   whiskey,
   fernet-branca,

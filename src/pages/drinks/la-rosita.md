@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: orange twist
 tags: [
+  bitter,
   tequila,
   tequila-reposado,
   dry-vermouth,

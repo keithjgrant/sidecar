@@ -15,6 +15,7 @@ garnish: orange twist or brandied cherry
 tags: [
   classic-cocktail,
   negroni,
+  bitter,
   whiskey,
   bourbon,
   campari,

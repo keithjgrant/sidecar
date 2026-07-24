@@ -15,6 +15,7 @@ garnish: grapefruit twist or orange twist
 tags: [
   classic-cocktail,
   negroni,
+  bitter,
   aperitif,
   gin,
   london-dry-gin,
