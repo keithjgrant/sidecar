@@ -31,7 +31,7 @@ export default function CocktailThumbnail({ drink, image }: CocktailThumbnailPro
       {drink.image && image ? (
         <GatsbyImage
           image={image.gatsbyImageData}
-          alt={drink.image.alt}
+          alt={drink.image.alt ?? ''}
           style={{ height: '100%', maxWidth: 'var(--thumbnail-size)' }}
           imgStyle={{ objectPosition: drink.image.align }}
         />

@@ -1,0 +1,102 @@
+import { doListsIntersect } from '../util';
+import type { DecideDrink, QuestionDef, ScoredDecideDrink } from '../types';
+
+const lightOrDark: QuestionDef = {
+  key: 'light',
+  prompt: 'with a brown spirit or a clear spirit?',
+  options: [
+    ['brown', 'Brown'],
+    ['clear', 'Clear'],
+  ],
+  score: (drinks, answer) => {
+    const scores: ScoredDecideDrink[] = [];
+    drinks.forEach((drink, i) => {
+      const score = scoreDrink(drink, answer);
+      scores[i] = {
+        ...drink,
+        score: drink.score ? drink.score + score : score,
+      };
+    });
+    return scores;
+  },
+};
+
+export default lightOrDark;
+
+function scoreDrink(drink: DecideDrink, answer: string): number {
+  if (!['brown', 'clear'].includes(answer)) {
+    throw new Error(`Unknown answer: ${answer}`);
+  }
+  if (!drink) {
+    throw new Error(`No drink given ${drink}`);
+  }
+  let score = 0;
+  const unit = answer === 'brown' ? -1 : 1;
+  if (doListsIntersect(drink.tags, ['gin', 'vodka', 'mezcal', 'white-rum'])) {
+    score += unit * 5; // Very strong clear spirit indicator
+  }
+  if (
+    doListsIntersect(drink.tags, [
+      'whiskey',
+      'brandy',
+      'aged-rum',
+      'tequila-reposado',
+    ])
+  ) {
+    score -= unit * 5; // Very strong brown spirit indicator
+  }
+  if (score === 5 || score === -5) {
+    return score; // Strong match, no need for additional scoring
+  }
+  if (drink.tags.includes('tequila')) {
+    score += 1; // Tequila leans clear but not strongly
+  }
+
+  // Clear-leaning ingredients
+  if (doListsIntersect(drink.tags, ['dry-vermouth', 'blanc-vermouth'])) {
+    score += unit * 2;
+  }
+  if (
+    doListsIntersect(drink.tags, [
+      'cointreau',
+      'grand-marnier',
+      'elderflower-liqueur',
+    ])
+  ) {
+    score += unit * 1;
+  }
+
+  // Dark-leaning ingredients
+  if (
+    doListsIntersect(drink.tags, [
+      'campari',
+      'averna',
+      'amaro',
+      'amaro-nonino',
+      'cynar',
+      'fernet',
+      'kahlua',
+      'benedictine',
+      'sweet-vermouth',
+    ])
+  ) {
+    score -= unit * 2;
+  }
+  if (
+    doListsIntersect(drink.tags, [
+      'drambuie',
+      'yellow-chartreuse',
+      'green-chartreuse',
+      'amaretto',
+      'frangelico',
+      'baileys',
+      'port',
+      'sherry',
+      'madeira',
+    ])
+  ) {
+    score -= unit * 1;
+  }
+  return score;
+}
+

@@ -19,7 +19,7 @@ const ContentWrapper = styled.div`
 
 interface CardLayoutProps {
   drinkName: string;
-  footerContent?: string;
+  footerContent?: React.ReactNode;
   children: React.ReactNode;
 }
 

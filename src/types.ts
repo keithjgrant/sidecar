@@ -1,6 +1,9 @@
 export interface DrinkImage {
-  alt: string;
+  url?: string;
+  alt?: string;
   align?: string;
+  photographer?: string;
+  creditUrl?: string;
 }
 
 export interface Drink {
@@ -14,7 +17,9 @@ export interface Drink {
   ingredients: string[];
   garnish?: string;
   intro?: string;
-  content: string;
+  content?: string;
   sweetness?: number;
   booziness?: number;
+  featured?: boolean;
+  family?: string;
 }

@@ -58,8 +58,8 @@ const Heading = styled.h1`
   }
 `;
 
-interface ArticleLayoutProps {
-  title: string;
+export interface ArticleLayoutProps {
+  title?: string;
   children: React.ReactNode;
 }
 

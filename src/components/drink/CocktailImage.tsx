@@ -61,7 +61,7 @@ export default function CocktailImage({ drink, imageData }: CocktailImageProps) 
       {image && imageData ? (
         <Image
           image={imageData.childImageSharp.gatsbyImageData}
-          alt={image.alt}
+          alt={image.alt ?? ''}
           style={{ minWidth: '100%' }}
           imgStyle={{ objectPosition: image.align }}
         />

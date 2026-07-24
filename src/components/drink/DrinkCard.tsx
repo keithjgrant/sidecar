@@ -164,7 +164,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
             isBeneathIntro={!!drink.intro}
           />
           <div className="e-instructions">
-            <div dangerouslySetInnerHTML={{ __html: drink.content }} />
+            <div dangerouslySetInnerHTML={{ __html: drink.content ?? '' }} />
           </div>
           {drink.date ? (
             <PublishDate>

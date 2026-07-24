@@ -9,9 +9,9 @@ const path = require('path');
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const DrinkTemplate = path.resolve('src/templates/DrinkTemplate.js');
-  const ArticleTemplate = path.resolve('src/templates/ArticleTemplate.js');
-  const TagTemplate = path.resolve('src/templates/TagTemplate.js');
+  const DrinkTemplate = path.resolve('src/templates/DrinkTemplate.tsx');
+  const ArticleTemplate = path.resolve('src/templates/ArticleTemplate.tsx');
+  const TagTemplate = path.resolve('src/templates/TagTemplate.tsx');
 
   const result = await graphql(`
     {

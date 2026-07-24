@@ -22,7 +22,7 @@ const Split = styled.div`
 const year = new Date().getFullYear();
 
 interface FooterProps {
-  content?: string;
+  content?: React.ReactNode;
   className?: string;
 }
 
