@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import 'typeface-playfair-display';
 import 'typeface-lato';
 
-function Meta({ description, meta, title = 'Sidecar', image }) {
+function Meta({ description = '', meta = [], title = 'Sidecar', image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -42,15 +42,8 @@ function Meta({ description, meta, title = 'Sidecar', image }) {
   );
 }
 
-Meta.defaultProps = {
-  lang: 'en',
-  meta: [],
-  description: '',
-};
-
 Meta.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 };

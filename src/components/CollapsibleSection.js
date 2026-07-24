@@ -9,7 +9,7 @@ const Drawer = styled.div`
 
 export default function CollapsibleSection({
   startExpanded,
-  renderToggle,
+  renderToggle = () => {},
   children,
 }) {
   const [isExpanded, setIsExpanded] = useState(startExpanded);
@@ -43,6 +43,3 @@ export default function CollapsibleSection({
   );
 }
 
-CollapsibleSection.defaultProps = {
-  renderToggle: () => {},
-};
