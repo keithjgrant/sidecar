@@ -50,6 +50,22 @@ module.exports = {
       resolve: 'gatsby-plugin-offline',
       options: {
         precachePages: ['/drinks/', '/drinks/*'],
+        workboxConfig: {
+          runtimeCaching: [
+            {
+              urlPattern: /(\.js$|\.css$|[^:]static\/)/,
+              handler: 'StaleWhileRevalidate',
+            },
+            {
+              urlPattern: /^https?:.*\/page-data\/.*\.json/,
+              handler: 'NetworkFirst',
+            },
+            {
+              urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|ico)(\?.*)?$/,
+              handler: 'StaleWhileRevalidate',
+            },
+          ],
+        },
       },
     },
     'gatsby-plugin-netlify',
