@@ -11,7 +11,7 @@ ingredients: [
   "2 oz London dry gin (Beefeater)",
   "½ oz dry curaçao",
   "¾ oz lemon juice",
-  "½ oz orgeat",
+  "½ oz [orgeat](/ingredients/orgeat/)",
 ]
 garnish: mint sprig
 tags: [
