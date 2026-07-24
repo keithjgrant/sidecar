@@ -7,11 +7,11 @@ sweetness: 3
 booziness: 3
 family: negroni
 ingredients: [
-  "1½ oz blanco tequila",
+  "1½ oz tequila reposado",
   "½ oz Cynar",
   "½ oz Campari",
 ]
-garnish: lemon twist
+garnish: orange twist
 tags: [
   bitter,
   negroni,
@@ -30,4 +30,4 @@ intro:
 
 Build in a rocks glass over plenty of ice. Stir for 30 to 45 seconds to ensure proper dilution.
 
-Garnish with a lemon twist.
+Garnish with an orange twist.
