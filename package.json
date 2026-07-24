@@ -13,7 +13,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
@@ -38,6 +39,9 @@
     "typeface-playfair-display": "^1.1.13"
   },
   "devDependencies": {
-    "gray-matter": "^4.0.3"
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "gray-matter": "^4.0.3",
+    "typescript": "^7.0.2"
   }
 }
