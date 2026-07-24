@@ -23,7 +23,11 @@ const Button = styled.button`
   }
 `;
 
-export default function FavoriteButton({ drinkName }) {
+interface FavoriteButtonProps {
+  drinkName: string;
+}
+
+export default function FavoriteButton({ drinkName }: FavoriteButtonProps) {
   const [checked, setChecked] = useState(false);
   const [message, setMessage] = useState('');
 

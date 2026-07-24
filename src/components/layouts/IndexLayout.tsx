@@ -30,7 +30,12 @@ const IndexGrid = styled.div`
   }
 `;
 
-export default function IndexLayout({ title, children }) {
+interface IndexLayoutProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+export default function IndexLayout({ title, children }: IndexLayoutProps) {
   return (
     <PageAnimationWrapper>
       <GrowWrapper>

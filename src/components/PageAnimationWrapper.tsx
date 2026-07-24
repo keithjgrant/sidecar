@@ -36,18 +36,28 @@ const Wrapper = styled.div`
   }
 `;
 
-const Context = React.createContext({});
+interface AnimationContext {
+  animateOut: () => Promise<void>;
+}
 
-export default function PageAnimationWrapper({ children }) {
+const Context = React.createContext<AnimationContext>({
+  animateOut: () => Promise.resolve(),
+});
+
+interface PageAnimationWrapperProps {
+  children: React.ReactNode;
+}
+
+export default function PageAnimationWrapper({ children }: PageAnimationWrapperProps) {
   const [isOut, setIsOut] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <Context.Provider
       value={{
         animateOut: () => {
-          const promise = new Promise((resolve) => {
-            ref.current.addEventListener('animationend', resolve);
+          const promise = new Promise<void>((resolve) => {
+            ref.current?.addEventListener('animationend', () => resolve());
           });
           // promise.finally(() => {
           //   ref.current.removeEventListener('animationend', resolve);

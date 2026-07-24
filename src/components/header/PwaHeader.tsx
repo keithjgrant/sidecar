@@ -39,7 +39,12 @@ const Right = styled.div`
   grid-column: 3;
 `;
 
-export default function PwaHeader({ title, controls }) {
+interface PwaHeaderProps {
+  title?: string;
+  controls?: React.ReactNode;
+}
+
+export default function PwaHeader({ title, controls }: PwaHeaderProps) {
   return (
     <HeaderBar>
       <Left>

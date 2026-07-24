@@ -3,7 +3,12 @@ import { Indicator, Caption } from './Indicator';
 
 const angles = [-39, 0, 39];
 
-export default function ScaleIndicator({ value, label }) {
+interface ScaleIndicatorProps {
+  value?: number;
+  label: string;
+}
+
+export default function ScaleIndicator({ value, label }: ScaleIndicatorProps) {
   if (!value || value < 1 || value > 3) {
     return null;
   }

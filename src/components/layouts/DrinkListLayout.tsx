@@ -24,7 +24,12 @@ const Heading = styled(PageHeading)`
   }
 `;
 
-export default function DrinkListLayout({ title, children }) {
+interface DrinkListLayoutProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+export default function DrinkListLayout({ title, children }: DrinkListLayoutProps) {
   return (
     <PageAnimationWrapper>
       <GrowWrapper>

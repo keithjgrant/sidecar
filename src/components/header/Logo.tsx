@@ -46,7 +46,11 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function Logo({ isHome }) {
+interface LogoProps {
+  isHome?: boolean;
+}
+
+export default function Logo({ isHome }: LogoProps) {
   const content = (
     <LogoLink to="/">
       <LogoSvg />

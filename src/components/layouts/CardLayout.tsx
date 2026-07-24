@@ -17,7 +17,13 @@ const ContentWrapper = styled.div`
   justify-content: center;
 `;
 
-export default function CardLayout({ drinkName, footerContent, children }) {
+interface CardLayoutProps {
+  drinkName: string;
+  footerContent?: string;
+  children: React.ReactNode;
+}
+
+export default function CardLayout({ drinkName, footerContent, children }: CardLayoutProps) {
   return (
     <PageAnimationWrapper>
       <GrowWrapper>

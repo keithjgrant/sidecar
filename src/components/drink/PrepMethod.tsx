@@ -14,7 +14,7 @@ const Label = styled.div`
   }
 `;
 
-function getMethod(tags) {
+function getMethod(tags: string[]) {
   if (tags.includes('shaken')) {
     return 'shaken';
   }
@@ -27,7 +27,11 @@ function getMethod(tags) {
   return '';
 }
 
-export default function PrepMethod({ tags = [] }) {
+interface PrepMethodProps {
+  tags?: string[];
+}
+
+export default function PrepMethod({ tags = [] }: PrepMethodProps) {
   const method = getMethod(tags);
   if (!method) {
     return null;

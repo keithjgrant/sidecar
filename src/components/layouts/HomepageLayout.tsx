@@ -58,7 +58,12 @@ const Front = styled.main`
   z-index: 1;
 `;
 
-export default function HomepageLayout({ heroImage, children }) {
+interface HomepageLayoutProps {
+  heroImage: { childImageSharp: { gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } };
+  children: React.ReactNode;
+}
+
+export default function HomepageLayout({ heroImage, children }: HomepageLayoutProps) {
   let iOS = false;
   if (typeof navigator !== 'undefined') {
     iOS =
@@ -68,19 +73,19 @@ export default function HomepageLayout({ heroImage, children }) {
   }
 
   return (
-    <Parallax style={iOS ? { perspective: 'initial' } : null}>
-      <Back style={iOS ? { transform: 'initial' } : null}>
+    <Parallax style={iOS ? { perspective: 'initial' } : undefined}>
+      <Back style={iOS ? { transform: 'initial' } : undefined}>
         <Header>
           <h1>
             <LogoSvg /> Sidecar
           </h1>
-          <div css="">
+          <div>
             A curated collection of{nbsp}cocktails
             <br />
             for the home bartender
           </div>
         </Header>
-        <Banner image={heroImage.childImageSharp.gatsbyImageData} />
+        <Banner image={heroImage.childImageSharp.gatsbyImageData} alt="" />
       </Back>
       <Front>{children}</Front>
     </Parallax>

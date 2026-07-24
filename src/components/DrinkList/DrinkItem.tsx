@@ -55,7 +55,15 @@ const PublishDate = styled.time`
   color: var(--gray-5);
 `;
 
-export default function DrinkItem({ drink, image }) {
+import type { Drink } from '../../types';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
+
+export interface DrinkItemProps {
+  drink: Drink;
+  image?: { gatsbyImageData: IGatsbyImageData };
+}
+
+export default function DrinkItem({ drink, image }: DrinkItemProps) {
   return (
     <li>
       <PreviewLink key={drink.basename} to={drink.path}>

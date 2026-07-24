@@ -7,7 +7,7 @@ import CollapsibleSection from './CollapsibleSection';
 import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
 
-const Toggle = styled.button`
+const Toggle = styled.button<{ $isExpanded?: boolean }>`
   position: relative;
   margin-left: 0.6rem;
   padding-right: 1.8em;
@@ -23,7 +23,7 @@ const Toggle = styled.button`
   }
 
   ${(props) =>
-    props.isExpanded &&
+    props.$isExpanded &&
     css`
       color: var(--gray-8);
       &::after {
@@ -40,7 +40,18 @@ const Controls = styled.div`
   }
 `;
 
-export default function Explore({ drinks, imageMap }) {
+import type { Drink } from '../types';
+
+interface DrinkWithFamily extends Drink {
+  family?: string;
+}
+
+interface ExploreProps {
+  drinks: DrinkWithFamily[];
+  imageMap: Record<string, unknown>;
+}
+
+export default function Explore({ drinks, imageMap }: ExploreProps) {
   const params = getParams();
 
   const [base, setBase] = useState('all');
@@ -49,10 +60,10 @@ export default function Explore({ drinks, imageMap }) {
 
   useEffect(() => {
     if (params.base && params.base !== 'all') {
-      setBase(params.base);
+      setBase(String(params.base));
     }
     if (params.family && params.family !== 'all') {
-      setFamily(params.family);
+      setFamily(String(params.family));
     }
   }, []);
 
@@ -63,7 +74,7 @@ export default function Explore({ drinks, imageMap }) {
         startExpanded={filtersSet}
         renderToggle={({ toggle, isExpanded }) => (
           <Controls>
-            <Toggle onClick={toggle} isExpanded={isExpanded} className="button">
+            <Toggle onClick={toggle} $isExpanded={isExpanded} className="button">
               Filter
             </Toggle>
             <Link to="/tags" className="button">
@@ -122,10 +133,10 @@ export default function Explore({ drinks, imageMap }) {
   );
 }
 
-function byBase(base) {
-  return (drink) => base === 'all' || drink.tags.includes(base);
+function byBase(base: string) {
+  return (drink: DrinkWithFamily) => base === 'all' || drink.tags.includes(base);
 }
 
-function byFamily(family) {
-  return (drink) => family === 'all' || drink.family === family;
+function byFamily(family: string) {
+  return (drink: DrinkWithFamily) => family === 'all' || drink.family === family;
 }

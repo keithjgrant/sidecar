@@ -15,8 +15,16 @@ const ThumbnailWrapper = styled.div`
   }
 `;
 
-export default function CocktailThumbnail({ drink, image }) {
-  const GlassSvg = glasses[drink.glass] || glasses.rocks;
+import type { Drink } from '../../types';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
+
+interface CocktailThumbnailProps {
+  drink: Drink;
+  image?: { gatsbyImageData: IGatsbyImageData };
+}
+
+export default function CocktailThumbnail({ drink, image }: CocktailThumbnailProps) {
+  const GlassSvg = glasses[drink.glass as keyof typeof glasses] || glasses.rocks;
 
   return (
     <ThumbnailWrapper>

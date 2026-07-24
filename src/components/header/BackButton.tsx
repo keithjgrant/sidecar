@@ -17,11 +17,15 @@ const Button = styled.button`
   }
 `;
 
-export default function BackButton({ alt }) {
-  const context = useContext(Context);
-  const timeout = useRef(null);
+interface BackButtonProps {
+  alt?: string;
+}
 
-  const onClick = async (e) => {
+export default function BackButton({ alt }: BackButtonProps) {
+  const context = useContext(Context);
+  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const onClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     const initialPage = window.location.href;
     await context.animateOut();
@@ -43,7 +47,7 @@ export default function BackButton({ alt }) {
   };
 
   const onTouchEnd = () => {
-    clearTimeout(timeout.current);
+    if (timeout.current) clearTimeout(timeout.current);
   };
 
   return (

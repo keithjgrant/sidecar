@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { css } from 'styled-components';
+import styled from 'styled-components';
 import Card from './Card';
 import {
   GridForm,
@@ -11,8 +11,9 @@ import {
 } from './forms';
 import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
+import type { Drink } from '../types';
 
-const checkboxStyles = css`
+const CheckboxRow = styled(Checkbox)`
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
@@ -20,6 +21,10 @@ const checkboxStyles = css`
   @media (min-width: 500px) {
     grid-column: 2;
   }
+`;
+
+const SelectStart = styled(Select)`
+  justify-self: start;
 `;
 
 const excludeTags = [
@@ -37,22 +42,27 @@ const excludeTags = [
   'vodka',
 ];
 
-export default function TenBottleBar({ allDrinks, imageMap }) {
+interface TenBottleBarProps {
+  allDrinks: Drink[];
+  imageMap: Record<string, unknown>;
+}
+
+export default function TenBottleBar({ allDrinks, imageMap }: TenBottleBarProps) {
   const params = getParams();
 
   const [vermouth, setVermouth] = useState('sweet');
   const [tenthBottle, setTenthBottle] = useState('none');
-  const [addSyrups, setAddSyrups] = useState(0);
+  const [addSyrups, setAddSyrups] = useState(false);
 
   useEffect(() => {
     if (params.vermouth && params.vermouth !== 'sweet') {
-      setVermouth(params.vermouth);
+      setVermouth(String(params.vermouth));
     }
     if (params.bottle && params.bottle !== 'none') {
-      setTenthBottle(params.bottle);
+      setTenthBottle(String(params.bottle));
     }
     if (params.syrups === '1') {
-      setAddSyrups(1);
+      setAddSyrups(true);
     }
   }, []);
 
@@ -85,10 +95,9 @@ export default function TenBottleBar({ allDrinks, imageMap }) {
               setParam('vermouth', value);
             }}
           />
-          <GridFormLabel htmlFor="tenth-bottle">Tenth bottle</GridFormLabel>
-          <Select
+          <GridFormLabel>Tenth bottle</GridFormLabel>
+          <SelectStart
             id="tenth-bottle"
-            css="justify-self: start"
             options={[
               ['none', 'None'],
               ['absinthe', 'Absinthe'],
@@ -110,21 +119,21 @@ export default function TenBottleBar({ allDrinks, imageMap }) {
               setParam('bottle', value);
             }}
           />
-          <Checkbox
+          <CheckboxRow
             id="include-syrups"
-            css={checkboxStyles}
             checked={addSyrups}
-            onChange={(value) => {
+            onChange={(value: boolean) => {
               setAddSyrups(value);
-              setParam('syrups', 0 + value);
+              setParam('syrups', value ? '1' : '0');
             }}
             label={
-              <SplitLabel htmlFor="include-syrups" heading="Specialty syrups">
+              <SplitLabel heading="Specialty syrups">
                 Include drinks that use homemade specialty or infused syrups
               </SplitLabel>
             }
           />
         </GridForm>
+
       </Card>
       <DrinkList drinks={drinks} imageMap={imageMap} />
     </>
@@ -144,7 +153,7 @@ const fancySyrups = [
 ];
 // non-fancy: simple syrup, demarara, agave
 
-function includesFancySyrups(drink) {
+function includesFancySyrups(drink: Drink): boolean {
   for (let i = 0; i < fancySyrups.length; i++) {
     if (drink.tags.includes(fancySyrups[i])) {
       return true;
@@ -153,12 +162,12 @@ function includesFancySyrups(drink) {
   return false;
 }
 
-function vermouthMatches(type, drink) {
+function vermouthMatches(type: string, drink: Drink): boolean {
   const tag = drink.tags.find((t) => t.endsWith('-vermouth'));
   return !tag || tag === `${type}-vermouth`;
 }
 
-function tenthBottleMatches(exclude, drink) {
+function tenthBottleMatches(exclude: string[], drink: Drink): boolean {
   for (let i = 0; i < exclude.length; i++) {
     if (drink.tags.includes(exclude[i])) {
       return false;

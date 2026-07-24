@@ -44,7 +44,7 @@ const FADE = 'in fade';
 const DURATION = 3000;
 
 interface ToastProps {
-  message: string;
+  message: React.ReactNode;
   onDone: () => void;
 }
 

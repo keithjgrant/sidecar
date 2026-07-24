@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { arrayOf, shape } from 'prop-types';
 import styled from 'styled-components';
 import DrinkItem from './DrinkItem';
 import { ButtonGroup } from '../forms';
 import { getParams, setParam } from '../../util/qs';
+import type { Drink } from '../../types';
+import type { DrinkItemProps } from './DrinkItem';
 
 const List = styled.ul`
   margin: 0;
@@ -28,7 +29,12 @@ const Container = styled.div`
   }
 `;
 
-export default function DrinkList({ drinks, imageMap }) {
+interface DrinkListProps {
+  drinks: Drink[];
+  imageMap: Record<string, unknown>;
+}
+
+export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
   const params = getParams();
 
   const [sortBy, setSortBy] = useState('name');
@@ -59,25 +65,20 @@ export default function DrinkList({ drinks, imageMap }) {
         />
       </Container>
       {!sorted.length ? (
-        <p css="padding: 0 1em">No drinks matched your query</p>
+        <p style={{ padding: '0 1em' }}>No drinks matched your query</p>
       ) : null}
       <List>
         {sorted.map((drink) => {
           const slug = drink.path.replace(/^\/drinks\//, '');
           return (
-            <DrinkItem key={drink.path} drink={drink} image={imageMap[slug]} />
+            <DrinkItem key={drink.path} drink={drink} image={imageMap[slug] as DrinkItemProps['image']} />
           );
         })}
       </List>
     </>
   );
 }
-DrinkList.propTypes = {
-  drinks: arrayOf(shape).isRequired,
-  imageMap: shape().isRequired,
-};
-
-function alphaSort(a, b) {
+function alphaSort(a: Drink, b: Drink) {
   const titleA = a.title.toLowerCase();
   const titleB = b.title.toLowerCase();
   if (titleA < titleB) {
@@ -89,9 +90,9 @@ function alphaSort(a, b) {
   return 0;
 }
 
-function dateSort(a, b) {
-  const aDate = new Date(a.date);
-  const bDate = new Date(b.date);
+function dateSort(a: Drink, b: Drink) {
+  const aDate = new Date(a.date ?? 0);
+  const bDate = new Date(b.date ?? 0);
   if (aDate < bDate) {
     return 1;
   }

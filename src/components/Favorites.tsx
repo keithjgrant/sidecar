@@ -18,14 +18,21 @@ const PwaOnly = styled.div`
   }
 `;
 
-export default function Favorites({ allDrinks, imageMap }) {
-  const [favorites, setFavorites] = useState([]);
+import type { Drink } from '../types';
+
+interface FavoritesProps {
+  allDrinks: Drink[];
+  imageMap: Record<string, unknown>;
+}
+
+export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
+  const [favorites, setFavorites] = useState<Drink[]>([]);
   const [isPersisted, setIsPersisted] = useState(false);
 
   useEffect(() => {
     (async () => {
       const loaded = await db.getFavorites();
-      const drinks = [];
+      const drinks: Drink[] = [];
       loaded.forEach((favorite) => {
         const match = allDrinks.find(
           (d) => d.path === `/drinks/${favorite.name}`
@@ -43,7 +50,7 @@ export default function Favorites({ allDrinks, imageMap }) {
 
   useEffect(() => {
     (async () => {
-      if (navigator.storage && navigator.storage.persist) {
+      if (typeof navigator.storage?.persist === 'function') {
         const persisted = await navigator.storage.persisted();
         setIsPersisted(persisted);
       }
@@ -76,7 +83,7 @@ export default function Favorites({ allDrinks, imageMap }) {
       </p>
       {!isPersisted && (
         <>
-          <p css="display: none">
+          <p style={{ display: 'none' }}>
             Your browser <b>may opt to delete this data</b> later to free up
             storage. Browser storage should be persistent upon{' '}
             <Link to="/installation">installation</Link> of Sidecar to your
@@ -103,6 +110,6 @@ const months = [
   'Dec',
 ];
 
-function formatDate(date) {
+function formatDate(date: Date): string {
   return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 }

@@ -58,7 +58,11 @@ const Toggle = styled.button`
   }
 `;
 
-export default function DrinkTags({ tags = [] }) {
+interface DrinkTagsProps {
+  tags?: string[];
+}
+
+export default function DrinkTags({ tags = [] }: DrinkTagsProps) {
   const showToggle = tags.length > 5;
   const [isExpanded, setIsExpanded] = useState(!showToggle);
   const shownTags = isExpanded ? tags : tags.slice(0, 4);

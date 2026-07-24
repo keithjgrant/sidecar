@@ -138,7 +138,14 @@ const PublishDate = styled.div`
   text-align: right;
 `;
 
-export default function DrinkCard({ drink, imageData }) {
+import type { Drink } from '../../types';
+
+interface DrinkCardProps {
+  drink: Drink;
+  imageData?: { childImageSharp: { gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } };
+}
+
+export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
   return (
     <Main className="h-recipe">
       <Body>

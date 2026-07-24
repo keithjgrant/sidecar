@@ -58,7 +58,12 @@ const Heading = styled.h1`
   }
 `;
 
-export default function ArticleLayout({ title, children }) {
+interface ArticleLayoutProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+export default function ArticleLayout({ title, children }: ArticleLayoutProps) {
   return (
     <PageAnimationWrapper>
       <GrowWrapper>

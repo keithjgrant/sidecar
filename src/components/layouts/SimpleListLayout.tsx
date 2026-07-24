@@ -19,7 +19,12 @@ const Heading = styled(PageHeading)`
   }
 `;
 
-export default function SimpleListLayout({ title, children }) {
+interface SimpleListLayoutProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+export default function SimpleListLayout({ title, children }: SimpleListLayoutProps) {
   return (
     <PageAnimationWrapper>
       <PwaHeader title={title} />

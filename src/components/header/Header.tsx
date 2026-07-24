@@ -24,7 +24,11 @@ const HeaderBar = styled.header`
   }
 `;
 
-export default function Header({ isHome }) {
+interface HeaderProps {
+  isHome?: boolean;
+}
+
+export default function Header({ isHome }: HeaderProps) {
   return (
     <HeaderBar>
       <Logo isHome={isHome} />

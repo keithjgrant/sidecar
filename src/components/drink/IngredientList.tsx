@@ -40,17 +40,24 @@ const Label = styled.span`
   letter-spacing: 0.02em;
 `;
 
+interface IngredientListProps {
+  items?: string[];
+  garnish?: string;
+  isBeneathIntro?: boolean;
+  className?: string;
+}
+
 export default function IngredientList({
   items = [],
   garnish,
   isBeneathIntro,
   className,
-}) {
+}: IngredientListProps) {
   if (!items) {
     return null;
   }
   return (
-    <Ingredients isBeneathIntro={isBeneathIntro} className={className}>
+    <Ingredients className={className}>
       {items.map((ingredient, i) => (
         <Ingredient key={i} className="p-ingredient">
           <InlineMarkdown>{ingredient}</InlineMarkdown>

@@ -45,10 +45,16 @@ const SvgWrapper = styled.div`
   }
 `;
 
-export default function CocktailImage({ drink, imageData }) {
-  let { image, glass } = drink;
-  // TODO: share lookup function with ../CocktailThumbnail and ResultImage?
-  const GlassSvg = glasses[glass] || glasses.rocks;
+import type { Drink } from '../../types';
+
+interface CocktailImageProps {
+  drink: Drink;
+  imageData?: { childImageSharp: { gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } };
+}
+
+export default function CocktailImage({ drink, imageData }: CocktailImageProps) {
+  const { image, glass } = drink;
+  const GlassSvg = glasses[glass as keyof typeof glasses] || glasses.rocks;
 
   return (
     <Wrapper>

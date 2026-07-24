@@ -2,8 +2,14 @@ import React from 'react';
 import { Indicator, Caption } from './Indicator';
 import glasses from '../svg/glasses';
 
-export default function GlassType({ drink }) {
-  const GlassSvg = glasses[drink.glass];
+import type { Drink } from '../../types';
+
+interface GlassTypeProps {
+  drink: Drink;
+}
+
+export default function GlassType({ drink }: GlassTypeProps) {
+  const GlassSvg = glasses[drink.glass as keyof typeof glasses];
   if (!GlassSvg) {
     return null;
   }
