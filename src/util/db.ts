@@ -1,13 +1,18 @@
-import { openDB } from 'idb'; // /with-async-ittr.js';
+import { openDB, IDBPDatabase } from 'idb';
 
-const ready = new Promise((resolve) => {
+interface Favorite {
+  name: string;
+  date: Date;
+}
+
+const ready = new Promise<IDBPDatabase>((resolve) => {
   if (typeof indexedDB === 'undefined') {
     return;
   }
   connect().then(resolve);
 });
 
-async function connect() {
+async function connect(): Promise<IDBPDatabase> {
   return openDB('Sidecar', 1, {
     upgrade(database) {
       const store = database.createObjectStore('favorites', {
@@ -18,7 +23,7 @@ async function connect() {
   });
 }
 
-async function addFavorite(drinkName) {
+async function addFavorite(drinkName: string) {
   const db = await ready;
   return db.add('favorites', {
     name: drinkName,
@@ -26,12 +31,12 @@ async function addFavorite(drinkName) {
   });
 }
 
-const deleteFavorite = async (drinkName) => {
+const deleteFavorite = async (drinkName: string): Promise<void> => {
   const db = await ready;
   await db.delete('favorites', drinkName);
 };
 
-const getFavorites = async () => {
+const getFavorites = async (): Promise<Favorite[]> => {
   const db = await ready;
   return db.getAllFromIndex('favorites', 'name');
 };
@@ -54,7 +59,7 @@ const getFavorites = async () => {
 //   await tx.done;
 // };
 
-const getFavorite = async (drinkName) => {
+const getFavorite = async (drinkName: string): Promise<Favorite | undefined> => {
   if (!drinkName) return;
   const db = await ready;
   return db.get('favorites', drinkName);

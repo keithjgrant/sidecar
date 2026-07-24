@@ -1,6 +1,6 @@
 import qs from 'querystring';
 
-export function getParams() {
+export function getParams(): qs.ParsedUrlQuery {
   if (typeof window === 'undefined' || typeof window.location === 'undefined') {
     return {};
   }
@@ -8,7 +8,7 @@ export function getParams() {
   return qs.parse(search.replace(/^\?/, ''));
 }
 
-export function setParam(key, value) {
+export function setParam(key: string, value: string): void {
   if (typeof window === 'undefined' || typeof window.location === 'undefined') {
     return;
   }
@@ -17,5 +17,5 @@ export function setParam(key, value) {
     ...getParams(),
     [key]: encodeURIComponent(value),
   });
-  window.history.replaceState({}, null, `${window.location.pathname}?${q}`);
+  window.history.replaceState({}, '', `${window.location.pathname}?${q}`);
 }

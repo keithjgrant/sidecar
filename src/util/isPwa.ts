@@ -1,4 +1,4 @@
-export default function isPwa() {
+export default function isPwa(): boolean {
   if (typeof window === 'undefined') {
     return false;
   }
@@ -7,7 +7,7 @@ export default function isPwa() {
   }
   return (
     window.matchMedia('(display-mode: standalone)').matches ||
-    window.navigator.standalone ||
+    (navigator as Navigator & { standalone?: boolean }).standalone ||
     document.referrer.includes('android-app://')
   );
 }
