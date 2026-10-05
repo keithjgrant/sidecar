@@ -7,14 +7,17 @@ sweetness: 2
 booziness: 2
 family: sidecar
 ingredients: [
-  "1½ oz cognac",
+  "1 oz cognac",
   "1 oz dry curaçao",
   "½ oz lemon juice",
+  "½ oz simple syrup",
 ]
 garnish: sugared rim and an orange twist, discarded
 tags: [
   ten-bottle-bar,
   classic-cocktail,
+  polished-recipe,
+  cognac,
   brandy,
   dry-curacao,
   curacao,
@@ -26,8 +29,8 @@ tenBottleCandidate: true
 intro: |
   A good sidecar requires decent quality cognac. A cheap brandy won’t cut it here.
 ---
-Rim a coupe glass with sugar.
+Rim a coupe glass with sugar and chill it in the freezer.
 
-Shake vigorously with ice. Strain into the prepared coupe.
+Add ingredients to a shaker and shake vigorously with ice. Strain into the prepared coupe.
 
 Express the oils from an orange twist over the drink, then [discard the peel](/techniques/twist/#discarding).
