@@ -16,6 +16,7 @@ garnish: lemon twist
 tags: [
   cognac,
   brandy,
+  triple-sec,
   orange-liqueur,
   suze,
   absinthe,

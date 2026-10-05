@@ -8,7 +8,7 @@ booziness: 2
 family:
 ingredients: [
   "2 oz apple brandy or applejack",
-  "½ oz orange liqueur",
+  "½ oz curaçao",
   "½ oz Bénédictine",
   "½ oz lemon juice",
 ]
@@ -17,6 +17,7 @@ tags: [
   fruity,
   benedictine,
   apple-brandy,
+  curacao,
   orange-liqueur,
   lemon,
   shaken,

@@ -8,8 +8,8 @@ booziness: 2
 family: sidecar
 ingredients: [
   "1 oz peaty scotch",
-  "¾ oz apple brandy",
-  "½ oz orange liqueur",
+  "¾ oz apple brandy/straight applejack",
+  "½ oz orange curaçao",
   "½ oz [honey syrup](/ingredients/honey-syrup)",
   "¾ oz lemon juice",
 ]
@@ -20,6 +20,7 @@ tags: [
   scotch,
   whiskey,
   apple-brandy,
+  curacao,
   orange-liqueur,
   honey,
   lemon,

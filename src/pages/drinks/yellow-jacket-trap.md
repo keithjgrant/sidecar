@@ -8,7 +8,7 @@ booziness: 1
 family:
 ingredients: [
   "2 oz tequila",
-  "¾ oz orange liqueur",
+  "¾ oz triple sec",
   "1 oz lemon juice",
   "½ oz blackberry syrup",
 ]
@@ -18,6 +18,7 @@ tags: [
   summer,
   refreshing,
   tequila,
+  triple-sec,
   orange-liqueur,
   lemon,
   blackberry,

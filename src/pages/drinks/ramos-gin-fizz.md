@@ -7,8 +7,8 @@ sweetness: 3
 booziness: 1
 family: sour
 ingredients: [
-  "1½ oz Old Tom gin or Plymouth gin",
-  "¾ oz orange liqueur",
+  "1½ oz old tom gin or Plymouth gin",
+  "¾ oz triple sec",
   "⅜ oz lemon juice",
   "⅜ oz lime juice",
   "¾ oz demerara syrup",
@@ -25,6 +25,7 @@ tags: [
   gin,
   old-tom-gin,
   plymouth-gin,
+  triple-sec,
   orange-liqueur,
   lemon,
   lime,

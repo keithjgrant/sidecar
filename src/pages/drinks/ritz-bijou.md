@@ -9,7 +9,7 @@ family: martini
 ingredients: [
   "2 oz London dry gin",
   "1 oz dry vermouth",
-  "½ oz orange liqueur",
+  "½ oz orange curacao",
   "3 dashes rosemary bitters"
 ]
 garnish: rosemary sprig
@@ -17,6 +17,7 @@ tags: [
   gin,
   london-dry-gin,
   dry-vermouth,
+  curacao,
   orange-liqueur,
   rosemary,
   stirred,

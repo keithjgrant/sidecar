@@ -18,6 +18,8 @@ tags: [
   tiki,
   gin,
   london-dry-gin,
+  dry-curacao,
+  curacao,
   orange-liqueur,
   orgeat,
   strawberry,

@@ -8,7 +8,7 @@ booziness: 2
 family: flip
 ingredients: [
   "1 oz brandy",
-  "1 oz orange liqueur",
+  "1 oz orange curaçao",
   "¼ oz lemon juice",
   "¼ oz simple syrup",
   "1 whole egg"
@@ -18,6 +18,7 @@ tags: [
   "ten-bottle-bar",
   "winter",
   "brandy",
+  "curacao",
   "orange-liqueur",
   "lemon",
   "egg",
@@ -28,8 +29,8 @@ image:
   alt: "A creamy-looking egg sour, filling a small coupe glass to the brim"
   align: "50% 40%"
 tenBottleCandidate: true
-intro: One of my wintertime favorites. Works best with higher quality brandy and orange liqueur.
+intro: One of my wintertime favorites. Works best with higher quality brandy and curaçao.
 ---
-Add everything except nutmeg to a cocktail shaker. [Dry shake](/techniques/shaking/#dry-shaking); add ice and shake. [Double-strain](/techniques/straining/#double-straining) into a coupe glass.
+Add all ingredients to a cocktail shaker. [Dry shake](/techniques/shaking/#dry-shaking); add ice and shake. [Double-strain](/techniques/straining/#double-straining) into a coupe glass.
 
 Garnish with freshly-grated nutmeg.

@@ -8,15 +8,16 @@ booziness: 3
 family: old fashioned
 ingredients: [
   "2 oz brandy",
-  "½ oz Dry Curaçao orange liqueur",
+  "½ oz dry curaçao orange liqueur",
   "3 dashes Angostura bitters"
 ]
 garnish: maraschino cherry
 tags: [
   "ten-bottle-bar",
   "brandy",
-  "orange-liqueur",
   "dry-curacao",
+  "curacao",
+  "orange-liqueur",
   "stirred"
 ]
 tenBottleCandidate: true

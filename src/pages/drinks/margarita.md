@@ -8,7 +8,7 @@ booziness: 2
 family: sidecar
 ingredients: [
   "2 oz tequila",
-  "¾ oz orange liqueur",
+  "¾ oz triple sec",
   "¾ oz lime juice",
   "¼ oz light agave syrup",
   "5 drops saline or small pinch of salt",
@@ -20,6 +20,7 @@ tags: [
   polished-recipe,
   classic-cocktail,
   tequila,
+  triple-sec,
   orange-liqueur,
   lime,
   shaken,

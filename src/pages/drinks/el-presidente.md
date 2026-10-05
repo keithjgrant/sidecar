@@ -9,7 +9,7 @@ family: martini
 ingredients: [
   "1½ oz white rum (high quality)",
   "¾ oz blanc vermouth",
-  "¼ oz dry curaçao or orange liqueur",
+  "¼ oz dry curaçao",
   "1 barspoon grenadine"
 ]
 garnish: orange twist and a cocktail cherry
@@ -17,6 +17,8 @@ tags: [
   rum,
   white-rum,
   blanc-vermouth,
+  dry-curacao,
+  curacao,
   orange-liqueur,
   grenadine,
   stirred,

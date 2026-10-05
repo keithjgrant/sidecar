@@ -16,6 +16,8 @@ garnish: orange twist, discarded
 tags: [
   rum,
   spiced-rum,
+  dry-curacao,
+  curacao,
   orange-liqueur,
   lemon,
   shaken

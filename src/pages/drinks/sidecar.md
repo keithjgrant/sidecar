@@ -16,6 +16,8 @@ tags: [
   ten-bottle-bar,
   classic-cocktail,
   brandy,
+  dry-curacao,
+  curacao,
   orange-liqueur,
   lemon,
   shaken,

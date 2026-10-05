@@ -10,7 +10,7 @@ ingredients: [
   "¾ oz gin",
   "¾ oz Lillet Blanc or blanc vermouth",
   "¾ oz lemon juice",
-  "¾ oz orange liqueur",
+  "¾ oz triple sec",
   "absinthe rinse",
 ]
 garnish: orange twist
@@ -22,6 +22,7 @@ tags: [
   blanc-vermouth,
   lemon,
   absinthe,
+  triple-sec,
   orange-liqueur,
   shaken,
 ]

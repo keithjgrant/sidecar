@@ -8,15 +8,17 @@ booziness: 2
 family: martini
 ingredients: [
   "1½ oz Cachaça",
-  "¾ oz orange curaçao",
-  "¾ oz sweet vermouth",
-  "⅙ oz rich simple syrup",
+  "¾ oz dry curaçao",
+  "¾ oz Punt E Mes or sweet vermouth",
   "½ barspoon Fernet Branca",
+  "⅙ oz rich simple syrup",
 ]
 garnish: orange twist
 tags: [
   cachaca,
+  dry-curacao,
   orange-liqueur,
+  punt-e-mes,
   sweet-vermouth,
   fernet-branca,
   stirred,

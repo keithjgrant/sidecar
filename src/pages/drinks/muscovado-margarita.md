@@ -8,7 +8,7 @@ booziness:
 family: sidecar
 ingredients: [
   "1½ oz mezcal",
-  "¾ oz dry curaçao or other orange liqueur",
+  "¾ oz dry curaçao",
   "1 oz lime juice",
   "½ oz muscovado syrup*"
 ]
@@ -17,6 +17,8 @@ tags: [
   margarita,
   winter,
   mezcal,
+  dry-curacao,
+  curacao,
   orange-liqueur,
   lime,
   muscovado-syrup,

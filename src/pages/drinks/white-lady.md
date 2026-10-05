@@ -8,7 +8,7 @@ booziness: 2
 family: sidecar
 ingredients: [
   "2 oz gin",
-  "½ oz orange liqueur",
+  "½ oz triple sec",
   "¾ oz lemon juice",
   "¼ oz simple syrup",
   "1 egg white",
@@ -17,6 +17,7 @@ garnish:
 tags: [
   ten-bottle-bar,
   gin,
+  triple-sec,
   orange-liqueur,
   egg,
   shaken,

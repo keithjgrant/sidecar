@@ -17,9 +17,9 @@ tags: [
   margarita,
   tequila,
   ginger,
-  lime,
   triple-sec,
   orange-liqueur,
+  lime,
   shaken,
 ]
 featured:
