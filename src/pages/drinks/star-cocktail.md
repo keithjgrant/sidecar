@@ -7,10 +7,9 @@ sweetness: 2
 booziness: 3
 family: martini
 ingredients: [
-  "1½ oz apple brandy",
+  "1½ oz straight applejack or apple brandy",
   "1½ oz sweet vermouth",
   "3 dashes Angostura bitters",
-  "1 barspoon simple syrup",
 ]
 garnish: lemon twist
 tags: [
