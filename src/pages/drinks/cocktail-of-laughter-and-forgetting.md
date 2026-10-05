@@ -5,7 +5,7 @@ date: 2026-10-05T14:19:57-07:00
 glass: coupe
 sweetness: 1
 booziness: 2
-family: sour
+family: sidecar
 ingredients: [
   "1½ oz Cynar",
   "½ oz Green Chartreuse",
