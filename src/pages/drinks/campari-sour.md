@@ -27,7 +27,7 @@ tags: [
 ]
 featured:
 tenBottleCandidate: true
-source:
+source: https://punchdrink.com/recipes/campari-sour/
 intro:
 
 ---

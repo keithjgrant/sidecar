@@ -20,7 +20,7 @@ tags: [
   blackberry,
   stirred,
 ]
-featured: true
+featured: 
 tenBottleCandidate:
 
 ---

@@ -22,7 +22,7 @@ tags: [
   shaken,
   muddled,
 ]
-featured: true
+featured: 
 tenBottleCandidate:
 source: https://youtu.be/1kKgoGVVFmc
 intro: The original recipe calls for green grapes, but red grapes work as well.
