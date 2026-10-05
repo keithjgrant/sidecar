@@ -1,4 +1,4 @@
 ---
 path: "/_tags/rhum-agricole"
 ---
-See also [Cachaca](/tags/cachaca)
+See also [cachaca](/tags/cachaca)
