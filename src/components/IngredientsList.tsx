@@ -19,6 +19,11 @@ export default function IngredientsIndex() {
         <li>
           <TileLink href="/ingredients/gin">Gin</TileLink>
         </li>
+        <li>
+          <TileLink href="/ingredients/orange-liqueur">
+            Orange Liqueur
+          </TileLink>
+        </li>
       </TileLinkList>
       <SectionHeading>Syrups</SectionHeading>
       <TileLinkList>

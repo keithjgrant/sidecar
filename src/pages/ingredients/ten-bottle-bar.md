@@ -83,7 +83,7 @@ I generally shop by price on this one.
 Some I’ve found myself coming back to when the price is right are Camarena and Lunazul.
 
 ## 7. Orange Liqueur
-As an essential ingredient for a [margarita](/drinks/margarita) or [sidecar](/drinks/sidecar), orange liqueur is a must in every home bar. Unfortunately, just like so many other sprits on this list, the variety of styles of this spirit make for complicated decision making. There are triple secs, brandy-based options like Grand Marnier, and dry curaçaos.
+As an essential ingredient for a [margarita](/drinks/margarita) or [sidecar](/drinks/sidecar), [orange liqueur](/ingredients/orange-liqueur) is a must in every home bar. Unfortunately, like so many other sprits on this list, the variety of styles of this spirit make for complicated decision making. There are triple secs, brandy-based options like Grand Marnier, and dry curaçaos.
 
 I have eventually decided to not overthink it too much.
 Some styles will work better in some drinks; other styles in other drinks.
