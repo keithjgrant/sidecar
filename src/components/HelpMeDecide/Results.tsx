@@ -4,6 +4,7 @@ import ResultItem from './ResultItem';
 import type { ResultImageProps } from './ResultImage';
 import getWeightedRandom from './getWeightedRandom';
 import type { ScoredDrink } from './getWeightedRandom';
+import { scoreAndCutoff } from './scoreAnswers';
 import type { DecideDrink, QuestionDef } from './types';
 
 const Header = styled.div`
@@ -43,7 +44,6 @@ const ResultsList = styled.ul`
   }
 `;
 
-const CUTOFF = 3;
 const NUM_RESULTS = 3;
 
 interface ResultsProps {
@@ -54,12 +54,10 @@ interface ResultsProps {
 }
 
 export default function Results({ drinks, questions, answers, imageMap }: ResultsProps) {
-  const results = useMemo(() => {
-    const scored = questions.reduce((acc, question, index) => {
-      return question.score(acc, answers[index]);
-    }, drinks);
-    return (scored as ScoredDrink[]).filter((d) => d.score >= CUTOFF);
-  }, [answers]);
+  const results = useMemo(
+    () => scoreAndCutoff(drinks, questions, answers),
+    [answers],
+  );
 
   const [weightedSelection, setWeightedSelection] = useState<ScoredDrink[]>([]);
 

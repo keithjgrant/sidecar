@@ -6,6 +6,7 @@ import { GridForm, GridFormLabel, ButtonGroup } from './forms';
 import CollapsibleSection from './CollapsibleSection';
 import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
+import { filterDrinks, type DrinkWithFamily } from '../util/drinkFilters';
 
 const Toggle = styled.button<{ $isExpanded?: boolean }>`
   position: relative;
@@ -40,12 +41,6 @@ const Controls = styled.div`
   }
 `;
 
-import type { Drink } from '../types';
-
-interface DrinkWithFamily extends Drink {
-  family?: string;
-}
-
 interface ExploreProps {
   drinks: DrinkWithFamily[];
   imageMap: Record<string, unknown>;
@@ -67,7 +62,7 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
     }
   }, []);
 
-  const filtered = drinks.filter(byBase(base)).filter(byFamily(family));
+  const filtered = filterDrinks(drinks, base, family);
   return (
     <>
       <CollapsibleSection
@@ -131,12 +126,4 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
       <DrinkList drinks={filtered} imageMap={imageMap} />
     </>
   );
-}
-
-function byBase(base: string) {
-  return (drink: DrinkWithFamily) => base === 'all' || drink.tags.includes(base);
-}
-
-function byFamily(family: string) {
-  return (drink: DrinkWithFamily) => family === 'all' || drink.family === family;
 }

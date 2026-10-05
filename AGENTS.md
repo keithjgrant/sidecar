@@ -20,3 +20,7 @@ Tags in drink markdown files should be ordered to keep the most useful informati
 2. **Ingredient tags** — spirits, modifiers, syrups (e.g. `bourbon`, `campari`, `sweet-vermouth`, `demerara`)
 3. **Citrus** — (e.g. `lemon`, `lime`, `grapefruit`)
 4. **Technique** last — `stirred`, `shaken`, `built`, `muddled`
+
+## Unit test naming
+
+Phrase all Vitest `it(...)` names to begin with `"should"` (e.g. `it('should return true when lists share an element', ...)`).

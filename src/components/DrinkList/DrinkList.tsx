@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import DrinkItem from './DrinkItem';
 import { ButtonGroup } from '../forms';
 import { getParams, setParam } from '../../util/qs';
+import { sortDrinks } from '../../util/drinkSort';
 import type { Drink } from '../../types';
 import type { DrinkItemProps } from './DrinkItem';
 
@@ -45,8 +46,7 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
     }
   }, []);
 
-  const sorted =
-    sortBy === 'date' ? drinks.sort(dateSort) : drinks.sort(alphaSort);
+  const sorted = sortDrinks(drinks, sortBy);
   return (
     <>
       <Container>
@@ -77,27 +77,4 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
       </List>
     </>
   );
-}
-function alphaSort(a: Drink, b: Drink) {
-  const titleA = a.title.toLowerCase();
-  const titleB = b.title.toLowerCase();
-  if (titleA < titleB) {
-    return -1;
-  }
-  if (titleA > titleB) {
-    return 1;
-  }
-  return 0;
-}
-
-function dateSort(a: Drink, b: Drink) {
-  const aDate = new Date(a.date ?? 0);
-  const bDate = new Date(b.date ?? 0);
-  if (aDate < bDate) {
-    return 1;
-  }
-  if (aDate > bDate) {
-    return -1;
-  }
-  return 0;
 }
