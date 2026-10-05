@@ -15,6 +15,7 @@ garnish: fresh grated nutmeg
 tags: [
   ten-bottle-bar,
   sweet,
+  cognac,
   brandy,
   cream,
   shaken,

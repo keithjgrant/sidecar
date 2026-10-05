@@ -17,6 +17,7 @@ garnish: lemon twist, discarded
 tags: [
   aperitif,
   herbal,
+  cognac,
   brandy,
   green-chartreuse,
   lemon,

@@ -20,6 +20,7 @@ tags: [
   benedictine,
   rye-whiskey,
   whiskey,
+  cognac,
   brandy,
   sweet-vermouth,
   stirred,
