@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { byTagQuery, filterTags } from './tagFilters';
+import { byTagKind, byTagQuery, filterTags } from './tagFilters';
 
 describe('byTagQuery', () => {
   it('should keep every tag when query is empty or whitespace', () => {
@@ -18,12 +18,42 @@ describe('byTagQuery', () => {
   });
 });
 
-describe('filterTags', () => {
-  it('should return matching tags', () => {
-    expect(filterTags(['lemon', 'lime', 'gin'], 'l')).toEqual(['lemon', 'lime']);
+describe('byTagKind', () => {
+  it('should keep every tag when kind is all', () => {
+    const tags = ['gin', 'lemon', 'stirred', 'campari'];
+    expect(tags.filter(byTagKind('all'))).toEqual(tags);
   });
 
-  it('should return all tags when query is empty', () => {
+  it('should keep only tags of the selected kind', () => {
+    const tags = ['gin', 'lemon', 'stirred', 'campari'];
+    expect(tags.filter(byTagKind('spirit'))).toEqual(['gin']);
+    expect(tags.filter(byTagKind('citrus'))).toEqual(['lemon']);
+    expect(tags.filter(byTagKind('technique'))).toEqual(['stirred']);
+    expect(tags.filter(byTagKind('other'))).toEqual(['campari']);
+  });
+});
+
+describe('filterTags', () => {
+  const tags = ['gin', 'ginger', 'lemon', 'lime', 'stirred', 'campari'];
+
+  it('should return matching tags by query alone', () => {
+    expect(filterTags(tags, 'l')).toEqual(['lemon', 'lime']);
+  });
+
+  it('should return all tags when query is empty and kind is all', () => {
     expect(filterTags(['a', 'b'], '')).toEqual(['a', 'b']);
+  });
+
+  it('should filter by kind alone when query is empty', () => {
+    expect(filterTags(tags, '', 'citrus')).toEqual(['lemon', 'lime']);
+  });
+
+  it('should apply kind and query together', () => {
+    expect(filterTags(tags, 'g', 'spirit')).toEqual(['gin']);
+    expect(filterTags(tags, 'g', 'other')).toEqual(['ginger']);
+  });
+
+  it('should return an empty list when kind and query exclude each other', () => {
+    expect(filterTags(tags, 'campari', 'spirit')).toEqual([]);
   });
 });

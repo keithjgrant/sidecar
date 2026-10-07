@@ -25,3 +25,22 @@ export const TECHNIQUE_TAGS = [
  * have more than one technique tag.
  */
 export const PREP_METHOD_PRIORITY = ['shaken', 'stirred', 'built'] as const;
+
+export type TagKind = 'spirit' | 'citrus' | 'technique' | 'other';
+
+const BASE_SPIRIT_SET = new Set<string>(BASE_SPIRITS);
+const CITRUS_SET = new Set<string>(CITRUS_TAGS);
+const TECHNIQUE_SET = new Set<string>(TECHNIQUE_TAGS);
+
+export function getTagKind(tag: string): TagKind {
+  if (BASE_SPIRIT_SET.has(tag)) {
+    return 'spirit';
+  }
+  if (CITRUS_SET.has(tag)) {
+    return 'citrus';
+  }
+  if (TECHNIQUE_SET.has(tag)) {
+    return 'technique';
+  }
+  return 'other';
+}

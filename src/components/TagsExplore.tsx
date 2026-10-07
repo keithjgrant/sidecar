@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import Card from './Card';
-import { GridForm, GridFormLabel, TextInput } from './forms';
+import { GridForm, GridFormLabel, ButtonGroup, TextInput } from './forms';
 import CollapsibleSection from './CollapsibleSection';
 import TagList from './TagList';
 import { getParams, setParam } from '../util/qs';
-import { filterTags } from '../util/tagFilters';
+import { filterTags, type TagKind } from '../util/tagFilters';
 
 const FilterBar = styled.div`
   margin-bottom: var(--gap-size);
@@ -35,6 +35,14 @@ const Toggle = styled.button<{ $isExpanded?: boolean }>`
     `}
 `;
 
+const KIND_OPTIONS: Array<TagKind | 'all'> = [
+  'all',
+  'spirit',
+  'citrus',
+  'technique',
+  'other',
+];
+
 interface TagsExploreProps {
   tags: string[];
 }
@@ -42,15 +50,19 @@ interface TagsExploreProps {
 export default function TagsExplore({ tags }: TagsExploreProps) {
   const params = getParams();
   const [query, setQuery] = useState('');
-  const filtersSet = !!params.q;
+  const [kind, setKind] = useState<TagKind | 'all'>('all');
+  const filtersSet = !!(params.q || (params.kind && params.kind !== 'all'));
 
   useEffect(() => {
     if (params.q) {
       setQuery(decodeURIComponent(String(params.q)));
     }
+    if (params.kind && KIND_OPTIONS.includes(String(params.kind) as TagKind | 'all')) {
+      setKind(String(params.kind) as TagKind | 'all');
+    }
   }, []);
 
-  const filtered = filterTags(tags, query);
+  const filtered = filterTags(tags, query, kind);
 
   return (
     <>
@@ -78,6 +90,16 @@ export default function TagsExplore({ tags }: TagsExploreProps) {
                 onChange={(value) => {
                   setQuery(value);
                   setParam('q', value);
+                }}
+              />
+              <GridFormLabel>Kind</GridFormLabel>
+              <ButtonGroup
+                name="kind"
+                value={kind}
+                options={KIND_OPTIONS}
+                onChange={(value) => {
+                  setKind(value as TagKind | 'all');
+                  setParam('kind', value);
                 }}
               />
             </GridForm>
