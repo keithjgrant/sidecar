@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PREP_METHOD_PRIORITY } from '../../util/tagTaxonomy';
 
 const Label = styled.div`
   margin-top: 28px;
@@ -15,16 +16,7 @@ const Label = styled.div`
 `;
 
 function getMethod(tags: string[]) {
-  if (tags.includes('shaken')) {
-    return 'shaken';
-  }
-  if (tags.includes('stirred')) {
-    return 'stirred';
-  }
-  if (tags.includes('built')) {
-    return 'built';
-  }
-  return '';
+  return PREP_METHOD_PRIORITY.find((method) => tags.includes(method)) ?? '';
 }
 
 interface PrepMethodProps {

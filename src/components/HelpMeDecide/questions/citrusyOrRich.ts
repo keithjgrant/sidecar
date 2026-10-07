@@ -1,5 +1,6 @@
 import { doListsIntersect } from '../util';
 import type { DecideDrink, QuestionDef, ScoredDecideDrink } from '../types';
+import { CITRUS_TAGS } from '../../../util/tagTaxonomy';
 
 const citrusyOrRich: QuestionDef = {
   key: 'citrusy',
@@ -35,7 +36,7 @@ function scoreDrink(drink: DecideDrink, answer: string): number {
   const unit = answer === 'citrusy' ? 1 : -1;
 
   // Strong citrus indicators (±5)
-  if (doListsIntersect(drink.tags, ['lemon', 'lime', 'grapefruit', 'orange'])) {
+  if (doListsIntersect(drink.tags, [...CITRUS_TAGS])) {
     score += unit * 4;
 
     if (drink.tags.includes('meyer-lemon')) {

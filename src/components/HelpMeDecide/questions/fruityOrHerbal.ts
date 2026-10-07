@@ -1,5 +1,6 @@
 import { hasIngredientsContaining, doListsIntersect } from '../util';
 import type { DecideDrink, QuestionDef, ScoredDecideDrink } from '../types';
+import { CITRUS_TAGS } from '../../../util/tagTaxonomy';
 
 const fruityOrHerbal: QuestionDef = {
   key: 'fruity',
@@ -72,7 +73,7 @@ function scoreDrink(drink: DecideDrink, answer: string): number {
   // this could perphaps be tweaked further
 
   // citrus
-  if (doListsIntersect(drink.tags, ['lemon', 'lime', 'grapefruit', 'orange'])) {
+  if (doListsIntersect(drink.tags, [...CITRUS_TAGS])) {
     score += unit * 3;
   }
 

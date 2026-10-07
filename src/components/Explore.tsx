@@ -7,6 +7,7 @@ import CollapsibleSection from './CollapsibleSection';
 import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
 import { filterDrinks, type DrinkWithFamily } from '../util/drinkFilters';
+import { BASE_SPIRITS } from '../util/tagTaxonomy';
 
 const Toggle = styled.button<{ $isExpanded?: boolean }>`
   position: relative;
@@ -106,16 +107,7 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
             <ButtonGroup
               name="base"
               value={base}
-              options={[
-                'all',
-                'brandy',
-                'gin',
-                'mezcal',
-                'rum',
-                'tequila',
-                'vodka',
-                'whiskey',
-              ]}
+              options={['all', ...BASE_SPIRITS]}
               onChange={(value) => {
                 setBase(value);
                 setParam('base', value);
