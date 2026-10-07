@@ -34,4 +34,8 @@ ten-bottle-bar tag
 # TODO
 
 [] Navigation improvements (scrub through alphabet)
+[] clean up `amaro` tag. either apply it everywhere or remove it from Paper Plane
+[] merge `fernet` and `fernet-branca` tags
+[] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
+[] `anise` tag?
 [] Rework homescreen; add Tags & replace featured drinks with feature bottle link

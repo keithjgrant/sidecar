@@ -20,21 +20,49 @@ describe('byTagQuery', () => {
 
 describe('byTagKind', () => {
   it('should keep every tag when kind is all', () => {
-    const tags = ['gin', 'lemon', 'stirred', 'campari'];
+    const tags = ['gin', 'campari', 'honey', 'bitter', 'sweet-vermouth'];
     expect(tags.filter(byTagKind('all'))).toEqual(tags);
   });
 
   it('should keep only tags of the selected kind', () => {
-    const tags = ['gin', 'lemon', 'stirred', 'campari'];
-    expect(tags.filter(byTagKind('spirit'))).toEqual(['gin']);
+    const tags = [
+      'gin',
+      'rye-whiskey',
+      'campari',
+      'curacao',
+      'sweet-vermouth',
+      'honey',
+      'lemon',
+      'bitter',
+      'stirred',
+      'negroni',
+    ];
+    expect(tags.filter(byTagKind('spirit'))).toEqual(['gin', 'rye-whiskey']);
+    expect(tags.filter(byTagKind('amaro'))).toEqual(['campari']);
+    expect(tags.filter(byTagKind('liqueur'))).toEqual(['curacao']);
+    expect(tags.filter(byTagKind('vermouth'))).toEqual(['sweet-vermouth']);
+    expect(tags.filter(byTagKind('syrup'))).toEqual(['honey']);
     expect(tags.filter(byTagKind('citrus'))).toEqual(['lemon']);
+    expect(tags.filter(byTagKind('flavor'))).toEqual(['bitter']);
     expect(tags.filter(byTagKind('technique'))).toEqual(['stirred']);
-    expect(tags.filter(byTagKind('other'))).toEqual(['campari']);
+    expect(tags.filter(byTagKind('other'))).toEqual(['negroni']);
   });
 });
 
 describe('filterTags', () => {
-  const tags = ['gin', 'ginger', 'lemon', 'lime', 'stirred', 'campari'];
+  const tags = [
+    'gin',
+    'ginger',
+    'rye-whiskey',
+    'lemon',
+    'lime',
+    'stirred',
+    'campari',
+    'curacao',
+    'honey',
+    'bitter',
+    'sweet-vermouth',
+  ];
 
   it('should return matching tags by query alone', () => {
     expect(filterTags(tags, 'l')).toEqual(['lemon', 'lime']);
@@ -46,6 +74,10 @@ describe('filterTags', () => {
 
   it('should filter by kind alone when query is empty', () => {
     expect(filterTags(tags, '', 'citrus')).toEqual(['lemon', 'lime']);
+    expect(filterTags(tags, '', 'amaro')).toEqual(['campari']);
+    expect(filterTags(tags, '', 'syrup')).toEqual(['honey']);
+    expect(filterTags(tags, '', 'flavor')).toEqual(['bitter']);
+    expect(filterTags(tags, '', 'vermouth')).toEqual(['sweet-vermouth']);
   });
 
   it('should apply kind and query together', () => {

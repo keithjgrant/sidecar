@@ -38,7 +38,12 @@ const Toggle = styled.button<{ $isExpanded?: boolean }>`
 const KIND_OPTIONS: Array<TagKind | 'all'> = [
   'all',
   'spirit',
+  'amaro',
+  'liqueur',
+  'vermouth',
+  'syrup',
   'citrus',
+  'flavor',
   'technique',
   'other',
 ];
