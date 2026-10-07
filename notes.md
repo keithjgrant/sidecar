@@ -29,3 +29,9 @@ ten-bottle-bar tag
 •  Purpose: Used for runtime filtering logic within the TenBottleBar component
 •  Used in: src/components/TenBottleBar.js (line 61): if (drink.tags.includes('ten-bottle-bar'))
 •  Function: Fine-grained filtering based on user selections (vermouth type, tenth bottle choice, etc.)
+
+
+# TODO
+
+[] Navigation improvements (scrub through alphabet)
+[] Rework homescreen; add Tags & replace featured drinks with feature bottle link
