@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   byBase,
   byFamily,
+  byQuery,
   filterDrinks,
   type DrinkWithFamily,
 } from './drinkFilters';
@@ -69,17 +70,58 @@ describe('byFamily', () => {
   });
 });
 
+describe('byQuery', () => {
+  it('should keep every drink when query is empty or whitespace', () => {
+    const drinks = [
+      drink({ path: '/a', title: 'Negroni' }),
+      drink({ path: '/b', title: 'Martini' }),
+    ];
+    expect(drinks.filter(byQuery(''))).toHaveLength(2);
+    expect(drinks.filter(byQuery('   '))).toHaveLength(2);
+  });
+
+  it('should keep drinks whose title contains the query case-insensitively', () => {
+    const drinks = [
+      drink({ path: '/negroni', title: 'Negroni' }),
+      drink({ path: '/white-negroni', title: 'White Negroni' }),
+      drink({ path: '/martini', title: 'Martini' }),
+    ];
+    expect(drinks.filter(byQuery('negr')).map((d) => d.path)).toEqual([
+      '/negroni',
+      '/white-negroni',
+    ]);
+  });
+
+  it('should exclude drinks whose title does not match', () => {
+    expect(byQuery('sour')(drink({ path: '/martini', title: 'Martini' }))).toBe(
+      false,
+    );
+  });
+});
+
 describe('filterDrinks', () => {
   const drinks = [
-    drink({ path: '/negroni', tags: ['gin', 'campari'], family: 'negroni' }),
-    drink({ path: '/gin-sour', tags: ['gin', 'lemon'], family: 'sour' }),
+    drink({
+      path: '/negroni',
+      title: 'Negroni',
+      tags: ['gin', 'campari'],
+      family: 'negroni',
+    }),
+    drink({
+      path: '/gin-sour',
+      title: 'Gin Sour',
+      tags: ['gin', 'lemon'],
+      family: 'sour',
+    }),
     drink({
       path: '/whiskey-sour',
+      title: 'Whiskey Sour',
       tags: ['whiskey', 'lemon'],
       family: 'sour',
     }),
     drink({
       path: '/old-fashioned',
+      title: 'Old Fashioned',
       tags: ['whiskey'],
       family: 'old fashioned',
     }),
@@ -110,5 +152,11 @@ describe('filterDrinks', () => {
       '/gin-sour',
       '/whiskey-sour',
     ]);
+  });
+
+  it('should apply search query together with base and family', () => {
+    expect(
+      filterDrinks(drinks, 'whiskey', 'all', 'sour').map((d) => d.path),
+    ).toEqual(['/whiskey-sour']);
   });
 });

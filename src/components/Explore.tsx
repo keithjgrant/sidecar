@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import Card from './Card';
-import { GridForm, GridFormLabel, ButtonGroup } from './forms';
+import { GridForm, GridFormLabel, ButtonGroup, TextInput } from './forms';
 import CollapsibleSection from './CollapsibleSection';
 import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
@@ -51,18 +51,22 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
 
   const [base, setBase] = useState('all');
   const [family, setFamily] = useState('all');
-  const filtersSet = !!(params.base || params.family);
+  const [query, setQuery] = useState('');
+  const filtersSet = !!(params.base || params.family || params.q);
 
   useEffect(() => {
     if (params.base && params.base !== 'all') {
       setBase(String(params.base));
     }
     if (params.family && params.family !== 'all') {
-      setFamily(String(params.family));
+      setFamily(decodeURIComponent(String(params.family)));
+    }
+    if (params.q) {
+      setQuery(decodeURIComponent(String(params.q)));
     }
   }, []);
 
-  const filtered = filterDrinks(drinks, base, family);
+  const filtered = filterDrinks(drinks, base, family, query);
   return (
     <>
       <CollapsibleSection
@@ -82,7 +86,22 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
         )}
       >
         <Card>
-          <GridForm>
+          <GridForm
+            onSubmit={(event) => {
+              event.preventDefault();
+            }}
+          >
+            <GridFormLabel props={{ htmlFor: 'drink-search' }}>Search</GridFormLabel>
+            <TextInput
+              id="drink-search"
+              name="q"
+              value={query}
+              placeholder="Filter by name"
+              onChange={(value) => {
+                setQuery(value);
+                setParam('q', value);
+              }}
+            />
             <GridFormLabel>Base Spirit</GridFormLabel>
             <ButtonGroup
               name="base"

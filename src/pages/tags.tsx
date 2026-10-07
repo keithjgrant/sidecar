@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import SimpleListLayout from '../components/layouts/SimpleListLayout';
 import Meta from '../components/Meta';
-import TagList from '../components/TagList';
+import TagsExplore from '../components/TagsExplore';
 
 interface TagsPageProps {
   data: {
@@ -18,7 +18,7 @@ export default function TagsPage({ data: { drinks } }: TagsPageProps) {
 
   return (
     <SimpleListLayout title="All Tags">
-      <TagList tags={[...tags].sort()} />
+      <TagsExplore tags={[...tags].sort()} />
     </SimpleListLayout>
   );
 }

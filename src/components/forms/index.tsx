@@ -4,3 +4,4 @@ export { default as GridForm } from './GridForm';
 export { GridFormLabel } from './GridForm';
 export { default as ButtonGroup } from './ButtonGroup';
 export { default as Select } from './Select';
+export { default as TextInput } from './TextInput';
