@@ -154,9 +154,31 @@ describe('filterDrinks', () => {
     ]);
   });
 
-  it('should apply search query together with base and family', () => {
+  it('should filter by query alone when base and family are all', () => {
+    expect(
+      filterDrinks(drinks, 'all', 'all', 'negr').map((d) => d.path),
+    ).toEqual(['/negroni']);
+  });
+
+  it('should apply search query together with base', () => {
     expect(
       filterDrinks(drinks, 'whiskey', 'all', 'sour').map((d) => d.path),
     ).toEqual(['/whiskey-sour']);
+  });
+
+  it('should apply search query together with family', () => {
+    expect(
+      filterDrinks(drinks, 'all', 'sour', 'gin').map((d) => d.path),
+    ).toEqual(['/gin-sour']);
+  });
+
+  it('should apply base, family, and query together', () => {
+    expect(
+      filterDrinks(drinks, 'gin', 'sour', 'sour').map((d) => d.path),
+    ).toEqual(['/gin-sour']);
+  });
+
+  it('should return an empty list when query excludes base and family matches', () => {
+    expect(filterDrinks(drinks, 'gin', 'sour', 'whiskey')).toEqual([]);
   });
 });
