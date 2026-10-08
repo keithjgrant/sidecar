@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import DrinkItem from './DrinkItem';
 import { ButtonGroup } from '../forms';
+import AlphaIndex, { LetterHeading } from '../AlphaIndex';
 import { getParams, setParam } from '../../util/qs';
 import { sortDrinks } from '../../util/drinkSort';
+import { groupByAlphaLetter, sectionIdForLetter } from '../../util/alphaGroup';
 import type { Drink } from '../../types';
 import type { DrinkItemProps } from './DrinkItem';
+
+const ID_PREFIX = 'alpha-drink';
 
 const List = styled.ul`
   margin: 0;
@@ -17,6 +21,14 @@ const List = styled.ul`
     grid-gap: 1em;
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   }
+`;
+
+const AlphaList = styled.div<{ $withIndex?: boolean }>`
+  padding-right: ${(props) => (props.$withIndex ? '1.4em' : '0')};
+`;
+
+const LetterSection = styled.section`
+  margin-bottom: 1em;
 `;
 
 const Container = styled.div`
@@ -47,6 +59,24 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
   }, []);
 
   const sorted = sortDrinks(drinks, sortBy);
+  const useAlpha = sortBy === 'name' && sorted.length > 0;
+  const groups = useAlpha
+    ? groupByAlphaLetter(sorted, (drink) => drink.title)
+    : [];
+  const letters = groups.map((group) => group.letter);
+  const showIndex = letters.length >= 2;
+
+  const renderDrink = (drink: Drink) => {
+    const slug = drink.path.replace(/^\/drinks\//, '');
+    return (
+      <DrinkItem
+        key={drink.path}
+        drink={drink}
+        image={imageMap[slug] as DrinkItemProps['image']}
+      />
+    );
+  };
+
   return (
     <>
       <Container>
@@ -67,14 +97,21 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
       {!sorted.length ? (
         <p style={{ padding: '0 1em' }}>No drinks matched your query</p>
       ) : null}
-      <List>
-        {sorted.map((drink) => {
-          const slug = drink.path.replace(/^\/drinks\//, '');
-          return (
-            <DrinkItem key={drink.path} drink={drink} image={imageMap[slug] as DrinkItemProps['image']} />
-          );
-        })}
-      </List>
+      {useAlpha ? (
+        <AlphaList $withIndex={showIndex}>
+          {groups.map(({ letter, items }) => (
+            <LetterSection key={letter}>
+              <LetterHeading id={sectionIdForLetter(ID_PREFIX, letter)}>
+                {letter}
+              </LetterHeading>
+              <List>{items.map(renderDrink)}</List>
+            </LetterSection>
+          ))}
+          {showIndex ? <AlphaIndex letters={letters} idPrefix={ID_PREFIX} /> : null}
+        </AlphaList>
+      ) : (
+        <List>{sorted.map(renderDrink)}</List>
+      )}
     </>
   );
 }
