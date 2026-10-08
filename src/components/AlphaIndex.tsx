@@ -7,7 +7,7 @@ export const ALPHA_INDEX_GUTTER = '1.4em';
 
 const Rail = styled.nav`
   position: fixed;
-  top: 50svh;
+  top: 50%;
   right: 0;
   z-index: 20;
   display: flex;
@@ -54,7 +54,7 @@ const LetterButton = styled.button`
 
 const Hud = styled.div`
   position: fixed;
-  top: 50svh;
+  top: 50%;
   left: 50%;
   z-index: 21;
   display: flex;
