@@ -19,6 +19,14 @@ const Rail = styled.nav`
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
+
+  /* Clear overlay scrollbars (e.g. macOS “show when scrolling”). */
+  @media (min-width: 40em) {
+    right: 0.5rem;
+  }
+  @media (min-width: 75em) {
+    right: 0.85rem;
+  }
 `;
 
 const LetterButton = styled.button`
