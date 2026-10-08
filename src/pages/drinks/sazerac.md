@@ -16,7 +16,6 @@ ingredients: [
 garnish: lemon twist, discarded
 tags: [
   classic-cocktail,
-  anise,
   rye-whiskey,
   whiskey,
   absinthe,

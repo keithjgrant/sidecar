@@ -35,7 +35,7 @@ ten-bottle-bar tag
 [x] merge `fernet` and `fernet-branca` tags → use `fernet`
 [x] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
     → keep as catch-all for one-off syrups; dual-tag flavor + `*-syrup`; fancy list lives in tagTaxonomy
-[] `anise` tag? it's an odd-man-out in FLAVOR_TAGS list.
+[x] `anise` tag? removed — redundant with absinthe, out of place in FLAVOR_TAGS
 [] Add "skip question" option in Help My Decide
 [] Rework homescreen; add Tags & replace featured drinks with feature bottle link
 [] In My Bar

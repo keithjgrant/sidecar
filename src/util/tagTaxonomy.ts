@@ -111,7 +111,6 @@ export const SYRUP_TAGS = [...BASIC_SYRUP_TAGS, ...FANCY_SYRUP_TAGS] as const;
 
 /** Taste / flavor-profile tags (not occasion or drink-family labels). */
 export const FLAVOR_TAGS = [
-  'anise',
   'bitter',
   'bright',
   'fruity',

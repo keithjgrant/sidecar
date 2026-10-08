@@ -16,7 +16,6 @@ ingredients: [
 garnish: lemon peel
 tags: [
   bitter,
-  anise,
   cynar,
   rye-whiskey,
   whiskey,
