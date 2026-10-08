@@ -75,14 +75,14 @@ describe('filterTags', () => {
   it('should filter by kind alone when query is empty', () => {
     expect(filterTags(tags, '', 'citrus')).toEqual(['lemon', 'lime']);
     expect(filterTags(tags, '', 'amaro')).toEqual(['campari']);
-    expect(filterTags(tags, '', 'syrup')).toEqual(['orgeat']);
+    expect(filterTags(tags, '', 'syrup')).toEqual(['ginger', 'orgeat']);
     expect(filterTags(tags, '', 'flavor')).toEqual(['bitter']);
     expect(filterTags(tags, '', 'vermouth')).toEqual(['sweet-vermouth']);
   });
 
   it('should apply kind and query together', () => {
     expect(filterTags(tags, 'g', 'spirit')).toEqual(['gin']);
-    expect(filterTags(tags, 'g', 'other')).toEqual(['ginger']);
+    expect(filterTags(tags, 'ginger', 'syrup')).toEqual(['ginger']);
   });
 
   it('should return an empty list when kind and query exclude each other', () => {

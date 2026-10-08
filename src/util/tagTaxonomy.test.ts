@@ -69,7 +69,7 @@ describe('tagTaxonomy sets', () => {
     expect(getTagKind('negroni')).toBe('other');
   });
 
-  it('should treat fancy syrups as specialty syrup tags plus flavor stand-ins', () => {
+  it('should treat fancy syrups as the syrup tags minus pantry staples', () => {
     for (const tag of BASIC_SYRUP_TAGS) {
       expect(SYRUP_TAGS).toContain(tag);
       expect(FANCY_SYRUP_TAGS).not.toContain(tag);
@@ -80,13 +80,12 @@ describe('tagTaxonomy sets', () => {
       }
     }
     for (const tag of FLAVOR_FANCY_SYRUP_TAGS) {
+      expect(SYRUP_TAGS).toContain(tag);
       expect(FANCY_SYRUP_TAGS).toContain(tag);
-      expect(SYRUP_TAGS).not.toContain(tag);
+      expect(getTagKind(tag)).toBe('syrup');
     }
     expect(FANCY_SYRUP_TAGS).toHaveLength(
-      SYRUP_TAGS.length -
-        BASIC_SYRUP_TAGS.length +
-        FLAVOR_FANCY_SYRUP_TAGS.length,
+      SYRUP_TAGS.length - BASIC_SYRUP_TAGS.length,
     );
   });
 });
