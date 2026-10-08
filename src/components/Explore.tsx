@@ -82,9 +82,6 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
             >
               Filter
             </Toggle>
-            <Link to="/tags" className="button">
-              Browse tags
-            </Link>
             <Link className="button" to="/help-me-decide">
               Help me decide
             </Link>

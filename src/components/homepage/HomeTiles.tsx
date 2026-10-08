@@ -39,7 +39,7 @@ const MainLinks = styled.div`
   min-height: 40vh;
   max-width: 800px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
   margin: 0 0.5rem;
   background-color: var(--card-border);
   border: 1px solid var(--card-border);
@@ -108,6 +108,7 @@ export default function HomeTiles({ featured, recent, imageMap }: HomeTilesProps
       <CardBoxDark>
         <MainLinks>
           <FullWidthLink to="/drinks">Browse Drinks</FullWidthLink>
+          <FullWidthLink to="/tags">Tags</FullWidthLink>
           <FullWidthLink to="/favorites">Favorites</FullWidthLink>
           <Link to="/ingredients">Ingredients</Link>
           <BorderLeftLink to="/techniques">Techniques</BorderLeftLink>
