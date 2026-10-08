@@ -16,7 +16,7 @@ tags: [
   "ten-bottle-bar",
   "gin",
   "lemon",
-  "honey-syrup",
+  "honey",
   "shaken"
 ]
 tenBottleCandidate: true

@@ -18,7 +18,7 @@ tags: [
   winter,
   vodka,
   lemon,
-  honey-syrup,
+  honey,
   egg,
   cardamom,
   shaken

@@ -21,7 +21,7 @@ tags: [
   whiskey,
   lime,
   ginger,
-  honey-syrup,
+  honey,
   beer,
   egg,
   shaken,

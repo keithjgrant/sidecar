@@ -125,7 +125,7 @@ function scoreDrink(drink: DecideDrink, answer: string): number {
   }
 
   // Additional modifiers (±1)
-  if (doListsIntersect(drink.tags, ['honey-syrup', 'maple-syrup'])) {
+  if (doListsIntersect(drink.tags, ['honey', 'maple-syrup'])) {
     score -= unit * 1; // Sweet elements smooth out drinks
   }
   if (drink.tags.includes('coffee')) {

@@ -91,7 +91,6 @@ export const SYRUP_TAGS = [
   ...BASIC_SYRUP_TAGS,
   'burnt-sugar-syrup',
   'butter-syrup',
-  'honey-syrup',
   'ipa-syrup',
   'jalapeno-syrup',
   'maple-syrup',
@@ -106,7 +105,11 @@ const BASIC_SYRUP_SET = new Set<string>(BASIC_SYRUP_TAGS);
  * Flavor tags that currently also gate Ten Bottle Bar specialty syrups
  * (every use today is via that syrup). Split later if non-syrup uses appear.
  */
-export const FLAVOR_FANCY_SYRUP_TAGS = ['black-pepper', 'ginger'] as const;
+export const FLAVOR_FANCY_SYRUP_TAGS = [
+  'black-pepper',
+  'ginger',
+  'honey',
+] as const;
 
 /**
  * Specialty / homemade syrups. Used by Ten Bottle Bar to hide drinks unless
