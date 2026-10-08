@@ -15,7 +15,6 @@ tags: [
   vodka,
   grapefruit,
   black-pepper,
-  black-pepper-syrup,
   shaken
 ]
 tenBottleCandidate: true

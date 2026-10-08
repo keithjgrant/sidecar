@@ -18,7 +18,6 @@ tags: [
   bourbon,
   whiskey,
   ginger,
-  ginger-syrup,
   lime,
   shaken,
 ]

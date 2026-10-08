@@ -17,7 +17,6 @@ tags: [
   margarita,
   tequila,
   ginger,
-  ginger-syrup,
   triple-sec,
   orange-liqueur,
   lime,

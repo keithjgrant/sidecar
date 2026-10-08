@@ -64,7 +64,7 @@ function scoreDrink(drink: DecideDrink, answer: string): number {
   if (doListsIntersect(drink.tags, ['black-pepper', 'white-pepper'])) {
     score += unit * 4;
   }
-  if (doListsIntersect(drink.tags, ['ginger', 'ginger-syrup'])) {
+  if (drink.tags.includes('ginger')) {
     score += unit * 3;
   }
   if (

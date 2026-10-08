@@ -5,6 +5,7 @@ import {
   BASIC_SYRUP_TAGS,
   CITRUS_TAGS,
   FANCY_SYRUP_TAGS,
+  FLAVOR_FANCY_SYRUP_TAGS,
   FLAVOR_TAGS,
   LIQUEUR_TAGS,
   SPIRIT_TAGS,
@@ -68,16 +69,24 @@ describe('tagTaxonomy sets', () => {
     expect(getTagKind('negroni')).toBe('other');
   });
 
-  it('should treat fancy syrups as the syrup tags minus pantry staples', () => {
+  it('should treat fancy syrups as specialty syrup tags plus flavor stand-ins', () => {
     for (const tag of BASIC_SYRUP_TAGS) {
       expect(SYRUP_TAGS).toContain(tag);
       expect(FANCY_SYRUP_TAGS).not.toContain(tag);
     }
-    for (const tag of FANCY_SYRUP_TAGS) {
-      expect(SYRUP_TAGS).toContain(tag);
+    for (const tag of SYRUP_TAGS) {
+      if (!(BASIC_SYRUP_TAGS as readonly string[]).includes(tag)) {
+        expect(FANCY_SYRUP_TAGS).toContain(tag);
+      }
+    }
+    for (const tag of FLAVOR_FANCY_SYRUP_TAGS) {
+      expect(FANCY_SYRUP_TAGS).toContain(tag);
+      expect(SYRUP_TAGS).not.toContain(tag);
     }
     expect(FANCY_SYRUP_TAGS).toHaveLength(
-      SYRUP_TAGS.length - BASIC_SYRUP_TAGS.length,
+      SYRUP_TAGS.length -
+        BASIC_SYRUP_TAGS.length +
+        FLAVOR_FANCY_SYRUP_TAGS.length,
     );
   });
 });
