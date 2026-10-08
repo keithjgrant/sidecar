@@ -100,10 +100,11 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
       {useAlpha ? (
         <AlphaList $withIndex={showIndex}>
           {groups.map(({ letter, items }) => (
-            <LetterSection key={letter}>
-              <LetterHeading id={sectionIdForLetter(ID_PREFIX, letter)}>
-                {letter}
-              </LetterHeading>
+            <LetterSection
+              key={letter}
+              id={sectionIdForLetter(ID_PREFIX, letter)}
+            >
+              <LetterHeading>{letter}</LetterHeading>
               <List>{items.map(renderDrink)}</List>
             </LetterSection>
           ))}

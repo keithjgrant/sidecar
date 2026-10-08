@@ -75,9 +75,11 @@ export const LetterHeading = styled.h2`
 
 function scrollToLetter(prefix: string, letter: string): void {
   const el = document.getElementById(sectionIdForLetter(prefix, letter));
-  if (el) {
-    el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  if (!el) {
+    return;
   }
+  const top = el.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top, left: 0, behavior: 'auto' });
 }
 
 interface AlphaIndexProps {
@@ -174,7 +176,9 @@ export default function AlphaIndex({ letters, idPrefix }: AlphaIndexProps) {
           </LetterButton>
         ))}
       </Rail>
-      {isScrubbing && activeLetter ? <Hud aria-hidden>{activeLetter}</Hud> : null}
+      {isScrubbing && activeLetter ? (
+        <Hud aria-hidden>{activeLetter}</Hud>
+      ) : null}
     </>
   );
 }
