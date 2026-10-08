@@ -5,7 +5,6 @@ import {
   BASIC_SYRUP_TAGS,
   CITRUS_TAGS,
   FANCY_SYRUP_TAGS,
-  FLAVOR_FANCY_SYRUP_TAGS,
   FLAVOR_TAGS,
   LIQUEUR_TAGS,
   SPIRIT_TAGS,
@@ -69,23 +68,23 @@ describe('tagTaxonomy sets', () => {
     expect(getTagKind('negroni')).toBe('other');
   });
 
-  it('should treat fancy syrups as the syrup tags minus pantry staples', () => {
+  it('should compose syrup tags from basic and fancy lists without overlap', () => {
+    const basic = new Set<string>(BASIC_SYRUP_TAGS);
+    const fancy = new Set<string>(FANCY_SYRUP_TAGS);
+
     for (const tag of BASIC_SYRUP_TAGS) {
+      expect(fancy.has(tag)).toBe(false);
       expect(SYRUP_TAGS).toContain(tag);
-      expect(FANCY_SYRUP_TAGS).not.toContain(tag);
     }
-    for (const tag of SYRUP_TAGS) {
-      if (!(BASIC_SYRUP_TAGS as readonly string[]).includes(tag)) {
-        expect(FANCY_SYRUP_TAGS).toContain(tag);
-      }
-    }
-    for (const tag of FLAVOR_FANCY_SYRUP_TAGS) {
+    for (const tag of FANCY_SYRUP_TAGS) {
+      expect(basic.has(tag)).toBe(false);
       expect(SYRUP_TAGS).toContain(tag);
-      expect(FANCY_SYRUP_TAGS).toContain(tag);
-      expect(getTagKind(tag)).toBe('syrup');
     }
-    expect(FANCY_SYRUP_TAGS).toHaveLength(
-      SYRUP_TAGS.length - BASIC_SYRUP_TAGS.length,
+    expect(SYRUP_TAGS).toHaveLength(
+      BASIC_SYRUP_TAGS.length + FANCY_SYRUP_TAGS.length,
     );
+    expect(getTagKind('ginger')).toBe('syrup');
+    expect(getTagKind('honey')).toBe('syrup');
+    expect(getTagKind('black-pepper')).toBe('syrup');
   });
 });

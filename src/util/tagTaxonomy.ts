@@ -87,18 +87,11 @@ export const BASIC_SYRUP_TAGS = [
 ] as const;
 
 /**
- * Flavor-named tags that currently stand in for specialty syrups
- * (every use today is via that syrup). Split later if non-syrup uses appear.
+ * Specialty / homemade syrups. Used by Ten Bottle Bar to hide drinks unless
+ * "Specialty syrups" is checked. Flavor-named tags stand in for syrups for now
+ * (every use today is via that syrup); split later if non-syrup uses appear.
  */
-export const FLAVOR_FANCY_SYRUP_TAGS = [
-  'black-pepper',
-  'ginger',
-  'honey',
-] as const;
-
-/** Syrup and sweetener tags (staples + specialty). */
-export const SYRUP_TAGS = [
-  ...BASIC_SYRUP_TAGS,
+export const FANCY_SYRUP_TAGS = [
   'burnt-sugar-syrup',
   'butter-syrup',
   'ipa-syrup',
@@ -107,18 +100,14 @@ export const SYRUP_TAGS = [
   'muscovado-syrup',
   'orgeat',
   'special-syrup',
-  ...FLAVOR_FANCY_SYRUP_TAGS,
+  // flavor stand-ins
+  'black-pepper',
+  'ginger',
+  'honey',
 ] as const;
 
-const BASIC_SYRUP_SET = new Set<string>(BASIC_SYRUP_TAGS);
-
-/**
- * Specialty / homemade syrups. Used by Ten Bottle Bar to hide drinks unless
- * "Specialty syrups" is checked.
- */
-export const FANCY_SYRUP_TAGS = SYRUP_TAGS.filter(
-  (tag) => !BASIC_SYRUP_SET.has(tag),
-);
+/** Syrup and sweetener tags (staples + specialty). */
+export const SYRUP_TAGS = [...BASIC_SYRUP_TAGS, ...FANCY_SYRUP_TAGS] as const;
 
 /** Taste / flavor-profile tags (not occasion or drink-family labels). */
 export const FLAVOR_TAGS = [
