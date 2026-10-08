@@ -76,21 +76,38 @@ export const VERMOUTH_TAGS = [
   'vermouth',
 ] as const;
 
-/** Syrup and sweetener tags. */
-export const SYRUP_TAGS = [
+/**
+ * Pantry-staple sweeteners. Not gated by Ten Bottle Bar's specialty-syrups
+ * checkbox (simple syrup / agave are untagged; these are the tagged staples).
+ */
+export const BASIC_SYRUP_TAGS = [
   'brown-sugar-syrup',
+  'demerara-syrup',
+  'grenadine',
+] as const;
+
+/**
+ * Specialty / homemade syrups. Used by Ten Bottle Bar to hide drinks unless
+ * "Specialty syrups" is checked. Flavor-named tags stand in for syrups for now
+ * (every use today is via that syrup); split later if non-syrup uses appear.
+ */
+export const FANCY_SYRUP_TAGS = [
   'burnt-sugar-syrup',
   'butter-syrup',
-  'demerara',
-  'grenadine',
-  'honey',
   'ipa-syrup',
   'jalapeno-syrup',
   'maple-syrup',
   'muscovado-syrup',
   'orgeat',
   'special-syrup',
+  // flavor stand-ins
+  'black-pepper',
+  'ginger',
+  'honey',
 ] as const;
+
+/** Syrup and sweetener tags (staples + specialty). */
+export const SYRUP_TAGS = [...BASIC_SYRUP_TAGS, ...FANCY_SYRUP_TAGS] as const;
 
 /** Taste / flavor-profile tags (not occasion or drink-family labels). */
 export const FLAVOR_TAGS = [

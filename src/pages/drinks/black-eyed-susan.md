@@ -20,7 +20,6 @@ tags: [
   suze,
   lemon,
   black-pepper,
-  special-syrup,
   shaken,
 ]
 featured: true

@@ -19,7 +19,6 @@ tags: [
   tequila-blanco,
   lime,
   black-pepper,
-  special-syrup,
   shaken,
   muddled,
 ]

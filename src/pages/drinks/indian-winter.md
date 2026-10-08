@@ -20,7 +20,6 @@ tags: [
   lemon,
   honey,
   egg,
-  special-syrup,
   cardamom,
   shaken
 ]
