@@ -83,7 +83,6 @@ export const VERMOUTH_TAGS = [
 export const BASIC_SYRUP_TAGS = [
   'brown-sugar-syrup',
   'demerara-syrup',
-  'grenadine',
 ] as const;
 
 /**
@@ -95,6 +94,7 @@ export const FANCY_SYRUP_TAGS = [
   'burnt-sugar-syrup',
   'butter-syrup',
   'ipa-syrup',
+  'grenadine',
   'jalapeno-syrup',
   'maple-syrup',
   'muscovado-syrup',
