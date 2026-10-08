@@ -38,7 +38,6 @@ export const SPIRIT_TAGS = [
 
 /** Bitter aperitif / amaro ingredient tags. */
 export const AMARO_TAGS = [
-  'amaro',
   'amaro-nonino',
   'aperol',
   'averna',
