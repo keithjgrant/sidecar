@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { sectionIdForLetter } from '../util/alphaGroup';
 
+/** Right padding reserved for the fixed letter rail. */
+export const ALPHA_INDEX_GUTTER = '1.4em';
+
 const Rail = styled.nav`
   position: fixed;
   top: 50%;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import DrinkItem from './DrinkItem';
 import { ButtonGroup } from '../forms';
-import AlphaIndex, { LetterHeading } from '../AlphaIndex';
+import AlphaIndex, { ALPHA_INDEX_GUTTER, LetterHeading } from '../AlphaIndex';
 import { getParams, setParam } from '../../util/qs';
 import { sortDrinks } from '../../util/drinkSort';
 import { groupByAlphaLetter, sectionIdForLetter } from '../../util/alphaGroup';
@@ -24,15 +24,16 @@ const List = styled.ul`
 `;
 
 const AlphaList = styled.div<{ $withIndex?: boolean }>`
-  padding-right: ${(props) => (props.$withIndex ? '1.4em' : '0')};
+  padding-right: ${(props) => (props.$withIndex ? ALPHA_INDEX_GUTTER : '0')};
 `;
 
 const LetterSection = styled.section`
   margin-bottom: 1em;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ $withIndex?: boolean }>`
   margin-bottom: var(--gap-size);
+  padding-right: ${(props) => (props.$withIndex ? ALPHA_INDEX_GUTTER : '0')};
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
@@ -79,7 +80,7 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
 
   return (
     <>
-      <Container>
+      <Container $withIndex={showIndex}>
         <div>Sort by</div>
         <ButtonGroup
           name="sort"

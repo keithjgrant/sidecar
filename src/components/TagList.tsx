@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import AlphaIndex, { LetterHeading } from './AlphaIndex';
+import AlphaIndex, { ALPHA_INDEX_GUTTER, LetterHeading } from './AlphaIndex';
 import { groupByAlphaLetter, sectionIdForLetter } from '../util/alphaGroup';
 
 const ID_PREFIX = 'alpha-tag';
@@ -12,7 +12,7 @@ const List = styled.ul`
 `;
 
 const AlphaList = styled.div<{ $withIndex?: boolean }>`
-  padding-right: ${(props) => (props.$withIndex ? '1.4em' : '0')};
+  padding-right: ${(props) => (props.$withIndex ? ALPHA_INDEX_GUTTER : '0')};
 `;
 
 const LetterSection = styled.section`
