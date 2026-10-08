@@ -17,7 +17,7 @@ tags: [
   bitter,
   rye-whiskey,
   whiskey,
-  fernet-branca,
+  fernet,
   demerara,
   stirred,
 ]

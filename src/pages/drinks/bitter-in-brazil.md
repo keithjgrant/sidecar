@@ -20,7 +20,7 @@ tags: [
   orange-liqueur,
   punt-e-mes,
   sweet-vermouth,
-  fernet-branca,
+  fernet,
   stirred,
 ]
 featured:

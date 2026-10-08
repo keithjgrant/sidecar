@@ -45,7 +45,6 @@ export const AMARO_TAGS = [
   'campari',
   'cynar',
   'fernet',
-  'fernet-branca',
   'suze',
 ] as const;
 

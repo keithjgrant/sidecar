@@ -6,8 +6,6 @@ Flavor profile spectrums (from noillyprat.com):
 - floral to spicy
 
 
-- add a skip question option to Help Me Decide
-
 Future possible homepage links:
 * tags
 * favorites
@@ -33,9 +31,10 @@ ten-bottle-bar tag
 
 # TODO
 
-[] Navigation improvements (scrub through alphabet)
-[] clean up `amaro` tag. either apply it everywhere or remove it from Paper Plane
-[] merge `fernet` and `fernet-branca` tags
+[x] clean up `amaro` tag. either apply it everywhere or remove it from Paper Plane
+[x] merge `fernet` and `fernet-branca` tags → use `fernet`
 [] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
 [] `anise` tag?
+[] Add "skip question" option in Help My Decide
 [] Rework homescreen; add Tags & replace featured drinks with feature bottle link
+[] In My Bar
