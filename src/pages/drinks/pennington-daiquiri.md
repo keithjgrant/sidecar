@@ -20,7 +20,7 @@ tags: [
   brandy,
   suze,
   lemon,
-  honey,
+  honey-syrup,
   shaken
 ]
 featured:

@@ -92,7 +92,7 @@ function scoreDrink(drink: DecideDrink, answer: string): number {
   }
 
   // rich syrups
-  if (doListsIntersect(drink.tags, ['honey', 'maple-syrup', 'orgeat'])) {
+  if (doListsIntersect(drink.tags, ['honey-syrup', 'maple-syrup', 'orgeat'])) {
     score -= unit;
   }
   // warming spices

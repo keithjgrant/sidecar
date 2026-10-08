@@ -18,7 +18,7 @@ tags: [
   rye-whiskey,
   whiskey,
   fernet,
-  demerara,
+  demerara-syrup,
   stirred,
 ]
 featured:

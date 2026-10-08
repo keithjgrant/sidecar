@@ -18,7 +18,6 @@ tags: [
   london-dry-gin,
   lime,
   jalapeno-syrup,
-  special-syrup,
   shaken
 ]
 image:

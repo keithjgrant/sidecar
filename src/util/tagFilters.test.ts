@@ -20,7 +20,7 @@ describe('byTagQuery', () => {
 
 describe('byTagKind', () => {
   it('should keep every tag when kind is all', () => {
-    const tags = ['gin', 'campari', 'honey', 'bitter', 'sweet-vermouth'];
+    const tags = ['gin', 'campari', 'honey-syrup', 'bitter', 'sweet-vermouth'];
     expect(tags.filter(byTagKind('all'))).toEqual(tags);
   });
 
@@ -31,7 +31,7 @@ describe('byTagKind', () => {
       'campari',
       'curacao',
       'sweet-vermouth',
-      'honey',
+      'honey-syrup',
       'lemon',
       'bitter',
       'stirred',
@@ -41,7 +41,7 @@ describe('byTagKind', () => {
     expect(tags.filter(byTagKind('amaro'))).toEqual(['campari']);
     expect(tags.filter(byTagKind('liqueur'))).toEqual(['curacao']);
     expect(tags.filter(byTagKind('vermouth'))).toEqual(['sweet-vermouth']);
-    expect(tags.filter(byTagKind('syrup'))).toEqual(['honey']);
+    expect(tags.filter(byTagKind('syrup'))).toEqual(['honey-syrup']);
     expect(tags.filter(byTagKind('citrus'))).toEqual(['lemon']);
     expect(tags.filter(byTagKind('flavor'))).toEqual(['bitter']);
     expect(tags.filter(byTagKind('technique'))).toEqual(['stirred']);
@@ -59,7 +59,7 @@ describe('filterTags', () => {
     'stirred',
     'campari',
     'curacao',
-    'honey',
+    'honey-syrup',
     'bitter',
     'sweet-vermouth',
   ];
@@ -75,7 +75,7 @@ describe('filterTags', () => {
   it('should filter by kind alone when query is empty', () => {
     expect(filterTags(tags, '', 'citrus')).toEqual(['lemon', 'lime']);
     expect(filterTags(tags, '', 'amaro')).toEqual(['campari']);
-    expect(filterTags(tags, '', 'syrup')).toEqual(['honey']);
+    expect(filterTags(tags, '', 'syrup')).toEqual(['honey-syrup']);
     expect(filterTags(tags, '', 'flavor')).toEqual(['bitter']);
     expect(filterTags(tags, '', 'vermouth')).toEqual(['sweet-vermouth']);
   });

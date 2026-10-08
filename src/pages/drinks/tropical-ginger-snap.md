@@ -17,6 +17,7 @@ tags: [
   rum,
   white-rum,
   ginger,
+  ginger-syrup,
   lime,
   shaken,
 ]

@@ -19,6 +19,7 @@ tags: [
   dark-rum,
   aged-rum,
   ginger,
+  ginger-syrup,
   lime,
   shaken
 ]

@@ -22,7 +22,7 @@ tags: [
   apple-brandy,
   curacao,
   orange-liqueur,
-  honey,
+  honey-syrup,
   lemon,
   shaken,
 ]

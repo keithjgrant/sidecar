@@ -12,6 +12,7 @@ import {
 import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
 import type { Drink } from '../types';
+import { FANCY_SYRUP_TAGS } from '../util/tagTaxonomy';
 
 const CheckboxRow = styled(Checkbox)`
   grid-column: 1 / -1;
@@ -140,26 +141,8 @@ export default function TenBottleBar({ allDrinks, imageMap }: TenBottleBarProps)
   );
 }
 
-const fancySyrups = [
-  'ginger',
-  'honey',
-  'black-pepper-syrup',
-  'ipa-syrup',
-  'burnt-sugar-syrup',
-  'jalapeno-syrup',
-  'muscovado-syrup',
-  'special-syrup',
-  'orgeat',
-];
-// non-fancy: simple syrup, demarara, agave
-
 function includesFancySyrups(drink: Drink): boolean {
-  for (let i = 0; i < fancySyrups.length; i++) {
-    if (drink.tags.includes(fancySyrups[i])) {
-      return true;
-    }
-  }
-  return false;
+  return FANCY_SYRUP_TAGS.some((tag) => drink.tags.includes(tag));
 }
 
 function vermouthMatches(type: string, drink: Drink): boolean {

@@ -19,7 +19,7 @@ tags: [
   herbal,
   cynar,
   green-chartreuse,
-  demerara,
+  demerara-syrup,
   lime,
   shaken,
 ]

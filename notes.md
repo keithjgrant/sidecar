@@ -33,7 +33,8 @@ ten-bottle-bar tag
 
 [x] clean up `amaro` tag. either apply it everywhere or remove it from Paper Plane
 [x] merge `fernet` and `fernet-branca` tags → use `fernet`
-[] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
+[x] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
+    → keep as catch-all for one-off syrups; dual-tag flavor + `*-syrup`; fancy list lives in tagTaxonomy
 [] `anise` tag?
 [] Add "skip question" option in Help My Decide
 [] Rework homescreen; add Tags & replace featured drinks with feature bottle link
