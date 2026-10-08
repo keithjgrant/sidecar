@@ -39,3 +39,4 @@ ten-bottle-bar tag
 [] Add "skip question" option in Help My Decide
 [] Rework homescreen; add Tags & replace featured drinks with feature bottle link
 [] In My Bar
+[] Nav icons along bottom of screen in standalone (PWA) mode?
