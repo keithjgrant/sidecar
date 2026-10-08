@@ -6,6 +6,7 @@ import CollapsibleSection from './CollapsibleSection';
 import TagList from './TagList';
 import { getParams, setParam } from '../util/qs';
 import { filterTags, type TagKind } from '../util/tagFilters';
+import { ALPHA_INDEX_GUTTER } from './AlphaIndex';
 
 const FilterBar = styled.div`
   margin-bottom: var(--gap-size);
@@ -62,7 +63,10 @@ export default function TagsExplore({ tags }: TagsExploreProps) {
     if (params.q) {
       setQuery(decodeURIComponent(String(params.q)));
     }
-    if (params.kind && KIND_OPTIONS.includes(String(params.kind) as TagKind | 'all')) {
+    if (
+      params.kind &&
+      KIND_OPTIONS.includes(String(params.kind) as TagKind | 'all')
+    ) {
       setKind(String(params.kind) as TagKind | 'all');
     }
   }, []);
@@ -75,18 +79,24 @@ export default function TagsExplore({ tags }: TagsExploreProps) {
         <CollapsibleSection
           startExpanded={filtersSet}
           renderToggle={({ toggle, isExpanded }) => (
-            <Toggle onClick={toggle} $isExpanded={isExpanded} className="button">
+            <Toggle
+              onClick={toggle}
+              $isExpanded={isExpanded}
+              className="button"
+            >
               Filter
             </Toggle>
           )}
         >
-          <Card>
+          <Card style={{ marginRight: ALPHA_INDEX_GUTTER }}>
             <GridForm
               onSubmit={(event) => {
                 event.preventDefault();
               }}
             >
-              <GridFormLabel props={{ htmlFor: 'tag-search' }}>Search</GridFormLabel>
+              <GridFormLabel props={{ htmlFor: 'tag-search' }}>
+                Search
+              </GridFormLabel>
               <TextInput
                 id="tag-search"
                 name="q"

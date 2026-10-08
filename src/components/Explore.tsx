@@ -8,6 +8,7 @@ import DrinkList from './DrinkList';
 import { getParams, setParam } from '../util/qs';
 import { filterDrinks, type DrinkWithFamily } from '../util/drinkFilters';
 import { BASE_SPIRITS } from '../util/tagTaxonomy';
+import { ALPHA_INDEX_GUTTER } from './AlphaIndex';
 
 const Toggle = styled.button<{ $isExpanded?: boolean }>`
   position: relative;
@@ -74,7 +75,11 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
         startExpanded={filtersSet}
         renderToggle={({ toggle, isExpanded }) => (
           <Controls>
-            <Toggle onClick={toggle} $isExpanded={isExpanded} className="button">
+            <Toggle
+              onClick={toggle}
+              $isExpanded={isExpanded}
+              className="button"
+            >
               Filter
             </Toggle>
             <Link to="/tags" className="button">
@@ -86,13 +91,15 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
           </Controls>
         )}
       >
-        <Card>
+        <Card style={{ marginRight: ALPHA_INDEX_GUTTER }}>
           <GridForm
             onSubmit={(event) => {
               event.preventDefault();
             }}
           >
-            <GridFormLabel props={{ htmlFor: 'drink-search' }}>Search</GridFormLabel>
+            <GridFormLabel props={{ htmlFor: 'drink-search' }}>
+              Search
+            </GridFormLabel>
             <TextInput
               id="drink-search"
               name="q"
