@@ -124,7 +124,7 @@ export default function HomeTiles({
       </CardBoxDark>
       <CardBoxDark>
         <CardBoxHighlight>
-          <TileRow drinks={recent} heading="New" imageMap={imageMap} />
+          <TileRow drinks={recent} heading="New Drinks" imageMap={imageMap} />
         </CardBoxHighlight>
       </CardBoxDark>
       <CardBoxDark>
