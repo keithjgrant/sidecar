@@ -28,7 +28,7 @@ const LetterButton = styled.button`
   border: 0;
   background: transparent;
   color: var(--brand-primary);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
   line-height: 1.15;
   cursor: pointer;
