@@ -37,7 +37,7 @@ ten-bottle-bar tag
     → keep as catch-all for one-off syrups; dual-tag flavor + `*-syrup`; fancy list lives in tagTaxonomy
 [x] `anise` tag? removed — redundant with absinthe, out of place in FLAVOR_TAGS
 [] Add "skip question" option in Help My Decide
-[] Rework homescreen; add Tags & featured bottle link
-[] Featured bottle feature (replaces featured drinks on homescreen)
+[x] Rework homescreen; add Tags & featured bottle link
+[x] Featured bottle feature (replaces featured drinks on homescreen)
 [] In My Bar
 [] Nav icons along bottom of screen in standalone (PWA) mode?

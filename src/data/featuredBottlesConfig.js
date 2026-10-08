@@ -5,6 +5,15 @@
  * `image` is the filename under src/images/bottles/, including extension
  * (e.g. 'campari.webp').
  *
+ * Future candidates (once more recipes exist):
+ * - suze (~4 drinks)
+ * - aperol (~3)
+ * - fernet (~3)
+ * - ancho-reyes (~2)
+ * - averna
+ * - dry curacao
+ * - sweet vermouth?
+ *
  * @typedef {{ tag: string, label: string, image?: string }} FeaturedBottle
  * @type {Record<string, FeaturedBottle>}
  */
