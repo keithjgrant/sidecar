@@ -15,9 +15,9 @@ This site works offline.
 However, at some point, your browser will likely decide to delete the offline data.
 By installing Sidecar, you ensure your device keeps that data saved, so you can pull up your favorite drink recipe quickly, wherever you are.
 
-By default, only the drinks pages are saved for offline use.
+By default, the drinks pages and the tag pages for featured bottles are saved for offline use.
 Initial installation uses about 3mb of storage space.
-As you visit other pages (such as tags lists or instructions on making [ginger syrup](/ingredients/ginger-syrup)) they will automatically save for offline access as well.
+As you visit other pages (such as other tags lists or instructions on making syrups) they will automatically save for offline access as well.
 
 ## Save Favorites
 

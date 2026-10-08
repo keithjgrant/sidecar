@@ -1,3 +1,7 @@
+const {
+  getFeaturedBottleTagPaths,
+} = require('./src/data/featuredBottlesConfig');
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -49,7 +53,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        precachePages: ['/drinks/', '/drinks/*'],
+        precachePages: [
+          '/drinks/',
+          '/drinks/*',
+          ...getFeaturedBottleTagPaths(),
+        ],
         workboxConfig: {
           runtimeCaching: [
             {

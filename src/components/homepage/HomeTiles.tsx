@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import FeaturedBottleTile from './FeaturedBottleTile';
 import TileRow from './TileRow';
 import Footer from '../Footer';
 
@@ -21,13 +23,9 @@ const CardBoxDark = styled.div`
 const CardBoxHighlight = styled.div`
   max-width: 800px;
   margin: 0 1rem;
-  padding: 1rem 0;
-  border: 1px solid var(--brand-primary);
+  padding: 1rem;
+  border: 1px solid var(--card-border);
   border-radius: var(--border-radius);
-
-  .home-tiles-recent {
-    margin-top: 1rem;
-  }
 
   @media (min-width: 810px) {
     margin: 0 auto;
@@ -88,9 +86,12 @@ const HomeFooter = styled(Footer)`
 `;
 
 interface HomeTilesProps {
-  featured: Drink[];
   recent: Drink[];
   imageMap: Record<string, unknown>;
+  bottleImageMap: Record<
+    string,
+    { gatsbyImageData: IGatsbyImageData } | undefined
+  >;
 }
 
 const FullWidthLink = styled(Link)`
@@ -102,7 +103,11 @@ const BorderLeftLink = styled(Link)`
   border-left: 1px solid var(--card-border);
 `;
 
-export default function HomeTiles({ featured, recent, imageMap }: HomeTilesProps) {
+export default function HomeTiles({
+  recent,
+  imageMap,
+  bottleImageMap,
+}: HomeTilesProps) {
   return (
     <Card>
       <CardBoxDark>
@@ -115,22 +120,17 @@ export default function HomeTiles({ featured, recent, imageMap }: HomeTilesProps
         </MainLinks>
       </CardBoxDark>
       <CardBoxDark>
+        <FeaturedBottleTile imageMap={bottleImageMap} />
+      </CardBoxDark>
+      <CardBoxDark>
         <CardBoxHighlight>
-          <TileRow drinks={featured} heading="Featured" imageMap={imageMap} />
-          <TileRow
-            drinks={recent}
-            heading="New"
-            imageMap={imageMap}
-            className="home-tiles-recent"
-          />
+          <TileRow drinks={recent} heading="New" imageMap={imageMap} />
         </CardBoxHighlight>
       </CardBoxDark>
       <CardBoxDark>
         <TileLink to="/about">About</TileLink>
       </CardBoxDark>
-      <HomeFooter
-        content={`Banner photo by Adam${nbsp}Jaime`}
-      />
+      <HomeFooter content={`Banner photo by Adam${nbsp}Jaime`} />
     </Card>
   );
 }
