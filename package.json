@@ -9,8 +9,8 @@
     "drinks"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop": "gatsby develop -p 1700",
+    "start": "gatsby develop -p 1700",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
