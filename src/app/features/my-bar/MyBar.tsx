@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Card from '../../components/Card';
+import CollapsibleSection from '../../components/CollapsibleSection';
 import DrinkList from '../../components/DrinkList';
 import { Checkbox } from '../../components/forms';
 import { subscribeStorageBlocked } from '../../storage/db';
@@ -9,15 +10,25 @@ import barDb from '../../storage/bar';
 import {
   BAR_CATALOG,
   DEFAULT_BAR,
+  countOwnedInGroup,
   filterMakeableDrinks,
   formatBarLabel,
+  getAllBarTags,
+  getGroupTags,
   type BarCatalogGroup,
   type BarCatalogItem,
 } from './myBarLogic';
 import type { Drink } from '../../types';
 
 const Intro = styled.p`
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
+`;
+
+const PageActions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
 `;
 
 const Warning = styled.p`
@@ -31,14 +42,91 @@ const Warning = styled.p`
 
 const Group = styled.section`
   &:not(:first-child) {
-    margin-top: 1.25rem;
+    margin-top: 0.75rem;
   }
 `;
 
-const GroupHeading = styled.h2`
-  margin: 0 0 0.6rem;
-  font-size: 1.1rem;
+const SectionHeader = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+`;
+
+const SectionToggle = styled.button<{ $isExpanded: boolean }>`
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.35rem 0;
+  border: 0;
+  background: transparent;
   color: var(--gray-8);
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--white);
+  }
+`;
+
+const SectionTitle = styled.span<{ $isExpanded: boolean }>`
+  position: relative;
+  padding-right: 1.3em;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold, 600);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.45em;
+    right: 0;
+    border: 0.35em solid transparent;
+    border-left-color: currentColor;
+    transform-origin: 0.2em center;
+    transition: transform 0.2s var(--ease-out-cubic, ease);
+  }
+
+  ${(props) =>
+    props.$isExpanded &&
+    css`
+      &::after {
+        transform: rotate(90deg);
+      }
+    `}
+`;
+
+const SectionCount = styled.span`
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--gray-6, #8a8588);
+`;
+
+const SectionActions = styled.div`
+  display: flex;
+  gap: 0.65rem;
+`;
+
+const TextButton = styled.button`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--gray-6, #8a8588);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+
+  &:hover {
+    color: var(--white);
+  }
+`;
+
+const SectionBody = styled.div`
+  padding: 0.5rem 0 0.25rem;
 `;
 
 const CheckboxGrid = styled.div`
@@ -79,6 +167,8 @@ const SpiritFamily = styled.div`
   flex-direction: column;
   gap: 0.45rem;
   break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
   margin-bottom: 0.85rem;
 `;
 
@@ -102,7 +192,9 @@ interface MyBarProps {
 }
 
 export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
-  const [owned, setOwned] = useState<Set<string>>(() => new Set(DEFAULT_BAR));
+  const [owned, setOwned] = useState<Set<string>>(
+    () => new Set(DEFAULT_BAR),
+  );
   const [storageReady, setStorageReady] = useState(false);
   const [storageBlocked, setStorageBlocked] = useState(false);
 
@@ -128,24 +220,52 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
 
   const makeable = useMemo(
     () => filterMakeableDrinks(allDrinks, owned),
-    [allDrinks, owned]
+    [allDrinks, owned],
   );
 
-  async function toggleTag(tag: string, checked: boolean) {
-    setOwned((prev) => {
-      const next = new Set(prev);
-      if (checked) {
-        next.add(tag);
-      } else {
-        next.delete(tag);
-      }
-      return next;
-    });
+  const allBarTags = useMemo(() => getAllBarTags(), []);
+
+  async function persistOwned(next: Set<string>) {
+    setOwned(next);
     try {
-      await barDb.setBarTag(tag, checked);
+      await barDb.replaceBar([...next]);
     } catch (err) {
-      console.error('Failed to save bar tag', err);
+      console.error('Failed to save bar', err);
     }
+  }
+
+  async function toggleTag(tag: string, checked: boolean) {
+    const next = new Set(owned);
+    if (checked) {
+      next.add(tag);
+    } else {
+      next.delete(tag);
+    }
+    await persistOwned(next);
+  }
+
+  function selectAll() {
+    void persistOwned(new Set(allBarTags));
+  }
+
+  function clearAll() {
+    void persistOwned(new Set());
+  }
+
+  function selectGroup(group: BarCatalogGroup) {
+    const next = new Set(owned);
+    for (const tag of getGroupTags(group)) {
+      next.add(tag);
+    }
+    void persistOwned(next);
+  }
+
+  function clearGroup(group: BarCatalogGroup) {
+    const next = new Set(owned);
+    for (const tag of getGroupTags(group)) {
+      next.delete(tag);
+    }
+    void persistOwned(next);
   }
 
   function renderCheckbox(tag: string, label: string) {
@@ -180,9 +300,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
   function renderGroupBody(group: BarCatalogGroup) {
     const hasNesting = group.items.some((item) => item.children?.length);
     if (hasNesting) {
-      return (
-        <SpiritColumns>{group.items.map(renderItem)}</SpiritColumns>
-      );
+      return <SpiritColumns>{group.items.map(renderItem)}</SpiritColumns>;
     }
     return (
       <CheckboxGrid>
@@ -207,12 +325,66 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
           What’s in your bar? Used on a <Link to="/drinks">Drinks</Link> page
           filter to show you which drinks you can make.
         </Intro>
-        {BAR_CATALOG.map((group) => (
-          <Group key={group.id}>
-            <GroupHeading>{group.label}</GroupHeading>
-            {renderGroupBody(group)}
-          </Group>
-        ))}
+        <PageActions>
+          <TextButton type="button" onClick={selectAll}>
+            Select all
+          </TextButton>
+          <TextButton type="button" onClick={clearAll}>
+            Clear all
+          </TextButton>
+        </PageActions>
+        {BAR_CATALOG.map((group) => {
+          const selectedCount = countOwnedInGroup(group, owned);
+          const totalCount = getGroupTags(group).length;
+          return (
+            <Group key={group.id}>
+              <CollapsibleSection
+                startExpanded={false}
+                renderToggle={({ toggle, isExpanded }) => (
+                  <SectionHeader>
+                    <SectionToggle
+                      type="button"
+                      onClick={toggle}
+                      $isExpanded={isExpanded}
+                      aria-expanded={isExpanded}
+                    >
+                      <SectionTitle $isExpanded={isExpanded}>
+                        {group.label}
+                      </SectionTitle>
+                      {!isExpanded && (
+                        <SectionCount>
+                          {selectedCount} of {totalCount} selected
+                        </SectionCount>
+                      )}
+                    </SectionToggle>
+                    <SectionActions>
+                      <TextButton
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          selectGroup(group);
+                        }}
+                      >
+                        Select all
+                      </TextButton>
+                      <TextButton
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          clearGroup(group);
+                        }}
+                      >
+                        Clear
+                      </TextButton>
+                    </SectionActions>
+                  </SectionHeader>
+                )}
+              >
+                <SectionBody>{renderGroupBody(group)}</SectionBody>
+              </CollapsibleSection>
+            </Group>
+          );
+        })}
       </Card>
 
       {owned.size === 0 ? (

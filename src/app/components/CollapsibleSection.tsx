@@ -32,11 +32,19 @@ export default function CollapsibleSection({
   };
 
   useEffect(() => {
-    if (isExpanded) {
-      setHeight(ref.current?.scrollHeight ?? 0);
-    } else {
+    if (!isExpanded) {
       setHeight(0);
+      return;
     }
+    const node = ref.current;
+    if (!node) {
+      return;
+    }
+    // Measure after layout so multi-column / nested content gets a real height.
+    const frame = window.requestAnimationFrame(() => {
+      setHeight(node.scrollHeight);
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [isExpanded]);
 
   return (

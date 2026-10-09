@@ -145,6 +145,30 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
   },
 ];
 
+/** Flatten a catalog group to every selectable tag (parents + children). */
+export function getGroupTags(group: BarCatalogGroup): string[] {
+  const tags: string[] = [];
+  for (const item of group.items) {
+    tags.push(item.tag);
+    if (item.children?.length) {
+      tags.push(...item.children);
+    }
+  }
+  return tags;
+}
+
+export function getAllBarTags(): string[] {
+  return BAR_CATALOG.flatMap(getGroupTags);
+}
+
+export function countOwnedInGroup(
+  group: BarCatalogGroup,
+  owned: Iterable<string>,
+): number {
+  const ownedSet = owned instanceof Set ? owned : new Set(owned);
+  return getGroupTags(group).filter((tag) => ownedSet.has(tag)).length;
+}
+
 export function formatBarLabel(tag: string): string {
   return tag
     .split('-')

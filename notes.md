@@ -45,9 +45,12 @@ ten-bottle-bar tag
     [] make each section collapsible?
     [] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.
     [] Add filter on Drinks page & remove list from Bar page
-    [] orange liqueur tag subtypes?
+    [] delay when checking boxes
+    [x] orange liqueur tag subtypes?
     [] add note listing items not tracked/assumed (bitters, etc)
+    [] accents, special characters, and IPA capitalization
 [] clean up console errors
+[] apple brandy -> applejack
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?

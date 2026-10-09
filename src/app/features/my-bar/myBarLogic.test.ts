@@ -4,8 +4,11 @@ import {
   DEFAULT_BAR,
   SPIRIT_PARENTS,
   canMakeDrink,
+  countOwnedInGroup,
   filterMakeableDrinks,
   formatBarLabel,
+  getAllBarTags,
+  getGroupTags,
   getRequiredBarTags,
 } from './myBarLogic';
 
@@ -54,6 +57,24 @@ describe('myBar', () => {
     ]);
     expect(topLevelTags).not.toContain('triple-sec');
     expect(topLevelTags).toContain('orange-liqueur');
+  });
+
+  it('should flatten group tags including nested children', () => {
+    const spirits = BAR_CATALOG.find((g) => g.id === 'spirits');
+    expect(spirits).toBeDefined();
+    const tags = getGroupTags(spirits!);
+    expect(tags).toContain('whiskey');
+    expect(tags).toContain('bourbon');
+    expect(getAllBarTags()).toEqual(
+      expect.arrayContaining([...tags, 'campari', 'lemon']),
+    );
+  });
+
+  it('should count owned tags within a group', () => {
+    const citrus = BAR_CATALOG.find((g) => g.id === 'citrus');
+    expect(citrus).toBeDefined();
+    expect(countOwnedInGroup(citrus!, ['lemon', 'gin'])).toBe(1);
+    expect(countOwnedInGroup(citrus!, ['lemon', 'lime', 'grapefruit'])).toBe(3);
   });
 
   it('should format slug tags as title case labels', () => {
