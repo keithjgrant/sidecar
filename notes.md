@@ -40,7 +40,7 @@ ten-bottle-bar tag
 [x] Rework homescreen; add Tags & featured bottle link
 [x] Featured bottle feature (replaces featured drinks on homescreen)
 [] In My Bar
-    [] Group checkboxes logically
+    [x] Group checkboxes logically
     [] select/clear all for page & each section
     [] make each section collapsible?
     [] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.

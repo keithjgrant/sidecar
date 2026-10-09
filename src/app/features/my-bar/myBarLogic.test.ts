@@ -17,9 +17,9 @@ describe('myBar', () => {
   it('should include all taxonomy bar groups in catalog order', () => {
     expect(BAR_CATALOG.map((g) => g.id)).toEqual([
       'spirits',
-      'amaro',
-      'liqueurs',
       'vermouth',
+      'liqueurs',
+      'amaro',
       'syrups',
       'citrus',
     ]);
@@ -40,6 +40,20 @@ describe('myBar', () => {
     expect(gin?.children).toContain('london-dry-gin');
     expect(topLevelTags).not.toContain('bourbon');
     expect(topLevelTags).toContain('mezcal');
+  });
+
+  it('should nest orange liqueur styles under orange-liqueur', () => {
+    const liqueurs = BAR_CATALOG.find((g) => g.id === 'liqueurs');
+    const orange = liqueurs?.items.find((item) => item.tag === 'orange-liqueur');
+    const topLevelTags = liqueurs?.items.map((item) => item.tag) ?? [];
+
+    expect(orange?.children).toEqual([
+      'curacao',
+      'dry-curacao',
+      'triple-sec',
+    ]);
+    expect(topLevelTags).not.toContain('triple-sec');
+    expect(topLevelTags).toContain('orange-liqueur');
   });
 
   it('should format slug tags as title case labels', () => {
@@ -97,6 +111,26 @@ describe('myBar', () => {
   it('should not let a parent spirit satisfy a subtype requirement', () => {
     expect(
       canMakeDrink({ tags: ['bourbon', 'lemon'] }, ['whiskey', 'lemon']),
+    ).toBe(false);
+  });
+
+  it('should let an orange liqueur style satisfy orange-liqueur', () => {
+    expect(
+      canMakeDrink({ tags: ['tequila', 'orange-liqueur', 'lime'] }, [
+        'tequila',
+        'triple-sec',
+        'lime',
+      ]),
+    ).toBe(true);
+  });
+
+  it('should not let orange-liqueur satisfy a specific style requirement', () => {
+    expect(
+      canMakeDrink({ tags: ['rum', 'dry-curacao', 'lime'] }, [
+        'rum',
+        'orange-liqueur',
+        'lime',
+      ]),
     ).toBe(false);
   });
 
