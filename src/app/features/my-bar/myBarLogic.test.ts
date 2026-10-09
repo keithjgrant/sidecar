@@ -25,6 +25,23 @@ describe('myBar', () => {
     ]);
   });
 
+  it('should nest spirit subtypes under their parent tags', () => {
+    const spirits = BAR_CATALOG.find((g) => g.id === 'spirits');
+    const whiskey = spirits?.items.find((item) => item.tag === 'whiskey');
+    const gin = spirits?.items.find((item) => item.tag === 'gin');
+    const topLevelTags = spirits?.items.map((item) => item.tag) ?? [];
+
+    expect(whiskey?.children).toEqual([
+      'bourbon',
+      'irish-whiskey',
+      'rye-whiskey',
+      'scotch',
+    ]);
+    expect(gin?.children).toContain('london-dry-gin');
+    expect(topLevelTags).not.toContain('bourbon');
+    expect(topLevelTags).toContain('mezcal');
+  });
+
   it('should format slug tags as title case labels', () => {
     expect(formatBarLabel('london-dry-gin')).toBe('London Dry Gin');
     expect(formatBarLabel('campari')).toBe('Campari');
@@ -95,7 +112,7 @@ describe('myBar', () => {
 
   it('should omit meyer-lemon from the bar checklist and requirements', () => {
     const citrus = BAR_CATALOG.find((g) => g.id === 'citrus');
-    expect(citrus?.tags).not.toContain('meyer-lemon');
+    expect(citrus?.items.map((item) => item.tag)).not.toContain('meyer-lemon');
     expect(
       getRequiredBarTags(['vodka', 'lemon', 'meyer-lemon', 'shaken']),
     ).toEqual(['vodka', 'lemon']);

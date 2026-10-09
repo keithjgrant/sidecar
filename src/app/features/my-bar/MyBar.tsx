@@ -11,6 +11,8 @@ import {
   DEFAULT_BAR,
   filterMakeableDrinks,
   formatBarLabel,
+  type BarCatalogGroup,
+  type BarCatalogItem,
 } from './myBarLogic';
 import type { Drink } from '../../types';
 
@@ -43,6 +45,7 @@ const CheckboxGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.55rem 1rem;
+  align-items: start;
 
   @media (min-width: 500px) {
     grid-template-columns: 1fr 1fr;
@@ -51,6 +54,41 @@ const CheckboxGrid = styled.div`
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+`;
+
+/**
+ * Independent columns (newspaper-style): each column packs tightly.
+ * CSS Grid can't do this — row tracks are shared across columns, so a tall
+ * family forces gaps beside shorter neighbors even with span/column-flow.
+ */
+const SpiritColumns = styled.div`
+  columns: 1;
+  column-gap: 1rem;
+
+  @media (min-width: 500px) {
+    columns: 2;
+  }
+
+  @media (min-width: 800px) {
+    columns: 3;
+  }
+`;
+
+const SpiritFamily = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  break-inside: avoid;
+  margin-bottom: 0.85rem;
+`;
+
+const NestedChildren = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-left: 0.35rem;
+  padding-left: 1.1rem;
+  border-left: 1px solid var(--card-border);
 `;
 
 const ResultsHeading = styled.h2`
@@ -110,6 +148,51 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
     }
   }
 
+  function renderCheckbox(tag: string, label: string) {
+    return (
+      <Checkbox
+        key={tag}
+        id={`bar-${tag}`}
+        checked={owned.has(tag)}
+        onChange={(checked) => {
+          void toggleTag(tag, checked);
+        }}
+        label={label}
+      />
+    );
+  }
+
+  function renderItem(item: BarCatalogItem) {
+    return (
+      <SpiritFamily key={item.tag}>
+        {renderCheckbox(item.tag, formatBarLabel(item.tag))}
+        {item.children?.length ? (
+          <NestedChildren>
+            {item.children.map((child) =>
+              renderCheckbox(child, formatBarLabel(child)),
+            )}
+          </NestedChildren>
+        ) : null}
+      </SpiritFamily>
+    );
+  }
+
+  function renderGroupBody(group: BarCatalogGroup) {
+    const hasNesting = group.items.some((item) => item.children?.length);
+    if (hasNesting) {
+      return (
+        <SpiritColumns>{group.items.map(renderItem)}</SpiritColumns>
+      );
+    }
+    return (
+      <CheckboxGrid>
+        {group.items.map((item) =>
+          renderCheckbox(item.tag, formatBarLabel(item.tag)),
+        )}
+      </CheckboxGrid>
+    );
+  }
+
   return (
     <>
       {storageBlocked && (
@@ -127,19 +210,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
         {BAR_CATALOG.map((group) => (
           <Group key={group.id}>
             <GroupHeading>{group.label}</GroupHeading>
-            <CheckboxGrid>
-              {group.tags.map((tag) => (
-                <Checkbox
-                  key={tag}
-                  id={`bar-${tag}`}
-                  checked={owned.has(tag)}
-                  onChange={(checked) => {
-                    void toggleTag(tag, checked);
-                  }}
-                  label={formatBarLabel(tag)}
-                />
-              ))}
-            </CheckboxGrid>
+            {renderGroupBody(group)}
           </Group>
         ))}
       </Card>

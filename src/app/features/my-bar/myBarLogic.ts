@@ -1,5 +1,6 @@
 import {
   AMARO_TAGS,
+  BASE_SPIRITS,
   CITRUS_TAGS,
   LIQUEUR_TAGS,
   SPIRIT_TAGS,
@@ -48,22 +49,70 @@ export const SPIRIT_PARENTS: Record<string, string> = {
   'apple-brandy': 'brandy',
 };
 
+export interface BarCatalogItem {
+  tag: string;
+  children?: readonly string[];
+}
+
 export interface BarCatalogGroup {
   id: string;
   label: string;
-  tags: readonly string[];
+  items: readonly BarCatalogItem[];
+}
+
+function flatItems(tags: readonly string[]): BarCatalogItem[] {
+  return tags.map((tag) => ({ tag }));
+}
+
+function buildSpiritItems(): BarCatalogItem[] {
+  const spiritOrder = new Map<string, number>(
+    SPIRIT_TAGS.map((tag, index) => [tag, index]),
+  );
+  const childrenByParent = new Map<string, string[]>();
+
+  for (const [child, parent] of Object.entries(SPIRIT_PARENTS)) {
+    const list = childrenByParent.get(parent) ?? [];
+    list.push(child);
+    childrenByParent.set(parent, list);
+  }
+
+  for (const children of childrenByParent.values()) {
+    children.sort(
+      (a, b) => (spiritOrder.get(a) ?? 0) - (spiritOrder.get(b) ?? 0)
+    );
+  }
+
+  const childTags = new Set(Object.keys(SPIRIT_PARENTS));
+  const items: BarCatalogItem[] = [];
+
+  // Prefer base-spirit order, then remaining top-level tags (e.g. absinthe).
+  const baseSet = new Set<string>(BASE_SPIRITS);
+  const topLevelOrder = [
+    ...BASE_SPIRITS,
+    ...SPIRIT_TAGS.filter((tag) => !baseSet.has(tag) && !childTags.has(tag)),
+  ];
+
+  for (const tag of topLevelOrder) {
+    if (childTags.has(tag)) {
+      continue;
+    }
+    const children = childrenByParent.get(tag);
+    items.push(children?.length ? { tag, children } : { tag });
+  }
+
+  return items;
 }
 
 export const BAR_CATALOG: BarCatalogGroup[] = [
-  { id: 'spirits', label: 'Spirits', tags: SPIRIT_TAGS },
-  { id: 'amaro', label: 'Amaro', tags: AMARO_TAGS },
-  { id: 'liqueurs', label: 'Liqueurs', tags: LIQUEUR_TAGS },
-  { id: 'vermouth', label: 'Vermouth', tags: VERMOUTH_TAGS },
-  { id: 'syrups', label: 'Syrups', tags: SYRUP_TAGS },
+  { id: 'spirits', label: 'Spirits', items: buildSpiritItems() },
+  { id: 'amaro', label: 'Amaro', items: flatItems(AMARO_TAGS) },
+  { id: 'liqueurs', label: 'Liqueurs', items: flatItems(LIQUEUR_TAGS) },
+  { id: 'vermouth', label: 'Vermouth', items: flatItems(VERMOUTH_TAGS) },
+  { id: 'syrups', label: 'Syrups', items: flatItems(SYRUP_TAGS) },
   {
     id: 'citrus',
     label: 'Citrus',
-    tags: CITRUS_TAGS.filter((tag) => !BAR_EXCLUDED_TAGS.has(tag)),
+    items: flatItems(CITRUS_TAGS.filter((tag) => !BAR_EXCLUDED_TAGS.has(tag))),
   },
 ];
 
@@ -79,8 +128,7 @@ export function getRequiredBarTags(tags: string[] | undefined): string[] {
     return [];
   }
   return tags.filter(
-    (tag) =>
-      BAR_TAG_KINDS.has(getTagKind(tag)) && !BAR_EXCLUDED_TAGS.has(tag),
+    (tag) => BAR_TAG_KINDS.has(getTagKind(tag)) && !BAR_EXCLUDED_TAGS.has(tag)
   );
 }
 
@@ -98,7 +146,7 @@ function coversTag(required: string, owned: Set<string>): boolean {
 
 export function canMakeDrink(
   drink: { tags: string[] },
-  owned: Iterable<string>,
+  owned: Iterable<string>
 ): boolean {
   const required = getRequiredBarTags(drink.tags);
   if (required.length === 0) {
@@ -110,7 +158,7 @@ export function canMakeDrink(
 
 export function filterMakeableDrinks<T extends { tags: string[] }>(
   drinks: T[],
-  owned: Iterable<string>,
+  owned: Iterable<string>
 ): T[] {
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
   return drinks.filter((drink) => canMakeDrink(drink, ownedSet));

@@ -48,6 +48,7 @@ ten-bottle-bar tag
     [] orange liqueur tag subtypes?
     [] add note listing items not tracked/assumed (bitters, etc)
 [] clean up console errors
+[] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
 [] clean up weird TileWithLink homescreen components/css
