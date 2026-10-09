@@ -22,9 +22,13 @@ const featuredBottles = {
     tag: 'green-chartreuse',
     label: 'Green Chartreuse (and substitutes)',
   },
-  '2027-01': { tag: 'benedictine', label: 'Bénédictine' },
-  '2027-02': { tag: 'campari', label: 'Campari', image: 'campari.webp' },
-  '2027-03': { tag: 'maraschino', label: 'Maraschino' },
+  '2027-01': {
+    tag: 'benedictine',
+    label: 'Bénédictine',
+    image: 'benedictine.jpg',
+  },
+  '2027-02': { tag: 'maraschino', label: 'Maraschino' },
+  '2027-03': { tag: 'campari', label: 'Campari', image: 'campari.webp' },
 };
 
 module.exports = { featuredBottles };
