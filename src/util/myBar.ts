@@ -18,6 +18,9 @@ const BAR_TAG_KINDS = new Set<TagKind>([
   'citrus',
 ]);
 
+/** Taxonomy citrus kept for Help Me Decide / tags; omitted from the bar UI. */
+const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon']);
+
 export const DEFAULT_BAR = ['lemon', 'lime'] as const;
 
 /**
@@ -57,7 +60,11 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
   { id: 'liqueurs', label: 'Liqueurs', tags: LIQUEUR_TAGS },
   { id: 'vermouth', label: 'Vermouth', tags: VERMOUTH_TAGS },
   { id: 'syrups', label: 'Syrups', tags: SYRUP_TAGS },
-  { id: 'citrus', label: 'Citrus', tags: CITRUS_TAGS },
+  {
+    id: 'citrus',
+    label: 'Citrus',
+    tags: CITRUS_TAGS.filter((tag) => !BAR_EXCLUDED_TAGS.has(tag)),
+  },
 ];
 
 export function formatBarLabel(tag: string): string {
@@ -71,7 +78,10 @@ export function getRequiredBarTags(tags: string[] | undefined): string[] {
   if (!tags?.length) {
     return [];
   }
-  return tags.filter((tag) => BAR_TAG_KINDS.has(getTagKind(tag)));
+  return tags.filter(
+    (tag) =>
+      BAR_TAG_KINDS.has(getTagKind(tag)) && !BAR_EXCLUDED_TAGS.has(tag),
+  );
 }
 
 function coversTag(required: string, owned: Set<string>): boolean {

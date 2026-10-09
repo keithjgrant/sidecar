@@ -93,6 +93,20 @@ describe('myBar', () => {
     expect(canMakeDrink({ tags: ['gin', 'lemon'] }, ['gin'])).toBe(false);
   });
 
+  it('should omit meyer-lemon from the bar checklist and requirements', () => {
+    const citrus = BAR_CATALOG.find((g) => g.id === 'citrus');
+    expect(citrus?.tags).not.toContain('meyer-lemon');
+    expect(
+      getRequiredBarTags(['vodka', 'lemon', 'meyer-lemon', 'shaken']),
+    ).toEqual(['vodka', 'lemon']);
+    expect(
+      canMakeDrink(
+        { tags: ['vodka', 'lemon', 'meyer-lemon'] },
+        ['vodka', 'lemon'],
+      ),
+    ).toBe(true);
+  });
+
   it('should filter a list down to makeable drinks only', () => {
     const drinks = [
       { title: 'Negroni', tags: ['gin', 'campari', 'sweet-vermouth'] },

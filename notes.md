@@ -43,7 +43,10 @@ ten-bottle-bar tag
     [] Group checkboxes logically
     [] select/clear all for page & each section
     [] make each section collapsible?
+    [] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.
     [] Add filter on Drinks page & remove list from Bar page
     [] orange liqueur tag subtypes?
+    [] add note listing items not tracked/assumed (bitters, etc)
+[] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
 [] clean up weird TileWithLink homescreen components/css

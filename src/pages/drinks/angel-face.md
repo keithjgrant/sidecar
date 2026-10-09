@@ -17,7 +17,7 @@ tags: [
   gin,
   london-dry-gin,
   apple-brandy,
-  apricot,
+  apricot-liqueur,
   stirred,
 ]
 tenBottleCandidate:
