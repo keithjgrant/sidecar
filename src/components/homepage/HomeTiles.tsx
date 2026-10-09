@@ -16,8 +16,12 @@ const Card = styled.div`
 `;
 
 const CardBoxDark = styled.div`
-  padding: 1rem 0;
   background-color: var(--gray-dark);
+
+  /* Only pad if it has content; collapses empty tiles (see featured bottle) */
+  &:has(> div) {
+    padding: 1rem 0;
+  }
 `;
 
 const CardBoxHighlight = styled.div`
