@@ -6,6 +6,7 @@ import {
   SPIRIT_TAGS,
   SYRUP_TAGS,
   VERMOUTH_TAGS,
+  WINE_TAGS,
   getTagKind,
   type TagKind,
 } from '../../tagTaxonomy';
@@ -15,6 +16,7 @@ const BAR_TAG_KINDS = new Set<TagKind>([
   'amaro',
   'liqueur',
   'vermouth',
+  'wine',
   'syrup',
   'citrus',
 ]);
@@ -131,6 +133,7 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
     items: buildNestedItems(SPIRIT_TAGS, SPIRIT_PARENTS, BASE_SPIRITS),
   },
   { id: 'vermouth', label: 'Vermouth', items: flatItems(VERMOUTH_TAGS) },
+  { id: 'wine', label: 'Wine', items: flatItems(WINE_TAGS) },
   {
     id: 'liqueurs',
     label: 'Liqueurs',

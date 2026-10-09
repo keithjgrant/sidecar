@@ -42,6 +42,7 @@ const KIND_OPTIONS: Array<TagKind | 'all'> = [
   'amaro',
   'liqueur',
   'vermouth',
+  'wine',
   'syrup',
   'citrus',
   'flavor',

@@ -21,6 +21,7 @@ describe('myBar', () => {
     expect(BAR_CATALOG.map((g) => g.id)).toEqual([
       'spirits',
       'vermouth',
+      'wine',
       'liqueurs',
       'amaro',
       'syrups',

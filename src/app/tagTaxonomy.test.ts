@@ -11,6 +11,7 @@ import {
   SYRUP_TAGS,
   TECHNIQUE_TAGS,
   VERMOUTH_TAGS,
+  WINE_TAGS,
   getTagKind,
 } from './tagTaxonomy';
 
@@ -19,6 +20,7 @@ const KIND_SETS: Array<[string, readonly string[]]> = [
   ['amaro', AMARO_TAGS],
   ['liqueur', LIQUEUR_TAGS],
   ['vermouth', VERMOUTH_TAGS],
+  ['wine', WINE_TAGS],
   ['syrup', SYRUP_TAGS],
   ['citrus', CITRUS_TAGS],
   ['flavor', FLAVOR_TAGS],
@@ -60,6 +62,12 @@ describe('tagTaxonomy sets', () => {
 
   it('should classify meyer-lemon as citrus', () => {
     expect(getTagKind('meyer-lemon')).toBe('citrus');
+  });
+
+  it('should classify red-wine and sparkling-wine as wine and leave generic wine as other', () => {
+    expect(getTagKind('red-wine')).toBe('wine');
+    expect(getTagKind('sparkling-wine')).toBe('wine');
+    expect(getTagKind('wine')).toBe('other');
   });
 
   it('should classify unlisted tags as other', () => {

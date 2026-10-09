@@ -41,6 +41,7 @@ describe('byTagKind', () => {
     expect(tags.filter(byTagKind('amaro'))).toEqual(['campari']);
     expect(tags.filter(byTagKind('liqueur'))).toEqual(['curacao']);
     expect(tags.filter(byTagKind('vermouth'))).toEqual(['sweet-vermouth']);
+    expect(tags.filter(byTagKind('wine'))).toEqual([]);
     expect(tags.filter(byTagKind('syrup'))).toEqual(['orgeat']);
     expect(tags.filter(byTagKind('citrus'))).toEqual(['lemon']);
     expect(tags.filter(byTagKind('flavor'))).toEqual(['bitter']);

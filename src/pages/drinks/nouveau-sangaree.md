@@ -16,7 +16,7 @@ ingredients: [
 garnish: Green apple slice, cinnamon and/or nutmeg
 tags: [
   fall,
-  wine,
+  red-wine,
   apple-brandy,
   sloe-gin,
   gin,
