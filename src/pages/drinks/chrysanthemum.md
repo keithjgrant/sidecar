@@ -21,7 +21,6 @@ tags: [
   stirred,
   aperitif,
 ]
-featured:
 tenBottleCandidate: true
 source: https://www.youtube.com/watch?v=ivuVwMUiQ_U
 ---

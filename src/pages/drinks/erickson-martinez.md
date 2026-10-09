@@ -21,7 +21,6 @@ tags: [
   maraschino,
   stirred,
 ]
-featured:
 tenBottleCandidate: false
 source: https://www.youtube.com/watch?v=MuxY7_-_U_8
 intro: This is a fantastic take on the [Martinez](/drinks/martinez) from YouTuber [Anders Erickson](https://www.youtube.com/watch?v=MuxY7_-_U_8). It works largely because Fee's orange bitters are so much brighter and more citrus forward than other orange bitters. If you don't have Fee's, reduce the orange bitters significantly.

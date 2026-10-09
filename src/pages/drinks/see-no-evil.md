@@ -21,7 +21,6 @@ tags: [
   lime,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 source: https://www.youtube.com/watch?v=xRJ9uAzTcaE
 intro: A delicious cocktail created by [Anders Erickson](https://www.youtube.com/watch?v=xRJ9uAzTcaE)

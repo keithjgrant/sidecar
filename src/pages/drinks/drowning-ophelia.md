@@ -20,7 +20,6 @@ tags: [
   shaken,
   rosemary,
 ]
-featured:
 tenBottleCandidate: true
 image:
   url: "/images/drinks/.jpg"

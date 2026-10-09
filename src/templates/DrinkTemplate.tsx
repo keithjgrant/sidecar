@@ -21,7 +21,6 @@ interface DrinkTemplateProps {
         ingredients: string[];
         garnish?: string;
         tags: string[];
-        featured?: boolean;
         image?: {
           url?: string;
           alt?: string;
@@ -85,7 +84,6 @@ export const pageQuery = graphql`
         ingredients
         garnish
         tags
-        featured
         image {
           url
           alt

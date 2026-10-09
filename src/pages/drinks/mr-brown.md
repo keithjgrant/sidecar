@@ -20,7 +20,6 @@ tags: [
   vanilla,
   built,
 ]
-featured:
 tenBottleCandidate:
 source: https://youtube.com/shorts/8qdWiSH9u4I?si=eXGkA862M48h5YnS
 intro:

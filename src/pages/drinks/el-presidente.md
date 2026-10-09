@@ -27,7 +27,6 @@ image:
   url: "/images/drinks/el-presidente.jpg"
   alt: ""
   align: "80% 40%"
-featured: true
 tenBottleCandidate: true
 intro: Dry vermouth can be substituited for blanc vermouth (resulting in a slightly dryer drink, naturally).
 ---

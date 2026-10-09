@@ -24,7 +24,6 @@ tags: [
   cinnamon,
   stirred,
 ]
-featured:
 image:
   url: "/images/drinks/nouveau-sangaree.jpg"
   alt: "A deep red drink in a brandy snifter. An apple slice is balanced on the rim of the glass."

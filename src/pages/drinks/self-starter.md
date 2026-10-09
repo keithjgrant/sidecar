@@ -21,7 +21,6 @@ tags: [
   absinthe,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

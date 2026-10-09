@@ -21,7 +21,6 @@ tags: [
   elderflower-liqueur,
   stirred,
 ]
-featured:
 intro: This is a fun variant of the [Sazarac](/drinks/sazarac).
 
 ---

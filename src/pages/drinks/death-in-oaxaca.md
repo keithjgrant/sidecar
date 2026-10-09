@@ -22,7 +22,6 @@ tags: [
   lime,
   shaken,
 ]
-featured:
 
 ---
 

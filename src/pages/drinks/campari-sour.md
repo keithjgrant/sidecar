@@ -25,7 +25,6 @@ tags: [
   lime,
   shaken,
 ]
-featured:
 tenBottleCandidate: true
 source: https://punchdrink.com/recipes/campari-sour/
 intro:

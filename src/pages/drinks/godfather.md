@@ -18,7 +18,6 @@ tags: [
   amaretto,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 ---

@@ -14,7 +14,6 @@ ingredients: [
 garnish:
 tags: [
 ]
-featured:
 tenBottleCandidate:
 image:
   url: "/images/drinks/.jpg"

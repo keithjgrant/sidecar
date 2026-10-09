@@ -20,7 +20,6 @@ tags: [
   sour,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

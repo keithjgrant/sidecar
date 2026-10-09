@@ -33,7 +33,6 @@ tags: [
   egg,
   shaken,
 ]
-featured:
 image:
   url: "/images/drinks/ramos-gin-fizz.jpg"
   alt: "A white foamy drink in a tall narrow glass"

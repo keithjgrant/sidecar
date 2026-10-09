@@ -20,6 +20,5 @@ export interface Drink {
   content?: string;
   sweetness?: number;
   booziness?: number;
-  featured?: boolean;
   family?: string;
 }

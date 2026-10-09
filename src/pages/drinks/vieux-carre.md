@@ -25,7 +25,6 @@ tags: [
   sweet-vermouth,
   stirred,
 ]
-featured:
 image:
   url: "/images/drinks/vieux-carre.jpg"
   alt: ""

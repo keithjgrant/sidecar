@@ -26,7 +26,6 @@ tags: [
   orange-liqueur,
   shaken,
 ]
-featured:
 tenBottleCandidate: true
 source:
 intro:

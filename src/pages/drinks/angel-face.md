@@ -20,7 +20,6 @@ tags: [
   apricot,
   stirred,
 ]
-featured: true
 tenBottleCandidate:
 source:
 intro:

@@ -17,7 +17,6 @@ tags: [
   drambuie,
   built
 ]
-featured:
 intro: I like this best with a good peaty Scotch.
 
 ---

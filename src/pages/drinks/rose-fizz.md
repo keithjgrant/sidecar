@@ -20,7 +20,6 @@ tags: [
   wine,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

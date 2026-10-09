@@ -20,7 +20,6 @@ tags: [
   apricot-liqueur,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

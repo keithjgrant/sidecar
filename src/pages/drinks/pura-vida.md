@@ -19,7 +19,6 @@ tags: [
   coffee-liqueur,
   stirred,
 ]
-featured: true
 tenBottleCandidate:
 source:
 intro:

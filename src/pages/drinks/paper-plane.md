@@ -21,7 +21,6 @@ tags: [
   lemon,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro: Amaro Nonino is one of my favorite amaros, and this is a great way to put it to use if you’re not sipping in neat.

@@ -24,7 +24,6 @@ tags: [
   creme-de-cacao,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source: https://youtu.be/cZi1n3hQOCE
 intro: Do I have too many [Negroni](/drinks/negroni) variations on this site? I think not.

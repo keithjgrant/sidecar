@@ -21,7 +21,6 @@ image:
   url: "/images/drinks/pilots-license.jpg"
   alt: "Closeup photo of the clear cocktail in a martini glass"
   align: "50% 40%"
-featured: 
 intro: This is an unabashed response to anyone who insists a martini must be dry. Aviation is a sweeter, less juniper-heavy gin that shines with a moderately sweet blanc vermouth.
 ---
 Add to cocktail shaker with plenty of ice. Stir well, then strain into a martini glass or coupe.

@@ -24,7 +24,6 @@ tags: [
   sweet-vermouth,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

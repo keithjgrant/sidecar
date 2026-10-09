@@ -23,7 +23,6 @@ tags: [
   fernet,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source: https://www.diffordsguide.com/cocktails/recipe/3511/bitter-in-brazil
 intro: Best with a full-bodied vermouth such as Punt E Mes or Carpano Antica

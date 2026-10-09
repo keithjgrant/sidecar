@@ -21,7 +21,6 @@ tags: [
   demerara-syrup,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source: https://youtu.be/fQfVijUec0A
 intro:

@@ -22,7 +22,6 @@ tags: [
   absinthe,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source: https://www.liquor.com/recipes/la-tour-eiffel/
 intro:

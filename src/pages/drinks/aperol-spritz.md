@@ -23,7 +23,6 @@ tags: [
   wine,
   built,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:
