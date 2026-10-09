@@ -1,7 +1,4 @@
-import {
-  featuredBottles as bottles,
-  getFeaturedBottleTagPaths,
-} from './featuredBottlesConfig';
+import { featuredBottles as bottles } from './featuredBottlesConfig';
 
 export type FeaturedBottle = {
   tag: string;
@@ -16,17 +13,28 @@ export type FeaturedBottleSelection = {
   bottle: FeaturedBottle;
 };
 
-export const featuredBottles: Record<string, FeaturedBottle> = bottles;
+export type FeaturedBottleSchedule = Record<string, FeaturedBottle>;
 
-export { getFeaturedBottleTagPaths };
+export const featuredBottles: FeaturedBottleSchedule = bottles;
+
+export function getFeaturedBottleTagPaths(
+  schedule: FeaturedBottleSchedule = featuredBottles,
+): string[] {
+  return [
+    ...new Set(
+      Object.values(schedule).map((bottle) => `/tags/${bottle.tag}/`),
+    ),
+  ].sort();
+}
 
 export function getFeaturedBottle(
   date: Date = new Date(),
+  schedule: FeaturedBottleSchedule = featuredBottles,
 ): FeaturedBottleSelection | null {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const monthKey = `${year}-${month}`;
-  const bottle = featuredBottles[monthKey];
+  const bottle = schedule[monthKey];
   if (!bottle) {
     return null;
   }

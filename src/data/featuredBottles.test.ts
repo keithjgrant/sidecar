@@ -1,47 +1,57 @@
 import { describe, expect, it } from 'vitest';
 import {
-  featuredBottles,
   getFeaturedBottle,
   getFeaturedBottleTagPaths,
+  type FeaturedBottleSchedule,
 } from './featuredBottles';
-import { featuredBottles as configBottles } from './featuredBottlesConfig';
+
+const schedule: FeaturedBottleSchedule = {
+  '2099-03': {
+    tag: 'test-amaro',
+    label: 'Test Amaro (extra note)',
+    image: 'test-amaro.webp',
+  },
+  '2099-04': { tag: 'other-bottle', label: 'Other Bottle' },
+  '2099-05': { tag: 'test-amaro', label: 'Test Amaro again' },
+};
 
 describe('getFeaturedBottle', () => {
   it('should return the bottle for the matching year-month', () => {
-    const result = getFeaturedBottle(new Date('2026-10-15T12:00:00'));
+    const result = getFeaturedBottle(new Date('2099-03-15T12:00:00'), schedule);
     expect(result).toEqual({
-      monthKey: '2026-10',
-      monthName: 'October',
-      bottle: featuredBottles['2026-10'],
+      monthKey: '2099-03',
+      monthName: 'March',
+      bottle: schedule['2099-03'],
     });
   });
 
   it('should return null when the month is not configured', () => {
-    expect(getFeaturedBottle(new Date('2025-06-01T12:00:00'))).toBeNull();
+    expect(
+      getFeaturedBottle(new Date('2025-06-01T12:00:00'), schedule),
+    ).toBeNull();
   });
 
   it('should format the month name for the link copy', () => {
-    const result = getFeaturedBottle(new Date('2027-01-08T12:00:00'));
-    expect(result?.monthName).toBe('January');
+    const result = getFeaturedBottle(new Date('2099-04-08T12:00:00'), schedule);
+    expect(result?.monthName).toBe('April');
   });
 
   it('should preserve a long bottle label', () => {
-    const result = getFeaturedBottle(new Date('2026-12-01T12:00:00'));
-    expect(result?.bottle.label).toBe(
-      'Green Chartreuse (substitutions available)',
-    );
+    const result = getFeaturedBottle(new Date('2099-03-01T12:00:00'), schedule);
+    expect(result?.bottle.label).toBe('Test Amaro (extra note)');
   });
 
   it('should use an explicit image filename including extension', () => {
-    expect(featuredBottles['2026-10'].image).toBe('campari.webp');
+    const result = getFeaturedBottle(new Date('2099-03-01T12:00:00'), schedule);
+    expect(result?.bottle.image).toBe('test-amaro.webp');
   });
 });
 
 describe('getFeaturedBottleTagPaths', () => {
-  it('should include every featured bottle tag in offline precache paths', () => {
-    const tags = new Set(
-      Object.values(configBottles).map((bottle) => `/tags/${bottle.tag}/`),
-    );
-    expect(getFeaturedBottleTagPaths()).toEqual([...tags].sort());
+  it('should return unique sorted tag paths from the schedule', () => {
+    expect(getFeaturedBottleTagPaths(schedule)).toEqual([
+      '/tags/other-bottle/',
+      '/tags/test-amaro/',
+    ]);
   });
 });
