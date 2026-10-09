@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import SimpleListLayout from '../components/layouts/SimpleListLayout';
-import Meta from '../components/Meta';
-import TagsExplore from '../components/TagsExplore';
+import SimpleListLayout from '../app/components/layouts/SimpleListLayout';
+import Meta from '../app/components/Meta';
+import TagsExplore from '../app/features/explore/TagsExplore';
 
 interface TagsPageProps {
   data: {

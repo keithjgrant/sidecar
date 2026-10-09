@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import DrinkListLayout from '../components/layouts/DrinkListLayout';
-import Meta from '../components/Meta';
-import MyBar from '../components/MyBar';
+import DrinkListLayout from '../app/components/layouts/DrinkListLayout';
+import Meta from '../app/components/Meta';
+import MyBar from '../app/features/my-bar/MyBar';
 
-import type { Drink } from '../types';
+import type { Drink } from '../app/types';
 
 interface MyBarPageProps {
   data: {

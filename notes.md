@@ -47,6 +47,7 @@ ten-bottle-bar tag
     [] Add filter on Drinks page & remove list from Bar page
     [] orange liqueur tag subtypes?
     [] add note listing items not tracked/assumed (bitters, etc)
+[] clean up console errors
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
 [] clean up weird TileWithLink homescreen components/css
@@ -54,4 +55,3 @@ ten-bottle-bar tag
     [] back-button long press function broken (part of screen is text-selected instead)
     [] favorite button no longer provides haptic feedback
 
-Let's look at a little file structure cleanup. I'd like it to be clear from the file structure what is used for drink/tag filtering, In My Bar functionality, etc. In particular, is @src/util/tagTaxonomy.ts used by multiple functions? should some of the newer files be reorganized, or it the structure clear as it is?

@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import type { IGatsbyImageData } from 'gatsby-plugin-image';
-import HomepageLayout from '../components/layouts/HomepageLayout';
-import Meta from '../components/Meta';
-import HomeTiles from '../components/homepage/HomeTiles';
+import HomepageLayout from '../app/components/layouts/HomepageLayout';
+import Meta from '../app/components/Meta';
+import HomeTiles from '../app/components/homepage/HomeTiles';
 
-import type { Drink } from '../types';
+import type { Drink } from '../app/types';
 
 interface DrinkEdge {
   node: { frontmatter: Drink };
