@@ -56,6 +56,7 @@ export const LIQUEUR_TAGS = [
   'benedictine',
   'coffee-liqueur',
   'creme-de-cacao',
+  'creme-de-mure',
   'curacao',
   'drambuie',
   'dry-curacao',

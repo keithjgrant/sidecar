@@ -107,6 +107,14 @@ const BorderLeftLink = styled(Link)`
   border-left: 1px solid var(--card-border);
 `;
 
+const SplitRowLink = styled(Link)`
+  border-bottom: 1px solid var(--card-border);
+`;
+
+const SplitRowBorderLeftLink = styled(BorderLeftLink)`
+  border-bottom: 1px solid var(--card-border);
+`;
+
 export default function HomeTiles({
   recent,
   imageMap,
@@ -118,7 +126,10 @@ export default function HomeTiles({
         <MainLinks>
           <FullWidthLink to="/drinks">Browse Drinks</FullWidthLink>
           <FullWidthLink to="/tags">Tags</FullWidthLink>
-          <FullWidthLink to="/favorites">Favorites</FullWidthLink>
+          <SplitRowLink to="/my-bar">In My Bar</SplitRowLink>
+          <SplitRowBorderLeftLink to="/favorites">
+            Favorites
+          </SplitRowBorderLeftLink>
           <Link to="/ingredients">Ingredients</Link>
           <BorderLeftLink to="/techniques">Techniques</BorderLeftLink>
         </MainLinks>

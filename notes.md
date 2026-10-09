@@ -40,4 +40,10 @@ ten-bottle-bar tag
 [x] Rework homescreen; add Tags & featured bottle link
 [x] Featured bottle feature (replaces featured drinks on homescreen)
 [] In My Bar
+    [] Group checkboxes logically
+    [] select/clear all for page & each section
+    [] make each section collapsible?
+    [] Add filter on Drinks page & remove list from Bar page
+    [] orange liqueur tag subtypes?
 [] Nav icons along bottom of screen in standalone (PWA) mode?
+[] clean up weird TileWithLink homescreen components/css

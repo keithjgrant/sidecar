@@ -43,6 +43,7 @@ function scoreDrink(drink: DecideDrink, answer: string): number {
       'peach',
       'cherry',
       'blackberry',
+      'creme-de-mure',
       'raspberry',
       'strawberry',
       'cranberry',
