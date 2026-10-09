@@ -23,7 +23,6 @@ tags: [
   egg,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 image:
   url: "/images/drinks/.jpg"

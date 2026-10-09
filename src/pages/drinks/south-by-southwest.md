@@ -21,7 +21,6 @@ tags: [
   sweet-vermouth,
   stirred,
 ]
-featured:
 intro:
   Orange flower water can be hard to track down. I’ve been known to omit it in this recipe (in which case, use a coupe instead of rocks glass).
 ---

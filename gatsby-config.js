@@ -1,3 +1,11 @@
+const { featuredBottles } = require('./src/data/featuredBottlesConfig');
+
+const featuredBottleTagPaths = [
+  ...new Set(
+    Object.values(featuredBottles).map((bottle) => `/tags/${bottle.tag}/`),
+  ),
+].sort();
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -49,7 +57,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        precachePages: ['/drinks/', '/drinks/*'],
+        precachePages: [
+          '/drinks/',
+          '/drinks/*',
+          ...featuredBottleTagPaths,
+        ],
         workboxConfig: {
           runtimeCaching: [
             {

@@ -23,7 +23,6 @@ tags: [
   lime,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 source: Cochinito
 intro:

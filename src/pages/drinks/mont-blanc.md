@@ -20,7 +20,6 @@ tags: [
   brown-sugar-syrup,
   built,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

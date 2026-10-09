@@ -23,7 +23,6 @@ tags: [
   honey,
   shaken
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

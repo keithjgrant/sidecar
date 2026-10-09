@@ -41,8 +41,9 @@ const Title = styled.div`
   border-radius: 1em;
   font-size: 0.8rem;
   text-align: center;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   color: var(--gray-7);
 `;

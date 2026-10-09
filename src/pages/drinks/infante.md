@@ -19,7 +19,6 @@ tags: [
   orgeat,
   shaken,
 ]
-featured:
 tenBottleCandidate: true
 source:
 intro:

@@ -19,7 +19,6 @@ tags: [
   grenadine,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

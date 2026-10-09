@@ -23,7 +23,6 @@ tags: [
   lemon,
   shaken,
 ]
-featured:
 tenBottleCandidate: true
 source:
 intro:

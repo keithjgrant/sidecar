@@ -17,7 +17,6 @@ tags: [
   black-walnut,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source: https://emilyfabulous.com/black-walnut-bitters-cocktail-recipe/
 intro: |

@@ -27,7 +27,6 @@ tags: [
   shaken,
   muddled,
 ]
-featured:
 tenBottleCandidate:
 source: https://youtu.be/ptoAM1cWCAI?si=ExjI1JBlgyQ7Eg98
 intro:

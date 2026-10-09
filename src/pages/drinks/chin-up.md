@@ -22,7 +22,6 @@ tags: [
   stirred,
   muddled,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

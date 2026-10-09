@@ -22,7 +22,6 @@ tags: [
   london-dry-gin,
   stirred,
 ]
-featured:
 tenBottleCandidate: true
 source:
 intro:

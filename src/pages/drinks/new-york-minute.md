@@ -23,7 +23,6 @@ tags: [
   orange,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

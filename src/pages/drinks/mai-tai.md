@@ -28,7 +28,6 @@ tags: [
   lime,
   shaken,
 ]
-featured:
 tenBottleCandidate:
 source: https://www.youtube.com/watch?v=gYJsPE1demY&t=394s
 intro: |

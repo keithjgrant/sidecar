@@ -19,7 +19,6 @@ tags: [
   "elderflower-liqueur",
   "stirred",
 ]
-featured: 
 image:
   url: "/images/drinks/elder-fashioned.jpg"
   alt: "A crystal-clear cocktail in a rocks glass on a bar mat"

@@ -20,7 +20,6 @@ tags: [
   chocolate,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

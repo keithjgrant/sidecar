@@ -21,7 +21,6 @@ tags: [
   benedictine,
   stirred,
 ]
-featured: true
 tenBottleCandidate:
 source: https://www.youtube.com/watch?v=UJJqbCGHsOg
 

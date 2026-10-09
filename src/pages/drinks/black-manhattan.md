@@ -19,7 +19,6 @@ tags: [
   rye-whiskey,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

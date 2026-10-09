@@ -19,7 +19,6 @@ tags: [
   negroni,
   built
 ]
-featured:
 tenBottleCandidate:
 image:
   url: "/images/drinks/.jpg"

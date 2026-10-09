@@ -18,7 +18,6 @@ tags: [
   elderflower-liqueur,
   stirred,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

@@ -21,7 +21,6 @@ tags: [
   lemon,
   built,
 ]
-featured:
 tenBottleCandidate:
 source:
 intro:

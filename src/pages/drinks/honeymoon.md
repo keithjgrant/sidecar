@@ -22,7 +22,6 @@ tags: [
   lemon,
   shaken,
 ]
-featured:
 intro:
 
 ---

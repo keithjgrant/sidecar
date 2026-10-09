@@ -7,7 +7,7 @@ const nbsp = '\u00A0';
 
 const Banner = styled(GatsbyImage)`
   width: 100%;
-  height: 50vh;
+  height: var(--hero-height);
   object-fit: cover;
 `;
 
@@ -48,7 +48,7 @@ const Back = styled.div`
 `;
 
 const Front = styled.main`
-  margin-top: 50vh;
+  margin-top: var(--hero-height);
   position: absolute;
   top: 0;
   right: 0;
@@ -59,11 +59,18 @@ const Front = styled.main`
 `;
 
 interface HomepageLayoutProps {
-  heroImage: { childImageSharp: { gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } };
+  heroImage: {
+    childImageSharp: {
+      gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData;
+    };
+  };
   children: React.ReactNode;
 }
 
-export default function HomepageLayout({ heroImage, children }: HomepageLayoutProps) {
+export default function HomepageLayout({
+  heroImage,
+  children,
+}: HomepageLayoutProps) {
   let iOS = false;
   if (typeof navigator !== 'undefined') {
     iOS =

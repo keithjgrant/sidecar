@@ -26,7 +26,6 @@ tags: [
   lemon,
   shaken,
 ]
-featured: true
 intro:
 ---
 Shake vigorously with ice. Strain into a coupe glass.

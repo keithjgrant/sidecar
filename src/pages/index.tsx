@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
 import HomepageLayout from '../components/layouts/HomepageLayout';
 import Meta from '../components/Meta';
 import HomeTiles from '../components/homepage/HomeTiles';
@@ -17,29 +18,45 @@ function getDrinkObjects(result: { edges: DrinkEdge[] }) {
 interface IndexPageProps {
   data: {
     recent: { edges: DrinkEdge[] };
-    featured: { edges: DrinkEdge[] };
     images: { edges: { node: { name: string; childImageSharp: unknown } }[] };
+    bottleImages: {
+      edges: {
+        node: {
+          base: string;
+          childImageSharp: { gatsbyImageData: IGatsbyImageData };
+        };
+      }[];
+    };
     heroImage: {
       childImageSharp: {
-        gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData;
+        gatsbyImageData: IGatsbyImageData;
       };
     };
   };
 }
 
 export default function IndexPage({
-  data: { recent, featured, images, heroImage },
+  data: { recent, images, bottleImages, heroImage },
 }: IndexPageProps) {
   const imageMap: Record<string, unknown> = {};
   images.edges.forEach(({ node: { name, childImageSharp } }) => {
     imageMap[name] = childImageSharp;
   });
+
+  const bottleImageMap: Record<
+    string,
+    { gatsbyImageData: IGatsbyImageData } | undefined
+  > = {};
+  bottleImages.edges.forEach(({ node: { base, childImageSharp } }) => {
+    bottleImageMap[base] = childImageSharp;
+  });
+
   return (
     <HomepageLayout heroImage={heroImage}>
       <HomeTiles
         recent={getDrinkObjects(recent)}
-        featured={getDrinkObjects(featured)}
         imageMap={imageMap}
+        bottleImageMap={bottleImageMap}
       />
     </HomepageLayout>
   );
@@ -47,27 +64,6 @@ export default function IndexPage({
 
 export const pageQuery = graphql`
   query FeaturedDrinks {
-    featured: allMarkdownRemark(
-      filter: { frontmatter: { featured: { eq: true } } }
-      limit: 3
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
-            date(formatString: "DD MMM YYYY")
-            glass
-            tags
-            image {
-              url
-              alt
-              align
-            }
-          }
-        }
-      }
-    }
     recent: allMarkdownRemark(
       filter: { frontmatter: { path: { regex: "/^/drinks//" } } }
       sort: { frontmatter: { date: DESC } }
@@ -101,6 +97,21 @@ export const pageQuery = graphql`
           name
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED, width: 250, quality: 80)
+          }
+        }
+      }
+    }
+    bottleImages: allFile(
+      filter: {
+        relativePath: { regex: "/^bottles//" }
+        sourceInstanceName: { eq: "images" }
+      }
+    ) {
+      edges {
+        node {
+          base
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED, width: 120, quality: 80)
           }
         }
       }

@@ -22,7 +22,6 @@ tags: [
   black-pepper,
   shaken,
 ]
-featured: true
 tenBottleCandidate:
 source:
 intro: |
