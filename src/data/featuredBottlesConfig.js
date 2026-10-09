@@ -8,7 +8,6 @@
  * Future candidates (once more recipes exist):
  * - suze (~4 drinks)
  * - aperol (~3)
- * - fernet (~3)
  * - ancho-reyes (~2)
  * - averna
  * - dry curacao
@@ -18,14 +17,14 @@
  * @type {Record<string, FeaturedBottle>}
  */
 const featuredBottles = {
-  '2026-10': { tag: 'campari', label: 'Campari', image: 'campari.webp' },
-  '2026-11': { tag: 'cynar', label: 'Cynar' },
+  '2026-11': { tag: 'cynar', label: 'Cynar', image: 'cynar.jpg' },
   '2026-12': {
     tag: 'green-chartreuse',
     label: 'Green Chartreuse (substitutions available)',
   },
   '2027-01': { tag: 'benedictine', label: 'Bénédictine' },
-  '2027-02': { tag: 'maraschino', label: 'Maraschino' },
+  '2027-02': { tag: 'campari', label: 'Campari', image: 'campari.webp' },
+  '2027-03': { tag: 'maraschino', label: 'Maraschino' },
 };
 
 /** Unique `/tags/{tag}/` paths for every bottle in the schedule. */
