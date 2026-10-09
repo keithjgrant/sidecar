@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import Card from './Card';
 import DrinkList from './DrinkList';
 import { Checkbox } from './forms';
-import db, { subscribeStorageBlocked } from '../util/db';
+import { subscribeStorageBlocked } from '../util/db';
+import barDb from '../util/dbBar';
 import {
   BAR_CATALOG,
   DEFAULT_BAR,
@@ -73,7 +74,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
     let cancelled = false;
     (async () => {
       try {
-        const tags = await db.getBarTags();
+        const tags = await barDb.getBarTags();
         if (!cancelled) {
           setOwned(new Set(tags));
           setStorageReady(true);
@@ -103,7 +104,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
       return next;
     });
     try {
-      await db.setBarTag(tag, checked);
+      await barDb.setBarTag(tag, checked);
     } catch (err) {
       console.error('Failed to save bar tag', err);
     }

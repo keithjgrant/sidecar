@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import DrinkList from './DrinkList';
-import db from '../util/db';
+import favoritesDb from '../util/dbFavorites';
 
 const NonPwa = styled.div`
   @media (display-mode: standalone) {
@@ -31,7 +31,7 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
 
   useEffect(() => {
     (async () => {
-      const loaded = await db.getFavorites();
+      const loaded = await favoritesDb.getFavorites();
       const drinks: Drink[] = [];
       loaded.forEach((favorite) => {
         const match = allDrinks.find(

@@ -1,17 +1,4 @@
 import { openDB, IDBPDatabase } from 'idb';
-import { DEFAULT_BAR } from './myBar';
-
-interface Favorite {
-  name: string;
-  date: Date;
-}
-
-interface BarItem {
-  tag: string;
-}
-
-/** Sentinel key marking that the bar store has been initialized. */
-const BAR_INIT_KEY = '__init__';
 
 const DB_NAME = 'Sidecar';
 const DB_VERSION = 2;
@@ -43,7 +30,8 @@ export function isStorageBlocked(): boolean {
   return storageBlocked;
 }
 
-function getDb(): Promise<IDBPDatabase> {
+/** Open (or reuse) the Sidecar IndexedDB connection. */
+export function getDb(): Promise<IDBPDatabase> {
   if (typeof indexedDB === 'undefined') {
     return Promise.reject(new Error('IndexedDB unavailable'));
   }
@@ -93,110 +81,34 @@ function getDb(): Promise<IDBPDatabase> {
   return dbPromise;
 }
 
-async function addFavorite(drinkName: string) {
-  const db = await getDb();
-  return db.add('favorites', {
-    name: drinkName,
-    date: new Date(),
-  });
-}
-
-const deleteFavorite = async (drinkName: string): Promise<void> => {
-  const db = await getDb();
-  await db.delete('favorites', drinkName);
-};
-
-const getFavorites = async (): Promise<Favorite[]> => {
-  const db = await getDb();
-  return db.getAllFromIndex('favorites', 'name');
-};
-
-const getFavorite = async (drinkName: string): Promise<Favorite | undefined> => {
-  if (!drinkName) return;
-  const db = await getDb();
-  return db.get('favorites', drinkName);
-};
-
-async function ensureBarInitialized(db: IDBPDatabase): Promise<void> {
-  const init = await db.get('bar', BAR_INIT_KEY);
-  if (init) {
-    return;
-  }
-  const tx = db.transaction('bar', 'readwrite');
-  await tx.store.put({ tag: BAR_INIT_KEY } satisfies BarItem);
-  for (const tag of DEFAULT_BAR) {
-    await tx.store.put({ tag } satisfies BarItem);
-  }
-  await tx.done;
-}
-
-const getBarTags = async (): Promise<string[]> => {
-  const db = await getDb();
-  await ensureBarInitialized(db);
-  const items: BarItem[] = await db.getAll('bar');
-  return items.map((item) => item.tag).filter((tag) => tag !== BAR_INIT_KEY);
-};
-
-const setBarTag = async (tag: string, owned: boolean): Promise<void> => {
-  if (!tag || tag === BAR_INIT_KEY) {
-    return;
-  }
-  const db = await getDb();
-  await ensureBarInitialized(db);
-  if (owned) {
-    await db.put('bar', { tag } satisfies BarItem);
-  } else {
-    await db.delete('bar', tag);
-  }
-};
-
-const replaceBar = async (tags: string[]): Promise<void> => {
-  const db = await getDb();
-  const tx = db.transaction('bar', 'readwrite');
-  await tx.store.clear();
-  await tx.store.put({ tag: BAR_INIT_KEY } satisfies BarItem);
-  for (const tag of tags) {
-    if (tag && tag !== BAR_INIT_KEY) {
-      await tx.store.put({ tag } satisfies BarItem);
-    }
-  }
-  await tx.done;
-};
-
-/** Dev/debug: confirm DB opened and dump version/stores/bar tags. */
-async function debugStorage(): Promise<{
+/** Dev/debug: confirm DB opened and dump version/stores. */
+export async function debugStorage(): Promise<{
   name: string;
   version: number;
   stores: string[];
   blocked: boolean;
-  barTags: string[];
 }> {
   const database = await getDb();
-  const barTags = await getBarTags();
   return {
     name: DB_NAME,
     version: database.version,
     stores: [...database.objectStoreNames],
     blocked: storageBlocked,
-    barTags,
   };
 }
 
-const dbApi = {
-  addFavorite,
-  deleteFavorite,
-  getFavorite,
-  getFavorites,
-  getBarTags,
-  setBarTag,
-  replaceBar,
-  debugStorage,
-  subscribeStorageBlocked,
-  isStorageBlocked,
-};
-
-if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  (window as Window & { __sidecarDb?: typeof dbApi }).__sidecarDb = dbApi;
+/** Merge helpers onto window.__sidecarDb in development. */
+export function attachDbDebug(partial: Record<string, unknown>): void {
+  if (typeof window === 'undefined' || process.env.NODE_ENV !== 'development') {
+    return;
+  }
+  const w = window as Window & { __sidecarDb?: Record<string, unknown> };
+  w.__sidecarDb = { ...w.__sidecarDb, ...partial };
 }
 
-export default dbApi;
+attachDbDebug({
+  getDb,
+  subscribeStorageBlocked,
+  isStorageBlocked,
+  debugStorage,
+});

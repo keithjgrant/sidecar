@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Toast from './Toast';
 import Star from './svg/Star';
-import db from '../util/db';
+import favoritesDb from '../util/dbFavorites';
 import { click } from '../util/haptic';
 
 const Button = styled.button`
@@ -33,7 +33,7 @@ export default function FavoriteButton({ drinkName }: FavoriteButtonProps) {
 
   useEffect(() => {
     (async () => {
-      const favorite = await db.getFavorite(drinkName);
+      const favorite = await favoritesDb.getFavorite(drinkName);
       if (favorite) {
         setChecked(true);
       }
@@ -44,10 +44,10 @@ export default function FavoriteButton({ drinkName }: FavoriteButtonProps) {
     click();
     setChecked(!checked);
     if (checked) {
-      db.deleteFavorite(drinkName);
+      favoritesDb.deleteFavorite(drinkName);
       setMessage('Removed from');
     } else {
-      db.addFavorite(drinkName);
+      favoritesDb.addFavorite(drinkName);
       setMessage('Added to');
     }
   };
