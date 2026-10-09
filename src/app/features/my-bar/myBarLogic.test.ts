@@ -21,11 +21,20 @@ describe('myBar', () => {
     expect(BAR_CATALOG.map((g) => g.id)).toEqual([
       'spirits',
       'vermouth',
-      'wine',
       'liqueurs',
       'amaro',
       'syrups',
       'citrus',
+      'misc',
+    ]);
+  });
+
+  it('should put wine and tonic under Miscellaneous', () => {
+    const misc = BAR_CATALOG.find((g) => g.id === 'misc');
+    expect(misc?.items.map((item) => item.tag)).toEqual([
+      'red-wine',
+      'sparkling-wine',
+      'tonic-water',
     ]);
   });
 
@@ -48,14 +57,12 @@ describe('myBar', () => {
 
   it('should nest orange liqueur styles under orange-liqueur', () => {
     const liqueurs = BAR_CATALOG.find((g) => g.id === 'liqueurs');
-    const orange = liqueurs?.items.find((item) => item.tag === 'orange-liqueur');
+    const orange = liqueurs?.items.find(
+      (item) => item.tag === 'orange-liqueur'
+    );
     const topLevelTags = liqueurs?.items.map((item) => item.tag) ?? [];
 
-    expect(orange?.children).toEqual([
-      'curacao',
-      'dry-curacao',
-      'triple-sec',
-    ]);
+    expect(orange?.children).toEqual(['curacao', 'dry-curacao', 'triple-sec']);
     expect(topLevelTags).not.toContain('triple-sec');
     expect(topLevelTags).toContain('orange-liqueur');
   });
@@ -67,7 +74,7 @@ describe('myBar', () => {
     expect(tags).toContain('whiskey');
     expect(tags).toContain('bourbon');
     expect(getAllBarTags()).toEqual(
-      expect.arrayContaining([...tags, 'campari', 'lemon']),
+      expect.arrayContaining([...tags, 'campari', 'lemon'])
     );
   });
 
@@ -92,31 +99,48 @@ describe('myBar', () => {
         'stirred',
         'bitter',
         'negroni',
-      ]),
+      ])
     ).toEqual(['gin', 'campari', 'sweet-vermouth']);
+  });
+
+  it('should require tonic-water when a drink is tagged with it', () => {
+    expect(getRequiredBarTags(['gin', 'tonic-water', 'lime', 'built'])).toEqual(
+      ['gin', 'tonic-water', 'lime']
+    );
+    expect(
+      canMakeDrink({ tags: ['gin', 'tonic-water', 'lime'] }, ['gin', 'lime'])
+    ).toBe(false);
+    expect(
+      canMakeDrink({ tags: ['gin', 'tonic-water', 'lime'] }, [
+        'gin',
+        'tonic-water',
+        'lime',
+      ])
+    ).toBe(true);
   });
 
   it('should not treat drinks with no bar tags as makeable', () => {
     expect(canMakeDrink({ tags: ['stirred', 'classic-cocktail'] }, [])).toBe(
-      false,
+      false
     );
   });
 
   it('should match when every required tag is owned', () => {
     expect(
-      canMakeDrink(
-        { tags: ['gin', 'campari', 'sweet-vermouth', 'stirred'] },
-        ['gin', 'campari', 'sweet-vermouth'],
-      ),
+      canMakeDrink({ tags: ['gin', 'campari', 'sweet-vermouth', 'stirred'] }, [
+        'gin',
+        'campari',
+        'sweet-vermouth',
+      ])
     ).toBe(true);
   });
 
   it('should fail when a required bottle is missing', () => {
     expect(
-      canMakeDrink(
-        { tags: ['gin', 'campari', 'sweet-vermouth'] },
-        ['gin', 'campari'],
-      ),
+      canMakeDrink({ tags: ['gin', 'campari', 'sweet-vermouth'] }, [
+        'gin',
+        'campari',
+      ])
     ).toBe(false);
   });
 
@@ -126,13 +150,13 @@ describe('myBar', () => {
       canMakeDrink({ tags: ['whiskey', 'sweet-vermouth'] }, [
         'bourbon',
         'sweet-vermouth',
-      ]),
+      ])
     ).toBe(true);
   });
 
   it('should not let a parent spirit satisfy a subtype requirement', () => {
     expect(
-      canMakeDrink({ tags: ['bourbon', 'lemon'] }, ['whiskey', 'lemon']),
+      canMakeDrink({ tags: ['bourbon', 'lemon'] }, ['whiskey', 'lemon'])
     ).toBe(false);
   });
 
@@ -142,7 +166,7 @@ describe('myBar', () => {
         'tequila',
         'triple-sec',
         'lime',
-      ]),
+      ])
     ).toBe(true);
   });
 
@@ -152,7 +176,7 @@ describe('myBar', () => {
         'rum',
         'orange-liqueur',
         'lime',
-      ]),
+      ])
     ).toBe(false);
   });
 
@@ -161,7 +185,7 @@ describe('myBar', () => {
       canMakeDrink({ tags: ['gin', 'lemon', 'shaken'] }, [
         'gin',
         ...DEFAULT_BAR,
-      ]),
+      ])
     ).toBe(true);
     expect(canMakeDrink({ tags: ['gin', 'lemon'] }, ['gin'])).toBe(false);
   });
@@ -170,13 +194,13 @@ describe('myBar', () => {
     const citrus = BAR_CATALOG.find((g) => g.id === 'citrus');
     expect(citrus?.items.map((item) => item.tag)).not.toContain('meyer-lemon');
     expect(
-      getRequiredBarTags(['vodka', 'lemon', 'meyer-lemon', 'shaken']),
+      getRequiredBarTags(['vodka', 'lemon', 'meyer-lemon', 'shaken'])
     ).toEqual(['vodka', 'lemon']);
     expect(
-      canMakeDrink(
-        { tags: ['vodka', 'lemon', 'meyer-lemon'] },
-        ['vodka', 'lemon'],
-      ),
+      canMakeDrink({ tags: ['vodka', 'lemon', 'meyer-lemon'] }, [
+        'vodka',
+        'lemon',
+      ])
     ).toBe(true);
   });
 

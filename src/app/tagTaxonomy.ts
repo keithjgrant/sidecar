@@ -86,6 +86,12 @@ export const VERMOUTH_TAGS = [
 export const WINE_TAGS = ['red-wine', 'sparkling-wine'] as const;
 
 /**
+ * Mixers tracked in My Bar (Miscellaneous). Soda water / club soda stay
+ * untracked pantry staples; tonic is called out because many home bars lack it.
+ */
+export const MIXER_TAGS = ['tonic-water'] as const;
+
+/**
  * Pantry-staple sweeteners. Not gated by Ten Bottle Bar's specialty-syrups
  * checkbox (simple syrup / agave are untagged; these are the tagged staples).
  */

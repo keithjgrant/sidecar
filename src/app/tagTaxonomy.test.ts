@@ -74,6 +74,7 @@ describe('tagTaxonomy sets', () => {
     expect(getTagKind('classic-cocktail')).toBe('other');
     expect(getTagKind('ten-bottle-bar')).toBe('other');
     expect(getTagKind('negroni')).toBe('other');
+    expect(getTagKind('tonic-water')).toBe('other');
   });
 
   it('should compose syrup tags from basic and fancy lists without overlap', () => {

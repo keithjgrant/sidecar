@@ -3,23 +3,12 @@ import {
   BASE_SPIRITS,
   CITRUS_TAGS,
   LIQUEUR_TAGS,
+  MIXER_TAGS,
   SPIRIT_TAGS,
   SYRUP_TAGS,
   VERMOUTH_TAGS,
   WINE_TAGS,
-  getTagKind,
-  type TagKind,
 } from '../../tagTaxonomy';
-
-const BAR_TAG_KINDS = new Set<TagKind>([
-  'spirit',
-  'amaro',
-  'liqueur',
-  'vermouth',
-  'wine',
-  'syrup',
-  'citrus',
-]);
 
 /** Taxonomy citrus kept for Help Me Decide / tags; omitted from the bar UI. */
 const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon']);
@@ -85,11 +74,11 @@ function flatItems(tags: readonly string[]): BarCatalogItem[] {
 function buildNestedItems(
   allTags: readonly string[],
   parents: Record<string, string>,
-  preferredTopLevel: readonly string[] = [],
+  preferredTopLevel: readonly string[] = []
 ): BarCatalogItem[] {
   const tagSet = new Set<string>(allTags);
   const order = new Map<string, number>(
-    allTags.map((tag, index) => [tag, index]),
+    allTags.map((tag, index) => [tag, index])
   );
   const childrenByParent = new Map<string, string[]>();
 
@@ -107,7 +96,7 @@ function buildNestedItems(
   }
 
   const childTags = new Set(
-    Object.keys(parents).filter((child) => tagSet.has(child)),
+    Object.keys(parents).filter((child) => tagSet.has(child))
   );
   const preferredSet = new Set<string>(preferredTopLevel);
   const topLevelOrder = [
@@ -133,7 +122,6 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
     items: buildNestedItems(SPIRIT_TAGS, SPIRIT_PARENTS, BASE_SPIRITS),
   },
   { id: 'vermouth', label: 'Vermouth', items: flatItems(VERMOUTH_TAGS) },
-  { id: 'wine', label: 'Wine', items: flatItems(WINE_TAGS) },
   {
     id: 'liqueurs',
     label: 'Liqueurs',
@@ -145,6 +133,11 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
     id: 'citrus',
     label: 'Citrus',
     items: flatItems(CITRUS_TAGS.filter((tag) => !BAR_EXCLUDED_TAGS.has(tag))),
+  },
+  {
+    id: 'misc',
+    label: 'Miscellaneous',
+    items: flatItems([...WINE_TAGS, ...MIXER_TAGS]),
   },
 ];
 
@@ -166,7 +159,7 @@ export function getAllBarTags(): string[] {
 
 export function countOwnedInGroup(
   group: BarCatalogGroup,
-  owned: Iterable<string>,
+  owned: Iterable<string>
 ): number {
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
   return getGroupTags(group).filter((tag) => ownedSet.has(tag)).length;
@@ -183,10 +176,8 @@ export function getRequiredBarTags(tags: string[] | undefined): string[] {
   if (!tags?.length) {
     return [];
   }
-  return tags.filter(
-    (tag) =>
-      BAR_TAG_KINDS.has(getTagKind(tag)) && !BAR_EXCLUDED_TAGS.has(tag),
-  );
+  const tracked = new Set(getAllBarTags());
+  return tags.filter((tag) => tracked.has(tag));
 }
 
 function coversTag(required: string, owned: Set<string>): boolean {
@@ -203,7 +194,7 @@ function coversTag(required: string, owned: Set<string>): boolean {
 
 export function canMakeDrink(
   drink: { tags: string[] },
-  owned: Iterable<string>,
+  owned: Iterable<string>
 ): boolean {
   const required = getRequiredBarTags(drink.tags);
   if (required.length === 0) {
@@ -215,7 +206,7 @@ export function canMakeDrink(
 
 export function filterMakeableDrinks<T extends { tags: string[] }>(
   drinks: T[],
-  owned: Iterable<string>,
+  owned: Iterable<string>
 ): T[] {
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
   return drinks.filter((drink) => canMakeDrink(drink, ownedSet));

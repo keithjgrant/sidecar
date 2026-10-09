@@ -45,9 +45,8 @@ ten-bottle-bar tag
     [x] make each section collapsible?
     [x] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.
     [] Add filter on Drinks page & remove list from Bar page
-    [] delay when checking boxes
     [x] orange liqueur tag subtypes?
-    [] add note listing items not tracked/assumed (bitters, etc)
+    [x] add note listing items not tracked/assumed (bitters, etc)
     [] accents, special characters, and IPA capitalization
 [] clean up console errors
 [] apple brandy -> applejack

@@ -323,7 +323,8 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
       <Card>
         <Intro>
           What’s in your bar? Used on a <Link to="/drinks">Drinks</Link> page
-          filter to show you which drinks you can make.
+          filter to show you which drinks you can make. Common bar staples
+          (bitters, ice, garnishes) aren’t tracked and are assumed available.
         </Intro>
         <PageActions>
           <TextButton type="button" onClick={selectAll}>
