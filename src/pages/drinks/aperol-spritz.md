@@ -20,7 +20,6 @@ tags: [
   summer,
   aperol,
   sparkling-wine,
-  wine,
   built,
 ]
 tenBottleCandidate:

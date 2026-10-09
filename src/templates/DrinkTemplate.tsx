@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import CardLayout from '../components/layouts/CardLayout';
-import Meta from '../components/Meta';
-import DrinkCard from '../components/drink/DrinkCard';
+import CardLayout from '../app/components/layouts/CardLayout';
+import Meta from '../app/components/Meta';
+import DrinkCard from '../app/components/drink/DrinkCard';
 
 const nbsp = '\u00A0';
 
@@ -38,7 +38,7 @@ interface DrinkTemplateProps {
   };
 }
 
-import type { Drink } from '../types';
+import type { Drink } from '../app/types';
 
 export default function DrinkTemplate({ data }: DrinkTemplateProps) {
   const drink: Drink = {

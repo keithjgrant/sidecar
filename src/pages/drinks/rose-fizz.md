@@ -17,7 +17,7 @@ tags: [
   gin,
   london-dry-gin,
   grapefruit,
-  wine,
+  sparkling-wine,
   shaken,
 ]
 tenBottleCandidate:

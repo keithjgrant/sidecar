@@ -40,4 +40,21 @@ ten-bottle-bar tag
 [x] Rework homescreen; add Tags & featured bottle link
 [x] Featured bottle feature (replaces featured drinks on homescreen)
 [] In My Bar
+    [x] Group checkboxes logically
+    [x] select/clear all for page & each section
+    [x] make each section collapsible?
+    [x] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.
+    [] Add filter on Drinks page & remove list from Bar page
+    [x] orange liqueur tag subtypes?
+    [x] add note listing items not tracked/assumed (bitters, etc)
+    [] accents, special characters, and IPA capitalization
+[] clean up console errors
+[] apple brandy -> applejack
+[] control dials for help me decide weights?
+[] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
+[] clean up weird TileWithLink homescreen components/css
+[] haptics
+    [] back-button long press function broken (part of screen is text-selected instead)
+    [] favorite button no longer provides haptic feedback
+

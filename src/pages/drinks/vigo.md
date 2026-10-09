@@ -19,7 +19,6 @@ tags: [
   london-dry-gin,
   blanc-vermouth,
   orange-juice,
-  wine,
   sparkling-wine,
   honey,
   shaken,
