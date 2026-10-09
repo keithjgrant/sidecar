@@ -16,7 +16,7 @@ garnish: blackberries
 tags: [
   gin,
   lemon,
-  blackberry,
+  creme-de-mure,
   sour,
   shaken,
 ]
