@@ -20,10 +20,6 @@ import {
 } from './myBarLogic';
 import type { Drink } from '../../types';
 
-const Intro = styled.p`
-  margin: 0 0 0.75rem;
-`;
-
 const PageActions = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -144,11 +140,6 @@ const CheckboxGrid = styled.div`
   }
 `;
 
-/**
- * Independent columns (newspaper-style): each column packs tightly.
- * CSS Grid can't do this — row tracks are shared across columns, so a tall
- * family forces gaps beside shorter neighbors even with span/column-flow.
- */
 const SpiritColumns = styled.div`
   columns: 1;
   column-gap: 1rem;
@@ -184,6 +175,7 @@ const NestedChildren = styled.div`
 const ResultsHeading = styled.h2`
   margin: 0 0 0.75rem;
   font-size: 1.15rem;
+  color: var(--gray-8);
 `;
 
 interface MyBarProps {
@@ -192,9 +184,7 @@ interface MyBarProps {
 }
 
 export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
-  const [owned, setOwned] = useState<Set<string>>(
-    () => new Set(DEFAULT_BAR),
-  );
+  const [owned, setOwned] = useState<Set<string>>(() => new Set(DEFAULT_BAR));
   const [storageReady, setStorageReady] = useState(false);
   const [storageBlocked, setStorageBlocked] = useState(false);
 
@@ -220,7 +210,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
 
   const makeable = useMemo(
     () => filterMakeableDrinks(allDrinks, owned),
-    [allDrinks, owned],
+    [allDrinks, owned]
   );
 
   const allBarTags = useMemo(() => getAllBarTags(), []);
@@ -289,7 +279,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
         {item.children?.length ? (
           <NestedChildren>
             {item.children.map((child) =>
-              renderCheckbox(child, formatBarLabel(child)),
+              renderCheckbox(child, formatBarLabel(child))
             )}
           </NestedChildren>
         ) : null}
@@ -305,7 +295,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
     return (
       <CheckboxGrid>
         {group.items.map((item) =>
-          renderCheckbox(item.tag, formatBarLabel(item.tag)),
+          renderCheckbox(item.tag, formatBarLabel(item.tag))
         )}
       </CheckboxGrid>
     );
@@ -321,11 +311,14 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
       )}
 
       <Card>
-        <Intro>
+        <p>
           What’s in your bar? Used on a <Link to="/drinks">Drinks</Link> page
-          filter to show you which drinks you can make. Common bar staples
-          (bitters, ice, garnishes) aren’t tracked and are assumed available.
-        </Intro>
+          filter to show you which drinks you can make.
+        </p>
+        <p>
+          Common bar staples (bitters, ice, garnishes) aren’t tracked and are
+          assumed available.
+        </p>
         <PageActions>
           <TextButton type="button" onClick={selectAll}>
             Select all
@@ -354,7 +347,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
                       </SectionTitle>
                       {!isExpanded && (
                         <SectionCount>
-                          {selectedCount} of {totalCount} selected
+                          {selectedCount}/{totalCount}
                         </SectionCount>
                       )}
                     </SectionToggle>

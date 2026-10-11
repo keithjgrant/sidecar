@@ -20,7 +20,7 @@ const CardBoxDark = styled.div`
 
   /* Only pad if it has content; collapses empty tiles (see featured bottle) */
   &:has(> div) {
-    padding: 1rem 0;
+    margin: 1rem 0;
   }
 `;
 
@@ -38,10 +38,8 @@ const CardBoxHighlight = styled.div`
 
 const MainLinks = styled.div`
   display: grid;
-  min-height: 40vh;
   max-width: 800px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr 1fr 1fr;
   margin: 0 0.5rem;
   background-color: var(--card-border);
   border: 1px solid var(--card-border);
@@ -123,13 +121,19 @@ export default function HomeTiles({
   return (
     <Card>
       <CardBoxDark>
-        <MainLinks>
+        <MainLinks
+          style={{ gridTemplateRows: '2fr 1fr 1fr', minHeight: '40vh' }}
+        >
           <FullWidthLink to="/drinks">Browse Drinks</FullWidthLink>
           <FullWidthLink to="/tags">Tags</FullWidthLink>
           <SplitRowLink to="/my-bar">In My Bar</SplitRowLink>
           <SplitRowBorderLeftLink to="/favorites">
-            Favorites
+            My Favorites
           </SplitRowBorderLeftLink>
+        </MainLinks>
+      </CardBoxDark>
+      <CardBoxDark>
+        <MainLinks style={{ minHeight: '4em' }}>
           <Link to="/ingredients">Ingredients</Link>
           <BorderLeftLink to="/techniques">Techniques</BorderLeftLink>
         </MainLinks>

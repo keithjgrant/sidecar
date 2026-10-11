@@ -48,6 +48,9 @@ ten-bottle-bar tag
     [x] orange liqueur tag subtypes?
     [x] add note listing items not tracked/assumed (bitters, etc)
     [] accents, special characters, and IPA capitalization
+    [] cognac/gin behavior (and others?) see champs elysees
+    [] common substitutes (rhum agricole + cachaca; orange liqueurs)
+    [] favorites - allow on web
 [] clean up console errors
 [] apple brandy -> applejack
 [] control dials for help me decide weights?
