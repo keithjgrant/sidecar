@@ -1,27 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
 import DrinkList from '../../components/DrinkList';
+import InstallBanner from '../../components/InstallBanner';
 import favoritesDb from '../../storage/favorites';
 import {
   useBarFilteredDrinks,
   FILTER_FAVORITES,
 } from '../my-bar/useBarFilteredDrinks';
 import type { Drink } from '../../types';
-
-const NonPwa = styled.div`
-  @media (display-mode: standalone) {
-    display: none;
-  }
-`;
-
-const PwaOnly = styled.div`
-  display: none;
-
-  @media (display-mode: standalone) {
-    display: block;
-  }
-`;
 
 interface FavoritesProps {
   allDrinks: Drink[];
@@ -30,7 +16,6 @@ interface FavoritesProps {
 
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
-  const [isPersisted, setIsPersisted] = useState(false);
   const visibleFavorites = useBarFilteredDrinks(favorites, FILTER_FAVORITES);
 
   useEffect(() => {
@@ -52,17 +37,10 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
     })();
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      if (typeof navigator.storage?.persist === 'function') {
-        const persisted = await navigator.storage.persisted();
-        setIsPersisted(persisted);
-      }
-    })();
-  });
-
   return (
     <>
+      <InstallBanner />
+
       {visibleFavorites.length ? (
         <DrinkList drinks={visibleFavorites} imageMap={imageMap} />
       ) : favorites.length ? (
@@ -72,35 +50,16 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
           Settings.
         </p>
       ) : (
-        <>
-          <NonPwa>
-            <p>
-              You must <Link to="/installation">install</Link> in order to save
-              favorites.
-            </p>
-          </NonPwa>
-          <PwaOnly>
-            <p>
-              No favorites saved. Tap the star when viewing a drink recipe to
-              save it to your favorites.
-            </p>
-          </PwaOnly>
-        </>
+        <p>
+          No favorites saved. Tap the star when viewing a drink recipe to save
+          it to your favorites.
+        </p>
       )}
+
       <p className="footnote">
-        Your favorites are saved locally in your browser. They will not carry
+        Your favorites are saved locally in this browser. They will not carry
         over between browsers or devices.
       </p>
-      {!isPersisted && (
-        <>
-          <p style={{ display: 'none' }}>
-            Your browser <b>may opt to delete this data</b> later to free up
-            storage. Browser storage should be persistent upon{' '}
-            <Link to="/installation">installation</Link> of Sidecar to your
-            device.
-          </p>
-        </>
-      )}
     </>
   );
 }

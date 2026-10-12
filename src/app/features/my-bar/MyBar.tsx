@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import DrinkList from '../../components/DrinkList';
+import InstallBanner from '../../components/InstallBanner';
 import { subscribeStorageBlocked } from '../../storage/db';
 import barDb from '../../storage/bar';
 import settingsDb, {
@@ -123,6 +124,8 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
 
   return (
     <>
+      <InstallBanner />
+
       {storageBlocked && (
         <Warning>
           Your bar can’t be saved yet because open tabs are preventing a
@@ -176,9 +179,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
           ? 'Your bar is saved locally in this browser. It will not carry over between browsers or devices.'
           : storageBlocked
             ? 'Local saving is paused until storage is available again.'
-            : 'Connecting to local storage…'}{' '}
-        <Link to="/installation">Install</Link> Sidecar for more durable
-        storage.
+            : 'Connecting to local storage…'}
       </p>
     </>
   );
