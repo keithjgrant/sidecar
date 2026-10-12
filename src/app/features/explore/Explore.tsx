@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import Card from '../../components/Card';
@@ -14,15 +14,7 @@ import { getParams, setParam } from '../../lib/qs';
 import { filterDrinks, type DrinkWithFamily } from './drinkFilters';
 import { BASE_SPIRITS } from '../../config/tagTaxonomy';
 import { ALPHA_INDEX_GUTTER } from '../../components/AlphaIndex';
-import barDb from '../../storage/bar';
-import settingsDb, {
-  DEFAULT_BAR_SETTINGS,
-  type BarSettings,
-} from '../../storage/settings';
-import {
-  filterMakeableDrinks,
-  shouldFilterByBar,
-} from '../my-bar/myBarLogic';
+import { useBarFilteredDrinks } from '../my-bar/useBarFilteredDrinks';
 
 const Toggle = styled.button<{ $isExpanded?: boolean }>`
   position: relative;
@@ -68,9 +60,8 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
   const [base, setBase] = useState('all');
   const [family, setFamily] = useState('all');
   const [query, setQuery] = useState('');
-  const [owned, setOwned] = useState<string[]>([]);
-  const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
   const filtersSet = !!(params.base || params.family || params.q);
+  const barFiltered = useBarFilteredDrinks(drinks, 'filterDrinksByBar');
 
   useEffect(() => {
     if (params.base && params.base !== 'all') {
@@ -83,34 +74,6 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
       setQuery(decodeURIComponent(String(params.q)));
     }
   }, []);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [tags, loadedSettings] = await Promise.all([
-          barDb.getBarTags(),
-          settingsDb.getBarSettings(),
-        ]);
-        if (!cancelled) {
-          setOwned(tags);
-          setSettings(loadedSettings);
-        }
-      } catch (err) {
-        console.error('Failed to load bar filter state', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const barFiltered = useMemo(() => {
-    if (!shouldFilterByBar(settings.filterDrinksByBar, owned)) {
-      return drinks;
-    }
-    return filterMakeableDrinks(drinks, owned, settings.substitutions);
-  }, [drinks, owned, settings.filterDrinksByBar, settings.substitutions]);
 
   const filtered = filterDrinks(barFiltered, base, family, query);
   return (

@@ -1,17 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import DrinkList from '../../components/DrinkList';
 import favoritesDb from '../../storage/favorites';
-import barDb from '../../storage/bar';
-import settingsDb, {
-  DEFAULT_BAR_SETTINGS,
-  type BarSettings,
-} from '../../storage/settings';
-import {
-  filterMakeableDrinks,
-  shouldFilterByBar,
-} from '../my-bar/myBarLogic';
+import { useBarFilteredDrinks } from '../my-bar/useBarFilteredDrinks';
 import type { Drink } from '../../types';
 
 const NonPwa = styled.div`
@@ -35,9 +27,11 @@ interface FavoritesProps {
 
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
-  const [owned, setOwned] = useState<string[]>([]);
-  const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
   const [isPersisted, setIsPersisted] = useState(false);
+  const visibleFavorites = useBarFilteredDrinks(
+    favorites,
+    'filterFavoritesByBar',
+  );
 
   useEffect(() => {
     (async () => {
@@ -59,27 +53,6 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [tags, loadedSettings] = await Promise.all([
-          barDb.getBarTags(),
-          settingsDb.getBarSettings(),
-        ]);
-        if (!cancelled) {
-          setOwned(tags);
-          setSettings(loadedSettings);
-        }
-      } catch (err) {
-        console.error('Failed to load bar filter state', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  useEffect(() => {
     (async () => {
       if (typeof navigator.storage?.persist === 'function') {
         const persisted = await navigator.storage.persisted();
@@ -87,13 +60,6 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
       }
     })();
   });
-
-  const visibleFavorites = useMemo(() => {
-    if (!shouldFilterByBar(settings.filterFavoritesByBar, owned)) {
-      return favorites;
-    }
-    return filterMakeableDrinks(favorites, owned, settings.substitutions);
-  }, [favorites, owned, settings.filterFavoritesByBar, settings.substitutions]);
 
   return (
     <>

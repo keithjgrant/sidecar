@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useBarFilteredDrinks } from '../my-bar/useBarFilteredDrinks';
 import useQuestions from './useQuestions';
 import Question from './Question';
 import Results from './Results';
@@ -12,6 +13,7 @@ interface HelpMeDecideProps {
 export default function HelpMeDecide({ drinks, imageMap }: HelpMeDecideProps) {
   const questions = useQuestions();
   const [answers, setAnswers] = useState<string[]>([]);
+  const candidateDrinks = useBarFilteredDrinks(drinks, 'filterDrinksByBar');
 
   const handleAnswer = (i: number) => {
     return (answer: string) => {
@@ -33,11 +35,11 @@ export default function HelpMeDecide({ drinks, imageMap }: HelpMeDecideProps) {
             selectedAnswer={answers[i] || null}
             onAnswer={handleAnswer(i)}
           />
-        ) : null
+        ) : null,
       )}
       {answers.length >= questions.length ? (
         <Results
-          drinks={drinks}
+          drinks={candidateDrinks}
           questions={questions}
           answers={answers}
           imageMap={imageMap}

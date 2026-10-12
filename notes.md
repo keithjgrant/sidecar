@@ -51,7 +51,7 @@ ten-bottle-bar tag
     [x] cognac/gin behavior (and others?) see champs elysees
     [x] common substitutes (rhum agricole + cachaca; orange liqueurs)
     [x] Settings (filter toggles + substitution modes)
-    [] Should tag listings be filtered?
+    [x] Should tag listings be filtered? - NO
     [] how to treat special syrup?
     [] ensure Help me Decide also filtered
     [] small banner indicating filtering in action on Drinks/Favorites
