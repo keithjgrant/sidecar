@@ -72,7 +72,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
 
   const makeable = useMemo(
     () => filterMakeableDrinks(allDrinks, owned, settings.substitutions),
-    [allDrinks, owned, settings.substitutions],
+    [allDrinks, owned, settings.substitutions]
   );
 
   const allBarTags = useMemo(() => getAllBarTags(), []);
@@ -175,11 +175,8 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
       )}
 
       <p className="footnote">
-        {storageReady
-          ? 'Your bar is saved locally in this browser. It will not carry over between browsers or devices.'
-          : storageBlocked
-            ? 'Local saving is paused until storage is available again.'
-            : 'Connecting to local storage…'}
+        Your bar is saved locally. It will not carry over between browsers or
+        devices.
       </p>
     </>
   );

@@ -34,7 +34,9 @@ export default function InstallBanner() {
 
   return (
     <Banner>
-      <Link to="/installation">Install</Link> Sidecar for more durable storage.
+      Your browser may periodically clear your settings.
+      <br />
+      <Link to="/installation">Install Sidecar</Link> to prevent this.
     </Banner>
   );
 }

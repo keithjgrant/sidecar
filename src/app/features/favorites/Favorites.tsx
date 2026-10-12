@@ -57,8 +57,8 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
       )}
 
       <p className="footnote">
-        Your favorites are saved locally in this browser. They will not carry
-        over between browsers or devices.
+        Your favorites are saved locally. They will not carry over between
+        browsers or devices.
       </p>
     </>
   );
