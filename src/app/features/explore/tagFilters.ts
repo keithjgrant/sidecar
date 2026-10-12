@@ -1,4 +1,4 @@
-import { getTagKind, type TagKind } from '../../tagTaxonomy';
+import { getTagKind, type TagKind } from '../../config/tagTaxonomy';
 
 export type { TagKind };
 

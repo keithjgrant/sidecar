@@ -1,4 +1,4 @@
-const { featuredBottles } = require('./src/app/featuredBottlesConfig');
+const { featuredBottles } = require('./src/app/config/featuredBottlesConfig');
 
 const featuredBottleTagPaths = [
   ...new Set(

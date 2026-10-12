@@ -44,10 +44,19 @@ export function getDb(): Promise<IDBPDatabase> {
           });
           store.createIndex('name', 'name');
         }
-        if (oldVersion < 2 && !database.objectStoreNames.contains('bar')) {
-          database.createObjectStore('bar', {
-            keyPath: 'tag',
-          });
+        // Pre-release: bar + settings ship together in v2. If a local browser
+        // already has v2 without `settings`, delete the Sidecar DB once.
+        if (oldVersion < 2) {
+          if (!database.objectStoreNames.contains('bar')) {
+            database.createObjectStore('bar', {
+              keyPath: 'tag',
+            });
+          }
+          if (!database.objectStoreNames.contains('settings')) {
+            database.createObjectStore('settings', {
+              keyPath: 'key',
+            });
+          }
         }
       },
       blocked() {

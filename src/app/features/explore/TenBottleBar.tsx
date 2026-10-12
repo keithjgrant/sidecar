@@ -12,7 +12,7 @@ import {
 import DrinkList from '../../components/DrinkList';
 import { getParams, setParam } from '../../lib/qs';
 import type { Drink } from '../../types';
-import { FANCY_SYRUP_TAGS } from '../../tagTaxonomy';
+import { FANCY_SYRUP_TAGS } from '../../config/tagTaxonomy';
 
 const CheckboxRow = styled(Checkbox)`
   grid-column: 1 / -1;

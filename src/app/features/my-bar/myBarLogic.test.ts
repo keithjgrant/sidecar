@@ -10,6 +10,9 @@ import {
   getAllBarTags,
   getGroupTags,
   getRequiredBarTags,
+  isBarConfigured,
+  normalizeRequiredTags,
+  shouldFilterByBar,
 } from './myBarLogic';
 
 describe('myBar', () => {
@@ -170,14 +173,73 @@ describe('myBar', () => {
     ).toBe(true);
   });
 
-  it('should not let orange-liqueur satisfy a specific style requirement', () => {
+  it('should not let orange-liqueur satisfy a specific style without substitutions', () => {
     expect(
-      canMakeDrink({ tags: ['rum', 'dry-curacao', 'lime'] }, [
-        'rum',
-        'orange-liqueur',
-        'lime',
-      ])
+      canMakeDrink(
+        { tags: ['rum', 'dry-curacao', 'lime'] },
+        ['rum', 'orange-liqueur', 'lime'],
+        'none',
+      ),
     ).toBe(false);
+  });
+
+  it('should let orange-liqueur peers cover each other with common substitutions', () => {
+    expect(
+      canMakeDrink(
+        { tags: ['rum', 'dry-curacao', 'lime'] },
+        ['rum', 'triple-sec', 'lime'],
+        'common',
+      ),
+    ).toBe(true);
+  });
+
+  it('should let bourbon cover rye with common substitutions but not with none', () => {
+    expect(
+      canMakeDrink(
+        { tags: ['rye-whiskey', 'sweet-vermouth'] },
+        ['bourbon', 'sweet-vermouth'],
+        'none',
+      ),
+    ).toBe(false);
+    expect(
+      canMakeDrink(
+        { tags: ['rye-whiskey', 'sweet-vermouth'] },
+        ['bourbon', 'sweet-vermouth'],
+        'common',
+      ),
+    ).toBe(true);
+  });
+
+  it('should drop redundant parent tags when a child is also required', () => {
+    expect(normalizeRequiredTags(['cognac', 'brandy', 'lemon'])).toEqual([
+      'cognac',
+      'lemon',
+    ]);
+  });
+
+  it('should let brandy cover cognac with common substitutions after dual-tag normalize', () => {
+    expect(
+      canMakeDrink(
+        { tags: ['cognac', 'brandy', 'green-chartreuse', 'lemon'] },
+        ['brandy', 'green-chartreuse', 'lemon'],
+        'none',
+      ),
+    ).toBe(false);
+    expect(
+      canMakeDrink(
+        { tags: ['cognac', 'brandy', 'green-chartreuse', 'lemon'] },
+        ['brandy', 'green-chartreuse', 'lemon'],
+        'common',
+      ),
+    ).toBe(true);
+  });
+
+  it('should treat the bar as unconfigured when only lemon and lime are owned', () => {
+    expect(isBarConfigured(DEFAULT_BAR)).toBe(false);
+    expect(isBarConfigured(['lemon', 'lime', 'gin'])).toBe(true);
+    expect(shouldFilterByBar(true, DEFAULT_BAR)).toBe(false);
+    expect(shouldFilterByBar(true, ['lemon', 'lime', 'gin'])).toBe(true);
+    expect(shouldFilterByBar(false, ['lemon', 'lime', 'gin'])).toBe(false);
   });
 
   it('should let citrus defaults unlock citrus drinks when bottles are owned', () => {

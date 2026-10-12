@@ -1,6 +1,6 @@
 import { hasIngredientsContaining, doListsIntersect } from '../util';
 import type { DecideDrink, QuestionDef, ScoredDecideDrink } from '../types';
-import { CITRUS_TAGS } from '../../../tagTaxonomy';
+import { CITRUS_TAGS } from '../../../config/tagTaxonomy';
 
 const fruityOrHerbal: QuestionDef = {
   key: 'fruity',

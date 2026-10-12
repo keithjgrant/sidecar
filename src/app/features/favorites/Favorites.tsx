@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import DrinkList from '../../components/DrinkList';
 import favoritesDb from '../../storage/favorites';
+import barDb from '../../storage/bar';
+import settingsDb, {
+  DEFAULT_BAR_SETTINGS,
+  type BarSettings,
+} from '../../storage/settings';
+import {
+  filterMakeableDrinks,
+  shouldFilterByBar,
+} from '../my-bar/myBarLogic';
+import type { Drink } from '../../types';
 
 const NonPwa = styled.div`
   @media (display-mode: standalone) {
@@ -18,8 +28,6 @@ const PwaOnly = styled.div`
   }
 `;
 
-import type { Drink } from '../../types';
-
 interface FavoritesProps {
   allDrinks: Drink[];
   imageMap: Record<string, unknown>;
@@ -27,6 +35,8 @@ interface FavoritesProps {
 
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
+  const [owned, setOwned] = useState<string[]>([]);
+  const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
   const [isPersisted, setIsPersisted] = useState(false);
 
   useEffect(() => {
@@ -35,7 +45,7 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
       const drinks: Drink[] = [];
       loaded.forEach((favorite) => {
         const match = allDrinks.find(
-          (d) => d.path === `/drinks/${favorite.name}`
+          (d) => d.path === `/drinks/${favorite.name}`,
         );
         if (match) {
           drinks.push({
@@ -49,6 +59,27 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   }, []);
 
   useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const [tags, loadedSettings] = await Promise.all([
+          barDb.getBarTags(),
+          settingsDb.getBarSettings(),
+        ]);
+        if (!cancelled) {
+          setOwned(tags);
+          setSettings(loadedSettings);
+        }
+      } catch (err) {
+        console.error('Failed to load bar filter state', err);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
     (async () => {
       if (typeof navigator.storage?.persist === 'function') {
         const persisted = await navigator.storage.persisted();
@@ -57,10 +88,23 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
     })();
   });
 
+  const visibleFavorites = useMemo(() => {
+    if (!shouldFilterByBar(settings.filterFavoritesByBar, owned)) {
+      return favorites;
+    }
+    return filterMakeableDrinks(favorites, owned, settings.substitutions);
+  }, [favorites, owned, settings.filterFavoritesByBar, settings.substitutions]);
+
   return (
     <>
-      {favorites.length ? (
-        <DrinkList drinks={favorites} imageMap={imageMap} />
+      {visibleFavorites.length ? (
+        <DrinkList drinks={visibleFavorites} imageMap={imageMap} />
+      ) : favorites.length ? (
+        <p>
+          None of your favorites match your bar right now. Adjust{' '}
+          <Link to="/my-bar">My Bar</Link> or turn off favorites filtering in
+          Settings.
+        </p>
       ) : (
         <>
           <NonPwa>

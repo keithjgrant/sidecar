@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { GatsbyImage, type IGatsbyImageData } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import { getFeaturedBottle } from '../../featuredBottles';
+import { getFeaturedBottle } from '../../config/featuredBottles';
 
 const Tile = styled(Link)`
   display: flex;

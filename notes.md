@@ -44,15 +44,24 @@ ten-bottle-bar tag
     [x] select/clear all for page & each section
     [x] make each section collapsible?
     [x] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.
-    [] Add filter on Drinks page & remove list from Bar page
+    [x] Add filter on Drinks page
     [x] orange liqueur tag subtypes?
     [x] add note listing items not tracked/assumed (bitters, etc)
     [] accents, special characters, and IPA capitalization
-    [] cognac/gin behavior (and others?) see champs elysees
-    [] common substitutes (rhum agricole + cachaca; orange liqueurs)
+    [x] cognac/gin behavior (and others?) see champs elysees
+    [x] common substitutes (rhum agricole + cachaca; orange liqueurs)
+    [x] Settings (filter toggles + substitution modes)
+    [] Should tag listings be filtered?
+    [] how to treat special syrup?
+    [] ensure Help me Decide also filtered
+    [] small banner indicating filtering in action on Drinks/Favorites
+    [] remove list from Bar page
     [] favorites - allow on web
+    [] `vermouth` tag?
+    [] data peristence/install warning banner at top of Bar + Favorites
 [] clean up console errors
 [] apple brandy -> applejack
+[] don't use alpha scroll when list below a certain length
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
@@ -60,4 +69,5 @@ ten-bottle-bar tag
 [] haptics
     [] back-button long press function broken (part of screen is text-selected instead)
     [] favorite button no longer provides haptic feedback
+[] add any new options for 10th bottle in TenBottleBar.tsx?
 

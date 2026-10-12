@@ -1,5 +1,5 @@
 /**
- * Month-keyed featured bottle schedule. App-level dial (with tagTaxonomy):
+ * Month-keyed featured bottle schedule (with tagTaxonomy / barSubstitutions):
  * consumed by featuredBottles.ts and offline precache (gatsby-config.js).
  *
  * `image` is the filename under src/images/bottles/, including extension

@@ -4,9 +4,14 @@ import styled, { css } from 'styled-components';
 import Card from '../../components/Card';
 import CollapsibleSection from '../../components/CollapsibleSection';
 import DrinkList from '../../components/DrinkList';
-import { Checkbox } from '../../components/forms';
+import { ButtonGroup, Checkbox } from '../../components/forms';
+import type { SubstitutionMode } from '../../config/barSubstitutions';
 import { subscribeStorageBlocked } from '../../storage/db';
 import barDb from '../../storage/bar';
+import settingsDb, {
+  DEFAULT_BAR_SETTINGS,
+  type BarSettings,
+} from '../../storage/settings';
 import {
   BAR_CATALOG,
   DEFAULT_BAR,
@@ -19,6 +24,58 @@ import {
   type BarCatalogItem,
 } from './myBarLogic';
 import type { Drink } from '../../types';
+
+const SettingsToggle = styled.button<{ $isExpanded?: boolean }>`
+  position: relative;
+  padding-right: 1.8em;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.8em;
+    right: 0.6em;
+    border: 0.4em solid transparent;
+    border-top-color: currentColor;
+    transform-origin: center 0.2em;
+  }
+
+  ${(props) =>
+    props.$isExpanded &&
+    css`
+      color: var(--gray-8);
+      &::after {
+        transform: rotate(180deg);
+      }
+    `}
+`;
+
+const SettingsBlock = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const SettingsBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const SettingsField = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+`;
+
+const SettingsLabel = styled.span`
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold, 600);
+  color: var(--gray-8);
+`;
+
+const SettingsHelp = styled.p`
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--gray-6, #8a8588);
+`;
 
 const PageActions = styled.div`
   display: flex;
@@ -185,6 +242,7 @@ interface MyBarProps {
 
 export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
   const [owned, setOwned] = useState<Set<string>>(() => new Set(DEFAULT_BAR));
+  const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
   const [storageReady, setStorageReady] = useState(false);
   const [storageBlocked, setStorageBlocked] = useState(false);
 
@@ -194,9 +252,13 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
     let cancelled = false;
     (async () => {
       try {
-        const tags = await barDb.getBarTags();
+        const [tags, loadedSettings] = await Promise.all([
+          barDb.getBarTags(),
+          settingsDb.getBarSettings(),
+        ]);
         if (!cancelled) {
           setOwned(new Set(tags));
+          setSettings(loadedSettings);
           setStorageReady(true);
         }
       } catch (err) {
@@ -209,9 +271,19 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
   }, []);
 
   const makeable = useMemo(
-    () => filterMakeableDrinks(allDrinks, owned),
-    [allDrinks, owned]
+    () => filterMakeableDrinks(allDrinks, owned, settings.substitutions),
+    [allDrinks, owned, settings.substitutions]
   );
+
+  async function persistSettings(partial: Partial<BarSettings>) {
+    const next = { ...settings, ...partial };
+    setSettings(next);
+    try {
+      await settingsDb.setBarSettings(partial);
+    } catch (err) {
+      console.error('Failed to save bar settings', err);
+    }
+  }
 
   const allBarTags = useMemo(() => getAllBarTags(), []);
 
@@ -309,6 +381,67 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
           database update. Close all Sidecar tabs, then open this page again.
         </Warning>
       )}
+
+      <SettingsBlock>
+        <CollapsibleSection
+          startExpanded={false}
+          renderToggle={({ toggle, isExpanded }) => (
+            <SettingsToggle
+              type="button"
+              onClick={toggle}
+              $isExpanded={isExpanded}
+              aria-expanded={isExpanded}
+              className="button"
+            >
+              Settings
+            </SettingsToggle>
+          )}
+        >
+          <Card>
+            <SettingsBody>
+              <Checkbox
+                id="bar-filter-drinks"
+                checked={settings.filterDrinksByBar}
+                onChange={(checked) => {
+                  void persistSettings({ filterDrinksByBar: checked });
+                }}
+                label="Filter Drinks to what I can make"
+              />
+              <Checkbox
+                id="bar-filter-favorites"
+                checked={settings.filterFavoritesByBar}
+                onChange={(checked) => {
+                  void persistSettings({ filterFavoritesByBar: checked });
+                }}
+                label="Filter Favorites to what I can make"
+              />
+              <SettingsHelp>
+                Drinks filtering starts after you customize your bar below.
+              </SettingsHelp>
+              <SettingsField>
+                <SettingsLabel>Substitutions</SettingsLabel>
+                <ButtonGroup
+                  value={settings.substitutions}
+                  options={[
+                    ['none', 'None'],
+                    ['common', 'Common'],
+                    ['loose', 'Loose'],
+                  ]}
+                  onChange={(value) => {
+                    void persistSettings({
+                      substitutions: value as SubstitutionMode,
+                    });
+                  }}
+                />
+                <SettingsHelp>
+                  How freely bottles can stand in for each other when deciding
+                  if you can make a drink.
+                </SettingsHelp>
+              </SettingsField>
+            </SettingsBody>
+          </Card>
+        </CollapsibleSection>
+      </SettingsBlock>
 
       <Card>
         <p>

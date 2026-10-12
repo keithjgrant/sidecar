@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PREP_METHOD_PRIORITY } from '../../tagTaxonomy';
+import { PREP_METHOD_PRIORITY } from '../../config/tagTaxonomy';
 
 const Label = styled.div`
   margin-top: 28px;

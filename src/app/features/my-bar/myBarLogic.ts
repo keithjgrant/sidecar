@@ -1,4 +1,8 @@
 import {
+  getSubstitutionGroups,
+  type SubstitutionMode,
+} from '../../config/barSubstitutions';
+import {
   AMARO_TAGS,
   BASE_SPIRITS,
   CITRUS_TAGS,
@@ -8,7 +12,7 @@ import {
   SYRUP_TAGS,
   VERMOUTH_TAGS,
   WINE_TAGS,
-} from '../../tagTaxonomy';
+} from '../../config/tagTaxonomy';
 
 /** Taxonomy citrus kept for Help Me Decide / tags; omitted from the bar UI. */
 const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon']);
@@ -172,15 +176,65 @@ export function formatBarLabel(tag: string): string {
     .join(' ');
 }
 
+export function isBarConfigured(owned: Iterable<string>): boolean {
+  const defaults = new Set<string>(DEFAULT_BAR);
+  for (const tag of owned) {
+    if (!defaults.has(tag)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function shouldFilterByBar(
+  filterEnabled: boolean,
+  owned: Iterable<string>
+): boolean {
+  return filterEnabled && isBarConfigured(owned);
+}
+
 export function getRequiredBarTags(tags: string[] | undefined): string[] {
   if (!tags?.length) {
     return [];
   }
   const tracked = new Set(getAllBarTags());
-  return tags.filter((tag) => tracked.has(tag));
+  const required = tags.filter((tag) => tracked.has(tag));
+  return normalizeRequiredTags(required);
 }
 
-function coversTag(required: string, owned: Set<string>): boolean {
+/**
+ * Drop a parent requirement when a child of that parent is also required
+ * (e.g. cognac + brandy → cognac only).
+ */
+export function normalizeRequiredTags(required: string[]): string[] {
+  const requiredSet = new Set(required);
+  return required.filter((tag) => {
+    for (const other of requiredSet) {
+      if (other !== tag && BAR_PARENTS[other] === tag) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+function peersFor(
+  tag: string,
+  mode: SubstitutionMode
+): ReadonlySet<string> | null {
+  for (const group of getSubstitutionGroups(mode)) {
+    if (group.includes(tag)) {
+      return new Set(group);
+    }
+  }
+  return null;
+}
+
+function coversTag(
+  required: string,
+  owned: Set<string>,
+  mode: SubstitutionMode
+): boolean {
   if (owned.has(required)) {
     return true;
   }
@@ -189,25 +243,35 @@ function coversTag(required: string, owned: Set<string>): boolean {
       return true;
     }
   }
+  const peers = peersFor(required, mode);
+  if (peers) {
+    for (const tag of owned) {
+      if (peers.has(tag)) {
+        return true;
+      }
+    }
+  }
   return false;
 }
 
 export function canMakeDrink(
   drink: { tags: string[] },
-  owned: Iterable<string>
+  owned: Iterable<string>,
+  substitutions: SubstitutionMode = 'common'
 ): boolean {
   const required = getRequiredBarTags(drink.tags);
   if (required.length === 0) {
     return false;
   }
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
-  return required.every((tag) => coversTag(tag, ownedSet));
+  return required.every((tag) => coversTag(tag, ownedSet, substitutions));
 }
 
 export function filterMakeableDrinks<T extends { tags: string[] }>(
   drinks: T[],
-  owned: Iterable<string>
+  owned: Iterable<string>,
+  substitutions: SubstitutionMode = 'common'
 ): T[] {
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
-  return drinks.filter((drink) => canMakeDrink(drink, ownedSet));
+  return drinks.filter((drink) => canMakeDrink(drink, ownedSet, substitutions));
 }
