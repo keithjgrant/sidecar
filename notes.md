@@ -47,7 +47,7 @@ ten-bottle-bar tag
     [x] Add filter on Drinks page
     [x] orange liqueur tag subtypes?
     [x] add note listing items not tracked/assumed (bitters, etc)
-    [] accents, special characters, and IPA capitalization
+    [x] accents, special characters, and IPA capitalization
     [x] cognac/gin behavior (and others?) see champs elysees
     [x] common substitutes (rhum agricole + cachaca; orange liqueurs)
     [x] Settings (filter toggles + substitution modes)

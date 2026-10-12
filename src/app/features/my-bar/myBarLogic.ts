@@ -169,7 +169,27 @@ export function countOwnedInGroup(
   return getGroupTags(group).filter((tag) => ownedSet.has(tag)).length;
 }
 
+/**
+ * Display overrides for tags whose title-cased slug is wrong (accents,
+ * brand casing, acronyms). Unlisted tags fall through to title case.
+ */
+export const BAR_LABEL_OVERRIDES: Record<string, string> = {
+  benedictine: 'Bénédictine',
+  cachaca: 'Cachaça',
+  'creme-de-cacao': 'Crème de Cacao',
+  'creme-de-mure': 'Crème de Mûre',
+  curacao: 'Curaçao',
+  'dry-curacao': 'Dry Curaçao',
+  'ipa-syrup': 'IPA Syrup',
+  'jalapeno-syrup': 'Jalapeño Syrup',
+  'punt-e-mes': 'Punt e Mes',
+};
+
 export function formatBarLabel(tag: string): string {
+  const override = BAR_LABEL_OVERRIDES[tag];
+  if (override) {
+    return override;
+  }
   return tag
     .split('-')
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
