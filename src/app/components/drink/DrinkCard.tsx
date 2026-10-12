@@ -6,6 +6,7 @@ import ScaleIndicator from './ScaleIndicator';
 import PrepMethod from './PrepMethod';
 import GlassType from './GlassType';
 import IngredientList from './IngredientList';
+import FavoriteButton from '../../features/favorites/FavoriteButton';
 import styled from 'styled-components';
 
 const Main = styled.main`
@@ -102,8 +103,17 @@ const Content = styled.div`
   }
 `;
 
+const TitleRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+`;
+
 const Title = styled.h1`
   position: relative;
+  flex: 1;
+  min-width: 0;
   margin-top: 0;
   color: var(--white);
   font-weight: normal;
@@ -125,6 +135,20 @@ const Title = styled.h1`
   }
 `;
 
+const BrowserFavorite = styled.div`
+  flex-shrink: 0;
+  margin: -0.35rem -0.5rem 0 0;
+
+  @media (display-mode: standalone) {
+    /* hides because installed PWA shows favorite button in PwaHeader */
+    display: none;
+  }
+
+  button {
+    padding: 0.35rem 0.5rem;
+  }
+`;
+
 const Intro = styled.div`
   padding-bottom: 1em;
   border-bottom: 1px solid var(--gray-4);
@@ -142,16 +166,27 @@ import type { Drink } from '../../types';
 
 interface DrinkCardProps {
   drink: Drink;
-  imageData?: { childImageSharp: { gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } };
+  imageData?: {
+    childImageSharp: {
+      gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData;
+    };
+  };
 }
 
 export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
+  const drinkName = drink.path.replace('/drinks/', '');
+
   return (
     <Main className="h-recipe">
       <Body>
         <CocktailImage drink={drink} imageData={imageData} />
         <Content>
-          <Title className="p-name">{drink.title}</Title>
+          <TitleRow>
+            <Title className="p-name">{drink.title}</Title>
+            <BrowserFavorite>
+              <FavoriteButton drinkName={drinkName} />
+            </BrowserFavorite>
+          </TitleRow>
           <DrinkTags tags={drink.tags} />
           {drink.intro ? (
             <Intro className="p-summary">
