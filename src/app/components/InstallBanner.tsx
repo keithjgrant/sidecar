@@ -16,6 +16,10 @@ const Banner = styled.p`
     display: none;
   }
 
+  @media (hover: hover) and (pointer: fine) {
+    display: none;
+  }
+
   a {
     color: var(--brand-primary);
   }
