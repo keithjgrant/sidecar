@@ -1,34 +1,11 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Card from '../../components/Card';
+import CollapseToggle from '../../components/CollapseToggle';
 import CollapsibleSection from '../../components/CollapsibleSection';
 import { ButtonGroup, Checkbox } from '../../components/forms';
 import type { SubstitutionMode } from '../../config/barSubstitutions';
 import type { BarSettings } from '../../storage/settings';
-
-const SettingsToggle = styled.button<{ $isExpanded?: boolean }>`
-  position: relative;
-  padding-right: 1.8em;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0.8em;
-    right: 0.6em;
-    border: 0.4em solid transparent;
-    border-top-color: currentColor;
-    transform-origin: center 0.2em;
-  }
-
-  ${(props) =>
-    props.$isExpanded &&
-    css`
-      color: var(--gray-8);
-      &::after {
-        transform: rotate(180deg);
-      }
-    `}
-`;
 
 const SettingsBlock = styled.div`
   margin-bottom: 1rem;
@@ -72,15 +49,9 @@ export default function BarSettingsPanel({
       <CollapsibleSection
         startExpanded={false}
         renderToggle={({ toggle, isExpanded }) => (
-          <SettingsToggle
-            type="button"
-            onClick={toggle}
-            $isExpanded={isExpanded}
-            aria-expanded={isExpanded}
-            className="button"
-          >
+          <CollapseToggle isExpanded={isExpanded} onClick={toggle}>
             Settings
-          </SettingsToggle>
+          </CollapseToggle>
         )}
       >
         <Card>

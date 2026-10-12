@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Card from '../../components/Card';
+import CollapseToggle from '../../components/CollapseToggle';
 import { GridForm, GridFormLabel, ButtonGroup, TextInput } from '../../components/forms';
 import CollapsibleSection from '../../components/CollapsibleSection';
 import TagList from '../../components/TagList';
@@ -10,30 +11,6 @@ import { ALPHA_INDEX_GUTTER } from '../../components/AlphaIndex';
 
 const FilterBar = styled.div`
   margin-bottom: var(--gap-size);
-`;
-
-const Toggle = styled.button<{ $isExpanded?: boolean }>`
-  position: relative;
-  padding-right: 1.8em;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0.8em;
-    right: 0.6em;
-    border: 0.4em solid transparent;
-    border-top-color: currentColor;
-    transform-origin: center 0.2em;
-  }
-
-  ${(props) =>
-    props.$isExpanded &&
-    css`
-      color: var(--gray-8);
-      &::after {
-        transform: rotate(180deg);
-      }
-    `}
 `;
 
 const KIND_OPTIONS: Array<TagKind | 'all'> = [
@@ -80,13 +57,9 @@ export default function TagsExplore({ tags }: TagsExploreProps) {
         <CollapsibleSection
           startExpanded={filtersSet}
           renderToggle={({ toggle, isExpanded }) => (
-            <Toggle
-              onClick={toggle}
-              $isExpanded={isExpanded}
-              className="button"
-            >
+            <CollapseToggle isExpanded={isExpanded} onClick={toggle}>
               Filter
-            </Toggle>
+            </CollapseToggle>
           )}
         >
           <Card style={{ marginRight: ALPHA_INDEX_GUTTER }}>
