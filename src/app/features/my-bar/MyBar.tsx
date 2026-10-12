@@ -405,7 +405,7 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
                 onChange={(checked) => {
                   void persistSettings({ filterDrinksByBar: checked });
                 }}
-                label="Filter Drinks & Help Me Decide to what I can make"
+                label="Filter Drinks to what I can make"
               />
               <Checkbox
                 id="bar-filter-favorites"

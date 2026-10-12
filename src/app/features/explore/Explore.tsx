@@ -14,7 +14,10 @@ import { getParams, setParam } from '../../lib/qs';
 import { filterDrinks, type DrinkWithFamily } from './drinkFilters';
 import { BASE_SPIRITS } from '../../config/tagTaxonomy';
 import { ALPHA_INDEX_GUTTER } from '../../components/AlphaIndex';
-import { useBarFilteredDrinks } from '../my-bar/useBarFilteredDrinks';
+import {
+  useBarFilteredDrinks,
+  FILTER_DRINKS,
+} from '../my-bar/useBarFilteredDrinks';
 
 const Toggle = styled.button<{ $isExpanded?: boolean }>`
   position: relative;
@@ -61,7 +64,7 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
   const [family, setFamily] = useState('all');
   const [query, setQuery] = useState('');
   const filtersSet = !!(params.base || params.family || params.q);
-  const barFiltered = useBarFilteredDrinks(drinks, 'filterDrinksByBar');
+  const barFiltered = useBarFilteredDrinks(drinks, FILTER_DRINKS);
 
   useEffect(() => {
     if (params.base && params.base !== 'all') {

@@ -3,7 +3,10 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import DrinkList from '../../components/DrinkList';
 import favoritesDb from '../../storage/favorites';
-import { useBarFilteredDrinks } from '../my-bar/useBarFilteredDrinks';
+import {
+  useBarFilteredDrinks,
+  FILTER_FAVORITES,
+} from '../my-bar/useBarFilteredDrinks';
 import type { Drink } from '../../types';
 
 const NonPwa = styled.div`
@@ -28,10 +31,7 @@ interface FavoritesProps {
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
   const [isPersisted, setIsPersisted] = useState(false);
-  const visibleFavorites = useBarFilteredDrinks(
-    favorites,
-    'filterFavoritesByBar',
-  );
+  const visibleFavorites = useBarFilteredDrinks(favorites, FILTER_FAVORITES);
 
   useEffect(() => {
     (async () => {
@@ -39,7 +39,7 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
       const drinks: Drink[] = [];
       loaded.forEach((favorite) => {
         const match = allDrinks.find(
-          (d) => d.path === `/drinks/${favorite.name}`,
+          (d) => d.path === `/drinks/${favorite.name}`
         );
         if (match) {
           drinks.push({

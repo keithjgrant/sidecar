@@ -2,11 +2,14 @@ import { useEffect, useMemo, useState } from 'react';
 import barDb from '../../storage/bar';
 import settingsDb, {
   DEFAULT_BAR_SETTINGS,
+  FILTER_DRINKS,
+  FILTER_FAVORITES,
+  type BarFilterSetting,
   type BarSettings,
 } from '../../storage/settings';
 import { filterMakeableDrinks, shouldFilterByBar } from './myBarLogic';
 
-export type BarFilterSetting = 'filterDrinksByBar' | 'filterFavoritesByBar';
+export { FILTER_DRINKS, FILTER_FAVORITES, type BarFilterSetting };
 
 /**
  * Load bar inventory + settings, then optionally narrow `drinks` to what the

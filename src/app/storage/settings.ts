@@ -9,6 +9,14 @@ export type BarSettings = {
   substitutions: SubstitutionMode;
 };
 
+export const FILTER_DRINKS = 'filterDrinksByBar' satisfies keyof BarSettings;
+export const FILTER_FAVORITES =
+  'filterFavoritesByBar' satisfies keyof BarSettings;
+
+export type BarFilterSetting =
+  | typeof FILTER_DRINKS
+  | typeof FILTER_FAVORITES;
+
 export const DEFAULT_BAR_SETTINGS: BarSettings = {
   filterDrinksByBar: true,
   filterFavoritesByBar: false,
