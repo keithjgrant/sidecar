@@ -35,10 +35,6 @@ export default function BarInventory({
 }: BarInventoryProps) {
   return (
     <Card>
-      <p>
-        Common bar staples (bitters, ice, garnishes) aren’t tracked and are
-        assumed available.
-      </p>
       <PageActions>
         <TextButton type="button" onClick={onSelectAll}>
           Select all
@@ -57,6 +53,10 @@ export default function BarInventory({
           onClearGroup={onClearGroup}
         />
       ))}
+      <p>
+        Common bar staples (bitters, ice, garnishes) aren’t tracked and are
+        assumed available.
+      </p>
     </Card>
   );
 }
