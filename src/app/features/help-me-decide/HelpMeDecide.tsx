@@ -16,7 +16,10 @@ interface HelpMeDecideProps {
 export default function HelpMeDecide({ drinks, imageMap }: HelpMeDecideProps) {
   const questions = useQuestions();
   const [answers, setAnswers] = useState<string[]>([]);
-  const candidateDrinks = useBarFilteredDrinks(drinks, FILTER_DRINKS);
+  const { drinks: candidateDrinks, isFiltering } = useBarFilteredDrinks(
+    drinks,
+    FILTER_DRINKS,
+  );
 
   const handleAnswer = (i: number) => {
     return (answer: string) => {
@@ -46,6 +49,7 @@ export default function HelpMeDecide({ drinks, imageMap }: HelpMeDecideProps) {
           questions={questions}
           answers={answers}
           imageMap={imageMap}
+          isFilteringByBar={isFiltering}
         />
       ) : null}
     </div>

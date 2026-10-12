@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import DrinkList from '../../components/DrinkList';
 import InstallBanner from '../../components/InstallBanner';
 import favoritesDb from '../../storage/favorites';
+import BarFilterNotice from '../my-bar/BarFilterNotice';
 import {
   useBarFilteredDrinks,
   FILTER_FAVORITES,
@@ -16,7 +17,10 @@ interface FavoritesProps {
 
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
-  const visibleFavorites = useBarFilteredDrinks(favorites, FILTER_FAVORITES);
+  const { drinks: visibleFavorites, isFiltering } = useBarFilteredDrinks(
+    favorites,
+    FILTER_FAVORITES,
+  );
 
   useEffect(() => {
     (async () => {
@@ -40,6 +44,7 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   return (
     <>
       <InstallBanner />
+      <BarFilterNotice active={isFiltering} />
 
       {visibleFavorites.length ? (
         <DrinkList drinks={visibleFavorites} imageMap={imageMap} />

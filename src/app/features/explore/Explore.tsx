@@ -15,6 +15,7 @@ import { getParams, setParam } from '../../lib/qs';
 import { filterDrinks, type DrinkWithFamily } from './drinkFilters';
 import { BASE_SPIRITS } from '../../config/tagTaxonomy';
 import { ALPHA_INDEX_GUTTER } from '../../components/AlphaIndex';
+import BarFilterNotice from '../my-bar/BarFilterNotice';
 import {
   useBarFilteredDrinks,
   FILTER_DRINKS,
@@ -40,7 +41,10 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
   const [family, setFamily] = useState('all');
   const [query, setQuery] = useState('');
   const filtersSet = !!(params.base || params.family || params.q);
-  const barFiltered = useBarFilteredDrinks(drinks, FILTER_DRINKS);
+  const { drinks: barFiltered, isFiltering } = useBarFilteredDrinks(
+    drinks,
+    FILTER_DRINKS,
+  );
 
   useEffect(() => {
     if (params.base && params.base !== 'all') {
@@ -57,6 +61,7 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
   const filtered = filterDrinks(barFiltered, base, family, query);
   return (
     <>
+      <BarFilterNotice active={isFiltering} />
       <CollapsibleSection
         startExpanded={filtersSet}
         renderToggle={({ toggle, isExpanded }) => (

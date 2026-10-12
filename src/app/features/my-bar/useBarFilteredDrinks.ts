@@ -11,6 +11,12 @@ import { filterMakeableDrinks, shouldFilterByBar } from './myBarLogic';
 
 export { FILTER_DRINKS, FILTER_FAVORITES, type BarFilterSetting };
 
+export type BarFilteredDrinksResult<T> = {
+  drinks: T[];
+  /** True when the bar setting is on and the bar is configured. */
+  isFiltering: boolean;
+};
+
 /**
  * Load bar inventory + settings, then optionally narrow `drinks` to what the
  * user can make (when the given setting is on and the bar is configured).
@@ -18,7 +24,7 @@ export { FILTER_DRINKS, FILTER_FAVORITES, type BarFilterSetting };
 export function useBarFilteredDrinks<T extends { tags: string[] }>(
   drinks: T[],
   filterSetting: BarFilterSetting,
-): T[] {
+): BarFilteredDrinksResult<T> {
   const [owned, setOwned] = useState<string[]>([]);
   const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
 
@@ -44,9 +50,13 @@ export function useBarFilteredDrinks<T extends { tags: string[] }>(
   }, []);
 
   return useMemo(() => {
-    if (!shouldFilterByBar(settings[filterSetting], owned)) {
-      return drinks;
+    const isFiltering = shouldFilterByBar(settings[filterSetting], owned);
+    if (!isFiltering) {
+      return { drinks, isFiltering: false };
     }
-    return filterMakeableDrinks(drinks, owned, settings.substitutions);
+    return {
+      drinks: filterMakeableDrinks(drinks, owned, settings.substitutions),
+      isFiltering: true,
+    };
   }, [drinks, owned, settings, filterSetting]);
 }
