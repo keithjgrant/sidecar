@@ -278,6 +278,23 @@ describe('myBar', () => {
     ).toBe(true);
   });
 
+  it('should omit special-syrup from the bar checklist and requirements', () => {
+    const syrups = BAR_CATALOG.find((g) => g.id === 'syrups');
+    expect(syrups?.items.map((item) => item.tag)).not.toContain(
+      'special-syrup'
+    );
+    expect(getAllBarTags()).not.toContain('special-syrup');
+    expect(
+      getRequiredBarTags(['gin', 'lemon', 'special-syrup', 'shaken'])
+    ).toEqual(['gin', 'lemon']);
+    expect(
+      canMakeDrink({ tags: ['gin', 'lemon', 'special-syrup'] }, [
+        'gin',
+        'lemon',
+      ])
+    ).toBe(true);
+  });
+
   it('should filter a list down to makeable drinks only', () => {
     const drinks = [
       { title: 'Negroni', tags: ['gin', 'campari', 'sweet-vermouth'] },

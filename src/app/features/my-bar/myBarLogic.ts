@@ -14,8 +14,11 @@ import {
   WINE_TAGS,
 } from '../../config/tagTaxonomy';
 
-/** Taxonomy citrus kept for Help Me Decide / tags; omitted from the bar UI. */
-const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon']);
+/**
+ * Taxonomy tags kept for drinks / Ten Bottle Bar / Help Me Decide, but omitted
+ * from My Bar inventory and makeability requirements.
+ */
+const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon', 'special-syrup']);
 
 export const DEFAULT_BAR = ['lemon', 'lime'] as const;
 
@@ -132,7 +135,11 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
     items: buildNestedItems(LIQUEUR_TAGS, LIQUEUR_PARENTS),
   },
   { id: 'amaro', label: 'Amaro', items: flatItems(AMARO_TAGS) },
-  { id: 'syrups', label: 'Syrups', items: flatItems(SYRUP_TAGS) },
+  {
+    id: 'syrups',
+    label: 'Syrups',
+    items: flatItems(SYRUP_TAGS.filter((tag) => !BAR_EXCLUDED_TAGS.has(tag))),
+  },
   {
     id: 'citrus',
     label: 'Citrus',
