@@ -64,6 +64,7 @@ export const LIQUEUR_TAGS = [
   'green-chartreuse',
   'maraschino',
   'orange-liqueur',
+  'peach-liqueur',
   'sloe-gin',
   'triple-sec',
 ] as const;
@@ -74,7 +75,6 @@ export const VERMOUTH_TAGS = [
   'dry-vermouth',
   'punt-e-mes',
   'sweet-vermouth',
-  'vermouth',
 ] as const;
 
 /**

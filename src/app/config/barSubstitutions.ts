@@ -4,24 +4,35 @@ export type SubstitutionGroup = readonly string[];
 export type SubstitutionMode = 'none' | 'common' | 'loose';
 
 /**
- * Peer swaps used when Substitutions is set to Common (and Loose).
- * Tune per spirit family as recipes demand.
+ * Peer swaps used when Substitution Mode is set to Common (and Loose).
  */
 export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['bourbon', 'rye-whiskey'],
-  ['cognac', 'brandy', 'apple-brandy'],
+  ['cognac', 'brandy'],
   ['orange-liqueur', 'triple-sec', 'curacao', 'dry-curacao'],
   ['rhum-agricole', 'cachaca'],
+  ['sweet-vermouth', 'punt-e-mes'],
+  ['gin', 'london-dry-gin'],
+  ['tequila-blanco', 'tequila-reposado'],
+  ['peach-liqueur', 'apricot-liqueur'],
+  ['demerara-syrup', 'brown-sugar-syrup'],
 ];
 
 /**
- * Broader peer swaps layered on top of Common when Substitutions is Loose.
- * Left sparse until per-spirit rules are decided.
+ * Layered on top of Common when Substitution Mode is set to Loose.
  */
-export const LOOSE_SUBSTITUTIONS: SubstitutionGroup[] = [];
+export const LOOSE_SUBSTITUTIONS: SubstitutionGroup[] = [
+  ['spiced-rum', 'dark-rum'],
+  ['bourbon', 'rye-whiskey', 'irish-whiskey'],
+  ['dry-vermouth', 'blanc-vermouth'],
+  ['genever-gin', 'old-tom-gin'],
+  ['averna', 'cynar', 'amaro-nonino'],
+  ['campari', 'aperol'],
+  ['ancho-reyes', 'ancho-reyes-verde'],
+];
 
 export function getSubstitutionGroups(
-  mode: SubstitutionMode,
+  mode: SubstitutionMode
 ): SubstitutionGroup[] {
   if (mode === 'none') {
     return [];

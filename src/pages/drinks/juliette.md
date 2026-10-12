@@ -18,7 +18,7 @@ garnish:
 tags: [
   bourbon,
   whiskey,
-  peach,
+  peach-liqueur,
   lemon,
   maple-syrup,
   egg,
