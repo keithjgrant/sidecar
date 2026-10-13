@@ -34,9 +34,8 @@ export default function Nav() {
     <Navbar>
       <Link to="/drinks">Drinks</Link>
       <Link to="/tags">Tags</Link>
-      <Link to="/ingredients">Ingredients</Link>
-      <Link to="/techniques">Techniques</Link>
-      <Link to="/about">About</Link>
+      <Link to="/my-bar">My Bar</Link>
+      <Link to="/favorites">My Favorites</Link>
     </Navbar>
   );
 }

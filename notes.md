@@ -59,7 +59,7 @@ ten-bottle-bar tag
     [x] favorites - allow on web
     [x] `vermouth` tag?
     [x] data peristence/install warning banner at top of Bar + Favorites
-    [] update mobile nav options
+    [x] update mobile nav options
 [] clean up console errors
 [] apple brandy -> applejack
 [] don't use alpha scroll when list below a certain length
