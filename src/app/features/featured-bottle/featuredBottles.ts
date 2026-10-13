@@ -1,4 +1,4 @@
-import { featuredBottles as bottles } from './featuredBottlesConfig';
+import { featuredBottles as bottles } from '../../config/featuredBottlesConfig';
 
 export type FeaturedBottle = {
   tag: string;
