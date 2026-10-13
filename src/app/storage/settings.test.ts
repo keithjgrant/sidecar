@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { DEFAULT_BAR_SETTINGS } from './settings';
 
 describe('bar settings defaults', () => {
-  it('should filter drinks by default and leave favorites unfiltered', () => {
-    expect(DEFAULT_BAR_SETTINGS.filterDrinksByBar).toBe(true);
+  it('should leave drinks and favorites unfiltered by default', () => {
+    expect(DEFAULT_BAR_SETTINGS.filterDrinksByBar).toBe(false);
     expect(DEFAULT_BAR_SETTINGS.filterFavoritesByBar).toBe(false);
   });
 

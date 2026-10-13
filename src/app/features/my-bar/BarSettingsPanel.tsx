@@ -129,7 +129,8 @@ export default function BarSettingsPanel({
           <SettingsBody>
             <SettingsField>
               <InfoToggle label="Filtering" helpId="bar-filtering-help">
-                Drinks filtering starts after you customize your bar below.
+                When enabled, Sidecar will filter drinks to those you can make
+                with the bottles selected below.
               </InfoToggle>
               <CheckboxStack>
                 <Checkbox

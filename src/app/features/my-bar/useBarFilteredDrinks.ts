@@ -19,10 +19,10 @@ export { UNFILTERED_PARAM };
 
 export type BarFilteredDrinksResult<T> = {
   drinks: T[];
-  /** True when the bar setting is on, the bar is configured, and not overridden. */
+  /** True when the bar filter setting is on and not overridden. */
   isFiltering: boolean;
   /**
-   * True when filtering would apply but the `unfiltered` query param is
+   * True when the setting is on but the `unfiltered` query param is
    * suppressing it for this view only.
    */
   isUnfilteredView: boolean;
@@ -34,8 +34,8 @@ function readUnfilteredParam(): boolean {
 
 /**
  * Load bar inventory + settings, then optionally narrow `drinks` to what the
- * user can make (when the given setting is on and the bar is configured).
- * Pass `?unfiltered=1` for a one-off full list without changing settings.
+ * user can make (when the given setting is on). Pass `?unfiltered=1` for a
+ * one-off full list without changing settings.
  */
 export function useBarFilteredDrinks<T extends { tags: string[] }>(
   drinks: T[],
@@ -69,7 +69,6 @@ export function useBarFilteredDrinks<T extends { tags: string[] }>(
   return useMemo(() => {
     const { isFiltering, isUnfilteredView } = resolveBarFilterState(
       settings[filterSetting],
-      owned,
       unfilteredView
     );
     if (!isFiltering) {

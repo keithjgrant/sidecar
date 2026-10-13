@@ -12,10 +12,7 @@ import {
   getAllBarTags,
   getGroupTags,
   getRequiredBarTags,
-  isBarConfigured,
   normalizeRequiredTags,
-  resolveBarFilterState,
-  shouldFilterByBar,
 } from './myBarUtils';
 
 describe('myBar', () => {
@@ -247,34 +244,6 @@ describe('myBar', () => {
         'common'
       )
     ).toBe(true);
-  });
-
-  it('should treat the bar as unconfigured when only lemon and lime are owned', () => {
-    expect(isBarConfigured(DEFAULT_BAR)).toBe(false);
-    expect(isBarConfigured(['lemon', 'lime', 'gin'])).toBe(true);
-    expect(shouldFilterByBar(true, DEFAULT_BAR)).toBe(false);
-    expect(shouldFilterByBar(true, ['lemon', 'lime', 'gin'])).toBe(true);
-    expect(shouldFilterByBar(false, ['lemon', 'lime', 'gin'])).toBe(false);
-  });
-
-  it('should suppress filtering for a one-off unfiltered view without changing would-filter', () => {
-    const owned = ['lemon', 'lime', 'gin'];
-    expect(resolveBarFilterState(true, owned, false)).toEqual({
-      isFiltering: true,
-      isUnfilteredView: false,
-    });
-    expect(resolveBarFilterState(true, owned, true)).toEqual({
-      isFiltering: false,
-      isUnfilteredView: true,
-    });
-    expect(resolveBarFilterState(false, owned, true)).toEqual({
-      isFiltering: false,
-      isUnfilteredView: false,
-    });
-    expect(resolveBarFilterState(true, DEFAULT_BAR, true)).toEqual({
-      isFiltering: false,
-      isUnfilteredView: false,
-    });
   });
 
   it('should let citrus unlock citrus drinks when bottles are owned', () => {

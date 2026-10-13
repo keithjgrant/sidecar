@@ -18,7 +18,7 @@ export type BarFilterSetting =
   | typeof FILTER_FAVORITES;
 
 export const DEFAULT_BAR_SETTINGS: BarSettings = {
-  filterDrinksByBar: true,
+  filterDrinksByBar: false,
   filterFavoritesByBar: false,
   substitutions: 'common',
 };

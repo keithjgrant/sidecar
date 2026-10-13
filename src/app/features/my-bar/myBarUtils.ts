@@ -2,7 +2,6 @@ import {
   BAR_CATALOG,
   BAR_LABEL_OVERRIDES,
   BAR_PARENTS,
-  DEFAULT_BAR,
   type BarCatalogGroup,
 } from '../../config/barConfig';
 import {
@@ -45,23 +44,6 @@ export function formatBarLabel(tag: string): string {
     .join(' ');
 }
 
-export function isBarConfigured(owned: Iterable<string>): boolean {
-  const defaults = new Set<string>(DEFAULT_BAR);
-  for (const tag of owned) {
-    if (!defaults.has(tag)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-export function shouldFilterByBar(
-  filterEnabled: boolean,
-  owned: Iterable<string>
-): boolean {
-  return filterEnabled && isBarConfigured(owned);
-}
-
 /** Query param for a one-off unfiltered list view (does not change settings). */
 export const UNFILTERED_PARAM = 'unfiltered';
 
@@ -71,13 +53,11 @@ export const UNFILTERED_PARAM = 'unfiltered';
  */
 export function resolveBarFilterState(
   filterEnabled: boolean,
-  owned: Iterable<string>,
   unfilteredView: boolean
 ): { isFiltering: boolean; isUnfilteredView: boolean } {
-  const wouldFilter = shouldFilterByBar(filterEnabled, owned);
   return {
-    isFiltering: wouldFilter && !unfilteredView,
-    isUnfilteredView: wouldFilter && unfilteredView,
+    isFiltering: filterEnabled && !unfilteredView,
+    isUnfilteredView: filterEnabled && unfilteredView,
   };
 }
 
