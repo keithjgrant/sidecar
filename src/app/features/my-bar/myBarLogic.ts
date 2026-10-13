@@ -190,6 +190,7 @@ export const BAR_LABEL_OVERRIDES: Record<string, string> = {
   'ipa-syrup': 'IPA Syrup',
   'jalapeno-syrup': 'Jalapeño Syrup',
   'punt-e-mes': 'Punt e Mes',
+  'green-chartreuse': 'Green Chartreuse (or substitute)',
 };
 
 export function formatBarLabel(tag: string): string {

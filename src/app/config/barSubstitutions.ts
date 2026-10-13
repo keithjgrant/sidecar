@@ -1,10 +1,10 @@
 /** Within a group, owning any member satisfies a requirement for any other member. */
 export type SubstitutionGroup = readonly string[];
 
-export type SubstitutionMode = 'none' | 'common' | 'loose';
+export type SubstitutionMode = 'none' | 'common' | 'forgiving';
 
 /**
- * Peer swaps used when Substitution Mode is set to Common (and Loose).
+ * Peer swaps used when Substitution Mode is set to Common (and Forgiving).
  */
 export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['bourbon', 'rye-whiskey'],
@@ -19,9 +19,9 @@ export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
 ];
 
 /**
- * Layered on top of Common when Substitution Mode is set to Loose.
+ * Layered on top of Common when Substitution Mode is set to Forgiving.
  */
-export const LOOSE_SUBSTITUTIONS: SubstitutionGroup[] = [
+export const FORGIVING_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['spiced-rum', 'dark-rum'],
   ['bourbon', 'rye-whiskey', 'irish-whiskey'],
   ['dry-vermouth', 'blanc-vermouth'],
@@ -40,5 +40,5 @@ export function getSubstitutionGroups(
   if (mode === 'common') {
     return [...COMMON_SUBSTITUTIONS];
   }
-  return [...COMMON_SUBSTITUTIONS, ...LOOSE_SUBSTITUTIONS];
+  return [...COMMON_SUBSTITUTIONS, ...FORGIVING_SUBSTITUTIONS];
 }

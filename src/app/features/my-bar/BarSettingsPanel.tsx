@@ -8,6 +8,13 @@ import Info from '../../components/svg/Info';
 import type { SubstitutionMode } from '../../config/barSubstitutions';
 import type { BarSettings } from '../../storage/settings';
 
+const SUBSTITUTION_HELP: Record<SubstitutionMode, string> = {
+  none: 'Only list drinks when you have the exact ingredients.',
+  common: 'Allow usual bar swaps, like bourbon for rye or brandy for cognac.',
+  forgiving:
+    'Allow looser swaps, like Campari for Aperol or bourbon for Irish whiskey.',
+};
+
 const SettingsBlock = styled.div`
   margin-bottom: 1rem;
 `;
@@ -144,16 +151,13 @@ export default function BarSettingsPanel({
               </CheckboxStack>
             </SettingsField>
             <SettingsField>
-              <InfoToggle label="Substitutions" helpId="bar-substitutions-help">
-                How freely bottles can stand in for each other when deciding if
-                you can make a drink.
-              </InfoToggle>
+              <SettingsLabel>Substitutions</SettingsLabel>
               <ButtonGroup
                 value={settings.substitutions}
                 options={[
                   ['none', 'None'],
                   ['common', 'Common'],
-                  ['loose', 'Loose'],
+                  ['forgiving', 'Forgiving'],
                 ]}
                 onChange={(value) => {
                   onChange({
@@ -161,6 +165,9 @@ export default function BarSettingsPanel({
                   });
                 }}
               />
+              <SettingsHelp>
+                {SUBSTITUTION_HELP[settings.substitutions]}
+              </SettingsHelp>
             </SettingsField>
           </SettingsBody>
         </Card>
