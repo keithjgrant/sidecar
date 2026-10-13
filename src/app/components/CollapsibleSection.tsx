@@ -26,7 +26,7 @@ export default function CollapsibleSection({
 }: CollapsibleSectionProps) {
   const [isExpanded, setIsExpanded] = useState(!!startExpanded);
   const [height, setHeight] = useState<number | 'auto'>(
-    startExpanded ? 'auto' : 0,
+    startExpanded ? 'auto' : 0
   );
   const [transition, setTransition] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
@@ -71,7 +71,7 @@ export default function CollapsibleSection({
       setTransition(true);
       setIsExpanded(true);
     },
-    [isExpanded],
+    [isExpanded]
   );
 
   const handleTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {

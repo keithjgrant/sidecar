@@ -113,7 +113,11 @@ export default function MyBar() {
       )}
 
       <BarSettingsPanel
+        // Remount once storage resolves so startExpanded is initial-only
+        // (empty bar → open) and later inventory changes cannot reopen it.
+        key={storageReady ? 'ready' : 'pending'}
         settings={settings}
+        startExpanded={storageReady && owned.size === 0}
         onChange={(partial) => {
           void persistSettings(partial);
         }}

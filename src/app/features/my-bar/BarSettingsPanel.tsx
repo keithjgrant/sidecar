@@ -108,17 +108,20 @@ function InfoToggle({ label, helpId, children }: InfoToggleProps) {
 
 interface BarSettingsPanelProps {
   settings: BarSettings;
+  /** Open by default on first visit (empty bar). */
+  startExpanded?: boolean;
   onChange: (partial: Partial<BarSettings>) => void;
 }
 
 export default function BarSettingsPanel({
   settings,
+  startExpanded = false,
   onChange,
 }: BarSettingsPanelProps) {
   return (
     <SettingsBlock>
       <CollapsibleSection
-        startExpanded={false}
+        startExpanded={startExpanded}
         renderToggle={({ toggle, isExpanded }) => (
           <CollapseToggle isExpanded={isExpanded} onClick={toggle}>
             Settings
