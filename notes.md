@@ -55,7 +55,7 @@ ten-bottle-bar tag
     [x] how to treat special syrup?
     [x] ensure Help me Decide also filtered
     [x] small banner indicating filtering in action on Drinks/Favorites/Help Me Decide
-    [] remove list from Bar page 
+    [x] remove list from Bar page 
     [x] favorites - allow on web
     [x] `vermouth` tag?
     [x] data peristence/install warning banner at top of Bar + Favorites
