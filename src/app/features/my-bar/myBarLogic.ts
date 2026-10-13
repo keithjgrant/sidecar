@@ -20,7 +20,7 @@ import {
  */
 const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon', 'special-syrup']);
 
-export const DEFAULT_BAR = ['lemon', 'lime'] as const;
+export const DEFAULT_BAR = [] as const;
 
 /**
  * Subtype → parent. Owning a subtype satisfies a drink that only requires the
@@ -57,6 +57,25 @@ const LIQUEUR_PARENTS: Record<string, string> = {
 export const BAR_PARENTS: Record<string, string> = {
   ...SPIRIT_PARENTS,
   ...LIQUEUR_PARENTS,
+};
+
+/**
+ * Display overrides for tags whose title-cased slug is wrong (accents,
+ * brand casing, acronyms). Unlisted tags fall through to title case.
+ */
+export const BAR_LABEL_OVERRIDES: Record<string, string> = {
+  benedictine: 'Bénédictine',
+  cachaca: 'Cachaça',
+  'creme-de-cacao': 'Crème de Cacao',
+  'creme-de-mure': 'Crème de Mûre',
+  curacao: 'Curaçao',
+  'dry-curacao': 'Dry Curaçao',
+  'ipa-syrup': 'IPA Syrup',
+  'jalapeno-syrup': 'Jalapeño Syrup',
+  'punt-e-mes': 'Punt e Mes',
+  'green-chartreuse': 'Green Chartreuse (or substitute)',
+  ginger: 'Ginger Syrup',
+  honey: 'Honey Syrup',
 };
 
 export interface BarCatalogItem {
@@ -175,23 +194,6 @@ export function countOwnedInGroup(
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
   return getGroupTags(group).filter((tag) => ownedSet.has(tag)).length;
 }
-
-/**
- * Display overrides for tags whose title-cased slug is wrong (accents,
- * brand casing, acronyms). Unlisted tags fall through to title case.
- */
-export const BAR_LABEL_OVERRIDES: Record<string, string> = {
-  benedictine: 'Bénédictine',
-  cachaca: 'Cachaça',
-  'creme-de-cacao': 'Crème de Cacao',
-  'creme-de-mure': 'Crème de Mûre',
-  curacao: 'Curaçao',
-  'dry-curacao': 'Dry Curaçao',
-  'ipa-syrup': 'IPA Syrup',
-  'jalapeno-syrup': 'Jalapeño Syrup',
-  'punt-e-mes': 'Punt e Mes',
-  'green-chartreuse': 'Green Chartreuse (or substitute)',
-};
 
 export function formatBarLabel(tag: string): string {
   const override = BAR_LABEL_OVERRIDES[tag];
