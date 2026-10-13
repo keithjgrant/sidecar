@@ -174,10 +174,6 @@ export default function MyBar({ allDrinks, imageMap }: MyBarProps) {
         </>
       )}
 
-      <p className="footnote">
-        Your bar is saved locally. It will not carry over between browsers or
-        devices.
-      </p>
     </>
   );
 }

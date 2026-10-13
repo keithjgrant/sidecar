@@ -91,15 +91,14 @@ export default function Results({
   if (results.length === 0) {
     return (
       <EmptyMessage>
-        No drinks match these choices
+        No matches. Try different answers
         {isFilteringByBar ? (
           <>
             {' '}
-            with your <Link to="/my-bar">current bar</Link>
+            or add to <Link to="/my-bar">your bar</Link>
           </>
         ) : null}
-        . Try different answers
-        {isFilteringByBar ? ', or adjust what you have on hand' : null}.
+        .
       </EmptyMessage>
     );
   }

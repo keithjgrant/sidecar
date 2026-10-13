@@ -19,7 +19,7 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
   const { drinks: visibleFavorites, isFiltering } = useBarFilteredDrinks(
     favorites,
-    FILTER_FAVORITES,
+    FILTER_FAVORITES
   );
 
   useEffect(() => {
@@ -50,21 +50,11 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
         <DrinkList drinks={visibleFavorites} imageMap={imageMap} />
       ) : favorites.length ? (
         <p>
-          None of your favorites match your bar right now. Adjust{' '}
-          <Link to="/my-bar">My Bar</Link> or turn off favorites filtering in
-          Settings.
+          No favorites match <Link to="/my-bar">your bar</Link>.
         </p>
       ) : (
-        <p>
-          No favorites saved. Tap the star when viewing a drink recipe to save
-          it to your favorites.
-        </p>
+        <p>No favorites saved. Star a drink to add it.</p>
       )}
-
-      <p className="footnote">
-        Your favorites are saved locally. They will not carry over between
-        browsers or devices.
-      </p>
     </>
   );
 }
