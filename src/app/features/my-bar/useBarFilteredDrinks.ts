@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { getParams } from '../../lib/qs';
 import barDb from '../../storage/bar';
 import settingsDb, {
   DEFAULT_BAR_SETTINGS,
@@ -7,26 +8,42 @@ import settingsDb, {
   type BarFilterSetting,
   type BarSettings,
 } from '../../storage/settings';
-import { filterMakeableDrinks, shouldFilterByBar } from './myBarUtils';
+import {
+  filterMakeableDrinks,
+  resolveBarFilterState,
+  UNFILTERED_PARAM,
+} from './myBarUtils';
 
 export { FILTER_DRINKS, FILTER_FAVORITES, type BarFilterSetting };
+export { UNFILTERED_PARAM };
 
 export type BarFilteredDrinksResult<T> = {
   drinks: T[];
-  /** True when the bar setting is on and the bar is configured. */
+  /** True when the bar setting is on, the bar is configured, and not overridden. */
   isFiltering: boolean;
+  /**
+   * True when filtering would apply but the `unfiltered` query param is
+   * suppressing it for this view only.
+   */
+  isUnfilteredView: boolean;
 };
+
+function readUnfilteredParam(): boolean {
+  return String(getParams()[UNFILTERED_PARAM] ?? '') === '1';
+}
 
 /**
  * Load bar inventory + settings, then optionally narrow `drinks` to what the
  * user can make (when the given setting is on and the bar is configured).
+ * Pass `?unfiltered=1` for a one-off full list without changing settings.
  */
 export function useBarFilteredDrinks<T extends { tags: string[] }>(
   drinks: T[],
-  filterSetting: BarFilterSetting,
+  filterSetting: BarFilterSetting
 ): BarFilteredDrinksResult<T> {
   const [owned, setOwned] = useState<string[]>([]);
   const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
+  const unfilteredView = readUnfilteredParam();
 
   useEffect(() => {
     let cancelled = false;
@@ -50,13 +67,18 @@ export function useBarFilteredDrinks<T extends { tags: string[] }>(
   }, []);
 
   return useMemo(() => {
-    const isFiltering = shouldFilterByBar(settings[filterSetting], owned);
+    const { isFiltering, isUnfilteredView } = resolveBarFilterState(
+      settings[filterSetting],
+      owned,
+      unfilteredView
+    );
     if (!isFiltering) {
-      return { drinks, isFiltering: false };
+      return { drinks, isFiltering: false, isUnfilteredView };
     }
     return {
       drinks: filterMakeableDrinks(drinks, owned, settings.substitutions),
       isFiltering: true,
+      isUnfilteredView: false,
     };
-  }, [drinks, owned, settings, filterSetting]);
+  }, [drinks, owned, settings, filterSetting, unfilteredView]);
 }

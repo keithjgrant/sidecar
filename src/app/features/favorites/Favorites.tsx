@@ -17,10 +17,8 @@ interface FavoritesProps {
 
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   const [favorites, setFavorites] = useState<Drink[]>([]);
-  const { drinks: visibleFavorites, isFiltering } = useBarFilteredDrinks(
-    favorites,
-    FILTER_FAVORITES
-  );
+  const { drinks: visibleFavorites, isFiltering, isUnfilteredView } =
+    useBarFilteredDrinks(favorites, FILTER_FAVORITES);
 
   useEffect(() => {
     (async () => {
@@ -44,7 +42,10 @@ export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
   return (
     <>
       <InstallBanner />
-      <BarFilterNotice active={isFiltering} />
+      <BarFilterNotice
+        active={isFiltering}
+        isUnfilteredView={isUnfilteredView}
+      />
 
       {visibleFavorites.length ? (
         <DrinkList drinks={visibleFavorites} imageMap={imageMap} />

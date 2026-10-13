@@ -62,8 +62,10 @@ ten-bottle-bar tag
     [x] update mobile nav options
     [] link "See unfiltered list" on Drinks, Favorites, (and Help me Decide?)
     [] finalize position of filtered tag & unfiltered link
+    [] should drinks/bar filtering be off by default to avoid confusion?
+        [] prompt to enable filtering when leaving my bar page?
 [] clean up console errors
-[] apple brandy -> applejack
+[] apple brandy -> applejack?
 [] don't use alpha scroll when list below a certain length
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection

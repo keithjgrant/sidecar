@@ -25,13 +25,17 @@ const Header = styled.div`
   }
 `;
 
-const EmptyMessage = styled.p`
+const EmptySection = styled.div`
   margin: 1em 0 0;
   padding-top: 1em;
   border-top: 1px solid var(--gray-4);
 
   @media (min-width: 30em) {
     margin-top: 3em;
+  }
+
+  & > p {
+    margin: 0;
   }
 `;
 
@@ -64,6 +68,7 @@ interface ResultsProps {
   answers: string[];
   imageMap: Record<string, unknown>;
   isFilteringByBar?: boolean;
+  isUnfilteredView?: boolean;
 }
 
 export default function Results({
@@ -72,6 +77,7 @@ export default function Results({
   answers,
   imageMap,
   isFilteringByBar = false,
+  isUnfilteredView = false,
 }: ResultsProps) {
   const results = useMemo(
     () => scoreAndCutoff(drinks, questions, answers),
@@ -90,16 +96,22 @@ export default function Results({
 
   if (results.length === 0) {
     return (
-      <EmptyMessage>
-        No matches. Try different answers
-        {isFilteringByBar ? (
-          <>
-            {' '}
-            or add to <Link to="/my-bar">your bar</Link>
-          </>
-        ) : null}
-        .
-      </EmptyMessage>
+      <EmptySection>
+        <BarFilterNotice
+          active={isFilteringByBar}
+          isUnfilteredView={isUnfilteredView}
+        />
+        <p>
+          No matches. Try different answers
+          {isFilteringByBar ? (
+            <>
+              {' '}
+              or add to <Link to="/my-bar">your bar</Link>
+            </>
+          ) : null}
+          .
+        </p>
+      </EmptySection>
     );
   }
 
@@ -111,7 +123,10 @@ export default function Results({
           Re-roll
         </button>
       </Header>
-      <BarFilterNotice active={isFilteringByBar} />
+      <BarFilterNotice
+        active={isFilteringByBar}
+        isUnfilteredView={isUnfilteredView}
+      />
       <ResultsList>
         {weightedSelection.map((drink) => {
           const slug = drink.path.replace(/^\/drinks\//, '');

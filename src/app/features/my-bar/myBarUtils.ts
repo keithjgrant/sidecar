@@ -62,6 +62,25 @@ export function shouldFilterByBar(
   return filterEnabled && isBarConfigured(owned);
 }
 
+/** Query param for a one-off unfiltered list view (does not change settings). */
+export const UNFILTERED_PARAM = 'unfiltered';
+
+/**
+ * Resolve whether My Bar filtering applies, accounting for a one-off
+ * unfiltered view (e.g. `?unfiltered=1`) that does not change settings.
+ */
+export function resolveBarFilterState(
+  filterEnabled: boolean,
+  owned: Iterable<string>,
+  unfilteredView: boolean
+): { isFiltering: boolean; isUnfilteredView: boolean } {
+  const wouldFilter = shouldFilterByBar(filterEnabled, owned);
+  return {
+    isFiltering: wouldFilter && !unfilteredView,
+    isUnfilteredView: wouldFilter && unfilteredView,
+  };
+}
+
 export function getRequiredBarTags(tags: string[] | undefined): string[] {
   if (!tags?.length) {
     return [];
