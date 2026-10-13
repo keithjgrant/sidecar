@@ -7,7 +7,7 @@ import TextButton from './TextButton';
 import {
   BAR_CATALOG,
   type BarCatalogGroup as BarCatalogGroupType,
-} from './myBarLogic';
+} from '../../config/barConfig';
 
 const PageActions = styled.div`
   display: flex;

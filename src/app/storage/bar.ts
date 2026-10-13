@@ -1,6 +1,6 @@
 import type { IDBPDatabase } from 'idb';
 import { attachDbDebug, getDb } from './db';
-import { DEFAULT_BAR } from '../features/my-bar/myBarLogic';
+import { DEFAULT_BAR } from '../config/barConfig';
 
 interface BarItem {
   tag: string;

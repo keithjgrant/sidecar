@@ -3,6 +3,8 @@ import {
   BAR_CATALOG,
   DEFAULT_BAR,
   SPIRIT_PARENTS,
+} from '../../config/barConfig';
+import {
   canMakeDrink,
   countOwnedInGroup,
   filterMakeableDrinks,
@@ -13,11 +15,11 @@ import {
   isBarConfigured,
   normalizeRequiredTags,
   shouldFilterByBar,
-} from './myBarLogic';
+} from './myBarUtils';
 
 describe('myBar', () => {
-  it('should default the bar to lemon and lime', () => {
-    expect([...DEFAULT_BAR]).toEqual(['lemon', 'lime']);
+  it('should default to empty bar', () => {
+    expect([...DEFAULT_BAR]).toEqual([]);
   });
 
   it('should include all taxonomy bar groups in catalog order', () => {
@@ -190,8 +192,8 @@ describe('myBar', () => {
       canMakeDrink(
         { tags: ['rum', 'dry-curacao', 'lime'] },
         ['rum', 'orange-liqueur', 'lime'],
-        'none',
-      ),
+        'none'
+      )
     ).toBe(false);
   });
 
@@ -200,8 +202,8 @@ describe('myBar', () => {
       canMakeDrink(
         { tags: ['rum', 'dry-curacao', 'lime'] },
         ['rum', 'triple-sec', 'lime'],
-        'common',
-      ),
+        'common'
+      )
     ).toBe(true);
   });
 
@@ -210,15 +212,15 @@ describe('myBar', () => {
       canMakeDrink(
         { tags: ['rye-whiskey', 'sweet-vermouth'] },
         ['bourbon', 'sweet-vermouth'],
-        'none',
-      ),
+        'none'
+      )
     ).toBe(false);
     expect(
       canMakeDrink(
         { tags: ['rye-whiskey', 'sweet-vermouth'] },
         ['bourbon', 'sweet-vermouth'],
-        'common',
-      ),
+        'common'
+      )
     ).toBe(true);
   });
 
@@ -234,15 +236,15 @@ describe('myBar', () => {
       canMakeDrink(
         { tags: ['cognac', 'brandy', 'green-chartreuse', 'lemon'] },
         ['brandy', 'green-chartreuse', 'lemon'],
-        'none',
-      ),
+        'none'
+      )
     ).toBe(false);
     expect(
       canMakeDrink(
         { tags: ['cognac', 'brandy', 'green-chartreuse', 'lemon'] },
         ['brandy', 'green-chartreuse', 'lemon'],
-        'common',
-      ),
+        'common'
+      )
     ).toBe(true);
   });
 
@@ -254,12 +256,9 @@ describe('myBar', () => {
     expect(shouldFilterByBar(false, ['lemon', 'lime', 'gin'])).toBe(false);
   });
 
-  it('should let citrus defaults unlock citrus drinks when bottles are owned', () => {
+  it('should let citrus unlock citrus drinks when bottles are owned', () => {
     expect(
-      canMakeDrink({ tags: ['gin', 'lemon', 'shaken'] }, [
-        'gin',
-        ...DEFAULT_BAR,
-      ])
+      canMakeDrink({ tags: ['gin', 'lemon', 'shaken'] }, ['gin', 'lemon'])
     ).toBe(true);
     expect(canMakeDrink({ tags: ['gin', 'lemon'] }, ['gin'])).toBe(false);
   });

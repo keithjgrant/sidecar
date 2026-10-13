@@ -7,7 +7,7 @@ import settingsDb, {
   type BarFilterSetting,
   type BarSettings,
 } from '../../storage/settings';
-import { filterMakeableDrinks, shouldFilterByBar } from './myBarLogic';
+import { filterMakeableDrinks, shouldFilterByBar } from './myBarUtils';
 
 export { FILTER_DRINKS, FILTER_FAVORITES, type BarFilterSetting };
 

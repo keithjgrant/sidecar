@@ -11,10 +11,9 @@ import BarInventory from './BarInventory';
 import BarSettingsPanel from './BarSettingsPanel';
 import {
   DEFAULT_BAR,
-  getAllBarTags,
-  getGroupTags,
   type BarCatalogGroup,
-} from './myBarLogic';
+} from '../../config/barConfig';
+import { getAllBarTags, getGroupTags } from './myBarUtils';
 
 const Warning = styled.p`
   margin: 0 0 1rem;

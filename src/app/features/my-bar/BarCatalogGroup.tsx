@@ -3,11 +3,8 @@ import styled, { css } from 'styled-components';
 import CollapsibleSection from '../../components/CollapsibleSection';
 import BarGroupBody from './BarGroupBody';
 import TextButton from './TextButton';
-import {
-  countOwnedInGroup,
-  getGroupTags,
-  type BarCatalogGroup as BarCatalogGroupType,
-} from './myBarLogic';
+import type { BarCatalogGroup as BarCatalogGroupType } from '../../config/barConfig';
+import { countOwnedInGroup, getGroupTags } from './myBarUtils';
 
 const Group = styled.section`
   &:not(:first-child) {

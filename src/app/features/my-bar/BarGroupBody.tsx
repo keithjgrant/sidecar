@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BarCatalogItem from './BarCatalogItem';
 import BarTagCheckbox from './BarTagCheckbox';
-import type { BarCatalogGroup } from './myBarLogic';
+import type { BarCatalogGroup } from '../../config/barConfig';
 
 const CheckboxGrid = styled.div`
   display: grid;

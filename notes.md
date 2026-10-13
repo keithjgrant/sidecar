@@ -60,6 +60,8 @@ ten-bottle-bar tag
     [x] `vermouth` tag?
     [x] data peristence/install warning banner at top of Bar + Favorites
     [x] update mobile nav options
+    [] link "See unfiltered list" on Drinks, Favorites, (and Help me Decide?)
+    [] finalize position of filtered tag & unfiltered link
 [] clean up console errors
 [] apple brandy -> applejack
 [] don't use alpha scroll when list below a certain length

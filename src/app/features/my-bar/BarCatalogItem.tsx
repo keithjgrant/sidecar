@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BarTagCheckbox from './BarTagCheckbox';
-import type { BarCatalogItem as BarCatalogItemType } from './myBarLogic';
+import type { BarCatalogItem as BarCatalogItemType } from '../../config/barConfig';
 
 const SpiritFamily = styled.div`
   display: flex;
