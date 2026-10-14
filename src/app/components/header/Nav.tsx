@@ -10,7 +10,7 @@ const Navbar = styled.div`
 
   > a {
     display: block;
-    padding: 0.4rem 0.3rem;
+    padding: 0.4rem 0.5rem;
     color: var(--gray-2);
     font-size: 0.8rem;
     font-weight: bold;

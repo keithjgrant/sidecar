@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import DrinkItem from './DrinkItem';
 import AlphaIndex, { ALPHA_INDEX_GUTTER, LetterHeading } from '../AlphaIndex';
 import { sortDrinks } from '../../lib/drinkSort';
-import { groupByAlphaLetter, sectionIdForLetter } from '../../lib/alphaGroup';
+import {
+  groupByAlphaLetter,
+  sectionIdForLetter,
+  shouldUseAlphaIndex,
+} from '../../lib/alphaGroup';
 import type { Drink } from '../../types';
 import type { DrinkItemProps } from './DrinkItem';
 
@@ -21,8 +25,8 @@ const List = styled.ul`
   }
 `;
 
-const AlphaList = styled.div<{ $withIndex?: boolean }>`
-  padding-right: ${(props) => (props.$withIndex ? ALPHA_INDEX_GUTTER : '0')};
+const AlphaList = styled.div`
+  padding-right: ${ALPHA_INDEX_GUTTER};
 `;
 
 const LetterSection = styled.section`
@@ -42,12 +46,13 @@ export default function DrinkList({
   sortBy = 'name',
 }: DrinkListProps) {
   const sorted = sortDrinks(drinks, sortBy);
-  const useAlpha = sortBy === 'name' && sorted.length > 0;
-  const groups = useAlpha
-    ? groupByAlphaLetter(sorted, (drink) => drink.title)
-    : [];
+  const groups =
+    sortBy === 'name'
+      ? groupByAlphaLetter(sorted, (drink) => drink.title)
+      : [];
   const letters = groups.map((group) => group.letter);
-  const showIndex = letters.length >= 2;
+  const useAlpha =
+    sortBy === 'name' && shouldUseAlphaIndex(sorted.length, letters.length);
 
   const renderDrink = (drink: Drink) => {
     const slug = drink.path.replace(/^\/drinks\//, '');
@@ -66,7 +71,7 @@ export default function DrinkList({
         <p style={{ padding: '0 1em' }}>No drinks matched your query</p>
       ) : null}
       {useAlpha ? (
-        <AlphaList $withIndex={showIndex}>
+        <AlphaList>
           {groups.map(({ letter, items }) => (
             <LetterSection
               key={letter}
@@ -76,7 +81,7 @@ export default function DrinkList({
               <List>{items.map(renderDrink)}</List>
             </LetterSection>
           ))}
-          {showIndex ? <AlphaIndex letters={letters} idPrefix={ID_PREFIX} /> : null}
+          <AlphaIndex letters={letters} idPrefix={ID_PREFIX} />
         </AlphaList>
       ) : (
         <List>{sorted.map(renderDrink)}</List>

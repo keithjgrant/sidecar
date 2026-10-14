@@ -10,7 +10,7 @@ export interface AlphaGroup<T> {
 
 export function groupByAlphaLetter<T>(
   items: T[],
-  getLabel: (item: T) => string,
+  getLabel: (item: T) => string
 ): AlphaGroup<T>[] {
   const map = new Map<string, T[]>();
 
@@ -43,4 +43,19 @@ export function groupByAlphaLetter<T>(
 export function sectionIdForLetter(prefix: string, letter: string): string {
   const safe = letter === '#' ? 'num' : letter.toLowerCase();
   return `${prefix}-${safe}`;
+}
+
+/** Minimum list size before letter headings + right-rail navigation are useful. */
+export const ALPHA_INDEX_MIN_ITEMS = 12;
+/** Minimum distinct letters before the alpha index rail earns its keep. */
+export const ALPHA_INDEX_MIN_LETTERS = 6;
+
+/** Whether to show letter-grouped sections and the sticky alpha index. */
+export function shouldUseAlphaIndex(
+  itemCount: number,
+  letterCount: number
+): boolean {
+  return (
+    itemCount >= ALPHA_INDEX_MIN_ITEMS && letterCount >= ALPHA_INDEX_MIN_LETTERS
+  );
 }

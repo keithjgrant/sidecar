@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+  ALPHA_INDEX_MIN_ITEMS,
+  ALPHA_INDEX_MIN_LETTERS,
   getAlphaLetter,
   groupByAlphaLetter,
   sectionIdForLetter,
+  shouldUseAlphaIndex,
 } from './alphaGroup';
 
 describe('getAlphaLetter', () => {
@@ -43,5 +46,25 @@ describe('sectionIdForLetter', () => {
   it('should build a stable id for letter sections', () => {
     expect(sectionIdForLetter('alpha-drink', 'A')).toBe('alpha-drink-a');
     expect(sectionIdForLetter('alpha-tag', '#')).toBe('alpha-tag-num');
+  });
+});
+
+describe('shouldUseAlphaIndex', () => {
+  it('should return true when both item and letter thresholds are met', () => {
+    expect(
+      shouldUseAlphaIndex(ALPHA_INDEX_MIN_ITEMS, ALPHA_INDEX_MIN_LETTERS),
+    ).toBe(true);
+  });
+
+  it('should return false when there are too few items', () => {
+    expect(
+      shouldUseAlphaIndex(ALPHA_INDEX_MIN_ITEMS - 1, ALPHA_INDEX_MIN_LETTERS),
+    ).toBe(false);
+  });
+
+  it('should return false when there are too few letters', () => {
+    expect(
+      shouldUseAlphaIndex(ALPHA_INDEX_MIN_ITEMS, ALPHA_INDEX_MIN_LETTERS - 1),
+    ).toBe(false);
   });
 });

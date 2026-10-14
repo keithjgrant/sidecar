@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import AlphaIndex, { ALPHA_INDEX_GUTTER, LetterHeading } from './AlphaIndex';
-import { groupByAlphaLetter, sectionIdForLetter } from '../lib/alphaGroup';
+import {
+  groupByAlphaLetter,
+  sectionIdForLetter,
+  shouldUseAlphaIndex,
+} from '../lib/alphaGroup';
 
 const ID_PREFIX = 'alpha-tag';
 
@@ -11,8 +15,8 @@ const List = styled.ul`
   list-style: none;
 `;
 
-const AlphaList = styled.div<{ $withIndex?: boolean }>`
-  padding-right: ${(props) => (props.$withIndex ? ALPHA_INDEX_GUTTER : '0')};
+const AlphaList = styled.div`
+  padding-right: ${ALPHA_INDEX_GUTTER};
 `;
 
 const LetterSection = styled.section`
@@ -35,12 +39,27 @@ export default function TagList({ tags }: TagListProps) {
     return null;
   }
 
-  const groups = groupByAlphaLetter(tags, (tag) => tag);
+  const sorted = [...tags].sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: 'base' }),
+  );
+  const groups = groupByAlphaLetter(sorted, (tag) => tag);
   const letters = groups.map((group) => group.letter);
-  const showIndex = letters.length >= 2;
+  const useAlpha = shouldUseAlphaIndex(sorted.length, letters.length);
+
+  if (!useAlpha) {
+    return (
+      <List>
+        {sorted.map((tag) => (
+          <li key={tag}>
+            <TagLink to={`/tags/${tag}`}>{tag}</TagLink>
+          </li>
+        ))}
+      </List>
+    );
+  }
 
   return (
-    <AlphaList $withIndex={showIndex}>
+    <AlphaList>
       {groups.map(({ letter, items }) => (
         <LetterSection
           key={letter}
@@ -56,7 +75,7 @@ export default function TagList({ tags }: TagListProps) {
           </List>
         </LetterSection>
       ))}
-      {showIndex ? <AlphaIndex letters={letters} idPrefix={ID_PREFIX} /> : null}
+      <AlphaIndex letters={letters} idPrefix={ID_PREFIX} />
     </AlphaList>
   );
 }
