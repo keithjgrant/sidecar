@@ -92,7 +92,12 @@ export default function HomepageLayout({
             for the home bartender
           </div>
         </Header>
-        <Banner image={heroImage.childImageSharp.gatsbyImageData} alt="" />
+        <Banner
+          image={heroImage.childImageSharp.gatsbyImageData}
+          alt=""
+          loading="eager"
+          objectFit="cover"
+        />
       </Back>
       <Front>{children}</Front>
     </Parallax>
