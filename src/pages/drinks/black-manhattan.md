@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: cocktail cherry
 tags: [
+  manhattan,
   whiskey,
   averna,
   rye-whiskey,

@@ -33,7 +33,7 @@ ten-bottle-bar tag
 
 [] Add "skip question" option in Help My Decide
 [] clean up console errors
-[] apple brandy -> applejack?
+[] sticky alpha headers cover mobile title + back button
 [x] don't use alpha scroll when list below a certain length
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection

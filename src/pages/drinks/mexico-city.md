@@ -15,6 +15,7 @@ ingredients: [
 garnish: orange twist, brandied cherry
 tags: [
   ten-bottle-bar,
+  manhattan,
   tequila,
   tequila-reposado,
   sweet-vermouth,

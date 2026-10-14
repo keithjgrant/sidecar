@@ -15,6 +15,7 @@ garnish: maraschino cherry
 tags: [
   ten-bottle-bar,
   classic-cocktail,
+  manhattan,
   rye-whiskey,
   whiskey,
   sweet-vermouth,
