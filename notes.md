@@ -76,3 +76,5 @@ ten-bottle-bar tag
     [] favorite button no longer provides haptic feedback
 [] add any new options for 10th bottle in TenBottleBar.tsx?
 
+Updated palette?
+https://tools.keithjgrant.com/theme-machine/palette/?d=808,02,243.2535520780545,slate&c=81,11,63.3,orange&c=81,11,213.3,cyan&c=81,11,273.3,indigo&b1=slate-12&b2=slate-14&b3=slate-16&t1=slate-3&t2=slate-5&br=orange-5&lc=1&cc=0

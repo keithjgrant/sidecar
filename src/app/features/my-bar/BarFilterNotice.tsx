@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Filter from '../../components/svg/Filter';
+import Bottles from '../../components/svg/Bottles';
 import { hrefWithParam } from '../../lib/qs';
 import { UNFILTERED_PARAM } from './myBarUtils';
 
@@ -81,11 +81,11 @@ export default function BarFilterNotice({
             title="Showing drinks you can make with your bar"
             aria-label="Filtered by My Bar. Open My Bar to adjust."
           >
-            <Filter />
+            <Bottles />
             My Bar
           </Chip>
           <SeeLink to={hrefWithParam(UNFILTERED_PARAM, '1')}>
-            See unfiltered
+            Ignore My Bar
           </SeeLink>
         </>
       ) : (
@@ -95,11 +95,11 @@ export default function BarFilterNotice({
             title="My Bar filter is off for this view only"
             aria-label="My Bar filter off for this view. Open My Bar to adjust."
           >
-            <Filter />
+            <Bottles />
             My Bar
           </Chip>
           <SeeLink to={hrefWithParam(UNFILTERED_PARAM, null)}>
-            See filtered
+            Limit to My Bar
           </SeeLink>
         </>
       )}

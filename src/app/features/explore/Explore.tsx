@@ -41,8 +41,11 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
   const [family, setFamily] = useState('all');
   const [query, setQuery] = useState('');
   const filtersSet = !!(params.base || params.family || params.q);
-  const { drinks: barFiltered, isFiltering, isUnfilteredView } =
-    useBarFilteredDrinks(drinks, FILTER_DRINKS);
+  const {
+    drinks: barFiltered,
+    isFiltering,
+    isUnfilteredView,
+  } = useBarFilteredDrinks(drinks, FILTER_DRINKS);
 
   useEffect(() => {
     if (params.base && params.base !== 'all') {
@@ -59,10 +62,6 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
   const filtered = filterDrinks(barFiltered, base, family, query);
   return (
     <>
-      <BarFilterNotice
-        active={isFiltering}
-        isUnfilteredView={isUnfilteredView}
-      />
       <CollapsibleSection
         startExpanded={filtersSet}
         renderToggle={({ toggle, isExpanded }) => (
@@ -126,6 +125,10 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
           </GridForm>
         </Card>
       </CollapsibleSection>
+      <BarFilterNotice
+        active={isFiltering}
+        isUnfilteredView={isUnfilteredView}
+      />
       <DrinkList drinks={filtered} imageMap={imageMap} />
     </>
   );
