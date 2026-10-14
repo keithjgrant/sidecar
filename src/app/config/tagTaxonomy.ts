@@ -52,6 +52,7 @@ export const AMARO_TAGS = [
 export const LIQUEUR_TAGS = [
   'amaretto',
   'ancho-reyes',
+  'ancho-reyes-verde',
   'apricot-liqueur',
   'benedictine',
   'coffee-liqueur',
