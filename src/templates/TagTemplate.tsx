@@ -29,9 +29,11 @@ export default function TagTemplate({
       {content ? (
         <SimpleContent dangerouslySetInnerHTML={{ __html: content.html }} />
       ) : null}
-      <Link className="button" to="/tags">
-        Browse all tags
-      </Link>
+      <p>
+        <Link className="button" to="/tags">
+          Browse all tags
+        </Link>
+      </p>
       <DrinkList
         drinks={drinks.edges.map((item) => item.node.frontmatter)}
         imageMap={imageMap}
