@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import DrinkItem from './DrinkItem';
-import { ButtonGroup } from '../forms';
 import AlphaIndex, { ALPHA_INDEX_GUTTER, LetterHeading } from '../AlphaIndex';
-import { getParams, setParam } from '../../lib/qs';
 import { sortDrinks } from '../../lib/drinkSort';
 import { groupByAlphaLetter, sectionIdForLetter } from '../../lib/alphaGroup';
 import type { Drink } from '../../types';
@@ -31,34 +29,18 @@ const LetterSection = styled.section`
   margin-bottom: 1em;
 `;
 
-const Container = styled.div<{ $withIndex?: boolean }>`
-  margin-bottom: var(--gap-size);
-  padding-right: ${(props) => (props.$withIndex ? ALPHA_INDEX_GUTTER : '0')};
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
-
-  & > *:not(:first-child) {
-    margin-left: var(--gap-size);
-  }
-`;
-
 interface DrinkListProps {
   drinks: Drink[];
   imageMap: Record<string, unknown>;
+  /** Alphabetical with alpha index (default), or newest-first flat list. */
+  sortBy?: 'name' | 'date';
 }
 
-export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
-  const params = getParams();
-
-  const [sortBy, setSortBy] = useState('name');
-
-  useEffect(() => {
-    if (params.sort === 'date') {
-      setSortBy('date');
-    }
-  }, []);
-
+export default function DrinkList({
+  drinks,
+  imageMap,
+  sortBy = 'name',
+}: DrinkListProps) {
   const sorted = sortDrinks(drinks, sortBy);
   const useAlpha = sortBy === 'name' && sorted.length > 0;
   const groups = useAlpha
@@ -80,21 +62,6 @@ export default function DrinkList({ drinks, imageMap }: DrinkListProps) {
 
   return (
     <>
-      <Container $withIndex={showIndex}>
-        <div>Sort by</div>
-        <ButtonGroup
-          name="sort"
-          value={sortBy}
-          options={[
-            ['name', 'name'],
-            ['date', 'most recent'],
-          ]}
-          onChange={(value) => {
-            setSortBy(value);
-            setParam('sort', value);
-          }}
-        />
-      </Container>
       {!sorted.length ? (
         <p style={{ padding: '0 1em' }}>No drinks matched your query</p>
       ) : null}
