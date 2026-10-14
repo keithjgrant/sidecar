@@ -40,7 +40,7 @@ export default function TagList({ tags }: TagListProps) {
   }
 
   const sorted = [...tags].sort((a, b) =>
-    a.localeCompare(b, undefined, { sensitivity: 'base' }),
+    a.localeCompare(b, undefined, { sensitivity: 'base' })
   );
   const groups = groupByAlphaLetter(sorted, (tag) => tag);
   const letters = groups.map((group) => group.letter);
@@ -61,10 +61,7 @@ export default function TagList({ tags }: TagListProps) {
   return (
     <AlphaList>
       {groups.map(({ letter, items }) => (
-        <LetterSection
-          key={letter}
-          id={sectionIdForLetter(ID_PREFIX, letter)}
-        >
+        <LetterSection key={letter} id={sectionIdForLetter(ID_PREFIX, letter)}>
           <LetterHeading>{letter}</LetterHeading>
           <List>
             {items.map((tag) => (
