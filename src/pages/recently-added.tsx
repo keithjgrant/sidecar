@@ -1,10 +1,19 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import DrinkListLayout from '../app/components/layouts/DrinkListLayout';
 import DrinkList from '../app/components/DrinkList';
 import Meta from '../app/components/Meta';
 
 import type { Drink } from '../app/types';
+
+/** How far back “recently added” reaches (evaluated at build time). */
+const RECENT_MONTHS = 9;
+
+function monthsAgo(months: number): Date {
+  const d = new Date();
+  d.setMonth(d.getMonth() - months);
+  return d;
+}
 
 interface RecentlyAddedPageProps {
   data: {
@@ -22,13 +31,18 @@ export default function RecentlyAddedPage({
       imageMap[name] = childImageSharp;
     });
   }
+
+  const since = monthsAgo(RECENT_MONTHS);
+  const recent = drinks.edges
+    .map((item) => item.node.frontmatter)
+    .filter((drink) => drink.date && new Date(drink.date) >= since);
+
   return (
     <DrinkListLayout title="Recently Added">
-      <DrinkList
-        drinks={drinks.edges.map((item) => item.node.frontmatter)}
-        imageMap={imageMap}
-        sortBy="date"
-      />
+      <DrinkList drinks={recent} imageMap={imageMap} sortBy="date" />
+      <p>
+        <Link to="/drinks">See all drinks</Link>
+      </p>
     </DrinkListLayout>
   );
 }
