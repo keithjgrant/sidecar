@@ -83,7 +83,7 @@ const TileLink = styled(Link)`
 import type { Drink } from '../../types';
 
 const HomeFooter = styled(Footer)`
-  margin-top: auto;
+  margin-top: 2em;
   flex: 0;
 `;
 

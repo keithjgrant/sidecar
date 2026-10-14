@@ -31,39 +31,7 @@ ten-bottle-bar tag
 
 # TODO
 
-[x] clean up `amaro` tag. either apply it everywhere or remove it from Paper Plane
-[x] merge `fernet` and `fernet-branca` tags → use `fernet`
-[x] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
-    → keep as catch-all for one-off syrups; dual-tag flavor + `*-syrup`; fancy list lives in tagTaxonomy
-[x] `anise` tag? removed — redundant with absinthe, out of place in FLAVOR_TAGS
 [] Add "skip question" option in Help My Decide
-[x] Rework homescreen; add Tags & featured bottle link
-[x] Featured bottle feature (replaces featured drinks on homescreen)
-[] In My Bar
-    [x] Group checkboxes logically
-    [x] select/clear all for page & each section
-    [x] make each section collapsible?
-    [x] Add checkbox for sparkling-wine/prosecco - Aperol Spritz, etc.
-    [x] Add filter on Drinks page
-    [x] orange liqueur tag subtypes?
-    [x] add note listing items not tracked/assumed (bitters, etc)
-    [x] accents, special characters, and IPA capitalization
-    [x] cognac/gin behavior (and others?) see champs elysees
-    [x] common substitutes (rhum agricole + cachaca; orange liqueurs)
-    [x] Settings (filter toggles + substitution modes)
-    [x] Should tag listings be filtered? - NO
-    [x] how to treat special syrup?
-    [x] ensure Help me Decide also filtered
-    [x] small banner indicating filtering in action on Drinks/Favorites/Help Me Decide
-    [x] remove list from Bar page 
-    [x] favorites - allow on web
-    [x] `vermouth` tag?
-    [x] data peristence/install warning banner at top of Bar + Favorites
-    [x] update mobile nav options
-    [] link "See unfiltered list" on Drinks, Favorites, (and Help me Decide?)
-    [] finalize position of filtered tag & unfiltered link
-    [] should drinks/bar filtering be off by default to avoid confusion?
-        [] prompt to enable filtering when leaving my bar page?
 [] clean up console errors
 [] apple brandy -> applejack?
 [] don't use alpha scroll when list below a certain length

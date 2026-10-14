@@ -32,7 +32,7 @@ export default function Footer({ content, className }: FooterProps) {
       <Split>
         <div>
           © 2018–{year} <a href="https://keithjgrant.com">Keith J. Grant</a>.
-          All rights reserved.
+          All&nbsp;rights&nbsp;reserved.
         </div>
         <div style={{ textAlign: 'right' }}>
           {content || 'Please drink responsibly.'}
