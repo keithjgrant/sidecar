@@ -5,10 +5,10 @@ import MyBar from '../app/features/my-bar/MyBar';
 
 export default function MyBarPage() {
   return (
-    <DrinkListLayout title="In My Bar">
+    <DrinkListLayout title="My Bar">
       <MyBar />
     </DrinkListLayout>
   );
 }
 
-export const Head = () => <Meta title="Sidecar: In My Bar" />;
+export const Head = () => <Meta title="Sidecar: My Bar" />;

@@ -126,7 +126,7 @@ export default function HomeTiles({
         >
           <FullWidthLink to="/drinks">Browse Drinks</FullWidthLink>
           <FullWidthLink to="/tags">Tags</FullWidthLink>
-          <SplitRowLink to="/my-bar">In My Bar</SplitRowLink>
+          <SplitRowLink to="/my-bar">My Bar</SplitRowLink>
           <SplitRowBorderLeftLink to="/favorites">
             My Favorites
           </SplitRowBorderLeftLink>
