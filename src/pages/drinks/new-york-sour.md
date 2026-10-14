@@ -17,7 +17,7 @@ garnish:
 tags: [
   bourbon,
   whiskey,
-  wine,
+  red-wine,
   lemon,
   shaken,
 ]

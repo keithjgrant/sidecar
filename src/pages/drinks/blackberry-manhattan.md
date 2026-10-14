@@ -17,7 +17,7 @@ tags: [
   whiskey,
   rye-whiskey,
   sweet-vermouth,
-  blackberry,
+  creme-de-mure,
   stirred,
 ]
 tenBottleCandidate:

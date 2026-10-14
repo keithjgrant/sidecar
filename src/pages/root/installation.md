@@ -19,10 +19,10 @@ By default, the drinks pages and the tag pages for featured bottles are saved fo
 Initial installation uses about 3mb of storage space.
 As you visit other pages (such as other tags lists or instructions on making syrups) they will automatically save for offline access as well.
 
-## Save Favorites
+## Durable Local Data
 
-Installing Sidecar enables you to save drinks to your [favorites](/favorites).
-If you find yourself coming back to the same drinks again and again, this a great way to find them quickly.
+Favorites and [My Bar](/my-bar) are saved locally in your browser.
+Installing Sidecar helps keep that data around longer, so your device is less likely to clear it to free up space.
 
 I have a few other features in the works as well that will only work when installed.
 

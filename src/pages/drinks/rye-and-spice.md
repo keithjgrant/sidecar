@@ -20,7 +20,7 @@ tags: [
   tequila-blanco,
   rye-whiskey,
   whiskey,
-  ancho-reyes,
+  ancho-reyes-verde,
   sweet-vermouth,
   stirred,
 ]

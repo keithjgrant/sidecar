@@ -19,7 +19,7 @@ garnish: 3 orange twists, discarded
 tags: [
   bitter,
   campari,
-  vermouth,
+  blanc-vermouth,
   gin,
   cynar,
   fernet,

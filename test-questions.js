@@ -5,27 +5,27 @@ const matter = require('gray-matter');
 
 // Import all question modules
 const lightOrDark =
-  require('./src/components/HelpMeDecide/questions/lightOrDark.js').default;
+  require('./src/app/features/help-me-decide/questions/lightOrDark.js').default;
 const sweetOrStiff =
-  require('./src/components/HelpMeDecide/questions/sweetOrStiff.js').default;
+  require('./src/app/features/help-me-decide/questions/sweetOrStiff.js').default;
 const refreshingOrIntense =
-  require('./src/components/HelpMeDecide/questions/refreshingOrIntense.js').default;
+  require('./src/app/features/help-me-decide/questions/refreshingOrIntense.js').default;
 const simpleOrElaborate =
-  require('./src/components/HelpMeDecide/questions/simpleOrElaborate.js').default;
+  require('./src/app/features/help-me-decide/questions/simpleOrElaborate.js').default;
 const boozyOrMild =
-  require('./src/components/HelpMeDecide/questions/boozyOrMild.js').default;
+  require('./src/app/features/help-me-decide/questions/boozyOrMild.js').default;
 const seasonalOrTimeless =
-  require('./src/components/HelpMeDecide/questions/seasonalOrTimeless.js').default;
+  require('./src/app/features/help-me-decide/questions/seasonalOrTimeless.js').default;
 const citrusyOrRich =
-  require('./src/components/HelpMeDecide/questions/citrusyOrRich.js').default;
+  require('./src/app/features/help-me-decide/questions/citrusyOrRich.js').default;
 const fruityOrHerbal =
-  require('./src/components/HelpMeDecide/questions/fruityOrHerbal.js').default;
+  require('./src/app/features/help-me-decide/questions/fruityOrHerbal.js').default;
 const smokyOrClean =
-  require('./src/components/HelpMeDecide/questions/smokyOrClean.js').default;
+  require('./src/app/features/help-me-decide/questions/smokyOrClean.js').default;
 const spicyOrMellow =
-  require('./src/components/HelpMeDecide/questions/spicyOrMellow.js').default;
+  require('./src/app/features/help-me-decide/questions/spicyOrMellow.js').default;
 const bitterOrSmooth =
-  require('./src/components/HelpMeDecide/questions/bitterOrSmooth.js').default;
+  require('./src/app/features/help-me-decide/questions/bitterOrSmooth.js').default;
 
 const allQuestions = [
   lightOrDark,

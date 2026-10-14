@@ -31,13 +31,18 @@ ten-bottle-bar tag
 
 # TODO
 
-[x] clean up `amaro` tag. either apply it everywhere or remove it from Paper Plane
-[x] merge `fernet` and `fernet-branca` tags → use `fernet`
-[x] is `special-syrup` tag use consistently? Is it necessary for 10-bottle-bar functionality?
-    → keep as catch-all for one-off syrups; dual-tag flavor + `*-syrup`; fancy list lives in tagTaxonomy
-[x] `anise` tag? removed — redundant with absinthe, out of place in FLAVOR_TAGS
 [] Add "skip question" option in Help My Decide
-[x] Rework homescreen; add Tags & featured bottle link
-[x] Featured bottle feature (replaces featured drinks on homescreen)
-[] In My Bar
+[] clean up console errors
+[] apple brandy -> applejack?
+[x] don't use alpha scroll when list below a certain length
+[] control dials for help me decide weights?
+[] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
+[] clean up weird TileWithLink homescreen components/css
+[] haptics
+    [] back-button long press function broken (part of screen is text-selected instead)
+    [] favorite button no longer provides haptic feedback
+[] add any new options for 10th bottle in TenBottleBar.tsx?
+
+Updated palette?
+https://tools.keithjgrant.com/theme-machine/palette/?d=81,02,273.3,slate&c=81,11,63.3,orange&c=81,11,273.3,indigo&c=81,11,213.3,cyan&b1=slate-14&b2=slate-12&b3=slate-16&t1=slate-3&t2=slate-5&br=orange-5&lc=1&cc=0

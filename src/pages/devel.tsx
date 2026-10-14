@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import IndexLayout from '../components/layouts/IndexLayout';
+import IndexLayout from '../app/components/layouts/IndexLayout';
 
 export default function DevelPage() {
   return (

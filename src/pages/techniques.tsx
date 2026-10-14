@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import IndexLayout from '../components/layouts/IndexLayout';
-import Meta from '../components/Meta';
-import { BrowserHeading } from '../components/PageHeading';
-import TechniquesList from '../components/TechniquesList';
+import IndexLayout from '../app/components/layouts/IndexLayout';
+import Meta from '../app/components/Meta';
+import { BrowserHeading } from '../app/components/PageHeading';
+import TechniquesList from '../app/components/TechniquesList';
 
-import type { TileLinkProps } from '../components/tiles/TileLink';
+import type { TileLinkProps } from '../app/components/tiles/TileLink';
 
 interface TechniquesPageProps {
   data: Record<string, TileLinkProps['image']>;

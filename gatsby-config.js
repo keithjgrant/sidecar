@@ -1,4 +1,4 @@
-const { featuredBottles } = require('./src/data/featuredBottlesConfig');
+const { featuredBottles } = require('./src/app/config/featuredBottlesConfig');
 
 const featuredBottleTagPaths = [
   ...new Set(
@@ -19,8 +19,9 @@ module.exports = {
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-catch-links',
-    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import ArticleLayout from '../components/layouts/ArticleLayout';
-import Meta from '../components/Meta';
+import ArticleLayout from '../app/components/layouts/ArticleLayout';
+import Meta from '../app/components/Meta';
 
 interface ArticleTemplateProps {
   data: {

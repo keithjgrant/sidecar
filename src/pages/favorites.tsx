@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import DrinkListLayout from '../components/layouts/DrinkListLayout';
-import Meta from '../components/Meta';
-import Favorites from '../components/Favorites';
+import DrinkListLayout from '../app/components/layouts/DrinkListLayout';
+import Meta from '../app/components/Meta';
+import Favorites from '../app/features/favorites/Favorites';
 
-import type { Drink } from '../types';
+import type { Drink } from '../app/types';
 
 interface FavoritesPageProps {
   data: {

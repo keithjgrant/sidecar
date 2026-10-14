@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import DrinkListLayout from '../components/layouts/DrinkListLayout';
-import Meta from '../components/Meta';
-import DrinkList from '../components/DrinkList';
-import SimpleContent from '../components/SimpleContent';
+import DrinkListLayout from '../app/components/layouts/DrinkListLayout';
+import Meta from '../app/components/Meta';
+import DrinkList from '../app/components/DrinkList';
+import SimpleContent from '../app/components/SimpleContent';
 
-import type { Drink } from '../types';
+import type { Drink } from '../app/types';
 
 interface TagTemplateProps {
   data: {
