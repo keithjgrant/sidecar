@@ -85,7 +85,19 @@ export function useSettings() {
     };
   }, []);
 
-  return { settings, isLoading, error };
+  async function updateSettings(partial: Partial<BarSettings>): Promise<void> {
+    setSettings((prev) => mergeSettings({ ...prev, ...partial }));
+    try {
+      const next = await setBarSettings(partial);
+      setSettings(next);
+      setError(null);
+    } catch (err) {
+      console.error('Failed to save bar settings', err);
+      setError(toError(err));
+    }
+  }
+
+  return { settings, isLoading, error, updateSettings };
 }
 
 const settingsDb = {

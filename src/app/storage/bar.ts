@@ -86,7 +86,34 @@ export function useBar() {
     };
   }, []);
 
-  return { tags, isLoading, error };
+  async function replaceTags(next: string[]): Promise<void> {
+    setTags(next);
+    try {
+      await replaceBar(next);
+      setError(null);
+    } catch (err) {
+      console.error('Failed to save bar', err);
+      setError(toError(err));
+    }
+  }
+
+  async function setTag(tag: string, owned: boolean): Promise<void> {
+    setTags((prev) => {
+      if (owned) {
+        return prev.includes(tag) ? prev : [...prev, tag];
+      }
+      return prev.filter((t) => t !== tag);
+    });
+    try {
+      await setBarTag(tag, owned);
+      setError(null);
+    } catch (err) {
+      console.error('Failed to save bar tag', err);
+      setError(toError(err));
+    }
+  }
+
+  return { tags, isLoading, error, replaceTags, setTag };
 }
 
 const barDb = {
