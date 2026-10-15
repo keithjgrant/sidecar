@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import type { IDBPDatabase } from 'idb';
-import { attachDbDebug, getDb } from './db';
+import { attachDbDebug, getDb, toError } from './db';
 import { DEFAULT_BAR } from '../config/barConfig';
 
 interface BarItem {
@@ -53,6 +54,39 @@ export async function replaceBar(tags: string[]): Promise<void> {
     }
   }
   await tx.done;
+}
+
+export function useBar() {
+  const [tags, setTags] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const loadedTags = await getBarTags();
+        if (!cancelled) {
+          setTags(loadedTags);
+          setError(null);
+        }
+      } catch (err) {
+        console.error('Failed to load bar tags', err);
+        if (!cancelled) {
+          setError(toError(err));
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return { tags, isLoading, error };
 }
 
 const barDb = {

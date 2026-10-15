@@ -1,4 +1,5 @@
-import { attachDbDebug, getDb } from './db';
+import { useEffect, useState } from 'react';
+import { attachDbDebug, getDb, toError } from './db';
 
 export interface Favorite {
   name: string;
@@ -29,6 +30,39 @@ export async function getFavorite(
   if (!drinkName) return;
   const db = await getDb();
   return db.get('favorites', drinkName);
+}
+
+export function useFavorites() {
+  const [favorites, setFavorites] = useState<Favorite[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const loaded = await getFavorites();
+        if (!cancelled) {
+          setFavorites(loaded);
+          setError(null);
+        }
+      } catch (err) {
+        console.error('Failed to load favorites', err);
+        if (!cancelled) {
+          setError(toError(err));
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return { favorites, isLoading, error };
 }
 
 const favoritesDb = {

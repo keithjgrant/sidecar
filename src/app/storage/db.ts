@@ -106,6 +106,11 @@ export async function debugStorage(): Promise<{
   };
 }
 
+/** Normalize unknown catch values to Error for storage hooks. */
+export function toError(err: unknown): Error {
+  return err instanceof Error ? err : new Error(String(err));
+}
+
 /** Merge helpers onto window.__sidecarDb in development. */
 export function attachDbDebug(partial: Record<string, unknown>): void {
   if (typeof window === 'undefined' || process.env.NODE_ENV !== 'development') {
