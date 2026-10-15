@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import type { IDBPDatabase } from 'idb';
-import { attachDbDebug, getDb } from './db';
+import { attachDbDebug, getDb, toError } from './db';
 import { DEFAULT_BAR } from '../config/barConfig';
 
 interface BarItem {
@@ -53,6 +54,66 @@ export async function replaceBar(tags: string[]): Promise<void> {
     }
   }
   await tx.done;
+}
+
+export function useBar() {
+  const [tags, setTags] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const loadedTags = await getBarTags();
+        if (!cancelled) {
+          setTags(loadedTags);
+          setError(null);
+        }
+      } catch (err) {
+        console.error('Failed to load bar tags', err);
+        if (!cancelled) {
+          setError(toError(err));
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  async function replaceTags(next: string[]): Promise<void> {
+    setTags(next);
+    try {
+      await replaceBar(next);
+      setError(null);
+    } catch (err) {
+      console.error('Failed to save bar', err);
+      setError(toError(err));
+    }
+  }
+
+  async function setTag(tag: string, owned: boolean): Promise<void> {
+    setTags((prev) => {
+      if (owned) {
+        return prev.includes(tag) ? prev : [...prev, tag];
+      }
+      return prev.filter((t) => t !== tag);
+    });
+    try {
+      await setBarTag(tag, owned);
+      setError(null);
+    } catch (err) {
+      console.error('Failed to save bar tag', err);
+      setError(toError(err));
+    }
+  }
+
+  return { tags, isLoading, error, replaceTags, setTag };
 }
 
 const barDb = {

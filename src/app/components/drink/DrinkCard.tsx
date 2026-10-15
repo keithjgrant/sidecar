@@ -6,8 +6,10 @@ import ScaleIndicator from './ScaleIndicator';
 import PrepMethod from './PrepMethod';
 import GlassType from './GlassType';
 import IngredientList from './IngredientList';
+import DrinkSubstitutions from './DrinkSubstitutions';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
 import styled from 'styled-components';
+import type { Drink } from '../../types';
 
 const Main = styled.main`
   padding-top: 2rem;
@@ -162,8 +164,6 @@ const PublishDate = styled.div`
   text-align: right;
 `;
 
-import type { Drink } from '../../types';
-
 interface DrinkCardProps {
   drink: Drink;
   imageData?: {
@@ -198,6 +198,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
             garnish={drink.garnish}
             isBeneathIntro={!!drink.intro}
           />
+          <DrinkSubstitutions drink={drink} />
           <div className="e-instructions">
             <div dangerouslySetInnerHTML={{ __html: drink.content ?? '' }} />
           </div>

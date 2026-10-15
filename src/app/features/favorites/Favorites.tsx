@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'gatsby';
 import DrinkList from '../../components/DrinkList';
 import InstallBanner from '../../components/InstallBanner';
-import favoritesDb from '../../storage/favorites';
+import { useFavorites } from '../../storage/favorites';
 import BarFilterNotice from '../my-bar/BarFilterNotice';
 import {
   useBarFilteredDrinks,
@@ -16,28 +16,29 @@ interface FavoritesProps {
 }
 
 export default function Favorites({ allDrinks, imageMap }: FavoritesProps) {
-  const [favorites, setFavorites] = useState<Drink[]>([]);
-  const { drinks: visibleFavorites, isFiltering, isUnfilteredView } =
-    useBarFilteredDrinks(favorites, FILTER_FAVORITES);
+  const { favorites: saved } = useFavorites();
 
-  useEffect(() => {
-    (async () => {
-      const loaded = await favoritesDb.getFavorites();
-      const drinks: Drink[] = [];
-      loaded.forEach((favorite) => {
-        const match = allDrinks.find(
-          (d) => d.path === `/drinks/${favorite.name}`
-        );
-        if (match) {
-          drinks.push({
-            ...match,
-            date: formatDate(favorite.date),
-          });
-        }
-      });
-      setFavorites(drinks);
-    })();
-  }, []);
+  const favorites = useMemo(() => {
+    const drinks: Drink[] = [];
+    for (const favorite of saved) {
+      const match = allDrinks.find(
+        (d) => d.path === `/drinks/${favorite.name}`
+      );
+      if (match) {
+        drinks.push({
+          ...match,
+          date: formatDate(favorite.date),
+        });
+      }
+    }
+    return drinks;
+  }, [saved, allDrinks]);
+
+  const {
+    drinks: visibleFavorites,
+    isFiltering,
+    isUnfilteredView,
+  } = useBarFilteredDrinks(favorites, FILTER_FAVORITES);
 
   return (
     <>

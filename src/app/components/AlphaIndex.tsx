@@ -77,7 +77,6 @@ export const LetterHeading = styled.h2`
   z-index: 2;
   margin: 0 0 0.4em;
   padding: 0.35em 0.25em;
-  background: var(--gray-dark);
   color: var(--gray-8);
   font-size: 0.95rem;
   font-weight: 600;

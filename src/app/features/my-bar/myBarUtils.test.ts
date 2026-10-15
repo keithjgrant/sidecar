@@ -9,6 +9,7 @@ import {
   countOwnedInGroup,
   filterMakeableDrinks,
   formatBarLabel,
+  getDrinkSubstitutions,
   getAllBarTags,
   getGroupTags,
   getRequiredBarTags,
@@ -222,6 +223,23 @@ describe('myBar', () => {
     ).toBe(true);
   });
 
+  it('should let irish whiskey cover rye only with forgiving substitutions', () => {
+    expect(
+      canMakeDrink(
+        { tags: ['rye-whiskey', 'sweet-vermouth'] },
+        ['irish-whiskey', 'sweet-vermouth'],
+        'common'
+      )
+    ).toBe(false);
+    expect(
+      canMakeDrink(
+        { tags: ['rye-whiskey', 'sweet-vermouth'] },
+        ['irish-whiskey', 'sweet-vermouth'],
+        'forgiving'
+      )
+    ).toBe(true);
+  });
+
   it('should drop redundant parent tags when a child is also required', () => {
     expect(normalizeRequiredTags(['cognac', 'brandy', 'lemon'])).toEqual([
       'cognac',
@@ -297,5 +315,75 @@ describe('myBar', () => {
       'lemon',
     ]);
     expect(makeable.map((d) => d.title)).toEqual(['Negroni']);
+  });
+
+  it('should list peer substitutions for missing required tags', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['rye-whiskey', 'sweet-vermouth', 'stirred'],
+        ['bourbon', 'sweet-vermouth'],
+        'common'
+      )
+    ).toEqual([{ required: 'rye-whiskey', using: ['bourbon'] }]);
+  });
+
+  it('should not list substitutions when the required tag is owned', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['rye-whiskey', 'sweet-vermouth'],
+        ['rye-whiskey', 'sweet-vermouth', 'bourbon'],
+        'common'
+      )
+    ).toEqual([]);
+  });
+
+  it('should omit peer substitutions when mode is none', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['rye-whiskey', 'sweet-vermouth'],
+        ['bourbon', 'sweet-vermouth'],
+        'none'
+      )
+    ).toEqual([]);
+  });
+
+  it('should list a subtype standing in for a parent requirement', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['whiskey', 'sweet-vermouth'],
+        ['bourbon', 'sweet-vermouth'],
+        'none'
+      )
+    ).toEqual([{ required: 'whiskey', using: ['bourbon'] }]);
+  });
+
+  it('should group multiple common stand-ins for one required tag', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['dry-curacao', 'rum', 'lime'],
+        ['triple-sec', 'curacao', 'rum', 'lime'],
+        'common'
+      )
+    ).toEqual([{ required: 'dry-curacao', using: ['triple-sec', 'curacao'] }]);
+  });
+
+  it('should prefer common stand-ins over forgiving when both are owned', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['rye-whiskey', 'sweet-vermouth'],
+        ['bourbon', 'irish-whiskey', 'sweet-vermouth'],
+        'forgiving'
+      )
+    ).toEqual([{ required: 'rye-whiskey', using: ['bourbon'] }]);
+  });
+
+  it('should fall back to forgiving stand-ins when no common peer is owned', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['rye-whiskey', 'sweet-vermouth'],
+        ['irish-whiskey', 'sweet-vermouth'],
+        'forgiving'
+      )
+    ).toEqual([{ required: 'rye-whiskey', using: ['irish-whiskey'] }]);
   });
 });

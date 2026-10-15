@@ -13,7 +13,7 @@ const Row = styled.div`
   margin: 0 0 0.75rem;
 `;
 
-const Chip = styled(Link)`
+export const Chip = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.35em;

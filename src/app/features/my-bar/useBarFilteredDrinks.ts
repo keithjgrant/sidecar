@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { getParams } from '../../lib/qs';
-import barDb from '../../storage/bar';
-import settingsDb, {
-  DEFAULT_BAR_SETTINGS,
+import { useBar } from '../../storage/bar';
+import {
   FILTER_DRINKS,
   FILTER_FAVORITES,
   type BarFilterSetting,
-  type BarSettings,
+  useSettings,
 } from '../../storage/settings';
 import {
   filterMakeableDrinks,
@@ -41,34 +40,21 @@ export function useBarFilteredDrinks<T extends { tags: string[] }>(
   drinks: T[],
   filterSetting: BarFilterSetting
 ): BarFilteredDrinksResult<T> {
-  const [owned, setOwned] = useState<string[]>([]);
-  const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
+  const { tags: owned, isLoading: barLoading, error: barError } = useBar();
+  const {
+    settings,
+    isLoading: settingsLoading,
+    error: settingsError,
+  } = useSettings();
   const unfilteredView = readUnfilteredParam();
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [tags, loadedSettings] = await Promise.all([
-          barDb.getBarTags(),
-          settingsDb.getBarSettings(),
-        ]);
-        if (!cancelled) {
-          setOwned(tags);
-          setSettings(loadedSettings);
-        }
-      } catch (err) {
-        console.error('Failed to load bar filter state', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const ready = !barLoading && !settingsLoading && !barError && !settingsError;
 
   return useMemo(() => {
+    // Until both stores settle successfully, keep the unfiltered default so
+    // we never flash an empty list from owned=[] + filter-on.
+    const filterEnabled = ready ? settings[filterSetting] : false;
     const { isFiltering, isUnfilteredView } = resolveBarFilterState(
-      settings[filterSetting],
+      filterEnabled,
       unfilteredView
     );
     if (!isFiltering) {
@@ -79,5 +65,5 @@ export function useBarFilteredDrinks<T extends { tags: string[] }>(
       isFiltering: true,
       isUnfilteredView: false,
     };
-  }, [drinks, owned, settings, filterSetting, unfilteredView]);
+  }, [drinks, owned, settings, filterSetting, unfilteredView, ready]);
 }
