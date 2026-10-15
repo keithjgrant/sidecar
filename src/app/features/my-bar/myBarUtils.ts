@@ -90,12 +90,16 @@ function peersFor(
   tag: string,
   mode: SubstitutionMode
 ): ReadonlySet<string> | null {
+  const peers = new Set<string>();
   for (const group of getSubstitutionGroups(mode)) {
-    if (group.includes(tag)) {
-      return new Set(group);
+    if (!group.includes(tag)) {
+      continue;
+    }
+    for (const member of group) {
+      peers.add(member);
     }
   }
-  return null;
+  return peers.size > 0 ? peers : null;
 }
 
 function coversTag(
@@ -120,6 +124,92 @@ function coversTag(
     }
   }
   return false;
+}
+
+/** Owned bottle(s) standing in for a drink’s required bar tag. */
+export type ActiveSubstitution = {
+  /** Tag the drink asks for (missing from the bar). */
+  required: string;
+  /** Owned tags that cover `required` via parent/child or peer swap. */
+  using: string[];
+};
+
+function ownedPeerStandIns(
+  required: string,
+  owned: Set<string>,
+  mode: SubstitutionMode
+): string[] {
+  const peers = peersFor(required, mode);
+  if (!peers) {
+    return [];
+  }
+  return [...owned].filter((tag) => peers.has(tag));
+}
+
+/**
+ * Peer stand-ins for display. In forgiving mode, prefer common peers when any
+ * are owned; only fall back to the full forgiving set when necessary.
+ */
+function preferredPeerStandIns(
+  required: string,
+  owned: Set<string>,
+  mode: SubstitutionMode
+): string[] {
+  if (mode === 'none') {
+    return [];
+  }
+  if (mode === 'common') {
+    return ownedPeerStandIns(required, owned, 'common');
+  }
+  const common = ownedPeerStandIns(required, owned, 'common');
+  if (common.length > 0) {
+    return common;
+  }
+  return ownedPeerStandIns(required, owned, 'forgiving');
+}
+
+/**
+ * For each required bar tag the user does not own exactly, list owned bottles
+ * that cover it (subtype→parent, or peer substitution for the given mode).
+ * Multiple stand-ins for the same required tag are grouped into one entry.
+ */
+export function getDrinkSubstitutions(
+  drinkTags: string[] | undefined,
+  owned: Iterable<string>,
+  substitutions: SubstitutionMode = 'common'
+): ActiveSubstitution[] {
+  const required = getRequiredBarTags(drinkTags);
+  const ownedSet = owned instanceof Set ? owned : new Set(owned);
+  const results: ActiveSubstitution[] = [];
+
+  for (const req of required) {
+    if (ownedSet.has(req)) {
+      continue;
+    }
+
+    const using: string[] = [];
+    const seen = new Set<string>();
+
+    for (const tag of ownedSet) {
+      if (BAR_PARENTS[tag] === req && !seen.has(tag)) {
+        seen.add(tag);
+        using.push(tag);
+      }
+    }
+
+    for (const tag of preferredPeerStandIns(req, ownedSet, substitutions)) {
+      if (!seen.has(tag)) {
+        seen.add(tag);
+        using.push(tag);
+      }
+    }
+
+    if (using.length > 0) {
+      results.push({ required: req, using });
+    }
+  }
+
+  return results;
 }
 
 export function canMakeDrink(
