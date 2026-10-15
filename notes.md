@@ -31,6 +31,7 @@ ten-bottle-bar tag
 
 # TODO
 
+[] agave tag (add to bar list)
 [] Add "skip question" option in Help My Decide
 [] clean up console errors
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
