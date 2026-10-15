@@ -5,6 +5,7 @@ import {
   type BarCatalogGroup,
 } from '../../config/barConfig';
 import {
+  ASSUMED_SUBSTITUTION_STAPLES,
   getSubstitutionGroups,
   type SubstitutionMode,
 } from '../../config/barSubstitutions';
@@ -86,6 +87,11 @@ export function normalizeRequiredTags(required: string[]): string[] {
   });
 }
 
+/** Owned tags plus untracked pantry staples used only as substitution peers. */
+function withAssumedStaples(owned: Iterable<string>): Set<string> {
+  return new Set([...owned, ...ASSUMED_SUBSTITUTION_STAPLES]);
+}
+
 function peersFor(
   tag: string,
   mode: SubstitutionMode
@@ -143,7 +149,7 @@ function ownedPeerStandIns(
   if (!peers) {
     return [];
   }
-  return [...owned].filter((tag) => peers.has(tag));
+  return [...owned].filter((tag) => peers.has(tag) && tag !== required);
 }
 
 /**
@@ -179,7 +185,7 @@ export function getDrinkSubstitutions(
   substitutions: SubstitutionMode = 'common'
 ): ActiveSubstitution[] {
   const required = getRequiredBarTags(drinkTags);
-  const ownedSet = owned instanceof Set ? owned : new Set(owned);
+  const ownedSet = withAssumedStaples(owned);
   const results: ActiveSubstitution[] = [];
 
   for (const req of required) {
@@ -221,7 +227,7 @@ export function canMakeDrink(
   if (required.length === 0) {
     return false;
   }
-  const ownedSet = owned instanceof Set ? owned : new Set(owned);
+  const ownedSet = withAssumedStaples(owned);
   return required.every((tag) => coversTag(tag, ownedSet, substitutions));
 }
 
@@ -230,6 +236,7 @@ export function filterMakeableDrinks<T extends { tags: string[] }>(
   owned: Iterable<string>,
   substitutions: SubstitutionMode = 'common'
 ): T[] {
-  const ownedSet = owned instanceof Set ? owned : new Set(owned);
-  return drinks.filter((drink) => canMakeDrink(drink, ownedSet, substitutions));
+  return drinks.filter((drink) =>
+    canMakeDrink(drink, owned, substitutions)
+  );
 }

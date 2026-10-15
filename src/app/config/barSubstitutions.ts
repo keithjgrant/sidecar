@@ -4,6 +4,12 @@ export type SubstitutionGroup = readonly string[];
 export type SubstitutionMode = 'none' | 'common' | 'forgiving';
 
 /**
+ * Substitution peers that are never tracked in My Bar. Treated as always
+ * available when they appear in an active substitution group (pantry staples).
+ */
+export const ASSUMED_SUBSTITUTION_STAPLES = ['simple-syrup'] as const;
+
+/**
  * Peer swaps used when Substitution Mode is set to Common (and Forgiving).
  */
 export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
@@ -16,6 +22,7 @@ export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['tequila-blanco', 'tequila-reposado'],
   ['peach-liqueur', 'apricot-liqueur'],
   ['demerara-syrup', 'brown-sugar-syrup'],
+  ['agave', 'simple-syrup'],
 ];
 
 /**

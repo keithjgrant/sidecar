@@ -386,4 +386,51 @@ describe('myBar', () => {
       )
     ).toEqual([{ required: 'rye-whiskey', using: ['irish-whiskey'] }]);
   });
+
+  it('should track agave in My Bar but not simple-syrup', () => {
+    const syrups = BAR_CATALOG.find((g) => g.id === 'syrups');
+    expect(syrups?.items.map((item) => item.tag)).toContain('agave');
+    expect(getAllBarTags()).toContain('agave');
+    expect(getAllBarTags()).not.toContain('simple-syrup');
+    expect(
+      getRequiredBarTags(['tequila', 'lime', 'agave', 'shaken'])
+    ).toEqual(['tequila', 'lime', 'agave']);
+  });
+
+  it('should require agave when substitutions are off', () => {
+    expect(
+      canMakeDrink(
+        { tags: ['tequila', 'lime', 'agave'] },
+        ['tequila', 'lime'],
+        'none'
+      )
+    ).toBe(false);
+  });
+
+  it('should let assumed simple-syrup cover agave with common substitutions', () => {
+    expect(
+      canMakeDrink(
+        { tags: ['tequila', 'lime', 'agave'] },
+        ['tequila', 'lime'],
+        'common'
+      )
+    ).toBe(true);
+    expect(
+      getDrinkSubstitutions(
+        ['tequila', 'lime', 'agave', 'shaken'],
+        ['tequila', 'lime'],
+        'common'
+      )
+    ).toEqual([{ required: 'agave', using: ['simple-syrup'] }]);
+  });
+
+  it('should not list simple-syrup for agave when substitutions are off', () => {
+    expect(
+      getDrinkSubstitutions(
+        ['tequila', 'lime', 'agave'],
+        ['tequila', 'lime'],
+        'none'
+      )
+    ).toEqual([]);
+  });
 });
