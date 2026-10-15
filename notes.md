@@ -43,6 +43,7 @@ ten-bottle-bar tag
     [] back-button long press function broken (part of screen is text-selected instead)
     [] favorite button no longer provides haptic feedback
 [] add any new options for 10th bottle in TenBottleBar.tsx?
+[] Centralize storage-blocked warning: add useStorageBlocked() + app-level banner (not MyBar-specific); widen copy beyond bar saves
 
 Updated palette?
 https://tools.keithjgrant.com/theme-machine/palette/?d=81,02,273.3,slate&c=81,11,63.3,orange&c=81,11,273.3,indigo&c=81,11,213.3,cyan&b1=slate-14&b2=slate-12&b3=slate-16&t1=slate-3&t2=slate-5&br=orange-5&lc=1&cc=0

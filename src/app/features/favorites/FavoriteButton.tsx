@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Toast from '../../components/Toast';
 import Star from '../../components/svg/Star';
-import favoritesDb from '../../storage/favorites';
+import { useFavorite } from '../../storage/favorites';
 import { click } from '../../lib/haptic';
 
 const Button = styled.button`
@@ -28,33 +28,19 @@ interface FavoriteButtonProps {
 }
 
 export default function FavoriteButton({ drinkName }: FavoriteButtonProps) {
-  const [checked, setChecked] = useState(false);
   const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    (async () => {
-      const favorite = await favoritesDb.getFavorite(drinkName);
-      if (favorite) {
-        setChecked(true);
-      }
-    })();
-  }, []);
+  const { isFavorite, toggle } = useFavorite(drinkName);
 
   const onClick = async () => {
     click();
-    setChecked(!checked);
-    if (checked) {
-      favoritesDb.deleteFavorite(drinkName);
-      setMessage('Removed from');
-    } else {
-      favoritesDb.addFavorite(drinkName);
-      setMessage('Added to');
-    }
+    const wasFavorite = isFavorite;
+    await toggle();
+    setMessage(wasFavorite ? 'Removed from' : 'Added to');
   };
   return (
     <>
       <Button onClick={onClick} type="button">
-        <Star isFilled={checked} />
+        <Star isFilled={isFavorite} />
       </Button>
       <Toast
         message={

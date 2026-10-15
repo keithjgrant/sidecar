@@ -2,17 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import InstallBanner from '../../components/InstallBanner';
 import { subscribeStorageBlocked } from '../../storage/db';
-import barDb from '../../storage/bar';
-import settingsDb, {
-  DEFAULT_BAR_SETTINGS,
-  type BarSettings,
-} from '../../storage/settings';
+import { useBar } from '../../storage/bar';
+import { useSettings } from '../../storage/settings';
 import BarInventory from './BarInventory';
 import BarSettingsPanel from './BarSettingsPanel';
-import {
-  DEFAULT_BAR,
-  type BarCatalogGroup,
-} from '../../config/barConfig';
+import { type BarCatalogGroup } from '../../config/barConfig';
 import { getAllBarTags, getGroupTags } from './myBarUtils';
 
 const Warning = styled.p`
@@ -25,80 +19,42 @@ const Warning = styled.p`
 `;
 
 export default function MyBar() {
-  const [owned, setOwned] = useState<Set<string>>(() => new Set(DEFAULT_BAR));
-  const [settings, setSettings] = useState<BarSettings>(DEFAULT_BAR_SETTINGS);
-  const [storageReady, setStorageReady] = useState(false);
+  const {
+    tags,
+    isLoading: barLoading,
+    error: barError,
+    replaceTags,
+    setTag,
+  } = useBar();
+  const {
+    settings,
+    isLoading: settingsLoading,
+    error: settingsError,
+    updateSettings,
+  } = useSettings();
   const [storageBlocked, setStorageBlocked] = useState(false);
 
   useEffect(() => subscribeStorageBlocked(setStorageBlocked), []);
 
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [tags, loadedSettings] = await Promise.all([
-          barDb.getBarTags(),
-          settingsDb.getBarSettings(),
-        ]);
-        if (!cancelled) {
-          setOwned(new Set(tags));
-          setSettings(loadedSettings);
-          setStorageReady(true);
-        }
-      } catch (err) {
-        console.error('Failed to load bar from IndexedDB', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
+  const owned = useMemo(() => new Set(tags), [tags]);
+  const storageReady =
+    !barLoading && !settingsLoading && !barError && !settingsError;
   const allBarTags = useMemo(() => getAllBarTags(), []);
 
-  async function persistSettings(partial: Partial<BarSettings>) {
-    const next = { ...settings, ...partial };
-    setSettings(next);
-    try {
-      await settingsDb.setBarSettings(partial);
-    } catch (err) {
-      console.error('Failed to save bar settings', err);
-    }
-  }
-
-  async function persistOwned(next: Set<string>) {
-    setOwned(next);
-    try {
-      await barDb.replaceBar([...next]);
-    } catch (err) {
-      console.error('Failed to save bar', err);
-    }
-  }
-
-  async function toggleTag(tag: string, checked: boolean) {
-    const next = new Set(owned);
-    if (checked) {
-      next.add(tag);
-    } else {
-      next.delete(tag);
-    }
-    await persistOwned(next);
-  }
-
   function selectGroup(group: BarCatalogGroup) {
-    const next = new Set(owned);
+    const next = new Set(tags);
     for (const tag of getGroupTags(group)) {
       next.add(tag);
     }
-    void persistOwned(next);
+    void replaceTags([...next]);
   }
 
   function clearGroup(group: BarCatalogGroup) {
-    const next = new Set(owned);
+    const next = new Set(tags);
     for (const tag of getGroupTags(group)) {
       next.delete(tag);
     }
-    void persistOwned(next);
+    void replaceTags([...next]);
   }
 
   return (
@@ -119,20 +75,20 @@ export default function MyBar() {
         settings={settings}
         startExpanded={storageReady && owned.size === 0}
         onChange={(partial) => {
-          void persistSettings(partial);
+          void updateSettings(partial);
         }}
       />
 
       <BarInventory
         owned={owned}
         onToggle={(tag, checked) => {
-          void toggleTag(tag, checked);
+          void setTag(tag, checked);
         }}
         onSelectAll={() => {
-          void persistOwned(new Set(allBarTags));
+          void replaceTags(allBarTags);
         }}
         onClearAll={() => {
-          void persistOwned(new Set());
+          void replaceTags([]);
         }}
         onSelectGroup={selectGroup}
         onClearGroup={clearGroup}
