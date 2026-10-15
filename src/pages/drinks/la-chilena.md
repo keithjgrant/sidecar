@@ -21,6 +21,7 @@ tags: [
   tequila-reposado,
   elderflower-liqueur,
   lime,
+  agave,
   shaken,
 ]
 tenBottleCandidate:

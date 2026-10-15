@@ -18,6 +18,7 @@ tags: [
   tequila-blanco,
   blanc-vermouth,
   lime,
+  agave,
   shaken
 ]
 tenBottleCandidate: true

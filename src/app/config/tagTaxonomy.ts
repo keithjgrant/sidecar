@@ -107,6 +107,7 @@ export const BASIC_SYRUP_TAGS = [
  * (every use today is via that syrup); split later if non-syrup uses appear.
  */
 export const FANCY_SYRUP_TAGS = [
+  'agave',
   'burnt-sugar-syrup',
   'butter-syrup',
   'ipa-syrup',

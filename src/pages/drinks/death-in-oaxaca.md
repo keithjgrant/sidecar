@@ -20,6 +20,7 @@ tags: [
   green-chartreuse,
   sparkling-wine,
   lime,
+  agave,
   shaken,
 ]
 

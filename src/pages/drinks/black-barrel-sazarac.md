@@ -20,6 +20,7 @@ tags: [
   aged-rum,
   creme-de-cacao,
   absinthe,
+  agave,
   stirred,
 ]
 source: https://www.liquor.com/recipes/black-barrel-sazerac/

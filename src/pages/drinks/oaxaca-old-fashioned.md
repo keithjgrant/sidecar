@@ -17,6 +17,7 @@ tags: [
   tequila,
   tequila-reposado,
   mezcal,
+  agave,
   stirred,
 ]
 tenBottleCandidate: true

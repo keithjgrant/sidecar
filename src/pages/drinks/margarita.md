@@ -23,6 +23,7 @@ tags: [
   triple-sec,
   orange-liqueur,
   lime,
+  agave,
   shaken,
   muddled,
 ]
