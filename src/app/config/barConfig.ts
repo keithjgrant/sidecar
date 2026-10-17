@@ -61,6 +61,7 @@ export const BAR_PARENTS: Record<string, string> = {
  */
 export const BAR_LABEL_OVERRIDES: Record<string, string> = {
   benedictine: 'Bénédictine',
+  'black-pepper': 'Black Pepper Syrup',
   cachaca: 'Cachaça',
   'creme-de-cacao': 'Crème de Cacao',
   'creme-de-mure': 'Crème de Mûre',

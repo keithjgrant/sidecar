@@ -37,6 +37,7 @@ export const FORGIVING_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['averna', 'cynar', 'amaro-nonino'],
   ['campari', 'aperol'],
   ['ancho-reyes', 'ancho-reyes-verde'],
+  ['brown-sugar-syrup', 'burnt-sugar-syrup', 'maple-syrup'],
 ];
 
 export function getSubstitutionGroups(
