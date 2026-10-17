@@ -24,21 +24,25 @@ describe('myBar', () => {
   it('should include all taxonomy bar groups in catalog order', () => {
     expect(BAR_CATALOG.map((g) => g.id)).toEqual([
       'spirits',
-      'vermouth',
       'liqueurs',
+      'vermouth',
       'amaro',
+      'bitters',
       'syrups',
       'citrus',
       'misc',
     ]);
   });
 
-  it('should put wine and tonic under Miscellaneous', () => {
+  it('should put misc pantry tags under Miscellaneous', () => {
     const misc = BAR_CATALOG.find((g) => g.id === 'misc');
     expect(misc?.items.map((item) => item.tag)).toEqual([
       'red-wine',
       'sparkling-wine',
       'tonic-water',
+      'cream',
+      'milk',
+      'egg',
     ]);
   });
 
@@ -392,9 +396,11 @@ describe('myBar', () => {
     expect(syrups?.items.map((item) => item.tag)).toContain('agave');
     expect(getAllBarTags()).toContain('agave');
     expect(getAllBarTags()).not.toContain('simple-syrup');
-    expect(
-      getRequiredBarTags(['tequila', 'lime', 'agave', 'shaken'])
-    ).toEqual(['tequila', 'lime', 'agave']);
+    expect(getRequiredBarTags(['tequila', 'lime', 'agave', 'shaken'])).toEqual([
+      'tequila',
+      'lime',
+      'agave',
+    ]);
   });
 
   it('should require agave when substitutions are off', () => {

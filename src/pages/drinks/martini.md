@@ -16,6 +16,7 @@ tags: [
   classic-cocktail,
   gin,
   dry-vermouth,
+  orange-bitters,
   stirred,
 ]
 image:

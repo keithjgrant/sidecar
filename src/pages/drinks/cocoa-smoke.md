@@ -18,6 +18,7 @@ tags: [
   creme-de-cacao,
   ancho-reyes,
   chocolate,
+  chocolate-bitters,
   stirred,
 ]
 tenBottleCandidate:

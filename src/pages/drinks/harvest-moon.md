@@ -22,7 +22,8 @@ tags: [
   apple-brandy,
   green-chartreuse,
   blanc-vermouth,
-  stirred
+  angostura-bitters,
+  stirred,
 ]
 ---
 Stir with plenty of ice. Strain into a coupe glass.

@@ -20,6 +20,8 @@ tags: [
   bourbon,
   whiskey,
   burnt-sugar-syrup,
+  angostura-bitters,
+  orange-bitters,
   built,
 ]
 tenBottleCandidate: true

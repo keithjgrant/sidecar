@@ -20,6 +20,7 @@ tags: [
   rye-whiskey,
   elderflower-liqueur,
   ginger,
+  orange-bitters,
   stirred,
 ]
 tenBottleCandidate: true

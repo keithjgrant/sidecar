@@ -21,6 +21,8 @@ tags: [
   creme-de-cacao,
   absinthe,
   agave,
+  angostura-bitters,
+  peychaud-bitters,
   stirred,
 ]
 source: https://www.liquor.com/recipes/black-barrel-sazerac/

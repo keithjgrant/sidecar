@@ -7,11 +7,12 @@ import {
   FANCY_SYRUP_TAGS,
   FLAVOR_TAGS,
   LIQUEUR_TAGS,
+  MISC_TAGS,
   SPIRIT_TAGS,
   SYRUP_TAGS,
+  TAG_KINDS,
   TECHNIQUE_TAGS,
   VERMOUTH_TAGS,
-  WINE_TAGS,
   getTagKind,
 } from './tagTaxonomy';
 
@@ -20,7 +21,6 @@ const KIND_SETS: Array<[string, readonly string[]]> = [
   ['amaro', AMARO_TAGS],
   ['liqueur', LIQUEUR_TAGS],
   ['vermouth', VERMOUTH_TAGS],
-  ['wine', WINE_TAGS],
   ['syrup', SYRUP_TAGS],
   ['citrus', CITRUS_TAGS],
   ['flavor', FLAVOR_TAGS],
@@ -64,9 +64,10 @@ describe('tagTaxonomy sets', () => {
     expect(getTagKind('meyer-lemon')).toBe('citrus');
   });
 
-  it('should classify red-wine and sparkling-wine as wine and leave generic wine as other', () => {
-    expect(getTagKind('red-wine')).toBe('wine');
-    expect(getTagKind('sparkling-wine')).toBe('wine');
+  it('should classify misc bar tags as other', () => {
+    for (const tag of MISC_TAGS) {
+      expect(getTagKind(tag)).toBe('other');
+    }
     expect(getTagKind('wine')).toBe('other');
   });
 
@@ -74,7 +75,10 @@ describe('tagTaxonomy sets', () => {
     expect(getTagKind('classic-cocktail')).toBe('other');
     expect(getTagKind('ten-bottle-bar')).toBe('other');
     expect(getTagKind('negroni')).toBe('other');
-    expect(getTagKind('tonic-water')).toBe('other');
+  });
+
+  it('should not include wine as a tag kind', () => {
+    expect(TAG_KINDS).not.toContain('wine');
   });
 
   it('should compose syrup tags from basic and fancy lists without overlap', () => {

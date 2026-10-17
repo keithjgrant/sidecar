@@ -23,6 +23,8 @@ tags: [
   cognac,
   brandy,
   sweet-vermouth,
+  angostura-bitters,
+  peychaud-bitters,
   stirred,
 ]
 image:

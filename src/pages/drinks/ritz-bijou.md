@@ -20,6 +20,7 @@ tags: [
   curacao,
   orange-liqueur,
   rosemary,
+  rosemary-bitters,
   stirred,
 ]
 intro: This is a much drier adaptation on the [Bijou](/drinks/bijou).

@@ -19,6 +19,7 @@ tags: [
   old-tom-gin,
   sweet-vermouth,
   maraschino,
+  orange-bitters,
   stirred,
 ]
 tenBottleCandidate: false

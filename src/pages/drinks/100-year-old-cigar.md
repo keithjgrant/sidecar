@@ -23,6 +23,7 @@ tags: [
   scotch,
   whiskey,
   absinthe,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate:

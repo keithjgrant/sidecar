@@ -17,6 +17,7 @@ tags: [
   mezcal,
   averna,
   coffee-liqueur,
+  orange-bitters,
   stirred,
 ]
 tenBottleCandidate:

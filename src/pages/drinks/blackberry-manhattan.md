@@ -18,6 +18,7 @@ tags: [
   rye-whiskey,
   sweet-vermouth,
   creme-de-mure,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate:

@@ -22,6 +22,7 @@ tags: [
   grapefruit,
   mint,
   tonic-water,
+  peychaud-bitters,
   shaken,
 ]
 intro: Sometimes you want the experience of a good drink, without the alcohol. Unfortunately, a good mocktail is hard to find. I’m particularly proud of this one.

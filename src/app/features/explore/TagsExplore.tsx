@@ -6,26 +6,15 @@ import { GridForm, GridFormLabel, ButtonGroup, TextInput } from '../../component
 import CollapsibleSection from '../../components/CollapsibleSection';
 import TagList from '../../components/TagList';
 import { getParams, setParam } from '../../lib/qs';
-import { filterTags, type TagKind } from './tagFilters';
+import { TAG_KINDS, type TagKind } from '../../config/tagTaxonomy';
+import { filterTags } from './tagFilters';
 import { ALPHA_INDEX_GUTTER } from '../../components/AlphaIndex';
 
 const FilterBar = styled.div`
   margin-bottom: var(--gap-size);
 `;
 
-const KIND_OPTIONS: Array<TagKind | 'all'> = [
-  'all',
-  'spirit',
-  'amaro',
-  'liqueur',
-  'vermouth',
-  'wine',
-  'syrup',
-  'citrus',
-  'flavor',
-  'technique',
-  'other',
-];
+const KIND_OPTIONS: Array<TagKind | 'all'> = ['all', ...TAG_KINDS];
 
 interface TagsExploreProps {
   tags: string[];

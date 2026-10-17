@@ -21,6 +21,7 @@ tags: [
   brandy,
   green-chartreuse,
   lemon,
+  angostura-bitters,
   shaken,
 ]
 tenBottleCandidate: true

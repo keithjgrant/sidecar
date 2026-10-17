@@ -22,6 +22,7 @@ tags: [
   gin,
   maple-syrup,
   cinnamon,
+  angostura-bitters,
   stirred,
 ]
 image:

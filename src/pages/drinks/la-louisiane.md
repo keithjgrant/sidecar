@@ -20,6 +20,7 @@ tags: [
   whiskey,
   sweet-vermouth,
   absinthe,
+  peychaud-bitters,
   stirred,
 ]
 intro:

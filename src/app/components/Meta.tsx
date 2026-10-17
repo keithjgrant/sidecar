@@ -19,20 +19,23 @@ interface MetaProps {
   image?: string | null;
 }
 
-function Meta({ description = '', meta = [], title = 'Sidecar', image }: MetaProps) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+function Meta({
+  description = '',
+  meta = [],
+  title = 'Sidecar',
+  image,
+}: MetaProps) {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  );
+    }
+  `);
 
   const metaDescription = description || site.siteMetadata.description;
   const metaImage = image || '/icons/icon-144x144.png';
@@ -51,7 +54,7 @@ function Meta({ description = '', meta = [], title = 'Sidecar', image }: MetaPro
       <html lang="en-US" />
       <title>{title}</title>
       {metaTags.map((props) => (
-        <meta {...props} />
+        <meta key={props.name || props.property} {...props} />
       ))}
     </>
   );
@@ -69,10 +72,15 @@ interface GetMetaArgs {
   title: string;
   metaDescription: string;
   metaImage: string;
-  site: { siteMetadata: { title: string; description: string; author: string } };
+  site: {
+    siteMetadata: { title: string; description: string; author: string };
+  };
 }
 
-function getMeta({ title, metaDescription, metaImage, site }: GetMetaArgs, additional: MetaTag[]): MetaTag[] {
+function getMeta(
+  { title, metaDescription, metaImage, site }: GetMetaArgs,
+  additional: MetaTag[]
+): MetaTag[] {
   const tags: MetaTag[] = [
     {
       name: 'description',

@@ -19,6 +19,7 @@ tags: [
   whiskey,
   red-wine,
   lemon,
+  egg,
   shaken,
 ]
 image:

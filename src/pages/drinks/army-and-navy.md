@@ -18,6 +18,7 @@ tags: [
   london-dry-gin,
   orgeat,
   lemon,
+  angostura-bitters,
   shaken,
 ]
 tenBottleCandidate: true

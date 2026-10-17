@@ -133,13 +133,13 @@ export default function HomeTiles({
         </MainLinks>
       </CardBoxDark>
       <CardBoxDark>
+        <FeaturedBottleTile imageMap={bottleImageMap} />
+      </CardBoxDark>
+      <CardBoxDark>
         <MainLinks style={{ minHeight: '4em' }}>
           <Link to="/ingredients">Ingredients</Link>
           <BorderLeftLink to="/techniques">Techniques</BorderLeftLink>
         </MainLinks>
-      </CardBoxDark>
-      <CardBoxDark>
-        <FeaturedBottleTile imageMap={bottleImageMap} />
       </CardBoxDark>
       <CardBoxDark>
         <CardBoxHighlight>

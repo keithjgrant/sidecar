@@ -19,6 +19,7 @@ tags: [
   aged-rum,
   campari,
   sweet-vermouth,
+  mole-bitters,
   stirred,
 ]
 tenBottleCandidate:

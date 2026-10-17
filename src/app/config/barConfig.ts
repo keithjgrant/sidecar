@@ -3,11 +3,11 @@ import {
   BASE_SPIRITS,
   CITRUS_TAGS,
   LIQUEUR_TAGS,
-  MIXER_TAGS,
+  MISC_TAGS,
   SPIRIT_TAGS,
+  BITTERS_TAGS,
   SYRUP_TAGS,
   VERMOUTH_TAGS,
-  WINE_TAGS,
 } from './tagTaxonomy';
 
 /**
@@ -60,18 +60,21 @@ export const BAR_PARENTS: Record<string, string> = {
  * brand casing, acronyms). Unlisted tags fall through to title case.
  */
 export const BAR_LABEL_OVERRIDES: Record<string, string> = {
+  'angostura-bitters': 'Angostura/aromatic Bitters',
   benedictine: 'Bénédictine',
+  'black-pepper': 'Black Pepper Syrup',
   cachaca: 'Cachaça',
   'creme-de-cacao': 'Crème de Cacao',
   'creme-de-mure': 'Crème de Mûre',
   curacao: 'Curaçao',
   'dry-curacao': 'Dry Curaçao',
+  egg: 'Egg (or aquafaba)',
+  ginger: 'Ginger Syrup',
+  'green-chartreuse': 'Green Chartreuse (or substitute)',
+  honey: 'Honey Syrup',
   'ipa-syrup': 'IPA Syrup',
   'jalapeno-syrup': 'Jalapeño Syrup',
   'punt-e-mes': 'Punt e Mes',
-  'green-chartreuse': 'Green Chartreuse (or substitute)',
-  ginger: 'Ginger Syrup',
-  honey: 'Honey Syrup',
 };
 
 export const BAR_CATALOG: BarCatalogGroup[] = [
@@ -80,13 +83,14 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
     label: 'Spirits',
     items: buildNestedItems(SPIRIT_TAGS, SPIRIT_PARENTS, BASE_SPIRITS),
   },
-  { id: 'vermouth', label: 'Vermouth', items: flatItems(VERMOUTH_TAGS) },
   {
     id: 'liqueurs',
     label: 'Liqueurs',
     items: buildNestedItems(LIQUEUR_TAGS, LIQUEUR_PARENTS),
   },
+  { id: 'vermouth', label: 'Vermouth', items: flatItems(VERMOUTH_TAGS) },
   { id: 'amaro', label: 'Amaro', items: flatItems(AMARO_TAGS) },
+  { id: 'bitters', label: 'Bitters', items: flatItems(BITTERS_TAGS) },
   {
     id: 'syrups',
     label: 'Syrups',
@@ -100,7 +104,7 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
   {
     id: 'misc',
     label: 'Miscellaneous',
-    items: flatItems([...WINE_TAGS, ...MIXER_TAGS]),
+    items: flatItems(MISC_TAGS),
   },
 ];
 

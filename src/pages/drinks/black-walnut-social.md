@@ -15,6 +15,7 @@ garnish: orange twist
 tags: [
   gin,
   black-walnut,
+  black-walnut-bitters,
   stirred,
 ]
 tenBottleCandidate:

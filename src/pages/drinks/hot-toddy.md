@@ -19,6 +19,7 @@ tags: [
   hot,
   bourbon,
   whiskey,
+  angostura-bitters,
 ]
 tenBottleCandidate: true
 intro:

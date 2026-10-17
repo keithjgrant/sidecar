@@ -18,6 +18,7 @@ tags: [
   tequila-reposado,
   mezcal,
   agave,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate: true

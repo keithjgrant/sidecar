@@ -23,6 +23,9 @@ export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['peach-liqueur', 'apricot-liqueur'],
   ['demerara-syrup', 'brown-sugar-syrup'],
   ['agave', 'simple-syrup'],
+  ['vanilla-syrup', 'simple-syrup'],
+  ['black-walnut-bitters', 'pecan-bitters'],
+  ['angostura-bitters', 'barrel-aged-bitters'],
 ];
 
 /**
@@ -36,6 +39,7 @@ export const FORGIVING_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['averna', 'cynar', 'amaro-nonino'],
   ['campari', 'aperol'],
   ['ancho-reyes', 'ancho-reyes-verde'],
+  ['brown-sugar-syrup', 'burnt-sugar-syrup', 'maple-syrup'],
 ];
 
 export function getSubstitutionGroups(

@@ -8,20 +8,20 @@ booziness: 1
 family: flip
 ingredients: [
   "1½ oz spiced rum",
-  "¾ oz simple syrup",
-  "3 oz whole milk",
-  "dash vanilla extract",
+  "¾ oz vanilla syrup",
+  "3 oz whole milk"
 ]
 garnish: nutmeg & cinnamon
 tags: [
   winter,
+  hot,
+  sweet,
   rum,
   spiced-rum,
   milk,
-  shaken,
-  hot,
-  sweet,
+  vanilla-syrup,
   cinnamon
+  shaken
 ]
 intro: This is typically done as a cold drink, but I’ve found it truly shines when the milk is warmed and frothed instead.
 ---
