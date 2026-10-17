@@ -1,6 +1,6 @@
 ---
-title: "Elder Fashioned"
-path: "/drinks/elder-fashioned"
+title: "Elder Fashion"
+path: "/drinks/elder-fashion"
 date: 2018-01-27T15:14:01-05:00
 glass: rocks
 sweetness: 3
@@ -21,7 +21,7 @@ tags: [
   "stirred",
 ]
 image:
-  url: "/images/drinks/elder-fashioned.jpg"
+  url: "/images/drinks/elder-fashion.jpg"
   alt: "A crystal-clear cocktail in a rocks glass on a bar mat"
   align: "50% 50%"
 intro: The right gin is essential in this cocktail. It cannot be overly piney or floral. Stick with Plymouth if you can. In a pinch, you can get away with Hendrick’s and its cucumber flavor. Most other gins I’ve tried have not fared as well.
