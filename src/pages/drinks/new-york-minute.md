@@ -21,6 +21,7 @@ tags: [
   coffee,
   lemon,
   orange,
+  barrel-aged-bitters,
   stirred,
 ]
 tenBottleCandidate:

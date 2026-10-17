@@ -24,6 +24,8 @@ export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['demerara-syrup', 'brown-sugar-syrup'],
   ['agave', 'simple-syrup'],
   ['vanilla-syrup', 'simple-syrup'],
+  ['black-walnut-bitters', 'pecan-bitters'],
+  ['angostura-bitters', 'barrel-aged-bitters'],
 ];
 
 /**

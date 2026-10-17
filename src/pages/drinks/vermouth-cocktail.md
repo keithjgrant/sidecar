@@ -17,6 +17,8 @@ tags: [
   low-abv,
   ten-bottle-bar,
   sweet-vermouth,
+  angostura-bitters,
+  orange-bitters,
   stirred,
 ]
 tenBottleCandidate: true

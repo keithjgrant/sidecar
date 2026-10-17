@@ -19,6 +19,8 @@ tags: [
   tequila,
   tequila-reposado,
   sweet-vermouth,
+  angostura-bitters,
+  mole-bitters,
   stirred,
 ]
 tenBottleCandidate: true

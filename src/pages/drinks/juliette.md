@@ -22,6 +22,7 @@ tags: [
   lemon,
   maple-syrup,
   egg,
+  pecan-bitters,
   shaken,
 ]
 tenBottleCandidate:

@@ -18,6 +18,7 @@ tags: [
   london-dry-gin,
   grapefruit,
   special-syrup,
+  peychaud-bitters,
   shaken,
 ]
 image:

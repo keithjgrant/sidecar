@@ -21,6 +21,7 @@ tags: [
   green-chartreuse,
   demerara-syrup,
   lime,
+  angostura-bitters,
   shaken,
 ]
 tenBottleCandidate:

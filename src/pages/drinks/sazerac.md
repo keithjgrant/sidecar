@@ -19,6 +19,8 @@ tags: [
   rye-whiskey,
   whiskey,
   absinthe,
+  angostura-bitters,
+  peychaud-bitters,
   stirred,
 ]
 

@@ -19,6 +19,7 @@ tags: [
   mezcal,
   orgeat,
   lime,
+  angostura-bitters,
   shaken,
 ]
 tenBottleCandidate:

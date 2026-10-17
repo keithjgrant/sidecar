@@ -19,6 +19,7 @@ tags: [
   scotch,
   smoky,
   elderflower-liqueur,
+  orange-bitters,
   stirred,
 ]
 intro: This is a fun variant of the [Sazarac](/drinks/sazarac).

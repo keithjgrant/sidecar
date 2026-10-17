@@ -18,6 +18,8 @@ tags: [
   whiskey,
   averna,
   rye-whiskey,
+  angostura-bitters,
+  orange-bitters,
   stirred,
 ]
 tenBottleCandidate:

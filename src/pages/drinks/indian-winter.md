@@ -21,6 +21,7 @@ tags: [
   honey,
   egg,
   cardamom,
+  angostura-bitters,
   shaken
 ]
 source: http://thecharmingdetroiter.com/indian-winter-a-cardamom-winter-cocktail/

@@ -23,6 +23,8 @@ tags: [
   bourbon,
   cognac,
   apple-brandy,
+  angostura-bitters,
+  mole-bitters,
   stirred,
 ]
 intro: This is like a kitchen sink of cocktails, almost like somebody couldn’t decide what they wanted in the drink, so they added a bit of everything—it even has two different twists! Yet somehow, it works out.

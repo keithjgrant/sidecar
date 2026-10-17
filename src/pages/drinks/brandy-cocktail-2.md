@@ -18,7 +18,8 @@ tags: [
   "dry-curacao",
   "curacao",
   "orange-liqueur",
-  "stirred"
+  "angostura-bitters",
+  "stirred",
 ]
 tenBottleCandidate: true
 ---

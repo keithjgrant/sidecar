@@ -17,6 +17,7 @@ tags: [
   rum,
   aged-rum,
   sweet-vermouth,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate: true

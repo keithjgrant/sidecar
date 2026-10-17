@@ -21,6 +21,7 @@ tags: [
   dry-vermouth,
   sweet-vermouth,
   campari,
+  angostura-bitters,
   stirred,
 ]
 ---

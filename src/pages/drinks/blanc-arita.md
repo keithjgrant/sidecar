@@ -19,7 +19,8 @@ tags: [
   blanc-vermouth,
   lime,
   agave,
-  shaken
+  orange-bitters,
+  shaken,
 ]
 tenBottleCandidate: true
 ---

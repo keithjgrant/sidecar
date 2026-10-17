@@ -23,6 +23,8 @@ tags: [
   gin,
   cynar,
   fernet,
+  angostura-bitters,
+  orange-bitters,
   stirred,
 ]
 source: https://www.seriouseats.com/anti-valentines-day-cocktail-eeyores-requiem-campari-fernet-cynar-violet-hour

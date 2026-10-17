@@ -20,6 +20,7 @@ tags: [
   sweet-vermouth,
   grenadine,
   lime,
+  angostura-bitters,
   shaken,
 ]
 tenBottleCandidate:

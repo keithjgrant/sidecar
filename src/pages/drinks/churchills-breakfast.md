@@ -21,6 +21,7 @@ tags: [
   rye-whiskey,
   maple-syrup,
   cinnamon,
+  angostura-bitters,
   shaken,
 ]
 

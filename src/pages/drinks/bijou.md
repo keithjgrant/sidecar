@@ -20,6 +20,7 @@ tags: [
   green-chartreuse,
   plymouth-gin,
   london-dry-gin,
+  orange-bitters,
   stirred,
 ]
 tenBottleCandidate: true

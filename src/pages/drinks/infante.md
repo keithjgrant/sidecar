@@ -17,6 +17,7 @@ tags: [
   tequila,
   lime,
   orgeat,
+  angostura-bitters,
   shaken,
 ]
 tenBottleCandidate: true

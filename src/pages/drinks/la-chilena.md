@@ -22,6 +22,8 @@ tags: [
   elderflower-liqueur,
   lime,
   agave,
+  orange-bitters,
+  peychaud-bitters,
   shaken,
 ]
 tenBottleCandidate:

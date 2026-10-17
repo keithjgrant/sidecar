@@ -18,6 +18,7 @@ tags: [
   whiskey,
   coffee-liqueur,
   vanilla-syrup,
+  angostura-bitters,
   built,
 ]
 tenBottleCandidate:

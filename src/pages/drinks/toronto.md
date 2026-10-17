@@ -19,6 +19,7 @@ tags: [
   whiskey,
   fernet,
   demerara-syrup,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate:

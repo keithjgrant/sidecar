@@ -78,6 +78,19 @@ export const VERMOUTH_TAGS = [
   'sweet-vermouth',
 ] as const;
 
+export const BITTERS_TAGS = [
+  'angostura-bitters',
+  'orange-bitters',
+  'peychaud-bitters',
+  'absinthe-bitters',
+  'barrel-aged-bitters',
+  'black-walnut-bitters',
+  'chocolate-bitters',
+  'mole-bitters',
+  'pecan-bitters',
+  'rosemary-bitters',
+];
+
 export const MISC_TAGS = [
   'red-wine',
   'sparkling-wine',
@@ -169,6 +182,7 @@ export const TAG_KINDS = [
   'vermouth',
   'syrup',
   'citrus',
+  'bitters',
   'flavor',
   'technique',
   'other',
@@ -182,6 +196,7 @@ const LIQUEUR_SET = new Set<string>(LIQUEUR_TAGS);
 const VERMOUTH_SET = new Set<string>(VERMOUTH_TAGS);
 const SYRUP_SET = new Set<string>(SYRUP_TAGS);
 const CITRUS_SET = new Set<string>(CITRUS_TAGS);
+const BITTERS_SET = new Set<string>(BITTERS_TAGS);
 const FLAVOR_SET = new Set<string>(FLAVOR_TAGS);
 const TECHNIQUE_SET = new Set<string>(TECHNIQUE_TAGS);
 
@@ -203,6 +218,9 @@ export function getTagKind(tag: string): TagKind {
   }
   if (CITRUS_SET.has(tag)) {
     return 'citrus';
+  }
+  if (BITTERS_SET.has(tag)) {
+    return 'bitters';
   }
   if (FLAVOR_SET.has(tag)) {
     return 'flavor';

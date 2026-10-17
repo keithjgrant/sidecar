@@ -16,6 +16,7 @@ tags: [
   fall,
   apple-brandy,
   sweet-vermouth,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate: true

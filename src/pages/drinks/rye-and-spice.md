@@ -22,6 +22,7 @@ tags: [
   whiskey,
   ancho-reyes-verde,
   sweet-vermouth,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate:

@@ -22,6 +22,7 @@ tags: [
   maple-syrup,
   lemon,
   egg,
+  angostura-bitters,
   shaken,
 ]
 image:

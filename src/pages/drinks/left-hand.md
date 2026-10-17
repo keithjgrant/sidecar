@@ -21,6 +21,7 @@ tags: [
   whiskey,
   campari,
   sweet-vermouth,
+  chocolate-bitters,
   stirred,
 ]
 intro:

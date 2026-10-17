@@ -19,6 +19,7 @@ tags: [
   rye-whiskey,
   whiskey,
   sweet-vermouth,
+  angostura-bitters,
   stirred,
 ]
 tenBottleCandidate: true

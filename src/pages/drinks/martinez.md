@@ -21,6 +21,8 @@ tags: [
   genever-gin,
   sweet-vermouth,
   maraschino,
+  angostura-bitters,
+  orange-bitters,
   stirred,
 ]
 intro: This is most commonly made with an old tom gin, but I prefer genever. This does not work well with a London dry gin. See also the [Erickson Martinez](/drinks/erickson-martinez).

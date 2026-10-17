@@ -22,6 +22,7 @@ tags: [
   campari,
   sweet-vermouth,
   creme-de-cacao,
+  chocolate-bitters,
   stirred,
 ]
 tenBottleCandidate:

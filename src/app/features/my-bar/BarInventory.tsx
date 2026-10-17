@@ -54,8 +54,8 @@ export default function BarInventory({
         />
       ))}
       <p>
-        Common bar staples (bitters, ice, garnishes) and recipe-specific
-        homemade syrups aren’t tracked and are assumed available.
+        Common bar staples (ice, garnishes) and recipe-specific homemade syrups
+        aren’t tracked and are assumed available.
       </p>
     </Card>
   );
