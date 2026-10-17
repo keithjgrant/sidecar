@@ -24,9 +24,10 @@ describe('myBar', () => {
   it('should include all taxonomy bar groups in catalog order', () => {
     expect(BAR_CATALOG.map((g) => g.id)).toEqual([
       'spirits',
-      'vermouth',
       'liqueurs',
+      'vermouth',
       'amaro',
+      'bitters',
       'syrups',
       'citrus',
       'misc',
