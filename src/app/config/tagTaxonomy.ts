@@ -78,19 +78,14 @@ export const VERMOUTH_TAGS = [
   'sweet-vermouth',
 ] as const;
 
-/**
- * Wine bottles for bar inventory / ingredient classification.
- * Use `sparkling-wine` for prosecco, cava, champagne, etc. (no separate prosecco tag).
- * Use `red-wine` for still red wine (floats, sangarees, etc.).
- * Do not use a generic `wine` tag on drinks — pick the specific bottle tag instead.
- */
-export const WINE_TAGS = ['red-wine', 'sparkling-wine'] as const;
-
-/**
- * Mixers tracked in My Bar (Miscellaneous). Soda water / club soda stay
- * untracked pantry staples; tonic is called out because many home bars lack it.
- */
-export const MIXER_TAGS = ['tonic-water'] as const;
+export const MISC_TAGS = [
+  'red-wine',
+  'sparkling-wine',
+  'tonic-water',
+  'cream',
+  'milk',
+  'egg',
+] as const;
 
 /**
  * Pantry-staple sweeteners. Not gated by Ten Bottle Bar's specialty-syrups
@@ -163,23 +158,28 @@ export const TECHNIQUE_TAGS = [
  */
 export const PREP_METHOD_PRIORITY = ['shaken', 'stirred', 'built'] as const;
 
-export type TagKind =
-  | 'spirit'
-  | 'amaro'
-  | 'liqueur'
-  | 'vermouth'
-  | 'wine'
-  | 'syrup'
-  | 'citrus'
-  | 'flavor'
-  | 'technique'
-  | 'other';
+/**
+ * Ordered tag-kind labels for classification.
+ * Wine bottles live under MISC_TAGS / `other`, not a dedicated kind.
+ */
+export const TAG_KINDS = [
+  'spirit',
+  'amaro',
+  'liqueur',
+  'vermouth',
+  'syrup',
+  'citrus',
+  'flavor',
+  'technique',
+  'other',
+] as const;
+
+export type TagKind = (typeof TAG_KINDS)[number];
 
 const SPIRIT_SET = new Set<string>(SPIRIT_TAGS);
 const AMARO_SET = new Set<string>(AMARO_TAGS);
 const LIQUEUR_SET = new Set<string>(LIQUEUR_TAGS);
 const VERMOUTH_SET = new Set<string>(VERMOUTH_TAGS);
-const WINE_SET = new Set<string>(WINE_TAGS);
 const SYRUP_SET = new Set<string>(SYRUP_TAGS);
 const CITRUS_SET = new Set<string>(CITRUS_TAGS);
 const FLAVOR_SET = new Set<string>(FLAVOR_TAGS);
@@ -197,9 +197,6 @@ export function getTagKind(tag: string): TagKind {
   }
   if (VERMOUTH_SET.has(tag)) {
     return 'vermouth';
-  }
-  if (WINE_SET.has(tag)) {
-    return 'wine';
   }
   if (SYRUP_SET.has(tag)) {
     return 'syrup';

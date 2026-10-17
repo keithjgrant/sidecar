@@ -3,11 +3,10 @@ import {
   BASE_SPIRITS,
   CITRUS_TAGS,
   LIQUEUR_TAGS,
-  MIXER_TAGS,
+  MISC_TAGS,
   SPIRIT_TAGS,
   SYRUP_TAGS,
   VERMOUTH_TAGS,
-  WINE_TAGS,
 } from './tagTaxonomy';
 
 /**
@@ -73,6 +72,7 @@ export const BAR_LABEL_OVERRIDES: Record<string, string> = {
   'green-chartreuse': 'Green Chartreuse (or substitute)',
   ginger: 'Ginger Syrup',
   honey: 'Honey Syrup',
+  egg: 'Egg (or aquafaba)',
 };
 
 export const BAR_CATALOG: BarCatalogGroup[] = [
@@ -101,7 +101,7 @@ export const BAR_CATALOG: BarCatalogGroup[] = [
   {
     id: 'misc',
     label: 'Miscellaneous',
-    items: flatItems([...WINE_TAGS, ...MIXER_TAGS]),
+    items: flatItems(MISC_TAGS),
   },
 ];
 
