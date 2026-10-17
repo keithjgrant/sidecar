@@ -45,6 +45,7 @@ interface IngredientListProps {
   garnish?: string;
   isBeneathIntro?: boolean;
   className?: string;
+  suppressLinks?: boolean;
 }
 
 export default function IngredientList({
@@ -52,6 +53,7 @@ export default function IngredientList({
   garnish,
   isBeneathIntro,
   className,
+  suppressLinks = false,
 }: IngredientListProps) {
   if (!items) {
     return null;
@@ -60,12 +62,17 @@ export default function IngredientList({
     <Ingredients className={className}>
       {items.map((ingredient, i) => (
         <Ingredient key={i} className="p-ingredient">
-          <InlineMarkdown>{ingredient}</InlineMarkdown>
+          <InlineMarkdown suppressLinks={suppressLinks}>
+            {ingredient}
+          </InlineMarkdown>
         </Ingredient>
       ))}
       {garnish && (
         <Garnish className="p-ingredient">
-          <Label>garnish:</Label> <InlineMarkdown>{garnish}</InlineMarkdown>
+          <Label>garnish:</Label>{' '}
+          <InlineMarkdown suppressLinks={suppressLinks}>
+            {garnish}
+          </InlineMarkdown>
         </Garnish>
       )}
     </Ingredients>

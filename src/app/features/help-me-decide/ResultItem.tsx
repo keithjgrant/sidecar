@@ -93,7 +93,11 @@ export default function ResultItem({ drink, image }: ResultItemProps) {
         </ImageWrapper>
         <Body>
           <Title>{drink.title}</Title>
-          <IngredientList items={drink.ingredients} garnish={drink.garnish} />
+          <IngredientList
+            items={drink.ingredients}
+            garnish={drink.garnish}
+            suppressLinks
+          />
         </Body>
       </CardLink>
     </li>

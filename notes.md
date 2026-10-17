@@ -37,9 +37,9 @@ ten-bottle-bar tag
 [x] cream, eggs, milk, coffee, etc to Misc in Bar
 [x] track bitters in My Bar
 [] Add "skip question" option in Help My Decide
-[] clean up console errors
+[x] clean up console errors
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
-[] sticky alpha headers cover mobile title + back button
+[x] sticky alpha headers cover mobile title + back button
 [x] don't use alpha scroll when list below a certain length
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
