@@ -117,6 +117,7 @@ export const FANCY_SYRUP_TAGS = [
   'muscovado-syrup',
   'orgeat',
   'special-syrup',
+  'vanilla-syrup',
   // flavor stand-ins
   'black-pepper',
   'ginger',

@@ -17,7 +17,7 @@ tags: [
   bourbon,
   whiskey,
   coffee-liqueur,
-  vanilla,
+  vanilla-syrup,
   built,
 ]
 tenBottleCandidate:

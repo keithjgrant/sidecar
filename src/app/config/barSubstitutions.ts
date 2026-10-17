@@ -23,6 +23,7 @@ export const COMMON_SUBSTITUTIONS: SubstitutionGroup[] = [
   ['peach-liqueur', 'apricot-liqueur'],
   ['demerara-syrup', 'brown-sugar-syrup'],
   ['agave', 'simple-syrup'],
+  ['vanilla-syrup', 'simple-syrup'],
 ];
 
 /**

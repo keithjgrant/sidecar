@@ -18,6 +18,7 @@ tags: [
   rye-whiskey,
   bruto-americano,
   apricot-liqueur,
+  vanilla-syrup,
   stirred,
 ]
 tenBottleCandidate:

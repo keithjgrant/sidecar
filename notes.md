@@ -33,6 +33,9 @@ ten-bottle-bar tag
 
 [x] agave tag (add to bar list)
 [x] egg nog has all the tags. figure out My Bar filtering
+[] move featured bottle above Ingredients | Techniques
+[] cream, eggs, milk, coffee, etc to Misc in Bar
+[] track bitters in My Bar
 [] Add "skip question" option in Help My Decide
 [] clean up console errors
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
