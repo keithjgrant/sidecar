@@ -28,7 +28,7 @@ function filter(
   });
 }
 
-describe.skip('getDrinkFilter', () => {
+describe('getDrinkFilter', () => {
   describe('drinks with ten-bottle-bar tag', () => {
     it('should include a tagged drink with no vermouth for any vermouth selection', () => {
       const daiquiri = drink(['ten-bottle-bar', 'rum', 'lime']);

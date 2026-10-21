@@ -32,9 +32,10 @@ const SelectStart = styled(Select)`
 
 const TENTH_BOTTLE_OPTIONS: [string, string][] = [
   ['none', 'None'],
-  ...TENTH_BOTTLE_TAGS.map(
-    (tag): [string, string] => [tag, formatBarLabel(tag)],
-  ),
+  ...TENTH_BOTTLE_TAGS.map((tag): [string, string] => [
+    tag,
+    formatBarLabel(tag),
+  ]),
 ];
 
 interface TenBottleBarProps {
@@ -122,8 +123,9 @@ export function getDrinkFilter(options: {
 
   return (drink: Drink) => {
     if (drink.tags.includes('ten-bottle-bar')) {
-      if (vermouth === 'sweet' || !drink.tags.includes('sweet-vermouth'))
+      if (drink.tags.includes(`${vermouth}-vermouth`)) {
         return true;
+      }
     }
     if (!addSyrups && includesFancySyrups(drink)) {
       return false;
