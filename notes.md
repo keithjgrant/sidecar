@@ -34,12 +34,6 @@ ten-bottle-bar tag
 
 # TODO
 
-[] TBB Cleanup
-    [] data validation tests
-    [] fix filtering bugs
-    [] centralize tenth bottle list in config
-    [] populate UI selector from the config list
-    [] add cynar to TBB options
 [] Add "skip question" option in Help My Decide
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
 [] add `modern-classic` tag

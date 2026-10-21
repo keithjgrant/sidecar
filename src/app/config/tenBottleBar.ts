@@ -7,7 +7,7 @@ export const TENTH_BOTTLE_TAGS = [
   'apple-brandy',
   'benedictine',
   'campari',
-  // 'drambuie',
+  'cynar',
   'elderflower-liqueur',
   'genever-gin',
   'green-chartreuse',

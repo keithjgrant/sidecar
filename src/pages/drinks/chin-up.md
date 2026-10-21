@@ -22,7 +22,7 @@ tags: [
   stirred,
   muddled,
 ]
-tenBottleCandidate:
+tenBottleCandidate: true
 source:
 intro:
 

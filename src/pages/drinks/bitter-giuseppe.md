@@ -21,7 +21,7 @@ tags: [
   lemon,
   stirred,
 ]
-tenBottleCandidate:
+tenBottleCandidate: true
 source:
 intro: |
   This one bends the rules a bit by stirring with lemon juice, but the hint
