@@ -15,7 +15,6 @@ ingredients: [
 ]
 garnish: orange twist
 tags: [
-  ten-bottle-bar,
   summer,
   bright,
   gin,

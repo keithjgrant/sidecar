@@ -15,7 +15,7 @@ function vermouthTags(drink: DrinkDocument): string[] {
 
 function intersectingTags(
   drink: DrinkDocument,
-  blocked: readonly string[],
+  blocked: readonly string[]
 ): string[] {
   return drink.tags.filter((t) => (blocked as readonly string[]).includes(t));
 }
@@ -34,9 +34,9 @@ describe('ten-bottle-bar drink data', () => {
       }))
       .filter((d) => d.blocked.length > 0);
 
-    expect(
-      invalid.map((d) => `${d.file} (${d.blocked.join(', ')})`),
-    ).toEqual([]);
+    expect(invalid.map((d) => `${d.file} (${d.blocked.join(', ')})`)).toEqual(
+      []
+    );
   });
 
   it('should not tag drinks that require a specialty syrup', () => {
@@ -47,9 +47,9 @@ describe('ten-bottle-bar drink data', () => {
       }))
       .filter((d) => d.blocked.length > 0);
 
-    expect(
-      invalid.map((d) => `${d.file} (${d.blocked.join(', ')})`),
-    ).toEqual([]);
+    expect(invalid.map((d) => `${d.file} (${d.blocked.join(', ')})`)).toEqual(
+      []
+    );
   });
 
   it('should not tag drinks with more than one vermouth style', () => {
@@ -57,8 +57,8 @@ describe('ten-bottle-bar drink data', () => {
       .map((d) => ({ file: d.file, vermouth: vermouthTags(d) }))
       .filter((d) => d.vermouth.length > 1);
 
-    expect(
-      invalid.map((d) => `${d.file} (${d.vermouth.join(', ')})`),
-    ).toEqual([]);
+    expect(invalid.map((d) => `${d.file} (${d.vermouth.join(', ')})`)).toEqual(
+      []
+    );
   });
 });

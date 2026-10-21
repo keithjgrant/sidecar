@@ -15,7 +15,6 @@ ingredients: [
 ]
 garnish:
 tags: [
-  ten-bottle-bar,
   tequila,
   lemon,
   burnt-sugar-syrup,
