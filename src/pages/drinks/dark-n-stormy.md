@@ -14,13 +14,14 @@ ingredients: [
 ]
 garnish: lime wheel
 tags: [
+  classic-cocktail,
   refreshing,
   rum,
   dark-rum,
   aged-rum,
   ginger,
   lime,
-  shaken
+  shaken,
 ]
 tenBottleCandidate: true
 source: Cocktail Codex

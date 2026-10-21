@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: 3 raspberries, lemon twist
 tags: [
+  classic-cocktail,
   summer,
   refreshing,
   ten-bottle-bar,

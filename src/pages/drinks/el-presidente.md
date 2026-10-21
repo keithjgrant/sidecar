@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: orange twist and a cocktail cherry
 tags: [
+  classic-cocktail,
   rum,
   white-rum,
   blanc-vermouth,

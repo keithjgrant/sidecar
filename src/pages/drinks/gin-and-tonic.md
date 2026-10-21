@@ -13,13 +13,14 @@ ingredients: [
 ]
 garnish:
 tags: [
+  classic-cocktail,
   ten-bottle-bar,
   refreshing,
   afternoon,
   gin,
   tonic-water,
   lime,
-  built
+  built,
 ]
 image:
   url: "/images/drinks/gin-and-tonic.jpg"

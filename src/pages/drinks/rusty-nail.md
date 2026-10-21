@@ -12,10 +12,11 @@ ingredients: [
 ]
 garnish: lemon twist, discarded
 tags: [
+  classic-cocktail,
   whiskey,
   scotch,
   drambuie,
-  built
+  built,
 ]
 intro: I like this best with a good peaty Scotch.
 

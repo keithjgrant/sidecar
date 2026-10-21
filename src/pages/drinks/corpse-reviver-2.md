@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: orange twist
 tags: [
+  classic-cocktail,
   summer,
   bright,
   gin,

@@ -14,13 +14,14 @@ ingredients: [
 ]
 garnish:
 tags: [
+  classic-cocktail,
   hot,
+  dessert-drink,
   irish-whiskey,
   whiskey,
   coffee,
   burnt-sugar-syrup,
   cream,
-  dessert-drink,
   built,
 ]
 image:

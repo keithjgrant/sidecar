@@ -14,13 +14,14 @@ ingredients: [
 ]
 garnish: maraschino cherry
 tags: [
+  classic-cocktail,
   fall,
   gin,
   london-dry-gin,
   maraschino,
   green-chartreuse,
   lime,
-  shaken
+  shaken,
 ]
 tenBottleCandidate:
 source:

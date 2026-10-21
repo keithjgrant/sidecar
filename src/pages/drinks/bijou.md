@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: lemon twist and cocktail cherry
 tags: [
+  classic-cocktail,
   gin,
   sweet-vermouth,
   green-chartreuse,

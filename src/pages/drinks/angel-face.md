@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: orange twist or lemon twist
 tags: [
+  classic-cocktail,
   fall,
   gin,
   london-dry-gin,

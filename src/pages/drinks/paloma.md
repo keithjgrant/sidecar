@@ -14,12 +14,13 @@ ingredients: [
 ]
 garnish: grapfruit wheel
 tags: [
+  classic-cocktail,
   summer,
   refreshing,
   tequila,
   grapefruit,
   special-syrup,
-  built
+  built,
 ]
 
 ---

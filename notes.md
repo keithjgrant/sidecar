@@ -36,6 +36,8 @@ ten-bottle-bar tag
 
 [] consider missing modern classics: Penicillin, Naked & Famous, Old Cuban, Gold Rush, Tommy's Margarita, Revolver (= mr brown?)
     [] Man About Town -> 2 rye, 1 sweet vermouth, 1 cynar w/ brandied cherry?
+[] add classics: Tom Collins, French 75!, mint julep, gimlet?, mojito, aviation
+[] fix Paloma - no syrup
 [] Help Me Decide improvements
     [] Add "skip question" option in Help My Decide
     [] control dials for help me decide weights?

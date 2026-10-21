@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: fresh grated nutmeg
 tags: [
+  classic-cocktail,
   ten-bottle-bar,
   sweet,
   cognac,

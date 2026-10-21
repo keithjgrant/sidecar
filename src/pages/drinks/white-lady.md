@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  classic-cocktail,
   ten-bottle-bar,
   gin,
   triple-sec,

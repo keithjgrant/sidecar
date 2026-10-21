@@ -13,11 +13,12 @@ ingredients: [
 ]
 garnish: lemon twist
 tags: [
-  "ten-bottle-bar",
-  "gin",
-  "lemon",
-  "honey",
-  "shaken"
+  classic-cocktail,
+  ten-bottle-bar,
+  gin,
+  honey,
+  lemon,
+  shaken,
 ]
 tenBottleCandidate: true
 ---
