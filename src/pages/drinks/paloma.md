@@ -9,8 +9,7 @@ family: highball
 ingredients: [
   "2 oz tequila",
   "½ oz lime juice",
-  "¾ oz grapefruit syrup",
-  "3 oz soda water",
+  "4 oz grapefruit soda",
 ]
 garnish: grapfruit wheel
 tags: [
@@ -19,7 +18,6 @@ tags: [
   refreshing,
   tequila,
   grapefruit,
-  special-syrup,
   built,
 ]
 
