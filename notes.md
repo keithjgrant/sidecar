@@ -41,6 +41,8 @@ ten-bottle-bar tag
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
 [x] sticky alpha headers cover mobile title + back button
 [x] don't use alpha scroll when list below a certain length
+[] add `modern-classic` tag
+[] add cynar to TBB options
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
