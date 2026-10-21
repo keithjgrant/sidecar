@@ -13,6 +13,7 @@ import DrinkList from '../../components/DrinkList';
 import { getParams, setParam } from '../../lib/qs';
 import type { Drink } from '../../types';
 import { FANCY_SYRUP_TAGS } from '../../config/tagTaxonomy';
+import { TENTH_BOTTLE_TAGS } from '../../config/tenBottleBar';
 
 const CheckboxRow = styled(Checkbox)`
   grid-column: 1 / -1;
@@ -28,27 +29,16 @@ const SelectStart = styled(Select)`
   justify-self: start;
 `;
 
-const excludeTags = [
-  'absinthe',
-  'aged-rum',
-  'apple-brandy',
-  'benedictine',
-  'campari',
-  'drambuie',
-  'elderflower-liqueur',
-  'genever-gin',
-  'green-chartreuse',
-  'maraschino-liqueur',
-  'mezcal',
-  'vodka',
-];
 
 interface TenBottleBarProps {
   allDrinks: Drink[];
   imageMap: Record<string, unknown>;
 }
 
-export default function TenBottleBar({ allDrinks, imageMap }: TenBottleBarProps) {
+export default function TenBottleBar({
+  allDrinks,
+  imageMap,
+}: TenBottleBarProps) {
   const params = getParams();
 
   const [vermouth, setVermouth] = useState('sweet');
@@ -67,20 +57,10 @@ export default function TenBottleBar({ allDrinks, imageMap }: TenBottleBarProps)
     }
   }, []);
 
-  const excluded = excludeTags.filter((b) => b != tenthBottle);
-  const drinks = allDrinks.filter((drink) => {
-    if (drink.tags.includes('ten-bottle-bar')) {
-      if (vermouth === 'sweet' || !drink.tags.includes('sweet-vermouth'))
-        return true;
-    }
-    if (!addSyrups && includesFancySyrups(drink)) {
-      return false;
-    }
-    if (!vermouthMatches(vermouth, drink)) {
-      return false;
-    }
-    return tenthBottleMatches(excluded, drink);
-  });
+  const excluded = TENTH_BOTTLE_TAGS.filter((b) => b != tenthBottle);
+  const drinks = allDrinks.filter(
+    getDrinkFilter({ vermouth, addSyrups, excluded })
+  );
 
   return (
     <>
@@ -134,11 +114,32 @@ export default function TenBottleBar({ allDrinks, imageMap }: TenBottleBarProps)
             }
           />
         </GridForm>
-
       </Card>
       <DrinkList drinks={drinks} imageMap={imageMap} />
     </>
   );
+}
+
+export function getDrinkFilter(options: {
+  vermouth: string;
+  addSyrups: boolean;
+  excluded: readonly string[];
+}): (drink: Drink) => boolean {
+  const { vermouth, addSyrups, excluded } = options;
+
+  return (drink: Drink) => {
+    if (drink.tags.includes('ten-bottle-bar')) {
+      if (vermouth === 'sweet' || !drink.tags.includes('sweet-vermouth'))
+        return true;
+    }
+    if (!addSyrups && includesFancySyrups(drink)) {
+      return false;
+    }
+    if (!vermouthMatches(vermouth, drink)) {
+      return false;
+    }
+    return tenthBottleMatches(excluded, drink);
+  };
 }
 
 function includesFancySyrups(drink: Drink): boolean {
@@ -146,11 +147,13 @@ function includesFancySyrups(drink: Drink): boolean {
 }
 
 function vermouthMatches(type: string, drink: Drink): boolean {
+  /* assuming drink doesn't have two vermouths; it shouldn't have the
+   TenBottleBarCandidate flag in that case */
   const tag = drink.tags.find((t) => t.endsWith('-vermouth'));
   return !tag || tag === `${type}-vermouth`;
 }
 
-function tenthBottleMatches(exclude: string[], drink: Drink): boolean {
+function tenthBottleMatches(exclude: readonly string[], drink: Drink): boolean {
   for (let i = 0; i < exclude.length; i++) {
     if (drink.tags.includes(exclude[i])) {
       return false;

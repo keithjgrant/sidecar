@@ -15,8 +15,11 @@ Future possible homepage links:
 
 # Ten bottle bar
 
-•  tenBottleCandidate: true → "Can this drink potentially be made with a ten-bottle bar?"
-•  ten-bottle-bar tag → "This drink definitely works with the basic ten-bottle setup"
+• tenBottleCandidate: true → "Can this drink potentially be made with a ten-bottle bar?"
+    This flag includes the drink in loaded drinks on the TBB page for consideration/filtering.
+• ten-bottle-bar tag → "This drink works with the basic ten-bottle setup assuming correct vermouth stocked"
+    Only vermouth type needs to be checked; drink meets all other TBB criteria.
+    This is the core, curated list
 
 tenBottleCandidate: true flag
 •  Purpose: Controls which drinks appear on the ten-bottle-bar page
@@ -25,7 +28,7 @@ tenBottleCandidate: true flag
 
 ten-bottle-bar tag  
 •  Purpose: Used for runtime filtering logic within the TenBottleBar component
-•  Used in: src/components/TenBottleBar.js (line 61): if (drink.tags.includes('ten-bottle-bar'))
+•  Used in: src/components/TenBottleBar.tsx : if (drink.tags.includes('ten-bottle-bar'))
 •  Function: Fine-grained filtering based on user selections (vermouth type, tenth bottle choice, etc.)
 
 

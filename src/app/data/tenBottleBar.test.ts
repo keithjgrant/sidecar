@@ -1,22 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { FANCY_SYRUP_TAGS } from '../config/tagTaxonomy';
+import { TENTH_BOTTLE_TAGS } from '../config/tenBottleBar';
 import { loadDrinks, type DrinkDocument } from './loadDrinks';
-
-/** Matches the tenth-bottle options gated in TenBottleBar.tsx. */
-const TENTH_BOTTLE_TAGS = [
-  'absinthe',
-  'aged-rum',
-  'apple-brandy',
-  'benedictine',
-  'campari',
-  'drambuie',
-  'elderflower-liqueur',
-  'genever-gin',
-  'green-chartreuse',
-  'maraschino-liqueur',
-  'mezcal',
-  'vodka',
-] as const;
 
 const drinks = loadDrinks();
 
