@@ -1,6 +1,5 @@
 import {
   BAR_CATALOG,
-  BAR_LABEL_OVERRIDES,
   BAR_PARENTS,
   type BarCatalogGroup,
 } from '../../config/barConfig';
@@ -32,17 +31,6 @@ export function countOwnedInGroup(
 ): number {
   const ownedSet = owned instanceof Set ? owned : new Set(owned);
   return getGroupTags(group).filter((tag) => ownedSet.has(tag)).length;
-}
-
-export function formatBarLabel(tag: string): string {
-  const override = BAR_LABEL_OVERRIDES[tag];
-  if (override) {
-    return override;
-  }
-  return tag
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
 }
 
 /** Query param for a one-off unfiltered list view (does not change settings). */

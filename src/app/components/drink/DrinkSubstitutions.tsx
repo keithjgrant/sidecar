@@ -4,10 +4,10 @@ import type { Drink } from '../../types';
 /* TODO css only : relocate somewhere */
 import { Chip } from '../../features/my-bar/BarFilterNotice';
 import {
-  formatBarLabel,
   getDrinkSubstitutions,
   type ActiveSubstitution,
 } from '../../features/my-bar/myBarUtils';
+import { formatBarLabel } from '../../lib/formatBarLabel';
 import { useBar } from '../../storage/bar';
 import { useSettings } from '../../storage/settings';
 import Bottles from '../svg/Bottles';

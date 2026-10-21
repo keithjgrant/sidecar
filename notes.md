@@ -34,18 +34,15 @@ ten-bottle-bar tag
 
 # TODO
 
-[x] agave tag (add to bar list)
-[x] egg nog has all the tags. figure out My Bar filtering
-[x] move featured bottle above Ingredients | Techniques
-[x] cream, eggs, milk, coffee, etc to Misc in Bar
-[x] track bitters in My Bar
+[] TBB Cleanup
+    [] data validation tests
+    [] fix filtering bugs
+    [] centralize tenth bottle list in config
+    [] populate UI selector from the config list
+    [] add cynar to TBB options
 [] Add "skip question" option in Help My Decide
-[x] clean up console errors
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
-[x] sticky alpha headers cover mobile title + back button
-[x] don't use alpha scroll when list below a certain length
 [] add `modern-classic` tag
-[] add cynar to TBB options
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?

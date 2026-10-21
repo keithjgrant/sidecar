@@ -14,6 +14,7 @@ import { getParams, setParam } from '../../lib/qs';
 import type { Drink } from '../../types';
 import { FANCY_SYRUP_TAGS } from '../../config/tagTaxonomy';
 import { TENTH_BOTTLE_TAGS } from '../../config/tenBottleBar';
+import { formatBarLabel } from '../../lib/formatBarLabel';
 
 const CheckboxRow = styled(Checkbox)`
   grid-column: 1 / -1;
@@ -29,6 +30,12 @@ const SelectStart = styled(Select)`
   justify-self: start;
 `;
 
+const TENTH_BOTTLE_OPTIONS: [string, string][] = [
+  ['none', 'None'],
+  ...TENTH_BOTTLE_TAGS.map(
+    (tag): [string, string] => [tag, formatBarLabel(tag)],
+  ),
+];
 
 interface TenBottleBarProps {
   allDrinks: Drink[];
@@ -79,21 +86,7 @@ export default function TenBottleBar({
           <GridFormLabel>Tenth bottle</GridFormLabel>
           <SelectStart
             id="tenth-bottle"
-            options={[
-              ['none', 'None'],
-              ['absinthe', 'Absinthe'],
-              ['aged-rum', 'Aged Rum'],
-              ['apple-brandy', 'Apple Brandy'],
-              ['benedictine', 'Bénédictine'],
-              ['campari', 'Campari'],
-              // ['drambuie', 'Drambuie'],
-              ['elderflower-liqueur', 'Elderflower Liqueur'],
-              ['genever-gin', 'Genever Gin'],
-              ['green-chartreuse', 'Green Chartreuse'],
-              ['maraschino-liqueur', 'Maraschino Liqueur'],
-              ['mezcal', 'Mezcal'],
-              ['vodka', 'Vodka'],
-            ]}
+            options={TENTH_BOTTLE_OPTIONS}
             value={tenthBottle}
             onChange={(value) => {
               setTenthBottle(value);

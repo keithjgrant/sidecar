@@ -8,7 +8,6 @@ import {
   canMakeDrink,
   countOwnedInGroup,
   filterMakeableDrinks,
-  formatBarLabel,
   getDrinkSubstitutions,
   getAllBarTags,
   getGroupTags,
@@ -91,23 +90,6 @@ describe('myBar', () => {
     expect(citrus).toBeDefined();
     expect(countOwnedInGroup(citrus!, ['lemon', 'gin'])).toBe(1);
     expect(countOwnedInGroup(citrus!, ['lemon', 'lime', 'grapefruit'])).toBe(3);
-  });
-
-  it('should format slug tags as title case labels', () => {
-    expect(formatBarLabel('london-dry-gin')).toBe('London Dry Gin');
-    expect(formatBarLabel('campari')).toBe('Campari');
-  });
-
-  it('should use label overrides for accents and special casing', () => {
-    expect(formatBarLabel('cachaca')).toBe('Cachaça');
-    expect(formatBarLabel('curacao')).toBe('Curaçao');
-    expect(formatBarLabel('dry-curacao')).toBe('Dry Curaçao');
-    expect(formatBarLabel('creme-de-cacao')).toBe('Crème de Cacao');
-    expect(formatBarLabel('creme-de-mure')).toBe('Crème de Mûre');
-    expect(formatBarLabel('benedictine')).toBe('Bénédictine');
-    expect(formatBarLabel('jalapeno-syrup')).toBe('Jalapeño Syrup');
-    expect(formatBarLabel('ipa-syrup')).toBe('IPA Syrup');
-    expect(formatBarLabel('punt-e-mes')).toBe('Punt e Mes');
   });
 
   it('should require only bar-relevant tags and ignore flavor and technique', () => {
