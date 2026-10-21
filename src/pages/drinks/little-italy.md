@@ -20,7 +20,7 @@ tags: [
   cynar,
   stirred,
 ]
-tenBottleCandidate:
+tenBottleCandidate: true
 source:
 intro: A fantastic improvement on the classic [Manhattan](/drinks/manhattan)
 

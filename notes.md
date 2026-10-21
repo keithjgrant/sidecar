@@ -15,8 +15,11 @@ Future possible homepage links:
 
 # Ten bottle bar
 
-•  tenBottleCandidate: true → "Can this drink potentially be made with a ten-bottle bar?"
-•  ten-bottle-bar tag → "This drink definitely works with the basic ten-bottle setup"
+• tenBottleCandidate: true → "Can this drink potentially be made with a ten-bottle bar?"
+    This flag includes the drink in loaded drinks on the TBB page for consideration/filtering.
+• ten-bottle-bar tag → "This drink works with the basic ten-bottle setup assuming correct vermouth stocked"
+    Only vermouth type needs to be checked; drink meets all other TBB criteria.
+    This is the core, curated list
 
 tenBottleCandidate: true flag
 •  Purpose: Controls which drinks appear on the ten-bottle-bar page
@@ -25,24 +28,15 @@ tenBottleCandidate: true flag
 
 ten-bottle-bar tag  
 •  Purpose: Used for runtime filtering logic within the TenBottleBar component
-•  Used in: src/components/TenBottleBar.js (line 61): if (drink.tags.includes('ten-bottle-bar'))
+•  Used in: src/components/TenBottleBar.tsx : if (drink.tags.includes('ten-bottle-bar'))
 •  Function: Fine-grained filtering based on user selections (vermouth type, tenth bottle choice, etc.)
 
 
 # TODO
 
-[x] agave tag (add to bar list)
-[x] egg nog has all the tags. figure out My Bar filtering
-[x] move featured bottle above Ingredients | Techniques
-[x] cream, eggs, milk, coffee, etc to Misc in Bar
-[x] track bitters in My Bar
 [] Add "skip question" option in Help My Decide
-[x] clean up console errors
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
-[x] sticky alpha headers cover mobile title + back button
-[x] don't use alpha scroll when list below a certain length
 [] add `modern-classic` tag
-[] add cynar to TBB options
 [] control dials for help me decide weights?
 [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?

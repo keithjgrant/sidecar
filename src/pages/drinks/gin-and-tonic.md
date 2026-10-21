@@ -25,6 +25,7 @@ image:
   url: "/images/drinks/gin-and-tonic.jpg"
   alt: "A gin and tonic beside a bottle of Aviation gin and Fever Tree Mediterranean tonic water"
   align: "70% 70%"
+tenBottleCandidate: true
 intro: |
   A deceptively simple drink, these particular instructions are meant to minimize the amount of carbonation lost from the tonic water. Recipe by Dave Arnold.
 ---

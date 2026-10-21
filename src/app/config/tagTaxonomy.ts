@@ -105,8 +105,10 @@ export const MISC_TAGS = [
  * checkbox (simple syrup / agave are untagged; these are the tagged staples).
  */
 export const BASIC_SYRUP_TAGS = [
+  'agave',
   'brown-sugar-syrup',
   'demerara-syrup',
+  'honey',
 ] as const;
 
 /**
@@ -115,7 +117,6 @@ export const BASIC_SYRUP_TAGS = [
  * (every use today is via that syrup); split later if non-syrup uses appear.
  */
 export const FANCY_SYRUP_TAGS = [
-  'agave',
   'burnt-sugar-syrup',
   'butter-syrup',
   'ipa-syrup',
@@ -129,7 +130,6 @@ export const FANCY_SYRUP_TAGS = [
   // flavor stand-ins
   'black-pepper',
   'ginger',
-  'honey',
 ] as const;
 
 /** Syrup and sweetener tags (staples + specialty). */

@@ -19,13 +19,12 @@ tags: [
   polished-recipe,
   bourbon,
   whiskey,
-  burnt-sugar-syrup,
   angostura-bitters,
   orange-bitters,
   built,
 ]
 tenBottleCandidate: true
-intro: Some will argue an Old Fashioned must be made with a sugar cube. Those people haven't tried it with burnt sugar syrup. My measurement here may seem like a lot of syrup, but burnt sugar isn’t quite as sweet as normal simple syrup, and its bitterness adds extra complexity, so I find this amount provides a good balance.
+intro: Some will argue an Old Fashioned must be made with a sugar cube. Those people haven't tried it with burnt sugar syrup. My measurement here may seem like a lot of syrup, but burnt sugar isn’t quite as sweet as normal simple syrup, and its bitterness adds extra complexity, so I find this amount provides a good balance. You can of course substitute in ¼ simple syrup for a more classic version. 
 
 ---
 Build in rocks glass. Add ice and stir briefly.

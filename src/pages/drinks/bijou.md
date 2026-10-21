@@ -14,7 +14,6 @@ ingredients: [
 ]
 garnish: lemon twist and cocktail cherry
 tags: [
-  ten-bottle-bar,
   gin,
   sweet-vermouth,
   green-chartreuse,

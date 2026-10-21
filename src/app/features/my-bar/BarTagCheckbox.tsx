@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox } from '../../components/forms';
-import { formatBarLabel } from './myBarUtils';
+import { formatBarLabel } from '../../lib/formatBarLabel';
 
 interface BarTagCheckboxProps {
   tag: string;
