@@ -34,16 +34,18 @@ ten-bottle-bar tag
 
 # TODO
 
-[] Add "skip question" option in Help My Decide
-[] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
-[] add `modern-classic` tag
-[] control dials for help me decide weights?
-[] better testing/evaluation tools for Help Me Decided weighted selection
+[] consider missing modern classics: Penicillin, Naked & Famous, Old Cuban, Gold Rush, Tommy's Margarita, Revolver (= mr brown?)
+    [] Man About Town -> 2 rye, 1 sweet vermouth, 1 cynar w/ brandied cherry?
+[] Help Me Decide improvements
+    [] Add "skip question" option in Help My Decide
+    [] control dials for help me decide weights?
+    [] better testing/evaluation tools for Help Me Decided weighted selection
 [] Nav icons along bottom of screen in standalone (PWA) mode?
 [] clean up weird TileWithLink homescreen components/css
 [] haptics
     [] back-button long press function broken (part of screen is text-selected instead)
     [] favorite button no longer provides haptic feedback
+[] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
 [] add any new options for 10th bottle in TenBottleBar.tsx?
 [] Centralize storage-blocked warning: add useStorageBlocked() + app-level banner (not MyBar-specific); widen copy beyond bar saves
 

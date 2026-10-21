@@ -13,11 +13,12 @@ ingredients: [
 ]
 garnish: lemon or grapefruit twist
 tags: [
+  modern-classic,
+  negroni,
   gin,
   suze,
   blanc-vermouth,
-  negroni,
-  built
+  built,
 ]
 tenBottleCandidate:
 image:

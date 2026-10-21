@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish:
 tags: [
+  modern-classic,
   negroni,
   rum,
   aged-rum,

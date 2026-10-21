@@ -14,13 +14,14 @@ ingredients: [
 ]
 garnish: maraschino cherry
 tags: [
+  modern-classic,
   fall,
   whiskey,
   rye-whiskey,
   maraschino,
   green-chartreuse,
   lime,
-  shaken
+  shaken,
 ]
 tenBottleCandidate:
 source:

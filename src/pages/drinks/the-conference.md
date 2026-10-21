@@ -17,6 +17,7 @@ ingredients: [
 ]
 garnish: orange and lemon twists
 tags: [
+  modern-classic,
   fall,
   whiskey,
   rye-whiskey,

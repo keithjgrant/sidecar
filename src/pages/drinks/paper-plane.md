@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: 
 tags: [
+  modern-classic,
   bourbon,
   whiskey,
   amaro-nonino,

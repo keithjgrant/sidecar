@@ -14,10 +14,11 @@ ingredients: [
 ]
 garnish: blackberries
 tags: [
-  gin,
-  lemon,
-  creme-de-mure,
+  modern-classic,
   sour,
+  gin,
+  creme-de-mure,
+  lemon,
   shaken,
 ]
 tenBottleCandidate:

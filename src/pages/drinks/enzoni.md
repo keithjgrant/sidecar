@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: 3 grapes
 tags: [
+  modern-classic,
   gin,
   london-dry-gin,
   campari,

@@ -14,6 +14,7 @@ ingredients: [
 ]
 garnish: lemon twist
 tags: [
+  modern-classic,
   low-abv,
   cynar,
   sweet-vermouth,

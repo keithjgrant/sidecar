@@ -8,28 +8,22 @@ booziness: 2
 family: sour
 ingredients: [
   "1 oz amaretto liqueur",
-  "1 oz high-proof rye whiskey or bourbon",
+  "1 oz high-proof bourbon or rye whiskey",
   "¾ oz lemon juice",
   "¼ oz simple syrup",
   "½ egg white"
 ]
 garnish: brandied cherry
 tags: [
+  modern-classic,
   amaretto,
   bourbon,
-  rye-whiskey,
   whiskey,
   lemon,
   egg,
   shaken,
 ]
 tenBottleCandidate:
-image:
-  url: "/images/drinks/.jpg"
-  alt: ""
-  align: "50% 50%"
-  photographer: ""
-  creditUrl: ""
 source:
 intro:
 

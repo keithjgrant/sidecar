@@ -13,6 +13,7 @@ ingredients: [
 ]
 garnish: cocktail cherry
 tags: [
+  modern-classic,
   manhattan,
   rye-whiskey,
   whiskey,

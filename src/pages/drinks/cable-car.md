@@ -14,13 +14,14 @@ ingredients: [
 ]
 garnish: orange twist, discarded
 tags: [
+  modern-classic,
   rum,
   spiced-rum,
   dry-curacao,
   curacao,
   orange-liqueur,
   lemon,
-  shaken
+  shaken,
 ]
 tenBottleCandidate:
 source:

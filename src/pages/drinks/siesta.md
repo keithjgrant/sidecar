@@ -15,6 +15,7 @@ ingredients: [
 ]
 garnish: grapefruit twist
 tags: [
+  modern-classic,
   tequila,
   tequila-blanco,
   campari,
