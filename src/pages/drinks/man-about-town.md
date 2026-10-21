@@ -22,7 +22,11 @@ tags: [
   shaken,
 ]
 tenBottleCandidate: true 
-intro: This is one of the most unique, complexly-flavored drinks I’ve had. Bourbon can be substituted for the Rye.
+intro: |
+  Created by Kenaniah Bystrom at the bar Essex, this is not to be confused with
+  the modern classic cocktail of the same name.
+  
+  This is one of the most unique, complexly-flavored drinks I’ve had. Bourbon can be substituted for the Rye.
 
 ---
 

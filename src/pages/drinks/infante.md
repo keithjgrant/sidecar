@@ -15,9 +15,9 @@ ingredients: [
 garnish: grated nutmeg
 tags: [
   tequila,
-  lime,
   orgeat,
   angostura-bitters,
+  lime,
   shaken,
 ]
 tenBottleCandidate: true
