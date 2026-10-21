@@ -1,6 +1,6 @@
 ---
-title: "Final Word"
-path: "/drinks/final-word"
+title: "Final Ward"
+path: "/drinks/final-ward"
 date: 2020-12-23T09:14:55-08:00
 glass: coupe
 sweetness:
@@ -10,7 +10,7 @@ ingredients: [
   "¾ oz rye whiskey",
   "¾ oz maraschino liqueur",
   "¾ oz Green Charteuse",
-  "¾ oz lime juice",
+  "¾ oz lemon juice",
 ]
 garnish: maraschino cherry
 tags: [
@@ -20,7 +20,7 @@ tags: [
   rye-whiskey,
   maraschino,
   green-chartreuse,
-  lime,
+  lemon,
   shaken,
 ]
 tenBottleCandidate:
