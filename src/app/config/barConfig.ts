@@ -14,7 +14,7 @@ import {
  * Taxonomy tags kept for drinks / Ten Bottle Bar / Help Me Decide, but omitted
  * from My Bar inventory and makeability requirements.
  */
-const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon', 'special-syrup']);
+export const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon', 'special-syrup']);
 
 export const DEFAULT_BAR = [] as const;
 

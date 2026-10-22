@@ -47,7 +47,6 @@ ten-bottle-bar tag
     [] back-button long press function broken (part of screen is text-selected instead)
     [] favorite button no longer provides haptic feedback
 [] split "aged-rum" to jamaican, barbados etc, now that substitutions in place?
-[] add any new options for 10th bottle in TenBottleBar.tsx?
 [] Centralize storage-blocked warning: add useStorageBlocked() + app-level banner (not MyBar-specific); widen copy beyond bar saves
 
 Updated palette?
