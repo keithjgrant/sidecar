@@ -1,4 +1,4 @@
-import { featuredBottles as bottles } from '../../config/featuredBottlesConfig';
+import { featuredBottles as bottles } from '../../config/featuredBottles';
 
 export type FeaturedBottle = {
   tag: string;
@@ -18,18 +18,16 @@ export type FeaturedBottleSchedule = Record<string, FeaturedBottle>;
 export const featuredBottles: FeaturedBottleSchedule = bottles;
 
 export function getFeaturedBottleTagPaths(
-  schedule: FeaturedBottleSchedule = featuredBottles,
+  schedule: FeaturedBottleSchedule = featuredBottles
 ): string[] {
   return [
-    ...new Set(
-      Object.values(schedule).map((bottle) => `/tags/${bottle.tag}/`),
-    ),
+    ...new Set(Object.values(schedule).map((bottle) => `/tags/${bottle.tag}/`)),
   ].sort();
 }
 
 export function getFeaturedBottle(
   date: Date = new Date(),
-  schedule: FeaturedBottleSchedule = featuredBottles,
+  schedule: FeaturedBottleSchedule = featuredBottles
 ): FeaturedBottleSelection | null {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -42,7 +40,7 @@ export function getFeaturedBottle(
   // Noon avoids timezone edge cases when deriving the month name from the key.
   const monthName = new Date(`${monthKey}-01T12:00:00`).toLocaleString(
     'en-US',
-    { month: 'long' },
+    { month: 'long' }
   );
 
   return { monthKey, monthName, bottle };

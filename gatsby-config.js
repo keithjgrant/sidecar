@@ -1,8 +1,8 @@
-const { featuredBottles } = require('./src/app/config/featuredBottlesConfig');
+const { featuredBottles } = require('./src/app/config/featuredBottles');
 
 const featuredBottleTagPaths = [
   ...new Set(
-    Object.values(featuredBottles).map((bottle) => `/tags/${bottle.tag}/`),
+    Object.values(featuredBottles).map((bottle) => `/tags/${bottle.tag}/`)
   ),
 ].sort();
 
@@ -58,11 +58,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        precachePages: [
-          '/drinks/',
-          '/drinks/*',
-          ...featuredBottleTagPaths,
-        ],
+        precachePages: ['/drinks/', '/drinks/*', ...featuredBottleTagPaths],
         workboxConfig: {
           runtimeCaching: [
             {
@@ -74,7 +70,8 @@ module.exports = {
               handler: 'NetworkFirst',
             },
             {
-              urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|ico)(\?.*)?$/,
+              urlPattern:
+                /^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|ico)(\?.*)?$/,
               handler: 'StaleWhileRevalidate',
             },
           ],
