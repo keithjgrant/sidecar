@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import DrinkListLayout from '../../app/components/layouts/DrinkListLayout';
 import Meta from '../../app/components/Meta';
 import SimpleContent from '../../app/components/SimpleContent';
-import TenBottleBar from '../../app/features/explore/TenBottleBar';
+import TenBottleBar from '../../app/features/ten-bottle-bar/TenBottleBar';
 
 import type { Drink } from '../../app/types';
 
