@@ -166,6 +166,68 @@ export const TECHNIQUE_TAGS = [
 ] as const;
 
 /**
+ * Intentionally uncategorized tags (family, occasion, season, meta, and
+ * produce/herb modifiers not yet in a kind list). Used with the classified
+ * sets below to form KNOWN_TAGS for typo checks.
+ */
+export const OTHER_TAGS = [
+  'afternoon',
+  'aperitif',
+  'basil',
+  'beer',
+  'black-walnut',
+  'blackberry',
+  'cardamom',
+  'cherry',
+  'chocolate',
+  'cinnamon',
+  'classic-cocktail',
+  'coffee',
+  'crowd-pleaser',
+  'cucumber',
+  'dessert',
+  'dessert-drink',
+  'digestif',
+  'fall',
+  'fennel',
+  'fizz',
+  'low-abv',
+  'manhattan',
+  'margarita',
+  'mint',
+  'mocktail',
+  'modern-classic',
+  'negroni',
+  'orange-juice',
+  'polished-recipe',
+  'raspberry',
+  'rosemary',
+  'sidecar-original',
+  'sour',
+  'spring',
+  'strawberry',
+  'summer',
+  'ten-bottle-bar',
+  'tiki',
+  'winter',
+] as const;
+
+/** Every tag allowed on a drink — classified kinds + OTHER_TAGS. */
+export const KNOWN_TAGS = [
+  ...SPIRIT_TAGS,
+  ...AMARO_TAGS,
+  ...LIQUEUR_TAGS,
+  ...VERMOUTH_TAGS,
+  ...BITTERS_TAGS,
+  ...MISC_TAGS,
+  ...SYRUP_TAGS,
+  ...FLAVOR_TAGS,
+  ...CITRUS_TAGS,
+  ...TECHNIQUE_TAGS,
+  ...OTHER_TAGS,
+] as const;
+
+/**
  * Order used when choosing a single prep-method label for a drink that may
  * have more than one technique tag.
  */
