@@ -4,9 +4,9 @@ html {
 
 body {
   margin: 0;
-  color: var(--white);
+  color: var(--text-primary);
   background-repeat: no-repeat;
-  background-color: var(--gray-dark);
+  background-color: var(--bg-body);
   background-image: url(/images/paisley-left.svg);
   background-size: 300px;
   background-position: left calc(100vh - 515px);
@@ -41,7 +41,7 @@ h1,
 h2,
 h3 {
   color: var(--gray-4);
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-weight: 400;
 }
 
@@ -94,3 +94,36 @@ hr {
 .footnote a {
   color: inherit;
 }
+
+/* Kevin Powell layout utilities */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_stack-gap, 1rem);
+}
+
+.prose > * + * {
+  margin-block-start: var(--_prose-flow, 1em);
+}
+
+.pile {
+  display: grid;
+  grid-template-areas: 'pile';
+  place-items: center;
+
+  > * {
+    grid-area: pile;
+  }
+}
+/*
+  andy bell flow & stack https://piccalil.li/blog/my-favourite-3-lines-of-css/
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.prose :is(h2 + *, h3 + *, h4 + *) {
+  --flow-space: var(--space-s);
+}
+*/

@@ -1,0 +1,18 @@
+@layer theme {
+  :root {
+    --white: var(--GRAY-1);
+    --black: var(--GRAY-15);
+
+    --text-primary: var(--GRAY-4);
+    --text-secondary: var(--GRAY-6);
+    --text-accent: var(--ORANGE);
+
+    --bg-body: var(--GRAY-12);
+    --bg-card: var(--GRAY-12);
+    --bg-card-accent: var(--GRAY-13);
+    --bg-tile: var(--GRAY-12);
+
+    --font-display: var(--FONT-SERIF);
+    --font-body: var(--FONT-SANS-SERIF);
+  }
+}

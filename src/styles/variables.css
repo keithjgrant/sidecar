@@ -27,8 +27,10 @@
 
   --border-radius: 0.3em;
 
-  --font-heading: Playfair Display, serif;
-  --font-body: Lato, sans-serif;
+  --font-heading: EB Garamond, Playfair Display, serif;
+  --font-body: Josefin Sans, Lato, sans-serif;
+
+  --font-display: var(--font-heading);
 
   /* stylelint-disable unit-whitelist */
   --fill-height: calc(100vh - 70px);

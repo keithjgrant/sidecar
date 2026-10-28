@@ -41,8 +41,8 @@ const Body = styled.div`
   background-color: var(--card-bg);
   background-image: linear-gradient(
     to right,
-    hsl(315, 3.2%, 23%),
-    var(--gray-2)
+    var(--bg-card-accent),
+    var(--bg-card)
   );
 
   @media (min-width: 30em) {
@@ -180,7 +180,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
     <Main className="h-recipe">
       <Body>
         <CocktailImage drink={drink} imageData={imageData} />
-        <Content>
+        <Content className="stack">
           <TitleRow>
             <Title className="p-name">{drink.title}</Title>
             <BrowserFavorite>
@@ -200,7 +200,10 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
           />
           <DrinkSubstitutions drink={drink} />
           <div className="e-instructions">
-            <div dangerouslySetInnerHTML={{ __html: drink.content ?? '' }} />
+            <div
+              className="prose"
+              dangerouslySetInnerHTML={{ __html: drink.content ?? '' }}
+            />
           </div>
           {drink.date ? (
             <PublishDate>

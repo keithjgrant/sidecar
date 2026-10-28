@@ -1,0 +1,53 @@
+@layer reset, theme, base, layout, modules, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: unset;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  img,
+  picture,
+  svg,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  /* TODO: radio? textarea? 
+    see Eric Meyer's opt-in list: https://meyerweb.com/eric/tools/css/reset/
+  */
+  *:not(dialog) {
+    margin: unset;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/*
+andy bell: https://piccalil.li/blog/a-more-modern-css-reset/
+
+great list of resets: https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+*/

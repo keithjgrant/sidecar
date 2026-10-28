@@ -4,7 +4,7 @@ const PageHeading = styled.h1<{ bleed?: boolean }>`
   align-self: stretch;
   text-align: left;
   font-size: 2rem;
-  color: var(--gray-8);
+  color: var(--text-secondary);
 
   ${(props) =>
     !props.bleed &&
