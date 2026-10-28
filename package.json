@@ -19,6 +19,8 @@
     "test:run": "vitest run"
   },
   "dependencies": {
+    "@fontsource/eb-garamond": "^5.3.0",
+    "@fontsource/josefin-sans": "^5.3.0",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.16.1",
     "gatsby-plugin-catch-links": "^5.16.0",
@@ -36,10 +38,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
-    "styled-components": "^6.5.3",
-    "typeface-eb-garamond": "^1.1.13",
-    "typeface-josefin-sans": "^1.1.13",
-    "typeface-lato": "^1.1.13"
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
     "@types/react": "^18.3.31",
@@ -48,5 +47,10 @@
     "gray-matter": "^4.0.3",
     "typescript": "^7.0.2",
     "vitest": "^5.0.3"
+  },
+  "overrides": {
+    "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
+      "react": "$react"
+    }
   }
 }

@@ -12,7 +12,6 @@ import styled from 'styled-components';
 import type { Drink } from '../../types';
 
 const Main = styled.main`
-  padding-top: 2rem;
   margin: 0;
   line-height: 1.2;
 
@@ -35,9 +34,9 @@ const Main = styled.main`
 
 const Body = styled.div`
   max-width: 40em;
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  color: var(--white);
+  color: var(--text-primary);
   background-color: var(--card-bg);
   background-image: linear-gradient(
     to right,
@@ -46,14 +45,10 @@ const Body = styled.div`
   );
 
   @media (min-width: 30em) {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 1.62fr;
     padding: 1em 1em 1em 2em;
   }
 
   @media (min-width: 40em) {
-    grid-gap: 2rem;
     padding: 1em 2em;
   }
 `;
@@ -179,7 +174,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
   return (
     <Main className="h-recipe">
       <Body>
-        <CocktailImage drink={drink} imageData={imageData} />
+        {/* <CocktailImage drink={drink} imageData={imageData} /> */}
         <Content className="stack">
           <TitleRow>
             <Title className="p-name">{drink.title}</Title>

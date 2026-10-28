@@ -6,7 +6,6 @@ const Ingredients = styled.ul`
   margin-top: 0.3em;
   padding: 0.5em 0.5em 0.5em 1.5em;
   border-bottom: 1px solid var(--gray-4);
-  font-style: italic;
   list-style-type: none;
 `;
 

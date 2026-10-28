@@ -22,7 +22,6 @@
     --GRAY-14: oklch(20% 0.006 63.3);
     --GRAY-15: oklch(16% 0.004 63.3);
     --GRAY-16: oklch(10% 0.003 63.3);
-    --GRAY: var(--GRAY-5);
 
     /* --SLATE-1: oklch(98% 0.004 273);
     --SLATE-2: oklch(97% 0.008 273);
@@ -58,7 +57,6 @@
     --ORANGE-14: oklch(20.1% 0.056 55.6);
     --ORANGE-15: oklch(16% 0.044 57.4);
     --ORANGE-16: oklch(10.1% 0.03 50.8);
-    --ORANGE: var(--ORANGE-5);
 
     --INDIGO-1: oklch(97.8% 0.011 263);
     --INDIGO-2: oklch(96.6% 0.018 260);
@@ -76,7 +74,6 @@
     --INDIGO-14: oklch(20% 0.062 273);
     --INDIGO-15: oklch(16% 0.048 273);
     --INDIGO-16: oklch(10% 0.035 273);
-    --INDIGO: var(--INDIGO-5);
 
     --CYAN-1: oklch(98% 0.02 209);
     --CYAN-2: oklch(96.8% 0.04 201);
@@ -94,16 +91,15 @@
     --CYAN-14: oklch(20.6% 0.05 220);
     --CYAN-15: oklch(16.4% 0.039 219);
     --CYAN-16: oklch(10.4% 0.026 222);
-    --CYAN: var(--CYAN-5);
 
     /* https://fontalternatives.com/pairings/eb-garamond-and-josefin-sans/ */
     --FONT-SERIF: EB Garamond, serif;
     --FONT-SANS-SERIF: Josefin Sans, sans-serif;
 
-    --SPACE-XS: 3px;
-    --SPACE-SM: 6px;
-    --SPACE-MD: 12px;
-    --SPACE-LG: 24px;
-    --SPACE-XL: 48px;
+    --SIZE-XS: 3px;
+    --SIZE-SM: 6px;
+    --SIZE-MD: 12px;
+    --SIZE-LG: 24px;
+    --SIZE-XL: 48px;
   }
 }

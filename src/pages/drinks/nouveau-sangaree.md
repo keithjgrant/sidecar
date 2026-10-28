@@ -2,7 +2,7 @@
 title: "Nouveau Sangaree"
 path: "/drinks/nouveau-sangaree"
 date: 2020-05-08T14:05:37-08:00
-glass: coupe
+glass: wine
 sweetness: 2
 booziness: 2
 family: highball

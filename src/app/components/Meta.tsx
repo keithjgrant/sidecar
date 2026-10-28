@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-// @ts-expect-error untyped font packages
-import 'typeface-eb-garamond';
-// @ts-expect-error untyped font packages
-import 'typeface-lato';
-// @ts-expect-error untyped font packages
-import 'typeface-josefin-sans';
+import '@fontsource/eb-garamond';
+import '@fontsource/josefin-sans/300.css';
 
 interface MetaTag {
   name?: string;
