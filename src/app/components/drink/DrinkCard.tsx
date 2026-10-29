@@ -102,7 +102,7 @@ const Content = styled.div`
 
 const TitleRow = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
 `;
@@ -147,9 +147,8 @@ const BrowserFavorite = styled.div`
 `;
 
 const Intro = styled.div`
-  padding-bottom: 1em;
   border-bottom: 1px solid var(--gray-4);
-  color: var(--gray-7);
+  color: var(--text-secondary);
 `;
 
 const PublishDate = styled.div`
@@ -188,11 +187,13 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
               <Markdown>{drink.intro}</Markdown>
             </Intro>
           ) : null}
+          <hr />
           <IngredientList
             items={drink.ingredients}
             garnish={drink.garnish}
             isBeneathIntro={!!drink.intro}
           />
+          <hr />
           <DrinkSubstitutions drink={drink} />
           <div className="e-instructions">
             <div

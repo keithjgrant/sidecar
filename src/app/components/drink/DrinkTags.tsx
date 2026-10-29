@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { getTagKind } from '../../config/tagTaxonomy';
 
 const Tags = styled.ul`
-  margin: 0.5em -0.5em 0 0;
+  margin-block: -0.5em 0;
   padding-left: 0;
   list-style-type: none;
 
@@ -18,18 +19,19 @@ const Tags = styled.ul`
 `;
 
 const Tag = styled.li`
+  --_tag-color: var(--text-secondary);
+
   & > a,
   & > button {
-    position: relative;
     display: block;
-    padding: 0.15em 0.3em 0.2em 1.4em;
+    padding: 3px 6px 0px;
     background: transparent;
-    color: var(--brand-primary);
+    color: var(--_tag-color);
     font-family: inherit;
     font-weight: 400;
     font-size: 0.8rem;
-    border-radius: 0.8em 0.2em 0.2em 0.8em;
-    border: 1px solid var(--gray-6);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--_tag-color);
     text-decoration: none;
     cursor: pointer;
 
@@ -38,15 +40,15 @@ const Tag = styled.li`
     }
   }
 
-  & > a::before {
-    position: absolute;
-    content: '';
-    left: 0.5em;
-    top: 0.6em;
-    border-radius: 50%;
-    height: 4px;
-    width: 4px;
-    border: 1px solid var(--gray-6);
+  &.tag--spirit {
+    --_tag-color: var(--accent-orange);
+  }
+  &.tag--syrup {
+    --_tag-color: var(--accent-indigo);
+  }
+  &.tag--flavor,
+  &.tag--citrus {
+    --_tag-color: var(--accent-cyan);
   }
 `;
 
@@ -69,7 +71,7 @@ export default function DrinkTags({ tags = [] }: DrinkTagsProps) {
   return (
     <Tags>
       {shownTags.map((tag) => (
-        <Tag key={tag}>
+        <Tag key={tag} className={`tag--${getTagKind(tag)}`}>
           <Link to={`/tags/${tag}`}>{tag}</Link>
         </Tag>
       ))}

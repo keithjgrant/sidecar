@@ -20,6 +20,7 @@
     --font-body: var(--FONT-SANS-SERIF);
 
     --border-radius: var(--SIZE-MD);
+    --border-radius-sm: var(--SIZE-SM);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
   }
 }

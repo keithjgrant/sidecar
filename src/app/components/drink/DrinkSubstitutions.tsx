@@ -13,7 +13,6 @@ import { useSettings } from '../../storage/settings';
 import Bottles from '../svg/Bottles';
 
 const Wrap = styled.div`
-  padding-block-end: 1em;
   border-bottom: 1px solid var(--gray-4);
   color: var(--gray-7);
   font-size: 0.9rem;
@@ -85,23 +84,26 @@ export default function DrinkSubstitutions({ drink }: DrinkSubstitutionsProps) {
   }
 
   return (
-    <Wrap>
-      <Header>
-        <Chip
-          to="/my-bar"
-          title="Ingredient swaps from bottles in your bar"
-          aria-label="Ingredient swaps from bottles in your bar. Open My Bar to adjust."
-        >
-          <Bottles />
-          My Bar
-        </Chip>
-        &nbsp;Possible substitutions:
-      </Header>
-      <List>
-        {substitutions.map((sub) => (
-          <Item key={sub.required}>{formatSubstitutionSentence(sub)}</Item>
-        ))}
-      </List>
-    </Wrap>
+    <>
+      <Wrap>
+        <Header>
+          <Chip
+            to="/my-bar"
+            title="Ingredient swaps from bottles in your bar"
+            aria-label="Ingredient swaps from bottles in your bar. Open My Bar to adjust."
+          >
+            <Bottles />
+            My Bar
+          </Chip>
+          &nbsp;Possible substitutions:
+        </Header>
+        <List>
+          {substitutions.map((sub) => (
+            <Item key={sub.required}>{formatSubstitutionSentence(sub)}</Item>
+          ))}
+        </List>
+      </Wrap>
+      <hr />
+    </>
   );
 }

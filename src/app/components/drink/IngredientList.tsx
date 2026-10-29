@@ -3,9 +3,7 @@ import InlineMarkdown from '../InlineMarkdown';
 import styled from 'styled-components';
 
 const Ingredients = styled.ul`
-  margin-top: 0.3em;
   padding: 0.5em 0.5em 0.5em 1.5em;
-  border-bottom: 1px solid var(--gray-4);
   list-style-type: none;
 `;
 
