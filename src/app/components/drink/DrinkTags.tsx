@@ -40,15 +40,23 @@ const Tag = styled.li`
     }
   }
 
-  &.tag--spirit {
+  &.tag--other {
+    --_tag-color: var(--accent-cyan);
+  }
+
+  &.tag--spirit,
+  &.tag--liqueur,
+  &.tag--amaro {
     --_tag-color: var(--accent-orange);
+
+    ~ .tag--other {
+      --_tag-color: var(--text-secondary);
+    }
   }
-  &.tag--syrup {
-    --_tag-color: var(--accent-indigo);
-  }
+  &.tag--syrup,
   &.tag--flavor,
   &.tag--citrus {
-    --_tag-color: var(--accent-cyan);
+    --_tag-color: var(--accent-indigo);
   }
 `;
 

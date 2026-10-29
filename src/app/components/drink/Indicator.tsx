@@ -5,6 +5,7 @@ export const Indicator = styled.figure`
   text-align: center;
 
   & svg {
+    display: revert;
     height: 25px;
   }
 `;
@@ -12,7 +13,7 @@ export const Indicator = styled.figure`
 export const Caption = styled.figcaption`
   text-align: center;
   text-transform: uppercase;
-  color: var(--gray-8);
+  color: var(--_tab-label-color);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
 `;

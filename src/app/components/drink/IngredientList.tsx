@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Ingredients = styled.ul`
   padding: 0.5em 0.5em 0.5em 1.5em;
   list-style-type: none;
+  line-height: 1.4;
 `;
 
 const Ingredient = styled.li`
@@ -15,7 +16,7 @@ const Ingredient = styled.li`
     top: 0.15em;
     left: -0.9em;
     content: '• ';
-    color: var(--brand-primary);
+    color: var(--accent-orange);
     line-height: 1;
   }
 `;
@@ -30,7 +31,7 @@ const Garnish = styled(Ingredient)`
 
 const Label = styled.span`
   margin-right: 0.4em;
-  color: var(--brand-primary);
+  color: var(--accent-orange);
   font-size: 0.64em;
   font-weight: bold;
   text-transform: uppercase;

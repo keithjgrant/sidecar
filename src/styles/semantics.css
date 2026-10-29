@@ -6,6 +6,7 @@
     --text-primary: var(--GRAY-3);
     --text-secondary: var(--GRAY-6);
     --text-accent: var(--ORANGE-5);
+    --text-alt: var(--ORANGE-3);
 
     --bg-body: var(--GRAY-12);
     --bg-card: var(--GRAY-12);
@@ -14,7 +15,7 @@
 
     --accent-orange: var(--ORANGE-5);
     --accent-indigo: var(--INDIGO-5);
-    --accent-cyan: var(--CYAN-5);
+    --accent-cyan: var(--CYAN-4);
 
     --font-display: var(--FONT-SERIF);
     --font-body: var(--FONT-SANS-SERIF);
@@ -22,5 +23,7 @@
     --border-radius: var(--SIZE-MD);
     --border-radius-sm: var(--SIZE-SM);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
+
+    --font-size-sm: 0.8em;
   }
 }

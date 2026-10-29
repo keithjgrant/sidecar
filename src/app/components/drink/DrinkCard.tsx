@@ -12,7 +12,7 @@ import styled from 'styled-components';
 import type { Drink } from '../../types';
 
 const Main = styled.main`
-  margin: 0;
+  margin: 0 0.2rem;
   line-height: 1.2;
 
   @media (min-width: 25em) {
@@ -26,18 +26,15 @@ const Main = styled.main`
   @media (min-width: 40em) {
     display: flex;
   }
-
-  @media (display-mode: standalone) {
-    padding-top: 0;
-  }
 `;
 
 const Body = styled.div`
   max-width: 40em;
+  padding: 1.2rem 1rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   color: var(--text-primary);
-  background-color: var(--card-bg);
+  background-color: var(--bg-card);
   background-image: linear-gradient(
     to right,
     var(--bg-card-accent),
@@ -55,14 +52,16 @@ const Body = styled.div`
 
 const Tabs = styled.div`
   display: flex;
+  margin-inline-start: 0.4rem;
+  --_tab-label-color: var(--text-secondary);
 
   > * {
-    margin-left: 0.2em;
-    border: 1px solid var(--gray-4);
+    margin-inline-start: 0.2rem;
+    border: 1px solid var(--border-color);
     border-top-width: 0;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    padding: 0.5em;
-    background-color: var(--gray-2);
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+    padding: 0.5em 0.2em 0.2em;
+    background-color: var(--bg-card);
   }
 
   > :empty {
@@ -83,26 +82,9 @@ const Tabs = styled.div`
   }
 `;
 
-const Content = styled.div`
-  display: flex;
-  grid-column: 2;
-  flex-direction: column;
-  margin-top: 1.2rem;
-  padding: 0 1em 1em;
-
-  .e-instructions {
-    flex-grow: 1;
-  }
-
-  @media (min-width: 30em) {
-    margin-top: 0;
-    padding: 0;
-  }
-`;
-
 const TitleRow = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
 `;
@@ -111,20 +93,20 @@ const Title = styled.h1`
   position: relative;
   flex: 1;
   min-width: 0;
-  margin-top: 0;
-  color: var(--white);
+  margin-block-end: 0.8em;
+  color: var(--text-alt);
   font-weight: normal;
   font-size: 1.8rem;
-  line-height: 1.1;
+  line-height: 1.2;
 
   &::after {
     position: absolute;
-    bottom: -0.5em;
+    bottom: -0.3em;
     left: 0;
     content: '';
-    width: 3em;
-    height: 4px;
-    background-color: var(--brand-primary);
+    width: calc(100% - 2em);
+    height: 1.5px;
+    background-color: var(--accent-orange);
   }
 
   @media (min-width: 35em) {
@@ -152,9 +134,9 @@ const Intro = styled.div`
 `;
 
 const PublishDate = styled.div`
-  margin-top: 2rem;
-  color: var(--gray-6);
-  font-size: 0.8rem;
+  margin-top: 1em;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
   text-align: right;
 `;
 
@@ -172,41 +154,37 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
 
   return (
     <Main className="h-recipe">
-      <Body>
+      <Body className="stack">
         {/* <CocktailImage drink={drink} imageData={imageData} /> */}
-        <Content className="stack">
-          <TitleRow>
-            <Title className="p-name">{drink.title}</Title>
-            <BrowserFavorite>
-              <FavoriteButton drinkName={drinkName} />
-            </BrowserFavorite>
-          </TitleRow>
-          <DrinkTags tags={drink.tags} />
-          {drink.intro ? (
-            <Intro className="p-summary">
-              <Markdown>{drink.intro}</Markdown>
-            </Intro>
-          ) : null}
-          <hr />
-          <IngredientList
-            items={drink.ingredients}
-            garnish={drink.garnish}
-            isBeneathIntro={!!drink.intro}
-          />
-          <hr />
-          <DrinkSubstitutions drink={drink} />
-          <div className="e-instructions">
-            <div
-              className="prose"
-              dangerouslySetInnerHTML={{ __html: drink.content ?? '' }}
-            />
-          </div>
-          {drink.date ? (
-            <PublishDate>
-              <time className="dt-published">Published {drink.date}</time>
-            </PublishDate>
-          ) : null}
-        </Content>
+        <TitleRow>
+          <Title className="p-name">{drink.title}</Title>
+          <BrowserFavorite>
+            <FavoriteButton drinkName={drinkName} />
+          </BrowserFavorite>
+        </TitleRow>
+        <DrinkTags tags={drink.tags} />
+        {drink.intro ? (
+          <Intro className="p-summary">
+            <Markdown>{drink.intro}</Markdown>
+          </Intro>
+        ) : null}
+        <hr />
+        <IngredientList
+          items={drink.ingredients}
+          garnish={drink.garnish}
+          isBeneathIntro={!!drink.intro}
+        />
+        <hr />
+        <DrinkSubstitutions drink={drink} />
+        <div
+          className="prose e-instructions"
+          dangerouslySetInnerHTML={{ __html: drink.content ?? '' }}
+        ></div>
+        {drink.date ? (
+          <PublishDate>
+            <time className="dt-published">Published {drink.date}</time>
+          </PublishDate>
+        ) : null}
       </Body>
       <Tabs>
         <div>

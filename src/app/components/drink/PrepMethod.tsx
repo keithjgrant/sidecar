@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { PREP_METHOD_PRIORITY } from '../../config/tagTaxonomy';
 
 const Label = styled.div`
-  margin-top: 28px;
+  margin-top: 30px;
   text-align: center;
   text-transform: uppercase;
-  color: var(--gray-8);
+  color: var(--_tab-label-color);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
 

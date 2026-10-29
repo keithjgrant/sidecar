@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.footer`
+  margin-block-start: var(--SIZE-XL);
   padding: 1rem;
-  border-top: 1px solid var(--gray-4);
-  color: var(--gray-6);
+  border-top: 1px solid var(--GRAY-10);
+  color: var(--text-secondary);
   font-size: 0.8rem;
 
   a {

@@ -11,7 +11,7 @@ const Button = styled.button`
   padding: 1rem 1.8rem 0.9rem;
   border: 0;
   background: transparent;
-  color: var(--brand-primary);
+  color: var(--accent-orange);
   cursor: pointer;
 
   &:hover {
