@@ -131,6 +131,7 @@ const BrowserFavorite = styled.div`
 const Intro = styled.div`
   border-bottom: 1px solid var(--gray-4);
   color: var(--text-secondary);
+  font-style: italic;
 `;
 
 const PublishDate = styled.div`

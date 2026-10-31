@@ -24,7 +24,8 @@ const Tag = styled.li`
   & > a,
   & > button {
     display: block;
-    padding: 3px 6px 0px;
+    padding: 4px 6px;
+    text-box: trim-both cap alphabetic;
     background: transparent;
     color: var(--_tag-color);
     font-family: inherit;

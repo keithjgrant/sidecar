@@ -3,27 +3,60 @@
     /* --white: var(--GRAY-1);
     --black: var(--GRAY-15); */
 
+    /* Text */
     --text-primary: var(--GRAY-3);
     --text-secondary: var(--GRAY-6);
     --text-accent: var(--ORANGE-5);
     --text-alt: var(--ORANGE-3);
 
+    /* Backgrounds */
     --bg-body: var(--GRAY-12);
     --bg-card: var(--GRAY-12);
     --bg-card-accent: var(--GRAY-13);
     --bg-tile: var(--GRAY-12);
 
+    /* Accents and links */
     --accent-orange: var(--ORANGE-5);
     --accent-indigo: var(--INDIGO-5);
     --accent-cyan: var(--CYAN-4);
 
+    --success: ;
+    --warning: ;
+    --danger: ;
+    --info: ;
+
+    /* Fonts */
     --font-display: var(--FONT-SERIF);
     --font-body: var(--FONT-SANS-SERIF);
+    --font-code: var(--FONT-MONO);
 
+    --font-weight: 400;
+    --font-weight--bold: 700;
+    --font-weight--light: 300;
+
+    --font-size-sm: 0.8rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.4rem;
+
+    /* Borders and spacing*/
     --border-radius: var(--SIZE-MD);
     --border-radius-sm: var(--SIZE-SM);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
 
-    --font-size-sm: 0.8em;
+    --padding-sm: var(--SIZE-SM);
+    --padding-md: var(--SIZE-MD);
+    --padding-lg: var(--SIZE-LG);
+    --padding-xl: var(--SIZE-XL);
+
+    /* Motion */
+    --ease-in: ;
+    --ease-out: ;
+    --ease-linear: ;
+
+    /* Charts */
+    --chart-color-1: var(--GRAY-4);
+    --chart-color-2: var(--GRAY-7);
+    --chart-color-3: var(--GRAY-10);
   }
 }

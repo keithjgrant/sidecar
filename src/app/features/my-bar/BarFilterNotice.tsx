@@ -18,10 +18,9 @@ export const Chip = styled(Link)`
   align-items: center;
   gap: 0.35em;
   padding: 0.2em 0.55em 0.2em 0.4em;
-  border: 1px solid var(--gray-4);
-  border-radius: var(--border-radius);
-  background: var(--gray-dark);
-  color: var(--gray-7);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   line-height: 1.2;
   text-decoration: none;
@@ -39,7 +38,7 @@ export const Chip = styled(Link)`
 `;
 
 const SeeLink = styled(Link)`
-  color: var(--gray-6, #8a8588);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   text-decoration: underline;
   text-underline-offset: 0.15em;

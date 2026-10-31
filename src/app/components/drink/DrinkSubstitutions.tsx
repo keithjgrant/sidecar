@@ -13,8 +13,7 @@ import { useSettings } from '../../storage/settings';
 import Bottles from '../svg/Bottles';
 
 const Wrap = styled.div`
-  border-bottom: 1px solid var(--gray-4);
-  color: var(--gray-7);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.35;
 `;
@@ -35,7 +34,7 @@ const List = styled.ul`
 
 const Item = styled.li`
   &::marker {
-    color: var(--brand-primary);
+    color: var(--accent-orange);
   }
 `;
 
