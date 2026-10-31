@@ -116,6 +116,11 @@ hr {
     grid-area: pile;
   }
 }
+
+.container {
+  padding: var(--padding-md);
+}
+
 /*
   andy bell flow & stack https://piccalil.li/blog/my-favourite-3-lines-of-css/
 

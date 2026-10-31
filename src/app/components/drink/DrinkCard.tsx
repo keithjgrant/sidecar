@@ -37,7 +37,7 @@ const Body = styled.div`
   background-color: var(--bg-card);
   background-image: linear-gradient(
     to right,
-    var(--bg-card-accent),
+    color-mix(in oklch, var(--bg-card) 20%, black),
     var(--bg-card)
   );
 

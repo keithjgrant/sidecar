@@ -43,7 +43,7 @@ export const SPIRIT_PARENTS: Record<string, string> = {
   'apple-brandy': 'brandy',
 };
 
-const LIQUEUR_PARENTS: Record<string, string> = {
+export const LIQUEUR_PARENTS: Record<string, string> = {
   'triple-sec': 'orange-liqueur',
   curacao: 'orange-liqueur',
   'dry-curacao': 'orange-liqueur',

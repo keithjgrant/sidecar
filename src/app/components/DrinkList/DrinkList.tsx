@@ -15,22 +15,18 @@ const ID_PREFIX = 'alpha-drink';
 
 const List = styled.ul`
   margin: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
   list-style-type: none;
 
   @media (min-width: 30em) {
     display: grid;
-    grid-gap: 1em;
+    grid-gap: var(--padding-md);
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   }
 `;
 
 const AlphaList = styled.div`
-  padding-right: ${ALPHA_INDEX_GUTTER};
-`;
-
-const LetterSection = styled.section`
-  margin-bottom: 1em;
+  padding-inline-end: ${ALPHA_INDEX_GUTTER};
 `;
 
 interface DrinkListProps {
@@ -47,9 +43,7 @@ export default function DrinkList({
 }: DrinkListProps) {
   const sorted = sortDrinks(drinks, sortBy);
   const groups =
-    sortBy === 'name'
-      ? groupByAlphaLetter(sorted, (drink) => drink.title)
-      : [];
+    sortBy === 'name' ? groupByAlphaLetter(sorted, (drink) => drink.title) : [];
   const letters = groups.map((group) => group.letter);
   const useAlpha =
     sortBy === 'name' && shouldUseAlphaIndex(sorted.length, letters.length);
@@ -68,18 +62,17 @@ export default function DrinkList({
   return (
     <>
       {!sorted.length ? (
-        <p style={{ padding: '0 1em' }}>No drinks matched your query</p>
+        <div className="container">
+          <p>No drinks matched your query</p>
+        </div>
       ) : null}
       {useAlpha ? (
-        <AlphaList>
+        <AlphaList className="stack">
           {groups.map(({ letter, items }) => (
-            <LetterSection
-              key={letter}
-              id={sectionIdForLetter(ID_PREFIX, letter)}
-            >
+            <section key={letter} id={sectionIdForLetter(ID_PREFIX, letter)}>
               <LetterHeading>{letter}</LetterHeading>
               <List>{items.map(renderDrink)}</List>
-            </LetterSection>
+            </section>
           ))}
           <AlphaIndex letters={letters} idPrefix={ID_PREFIX} />
         </AlphaList>

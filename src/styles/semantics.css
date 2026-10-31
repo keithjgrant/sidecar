@@ -12,8 +12,9 @@
     /* Backgrounds */
     --bg-body: var(--GRAY-12);
     --bg-card: var(--GRAY-12);
-    --bg-card-accent: var(--GRAY-13);
-    --bg-tile: var(--GRAY-12);
+    --bg-card--secondary: var(--GRAY-13);
+    --bg-tile: var(--GRAY-14);
+    --bg-tile--secondary: var(--GRAY-13);
 
     /* Accents and links */
     --accent-orange: var(--ORANGE-5);
@@ -44,6 +45,7 @@
     --border-radius-sm: var(--SIZE-SM);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
 
+    --padding-xs: var(--SIZE-XS);
     --padding-sm: var(--SIZE-SM);
     --padding-md: var(--SIZE-MD);
     --padding-lg: var(--SIZE-LG);
