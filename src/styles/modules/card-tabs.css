@@ -1,0 +1,33 @@
+@layer modules {
+  .card-tabs {
+    display: flex;
+    margin-inline-start: 0.4rem;
+    --_card-tabs--label-color: var(--text-secondary);
+
+    > * {
+      margin-inline-start: 0.2rem;
+      border: 1px solid var(--border-color);
+      border-top-width: 0;
+      border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+      padding: 0.5em 0.2em 0.2em;
+      background-color: var(--bg-card);
+    }
+
+    > :empty {
+      display: none;
+    }
+
+    @media (min-width: 40em) {
+      flex-direction: column;
+      margin: 1em 0;
+
+      > * {
+        margin-left: 0;
+        margin-top: 0.2em;
+        border-top-width: 1px;
+        border-left: 0;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      }
+    }
+  }
+}

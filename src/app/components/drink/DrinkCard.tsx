@@ -11,77 +11,6 @@ import FavoriteButton from '../../features/favorites/FavoriteButton';
 import styled from 'styled-components';
 import type { Drink } from '../../types';
 
-const Main = styled.main`
-  margin: 0 0.2rem;
-  line-height: 1.2;
-
-  @media (min-width: 25em) {
-    margin: 0 1em 1em;
-  }
-
-  @media (min-width: 30em) {
-    margin: 3rem 1rem;
-  }
-
-  @media (min-width: 40em) {
-    display: flex;
-  }
-`;
-
-const Body = styled.div`
-  max-width: 40em;
-  padding: 1.2rem 1rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  color: var(--text-primary);
-  background-color: var(--bg-card);
-  background-image: linear-gradient(
-    to right,
-    color-mix(in oklch, var(--bg-card) 80%, black 20%),
-    var(--bg-card)
-  );
-
-  @media (min-width: 30em) {
-    padding: 1em 1em 1em 2em;
-  }
-
-  @media (min-width: 40em) {
-    padding: 1em 2em;
-  }
-`;
-
-const Tabs = styled.div`
-  display: flex;
-  margin-inline-start: 0.4rem;
-  --_tab-label-color: var(--text-secondary);
-
-  > * {
-    margin-inline-start: 0.2rem;
-    border: 1px solid var(--border-color);
-    border-top-width: 0;
-    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
-    padding: 0.5em 0.2em 0.2em;
-    background-color: var(--bg-card);
-  }
-
-  > :empty {
-    display: none;
-  }
-
-  @media (min-width: 40em) {
-    flex-direction: column;
-    margin: 1em 0;
-
-    > * {
-      margin-left: 0;
-      margin-top: 0.2em;
-      border-top-width: 1px;
-      border-left: 0;
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    }
-  }
-`;
-
 const TitleRow = styled.div`
   display: flex;
   align-items: baseline;
@@ -94,7 +23,6 @@ const Title = styled.h1`
   flex: 1;
   min-width: 0;
   margin-block-end: 0.8em;
-  color: var(--text-alt);
   font-weight: normal;
   font-size: 1.8rem;
   line-height: 1.2;
@@ -154,8 +82,8 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
   const drinkName = drink.path.replace('/drinks/', '');
 
   return (
-    <Main className="h-recipe">
-      <Body className="stack">
+    <div className="drink-card h-recipe">
+      <div className="drink-card__body stack">
         {/* <CocktailImage drink={drink} imageData={imageData} /> */}
         <TitleRow>
           <Title className="p-name">{drink.title}</Title>
@@ -186,8 +114,8 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
             <time className="dt-published">Published {drink.date}</time>
           </PublishDate>
         ) : null}
-      </Body>
-      <Tabs>
+      </div>
+      <div className="card-tabs">
         <div>
           <ScaleIndicator value={drink.sweetness} label="Sweetness" />
         </div>
@@ -200,7 +128,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
         <div>
           <PrepMethod tags={drink.tags} />
         </div>
-      </Tabs>
-    </Main>
+      </div>
+    </div>
   );
 }

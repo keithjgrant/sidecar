@@ -25,7 +25,7 @@ export const Indicator = styled.figure`
 export const Caption = styled.figcaption`
   text-align: center;
   text-transform: uppercase;
-  color: var(--_tab-label-color);
+  color: var(--_card-tabs--label-color);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
 `;

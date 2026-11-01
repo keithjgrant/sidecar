@@ -1,3 +1,5 @@
+@import './drink-card.css';
+@import './card-tabs.css';
 @import './typography.css';
 
 @layer modules {

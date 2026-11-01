@@ -1,0 +1,47 @@
+@layer modules {
+  .drink-card {
+    margin: 0 0.2rem;
+    line-height: 1.2;
+
+    @media (min-width: 25em) {
+      margin: 0 1em 1em;
+    }
+
+    @media (min-width: 30em) {
+      margin: 3rem 1rem;
+    }
+
+    @media (min-width: 40em) {
+      display: flex;
+    }
+  }
+
+  .drink-card__body {
+    max-width: 40em;
+    padding: 1.2rem 1rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+    background-image: linear-gradient(
+      to right,
+      color-mix(in oklch, var(--bg-card) 80%, black 20%),
+      var(--bg-card)
+    );
+
+    @media (min-width: 30em) {
+      padding: 1em 1em 1em 2em;
+    }
+
+    @media (min-width: 40em) {
+      padding: 1em 2em;
+    }
+  }
+
+  .drink-card__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+}
