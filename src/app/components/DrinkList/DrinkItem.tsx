@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import CocktailThumbnail from './CocktailThumbnail';
 import type { Drink } from '../../types';
 import type { IGatsbyImageData } from 'gatsby-plugin-image';
-import DrinkTags from '../drink/DrinkTags';
 import { getTagKind } from '../../config/tagTaxonomy';
-import { SPIRIT_TAGS } from '../../config/tagTaxonomy';
 import { SPIRIT_PARENTS, LIQUEUR_PARENTS } from '../../config/barConfig';
 import glasses from '../svg/glasses';
 
@@ -19,6 +16,7 @@ const PreviewLink = styled(Link)`
   height: 100%;
   border: 1px solid var(--border-color);
   background: var(--bg-card);
+  color: inherit;
   text-decoration: none;
 
   &:hover {
@@ -64,9 +62,8 @@ const TagPreview = styled.ul`
   font-size: var(--font-size-sm);
 
   & > li {
-    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-sm);
-    padding: var(--padding-xs);
+    padding: 0 var(--space-xxs);
     text-box: trim-both cap alphabetic;
   }
 `;
@@ -77,7 +74,8 @@ export interface DrinkItemProps {
 
 const LIST_TAG_KINDS = ['spirit', 'liqueur', 'amaro', 'vermouth', 'citrus'];
 export default function DrinkItem({ drink, image }: DrinkItemProps) {
-  const tags = drink.tags.filter((tag) => {
+  // console.log(drink);
+  const tags = (drink.tags ?? []).filter((tag) => {
     if (!LIST_TAG_KINDS.includes(getTagKind(tag))) {
       return false;
     }
@@ -102,10 +100,9 @@ export default function DrinkItem({ drink, image }: DrinkItemProps) {
           <DrinkName>{drink.title}</DrinkName>
           <TagPreview>
             {tags.map((tag) => (
-              <li key={tag}>{tag}</li>
+              <li key={tag}>{tag.replaceAll('-', ' ')}</li>
             ))}
           </TagPreview>
-          {/* <DrinkTags tags={tags} /> */}
         </div>
       </PreviewLink>
     </li>

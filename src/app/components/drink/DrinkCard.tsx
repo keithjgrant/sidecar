@@ -37,7 +37,7 @@ const Body = styled.div`
   background-color: var(--bg-card);
   background-image: linear-gradient(
     to right,
-    color-mix(in oklch, var(--bg-card) 20%, black),
+    color-mix(in oklch, var(--bg-card) 80%, black 20%),
     var(--bg-card)
   );
 
@@ -165,7 +165,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
         </TitleRow>
         <DrinkTags tags={drink.tags} />
         {drink.intro ? (
-          <Intro className="p-summary">
+          <Intro className="p-summary prose">
             <Markdown>{drink.intro}</Markdown>
           </Intro>
         ) : null}

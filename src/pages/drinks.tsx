@@ -13,7 +13,9 @@ interface DrinksPageProps {
   };
 }
 
-export default function DrinksPage({ data: { drinks, images } }: DrinksPageProps) {
+export default function DrinksPage({
+  data: { drinks, images },
+}: DrinksPageProps) {
   const imageMap: Record<string, unknown> = {};
   if (images && images.edges) {
     images.edges.forEach(({ node: { name, childImageSharp } }) => {
@@ -45,11 +47,6 @@ export const pageQuery = graphql`
             glass
             family
             tags
-            image {
-              url
-              alt
-              align
-            }
           }
         }
       }

@@ -4,9 +4,14 @@ import styled from 'styled-components';
 const Wrapper = styled.footer`
   margin-block-start: var(--SIZE-XL);
   padding: 1rem;
-  border-top: 1px solid var(--GRAY-10);
-  color: var(--text-secondary);
+  color: var(--text-subtle);
   font-size: 0.8rem;
+  background-color: var(--bg-card--secondary);
+  background-image: linear-gradient(
+    to bottom,
+    var(--bg-card),
+    var(--bg-card--secondary)
+  );
 
   a {
     color: inherit;

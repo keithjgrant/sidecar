@@ -6,14 +6,16 @@
     /* Text */
     --text-primary: var(--GRAY-3);
     --text-secondary: var(--GRAY-6);
+    --text-subtle: var(--GRAY-9);
     --text-accent: var(--ORANGE-5);
     --text-alt: var(--ORANGE-3);
 
     /* Backgrounds */
+    /* TODO names? --bg-well? */
     --bg-body: var(--GRAY-12);
     --bg-card: var(--GRAY-12);
     --bg-card--secondary: var(--GRAY-13);
-    --bg-tile: var(--GRAY-14);
+    --bg-tile: var(--GRAY-11);
     --bg-tile--secondary: var(--GRAY-13);
 
     /* Accents and links */
@@ -45,6 +47,8 @@
     --border-radius-sm: var(--SIZE-SM);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
 
+    --space-xxs: 3px;
+    /* TODO Rename space-* */
     --padding-xs: var(--SIZE-XS);
     --padding-sm: var(--SIZE-SM);
     --padding-md: var(--SIZE-MD);
