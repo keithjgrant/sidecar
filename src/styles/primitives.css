@@ -23,24 +23,6 @@
     --GRAY-15: oklch(16% 0.004 63.3);
     --GRAY-16: oklch(10% 0.003 63.3);
 
-    /* --SLATE-1: oklch(98% 0.004 273);
-    --SLATE-2: oklch(97% 0.008 273);
-    --SLATE-3: oklch(93% 0.013 273);
-    --SLATE-4: oklch(84% 0.015 273);
-    --SLATE-5: oklch(80% 0.02 273);
-    --SLATE-6: oklch(71% 0.024 273);
-    --SLATE-7: oklch(66% 0.025 273);
-    --SLATE-8: oklch(58% 0.026 273);
-    --SLATE-9: oklch(53% 0.025 273);
-    --SLATE-10: oklch(49% 0.024 273);
-    --SLATE-11: oklch(42% 0.021 273);
-    --SLATE-12: oklch(35% 0.019 273);
-    --SLATE-13: oklch(27% 0.015 273);
-    --SLATE-14: oklch(20% 0.011 273);
-    --SLATE-15: oklch(16% 0.009 273);
-    --SLATE-16: oklch(10% 0.006 273);
-    --SLATE: var(--SLATE-5); */
-
     --ORANGE-1: oklch(97.9% 0.019 68.2);
     --ORANGE-2: oklch(96.4% 0.036 74.4);
     --ORANGE-3: oklch(92.6% 0.066 66.9);
@@ -96,10 +78,11 @@
     --FONT-SERIF: EB Garamond, serif;
     --FONT-SANS-SERIF: Josefin Sans, sans-serif;
 
-    --SIZE-XS: 5px;
-    --SIZE-SM: 7px;
-    --SIZE-MD: 12px;
-    --SIZE-LG: 24px;
-    --SIZE-XL: 48px;
+    --SIZE-XS: 3px;
+    --SIZE-SM: 5px;
+    --SIZE-MD: 7px;
+    --SIZE-LG: 12px;
+    --SIZE-XL: 24px;
+    --SIZE-XXL: 48px;
   }
 }

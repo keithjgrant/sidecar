@@ -11,51 +11,6 @@ import FavoriteButton from '../../features/favorites/FavoriteButton';
 import styled from 'styled-components';
 import type { Drink } from '../../types';
 
-const TitleRow = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-`;
-
-const Title = styled.h1`
-  position: relative;
-  flex: 1;
-  min-width: 0;
-  margin-block-end: 0.8em;
-  font-weight: normal;
-  font-size: 1.8rem;
-  line-height: 1.2;
-
-  &::after {
-    position: absolute;
-    bottom: -0.3em;
-    left: 0;
-    content: '';
-    width: calc(100% - 2em);
-    height: 1.5px;
-    background-color: var(--accent-orange);
-  }
-
-  @media (min-width: 35em) {
-    font-size: 2.6rem;
-  }
-`;
-
-const BrowserFavorite = styled.div`
-  flex-shrink: 0;
-  margin: -0.35rem -0.5rem 0 0;
-
-  @media (display-mode: standalone) {
-    /* hides because installed PWA shows favorite button in PwaHeader */
-    display: none;
-  }
-
-  button {
-    padding: 0.35rem 0.5rem;
-  }
-`;
-
 const Intro = styled.div`
   border-bottom: 1px solid var(--gray-4);
   color: var(--text-secondary);
@@ -84,13 +39,12 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
   return (
     <div className="drink-card h-recipe">
       <div className="drink-card__body stack">
-        {/* <CocktailImage drink={drink} imageData={imageData} /> */}
-        <TitleRow>
-          <Title className="p-name">{drink.title}</Title>
-          <BrowserFavorite>
+        <div className="drink-card__header">
+          <h1 className="p-name">{drink.title}</h1>
+          <div className="drink-card__icon">
             <FavoriteButton drinkName={drinkName} />
-          </BrowserFavorite>
-        </TitleRow>
+          </div>
+        </div>
         <DrinkTags tags={drink.tags} />
         {drink.intro ? (
           <Intro className="p-summary prose">

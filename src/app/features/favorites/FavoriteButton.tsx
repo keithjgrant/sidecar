@@ -6,23 +6,6 @@ import Star from '../../components/svg/Star';
 import { useFavorite } from '../../storage/favorites';
 import { click } from '../../lib/haptic';
 
-const Button = styled.button`
-  display: inline-block;
-  padding: 1rem 1.8rem 0.9rem;
-  border: 0;
-  background: transparent;
-  color: var(--accent-orange);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--white);
-  }
-
-  & svg {
-    height: 1.2rem;
-  }
-`;
-
 interface FavoriteButtonProps {
   drinkName: string;
 }
@@ -39,9 +22,9 @@ export default function FavoriteButton({ drinkName }: FavoriteButtonProps) {
   };
   return (
     <>
-      <Button onClick={onClick} type="button">
+      <button className="favorite-button" onClick={onClick} type="button">
         <Star isFilled={isFavorite} />
-      </Button>
+      </button>
       <Toast
         message={
           message && (

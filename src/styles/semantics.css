@@ -40,29 +40,37 @@
     --font-size-sm: 0.8rem;
     --font-size-md: 1rem;
     --font-size-lg: 1.2rem;
-    --font-size-xl: 1.4rem;
+    --font-size-xl: 1.8rem;
 
     /* Borders and spacing*/
-    --border-radius: var(--SIZE-MD);
-    --border-radius-sm: var(--SIZE-SM);
+    --border-radius: var(--SIZE-LG);
+    --border-radius-sm: var(--SIZE-MD);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
 
-    --space-xxs: 3px;
+    --space-xs: var(--SIZE-XS);
+    --space-sm: var(--SIZE-SM);
+    --space-md: var(--SIZE-MD);
+    --space-lg: var(--SIZE-LG);
+    --space-xl: var(--SIZE-XL);
+    --space-xxl: var(--SIZE-XXL);
+
     /* TODO Rename space-* */
-    --padding-xs: var(--SIZE-XS);
-    --padding-sm: var(--SIZE-SM);
-    --padding-md: var(--SIZE-MD);
-    --padding-lg: var(--SIZE-LG);
-    --padding-xl: var(--SIZE-XL);
+    --padding-xs: var(--SIZE-SM);
+    --padding-sm: var(--SIZE-MD);
+    --padding-md: var(--SIZE-LG);
+    --padding-lg: var(--SIZE-XL);
+    --padding-xl: var(--SIZE-XXL);
 
     /* Motion */
-    --ease-in: ;
-    --ease-out: ;
-    --ease-linear: ;
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    --ease-linear: linear;
 
     /* Charts */
     --chart-color-1: var(--GRAY-4);
     --chart-color-2: var(--GRAY-7);
     --chart-color-3: var(--GRAY-10);
+
+    --box-shadow: 2px 4px 6px var(--GRAY-13);
   }
 }

@@ -42,6 +42,35 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: var(--space-md);
+
+    & > h1 {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      margin-block-end: 0.8em;
+      font-weight: normal;
+      font-size: var(--font-size-xl);
+
+      &::after {
+        position: absolute;
+        bottom: -0.3em;
+        left: 0;
+        content: '';
+        width: calc(100% - 2em);
+        height: 1.5px;
+        background-color: var(--accent-orange);
+      }
+
+      @media (min-width: 35em) {
+        font-size: 2.6rem;
+      }
+    }
+  }
+
+  .drink-card__icon {
+    flex-shrink: 0;
+    /* flush icon to right side of drink-card header */
+    margin-inline-end: calc(var(--space-sm) * -1);
   }
 }

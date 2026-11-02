@@ -2,13 +2,15 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const FillPath = styled.path<{ $isFilled?: boolean }>`
-  transition: transform 0.2s var(--ease-out-cubic);
+  --_star--ease-in: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --_star--ease-out: var(--ease-out);
+  transition: transform 0.2s var(--_star--ease-out);
   transform-origin: center;
 
   ${(props) =>
     props.$isFilled
       ? css`
-          transition: transform 0.2s var(--ease-out-back);
+          transition: transform 0.2s var(--_star--ease-in);
         `
       : ''}
 `;

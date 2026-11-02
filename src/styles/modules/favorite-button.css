@@ -1,0 +1,18 @@
+@layer modules {
+  .favorite-button {
+    display: inline-block;
+    padding: var(--space-sm);
+    border: 0;
+    background: transparent;
+    color: var(--accent-orange);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+
+    & svg {
+      height: 1.2em;
+    }
+  }
+}
