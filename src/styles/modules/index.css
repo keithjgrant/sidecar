@@ -5,6 +5,8 @@
 @import './toast.css';
 @import './drink-tags.css';
 @import './ingredient-list.css';
+@import './drink-substitutions.css';
+@import './bar-filter-notice.css';
 
 @layer modules {
   .button {

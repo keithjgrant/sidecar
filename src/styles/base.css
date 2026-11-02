@@ -57,6 +57,14 @@
     user-select: none;
   }
 
+  select,
+  option,
+  input[type='checkbox'],
+  input[type='radio'],
+  button {
+    cursor: pointer;
+  }
+
   svg {
     fill: currentColor;
     height: 1em;

@@ -1,8 +1,6 @@
 import React, { useMemo } from 'react';
-import styled from 'styled-components';
+import { Link } from 'gatsby';
 import type { Drink } from '../../types';
-/* TODO css only : relocate somewhere */
-import { Chip } from '../../features/my-bar/BarFilterNotice';
 import {
   getDrinkSubstitutions,
   type ActiveSubstitution,
@@ -11,32 +9,6 @@ import { formatBarLabel } from '../../lib/formatBarLabel';
 import { useBar } from '../../storage/bar';
 import { useSettings } from '../../storage/settings';
 import Bottles from '../svg/Bottles';
-
-const Wrap = styled.div`
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.35;
-`;
-
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5em 0.65em;
-  margin-bottom: 0.35em;
-`;
-
-const List = styled.ul`
-  margin: 0;
-  padding: 0 0 0 1.25em;
-  list-style: disc;
-`;
-
-const Item = styled.li`
-  &::marker {
-    color: var(--accent-orange);
-  }
-`;
 
 /** Join labels as "A", "A or B", or "A, B, or C". */
 export function formatOrList(items: string[]): string {
@@ -84,24 +56,25 @@ export default function DrinkSubstitutions({ drink }: DrinkSubstitutionsProps) {
 
   return (
     <>
-      <Wrap>
-        <Header>
-          <Chip
+      <div className="drink-substitutions">
+        <div className="drink-substitutions__header">
+          <Link
+            className="bar-filter-chip"
             to="/my-bar"
             title="Ingredient swaps from bottles in your bar"
             aria-label="Ingredient swaps from bottles in your bar. Open My Bar to adjust."
           >
             <Bottles />
             My Bar
-          </Chip>
-          &nbsp;Possible substitutions:
-        </Header>
-        <List>
+          </Link>
+          Possible substitutions:
+        </div>
+        <ul>
           {substitutions.map((sub) => (
-            <Item key={sub.required}>{formatSubstitutionSentence(sub)}</Item>
+            <li key={sub.required}>{formatSubstitutionSentence(sub)}</li>
           ))}
-        </List>
-      </Wrap>
+        </ul>
+      </div>
       <hr />
     </>
   );
