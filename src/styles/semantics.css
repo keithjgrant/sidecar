@@ -72,5 +72,11 @@
     --chart-color-3: var(--GRAY-10);
 
     --box-shadow: 2px 4px 6px var(--GRAY-13);
+
+    /* Sidecar-specific */
+    --footer-height: 70px;
+    @media (width >= 450) {
+      --footer-height: 55px;
+    }
   }
 }

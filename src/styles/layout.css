@@ -22,4 +22,46 @@
   .container {
     padding: var(--padding-md);
   }
+
+  @keyframes page-in {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes page-back {
+    from {
+      transform: none;
+    }
+    to {
+      transform: translateX(100vw);
+    }
+  }
+  .page-animation-wrapper {
+    @media (display-mode: standalone) {
+      &.in {
+        animation: page-in 0.2s var(--ease-in);
+        animation-fill-mode: forwards;
+        transform-origin: center 40vh;
+      }
+    }
+
+    &.out {
+      animation: page-back 0.2s var(--ease-out);
+      animation-fill-mode: forwards;
+    }
+  }
+  html:has(.page-animation-wrapper.out) {
+    overflow-x: clip;
+  }
+
+  .grow-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh + var(--footer-height));
+  }
 }

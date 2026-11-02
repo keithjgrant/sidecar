@@ -1,40 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-
-const inAnimation = keyframes`
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-`;
-
-const backAnimation = keyframes`
-  from {
-    transform: none;
-  }
-  to {
-    transform: translateX(100vw);
-  }
-`;
-
-const Wrapper = styled.div`
-  @media (display-mode: standalone) {
-    &.in {
-      animation: ${inAnimation} 0.2s ease-in;
-      animation-fill-mode: forwards;
-      transform-origin: center 40vh;
-    }
-  }
-
-  &.out {
-    animation: ${backAnimation} 0.2s var(--ease-out-cubic);
-    animation-fill-mode: forwards;
-  }
-`;
 
 interface AnimationContext {
   animateOut: () => Promise<void>;
@@ -116,9 +80,9 @@ export default function PageAnimationWrapper({
         },
       }}
     >
-      <Wrapper className={className} ref={ref}>
+      <div className={`page-animation-wrapper ${className || ''}`} ref={ref}>
         {children}
-      </Wrapper>
+      </div>
     </Context.Provider>
   );
 }

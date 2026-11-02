@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PageAnimationWrapper from '../PageAnimationWrapper';
-import GrowWrapper from './GrowWrapper';
 import Header from '../header/Header';
 import PwaHeader from '../header/PwaHeader';
 import PageHeading from '../PageHeading';
@@ -29,10 +28,13 @@ interface DrinkListLayoutProps {
   children: React.ReactNode;
 }
 
-export default function DrinkListLayout({ title, children }: DrinkListLayoutProps) {
+export default function DrinkListLayout({
+  title,
+  children,
+}: DrinkListLayoutProps) {
   return (
     <PageAnimationWrapper>
-      <GrowWrapper>
+      <div className="grow-wrapper">
         <PwaHeader title={title} />
         <Header />
         <Main>
@@ -40,7 +42,7 @@ export default function DrinkListLayout({ title, children }: DrinkListLayoutProp
           {children}
         </Main>
         <Footer />
-      </GrowWrapper>
+      </div>
     </PageAnimationWrapper>
   );
 }

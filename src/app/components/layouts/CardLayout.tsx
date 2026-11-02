@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PageAnimationWrapper from '../PageAnimationWrapper';
-import GrowWrapper from './GrowWrapper';
 import PwaHeader from '../header/PwaHeader';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
 import Header from '../header/Header';
@@ -23,15 +22,19 @@ interface CardLayoutProps {
   children: React.ReactNode;
 }
 
-export default function CardLayout({ drinkName, footerContent, children }: CardLayoutProps) {
+export default function CardLayout({
+  drinkName,
+  footerContent,
+  children,
+}: CardLayoutProps) {
   return (
     <PageAnimationWrapper>
-      <GrowWrapper>
+      <div className="grow-wrapper">
         <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
         <Header />
         <ContentWrapper>{children}</ContentWrapper>
         <Footer content={footerContent} />
-      </GrowWrapper>
+      </div>
     </PageAnimationWrapper>
   );
 }
