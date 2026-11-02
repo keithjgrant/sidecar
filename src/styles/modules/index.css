@@ -1,8 +1,10 @@
+@import './typography.css';
 @import './drink-card.css';
 @import './card-tabs.css';
 @import './favorite-button.css';
 @import './toast.css';
-@import './typography.css';
+@import './drink-tags.css';
+@import './ingredient-list.css';
 
 @layer modules {
   .button {

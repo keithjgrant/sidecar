@@ -73,4 +73,11 @@
     /* flush icon to right side of drink-card header */
     margin-inline-end: calc(var(--space-sm) * -1);
   }
+
+  .drink-card__date {
+    margin-block-start: var(--space-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    text-align: end;
+  }
 }

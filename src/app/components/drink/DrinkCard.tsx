@@ -1,6 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import CocktailImage from './CocktailImage';
+// import CocktailImage from './CocktailImage'; // TODO?
 import DrinkTags from './DrinkTags';
 import ScaleIndicator from './ScaleIndicator';
 import PrepMethod from './PrepMethod';
@@ -8,21 +8,7 @@ import GlassType from './GlassType';
 import IngredientList from './IngredientList';
 import DrinkSubstitutions from './DrinkSubstitutions';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
-import styled from 'styled-components';
 import type { Drink } from '../../types';
-
-const Intro = styled.div`
-  border-bottom: 1px solid var(--gray-4);
-  color: var(--text-secondary);
-  font-style: italic;
-`;
-
-const PublishDate = styled.div`
-  margin-top: 1em;
-  color: var(--text-secondary);
-  font-size: var(--font-size-sm);
-  text-align: right;
-`;
 
 interface DrinkCardProps {
   drink: Drink;
@@ -47,16 +33,12 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
         </div>
         <DrinkTags tags={drink.tags} />
         {drink.intro ? (
-          <Intro className="p-summary prose">
+          <div className="drink-intro prose p-summary">
             <Markdown>{drink.intro}</Markdown>
-          </Intro>
+          </div>
         ) : null}
         <hr />
-        <IngredientList
-          items={drink.ingredients}
-          garnish={drink.garnish}
-          isBeneathIntro={!!drink.intro}
-        />
+        <IngredientList items={drink.ingredients} garnish={drink.garnish} />
         <hr />
         <DrinkSubstitutions drink={drink} />
         <div
@@ -64,9 +46,9 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
           dangerouslySetInnerHTML={{ __html: drink.content ?? '' }}
         ></div>
         {drink.date ? (
-          <PublishDate>
+          <div className="drink-card__date">
             <time className="dt-published">Published {drink.date}</time>
-          </PublishDate>
+          </div>
         ) : null}
       </div>
       <div className="card-tabs">
