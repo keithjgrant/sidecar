@@ -59,7 +59,7 @@
         content: '';
         width: calc(100% - 2em);
         height: 1.5px;
-        background-color: var(--accent-orange);
+        background-color: var(--accent-brand);
       }
 
       @media (min-width: 35em) {

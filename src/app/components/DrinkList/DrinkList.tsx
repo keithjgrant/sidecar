@@ -20,7 +20,7 @@ const List = styled.ul`
 
   @media (min-width: 30em) {
     display: grid;
-    grid-gap: var(--padding-md);
+    grid-gap: var(--space-lg);
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   }
 `;

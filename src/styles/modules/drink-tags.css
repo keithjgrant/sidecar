@@ -30,13 +30,13 @@
     }
 
     & [data-tag-type='other'] {
-      --_tag-color: var(--accent-cyan);
+      --_tag-color: var(--accent-secondary);
     }
 
     & [data-tag-type='spirit'],
     & [data-tag-type='liqueur'],
     & [data-tag-type='amaro'] {
-      --_tag-color: var(--accent-orange);
+      --_tag-color: var(--accent-brand);
 
       ~ li[data-tag-type='other'] {
         --_tag-color: var(--text-secondary);
@@ -46,7 +46,7 @@
     & [data-tag-type='syrup'],
     & [data-tag-type='flavor'],
     & [data-tag-type='citrus'] {
-      --_tag-color: var(--accent-indigo);
+      --_tag-color: var(--accent-tertiary);
     }
   }
 

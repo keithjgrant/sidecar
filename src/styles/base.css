@@ -35,7 +35,7 @@
     transition: none;
   }
   a:active {
-    color: var(--accent-indigo);
+    color: var(--accent-brand-tertiary);
   }
 
   h1,

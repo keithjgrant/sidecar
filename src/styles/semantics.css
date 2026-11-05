@@ -11,7 +11,11 @@
     --text-alt: var(--ORANGE-3);
 
     /* Backgrounds */
-    /* TODO names? --bg-well? */
+    /*
+      TODO names?
+      --bg-deep, --bg-deeper
+      --bg-shallow, --bg-shallower
+     */
     --bg-body: var(--GRAY-12);
     --bg-card: var(--GRAY-12);
     --bg-card--secondary: var(--GRAY-13);
@@ -19,11 +23,11 @@
     --bg-tile--secondary: var(--GRAY-13);
 
     /* Accents and links */
-    --accent-orange: var(--ORANGE-5);
-    --accent-indigo: var(--INDIGO-5);
-    --accent-cyan: var(--CYAN-4);
+    --accent-brand: var(--ORANGE-5);
+    --accent-brand-secondary: var(--CYAN-4);
+    --accent-brand-tertiary: var(--INDIGO-5);
 
-    --success: ;
+    --success: ; /* TODO bg, text, border ? */
     --warning: ;
     --danger: ;
     --info: ;
@@ -53,13 +57,6 @@
     --space-lg: var(--SIZE-LG);
     --space-xl: var(--SIZE-XL);
     --space-xxl: var(--SIZE-XXL);
-
-    /* TODO Rename space-* */
-    --padding-xs: var(--SIZE-SM);
-    --padding-sm: var(--SIZE-MD);
-    --padding-md: var(--SIZE-LG);
-    --padding-lg: var(--SIZE-XL);
-    --padding-xl: var(--SIZE-XXL);
 
     /* Motion */
     --ease-in: cubic-bezier(0.32, 0, 0.67, 0);

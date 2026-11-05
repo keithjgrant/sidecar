@@ -12,7 +12,7 @@ const PreviewLink = styled(Link)`
   --heading-size: 1rem;
   display: flex;
   align-items: start;
-  gap: var(--padding-md);
+  gap: var(--space-lg);
   height: 100%;
   border: 1px solid var(--border-color);
   background: var(--bg-card);
@@ -57,7 +57,7 @@ const TagPreview = styled.ul`
   padding-inline-start: unset;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--padding-sm);
+  gap: var(--space-md);
   color: var(--text-accent);
   font-size: var(--font-size-sm);
 

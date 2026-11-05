@@ -20,7 +20,7 @@
   }
 
   .container {
-    padding: var(--padding-md);
+    padding: var(--space-lg);
   }
 
   @keyframes page-in {

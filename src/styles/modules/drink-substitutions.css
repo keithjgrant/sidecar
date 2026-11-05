@@ -11,7 +11,7 @@
     }
 
     & li::marker {
-      color: var(--accent-orange);
+      color: var(--accent-brand);
     }
 
     .drink-substitutions__header {
