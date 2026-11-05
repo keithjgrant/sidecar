@@ -25,11 +25,13 @@ interface SimpleListLayoutProps {
   children: React.ReactNode;
 }
 
-export default function SimpleListLayout({ title, children }: SimpleListLayoutProps) {
+export default function SimpleListLayout({
+  title,
+  children,
+}: SimpleListLayoutProps) {
   return (
     <PageAnimationWrapper>
       <PwaHeader title={title} />
-      <Header />
       <Main>
         <Heading>All Tags</Heading>
         {children}

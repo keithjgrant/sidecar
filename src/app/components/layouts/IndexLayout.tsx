@@ -40,7 +40,6 @@ export default function IndexLayout({ title, children }: IndexLayoutProps) {
     <PageAnimationWrapper>
       <div className="grow-wrapper">
         <PwaHeader title={title} />
-        <Header />
         <Main>
           <IndexGrid>{children}</IndexGrid>
         </Main>

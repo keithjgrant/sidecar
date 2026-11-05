@@ -68,7 +68,6 @@ export default function ArticleLayout({ title, children }: ArticleLayoutProps) {
     <PageAnimationWrapper>
       <div className="grow-wrapper">
         <PwaHeader title={title} />
-        <Header />
         <Main className="stack">
           <Article>
             <Heading>{title}</Heading>

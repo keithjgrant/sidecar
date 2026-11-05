@@ -32,7 +32,6 @@ export default function CardLayout({
     <PageAnimationWrapper>
       <div className="grow-wrapper">
         <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
-        <Header />
         <ContentWrapper>{children}</ContentWrapper>
         <Footer content={footerContent} />
         <Nav />

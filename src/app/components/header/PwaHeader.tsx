@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import BackButton from './BackButton';
 
 const HeaderBar = styled.header`
-  display: none;
+  display: grid;
   position: sticky;
   top: 0;
   background-image: linear-gradient(
@@ -14,19 +14,15 @@ const HeaderBar = styled.header`
   z-index: 1;
   padding-bottom: 1rem;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+  align-items: baseline;
   background-color: transparent;
   color: var(--brand-primary);
-
-  @media (display-mode: standalone) {
-    display: grid;
-  }
 `;
 
 const Title = styled.h1`
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: inherit;
-  color: var(--gray-8);
+  color: var(--text-primary);
   font-family: var(--font-body);
 `;
 
@@ -51,7 +47,6 @@ export default function PwaHeader({ title, controls }: PwaHeaderProps) {
         <BackButton />
       </Left>
       {title ? <Title>{title}</Title> : null}
-      <Right>{controls}</Right>
     </HeaderBar>
   );
 }

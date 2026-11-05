@@ -37,11 +37,7 @@ export default function DrinkListLayout({
     <PageAnimationWrapper>
       <div className="grow-wrapper">
         <PwaHeader title={title} />
-        <Header />
-        <Main className="stack">
-          <Heading>{title}</Heading>
-          {children}
-        </Main>
+        <Main className="stack">{children}</Main>
         <Footer />
         <Nav />
       </div>
