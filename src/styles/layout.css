@@ -59,6 +59,7 @@
     overflow-x: clip;
   }
 
+  /* deprecated? */
   .grow-wrapper {
     display: flex;
     flex-direction: column;

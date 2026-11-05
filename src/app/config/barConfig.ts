@@ -11,7 +11,7 @@ import {
 } from './tagTaxonomy';
 
 /**
- * Taxonomy tags kept for drinks / Ten Bottle Bar / Help Me Decide, but omitted
+ * Taxonomy tags kept for drinks / Ten Bottle Bar / Find a Drink, but omitted
  * from My Bar inventory and makeability requirements.
  */
 export const BAR_EXCLUDED_TAGS = new Set(['meyer-lemon', 'special-syrup']);

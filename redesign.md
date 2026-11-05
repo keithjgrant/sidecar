@@ -2,7 +2,7 @@
 [] unified nav
   - home
   - drinks
-  - help me decide
+  - find a drink
   - tags
   - favorites
   - my bar
@@ -23,3 +23,4 @@
 [] remove date except in "recents" list
 [] review typography (fix synthetic italics)
   - https://css-tricks.com/taming-typography-modern-css-reset/
+[] dead code cleanup

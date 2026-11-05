@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import NavDrink from '../svg/NavDrink';
+import NavCompass from '../svg/NavCompass';
 import NavTag from '../svg/NavTag';
 import NavBottles from '../svg/NavBottles';
 import NavStar from '../svg/NavStar';
-import NavHamburger from '../svg/NavHamburger';
 
 const Navbar = styled.nav`
   display: flex;
@@ -75,6 +75,7 @@ const NavItem = styled.span`
 
 const links = [
   { to: '/drinks', label: 'Drinks', Icon: NavDrink },
+  { to: '/find-a-drink', label: 'Find a Drink', Icon: NavCompass },
   { to: '/tags', label: 'Tags', Icon: NavTag },
   { to: '/my-bar', label: 'My Bar', Icon: NavBottles },
   { to: '/favorites', label: 'Favorites', Icon: NavStar },
