@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import PageAnimationWrapper from '../PageAnimationWrapper';
 import PwaHeader from '../header/PwaHeader';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
-import Header from '../header/Header';
 import Nav from '../header/Nav';
 import Footer from '../Footer';
 
@@ -29,13 +27,11 @@ export default function CardLayout({
   children,
 }: CardLayoutProps) {
   return (
-    <PageAnimationWrapper>
-      <div className="grow-wrapper">
-        <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
-        <ContentWrapper>{children}</ContentWrapper>
-        <Footer content={footerContent} />
-        <Nav />
-      </div>
-    </PageAnimationWrapper>
+    <div className="grow-wrapper">
+      <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
+      <ContentWrapper>{children}</ContentWrapper>
+      <Footer content={footerContent} />
+      <Nav />
+    </div>
   );
 }

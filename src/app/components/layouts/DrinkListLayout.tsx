@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PageAnimationWrapper from '../PageAnimationWrapper';
-import Header from '../header/Header';
 import Nav from '../header/Nav';
 import PwaHeader from '../header/PwaHeader';
 import PageHeading from '../PageHeading';
@@ -34,13 +32,11 @@ export default function DrinkListLayout({
   children,
 }: DrinkListLayoutProps) {
   return (
-    <PageAnimationWrapper>
-      <div className="grow-wrapper">
-        <PwaHeader title={title} />
-        <Main className="stack">{children}</Main>
-        <Footer />
-        <Nav />
-      </div>
-    </PageAnimationWrapper>
+    <div className="grow-wrapper">
+      <PwaHeader title={title} />
+      <Main className="stack">{children}</Main>
+      <Footer />
+      <Nav />
+    </div>
   );
 }
