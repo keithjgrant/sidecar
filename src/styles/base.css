@@ -1,10 +1,14 @@
 @layer base {
+  /* TODO:
+    https://css-tricks.com/taming-typography-modern-css-reset/
+    https://fokus.dev/tools/uaplus/
+  */
   html {
     min-height: 100vh;
   }
 
   body {
-    margin: 0;
+    margin: unset;
     color: var(--text-primary);
     background-repeat: no-repeat;
     background-color: var(--bg-body);

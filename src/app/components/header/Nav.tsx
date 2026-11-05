@@ -9,7 +9,7 @@ import NavHamburger from '../svg/NavHamburger';
 
 const Navbar = styled.nav`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: stretch;
   gap: 0.25rem;
   margin: 0;
@@ -26,14 +26,14 @@ const Navbar = styled.nav`
 
 const itemStyles = `
   display: flex;
-  flex: 1;
+  flex: 0 1 50px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
   min-width: 0;
   padding: 0.35rem 0.25rem;
-  color: var(--text-subtle);
+  color: var(--text-primar);
   font-size: 0.65rem;
   font-weight: bold;
   line-height: 1.1;
@@ -64,7 +64,8 @@ const NavLink = styled(Link)`
 
   &:hover,
   &.active {
-    color: var(--accent-brand);
+    background-color: var(--GRAY-15);
+    border-radius: 25px;
   }
 `;
 
@@ -81,11 +82,16 @@ const links = [
 
 export default function Nav() {
   return (
-    <Navbar aria-label="Primary">
+    <Navbar aria-label="Primary" className="page-wrapper__nav">
       {links.map(({ to, label, Icon }) => (
-        <NavLink key={to} to={to} activeClassName="active" partiallyActive>
+        <NavLink
+          key={to}
+          to={to}
+          aria-label={label}
+          activeClassName="active"
+          partiallyActive
+        >
           <Icon />
-          <span>{label}</span>
         </NavLink>
       ))}
     </Navbar>

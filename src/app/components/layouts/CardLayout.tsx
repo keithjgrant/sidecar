@@ -27,10 +27,12 @@ export default function CardLayout({
   children,
 }: CardLayoutProps) {
   return (
-    <div className="grow-wrapper">
-      <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
-      <ContentWrapper>{children}</ContentWrapper>
-      <Footer content={footerContent} />
+    <div className="page-wrapper">
+      <div className="page-wrapper__main">
+        <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
+        <ContentWrapper>{children}</ContentWrapper>
+        <Footer content={footerContent} />
+      </div>
       <Nav />
     </div>
   );

@@ -21,3 +21,5 @@
   [] lock-in order of tags & taxonomy types so colors are grouped
 [] incorporate source in footer?
 [] remove date except in "recents" list
+[] review typography (fix synthetic italics)
+  - https://css-tricks.com/taming-typography-modern-css-reset/
