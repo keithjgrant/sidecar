@@ -3,8 +3,8 @@ title: "New York Minute"
 path: "/drinks/new-york-minute"
 date: 2026-10-05T14:38:45-07:00
 glass: coupe
-sweetness:
-booziness:
+sweetness: 2
+booziness: 2
 family: martini
 ingredients: [
   "1¾ oz tequila reposado",
