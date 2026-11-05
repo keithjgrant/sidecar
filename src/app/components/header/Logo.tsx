@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import LogoSvg from './LogoSvg';
 
 const LogoLink = styled(Link)`
+  display: block;
   padding: 0.8rem 0.3rem 0.3rem;
   color: var(--gray-3);
   font-size: 1.6rem;
@@ -53,7 +54,7 @@ interface LogoProps {
 export default function Logo({ isHome }: LogoProps) {
   const content = (
     <LogoLink to="/">
-      <LogoSvg />
+      {/* <LogoSvg /> */}
       Sidecar
     </LogoLink>
   );

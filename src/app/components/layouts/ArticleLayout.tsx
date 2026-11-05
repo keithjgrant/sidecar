@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PageAnimationWrapper from '../PageAnimationWrapper';
 import Header from '../header/Header';
+import Nav from '../header/Nav';
 import PwaHeader from '../header/PwaHeader';
 import Footer from '../Footer';
 
@@ -68,13 +69,14 @@ export default function ArticleLayout({ title, children }: ArticleLayoutProps) {
       <div className="grow-wrapper">
         <PwaHeader title={title} />
         <Header />
-        <Main>
+        <Main className="stack">
           <Article>
             <Heading>{title}</Heading>
             {children}
           </Article>
         </Main>
         <Footer />
+        <Nav />
       </div>
     </PageAnimationWrapper>
   );

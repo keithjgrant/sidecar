@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PageAnimationWrapper from '../PageAnimationWrapper';
 import Header from '../header/Header';
+import Nav from '../header/Nav';
 import PwaHeader from '../header/PwaHeader';
 import Footer from '../Footer';
 
@@ -44,6 +45,7 @@ export default function IndexLayout({ title, children }: IndexLayoutProps) {
           <IndexGrid>{children}</IndexGrid>
         </Main>
         <Footer />
+        <Nav />
       </div>
     </PageAnimationWrapper>
   );

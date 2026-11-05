@@ -4,6 +4,7 @@ import PageAnimationWrapper from '../PageAnimationWrapper';
 import PwaHeader from '../header/PwaHeader';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
 import Header from '../header/Header';
+import Nav from '../header/Nav';
 import Footer from '../Footer';
 
 const ContentWrapper = styled.div`
@@ -34,6 +35,7 @@ export default function CardLayout({
         <Header />
         <ContentWrapper>{children}</ContentWrapper>
         <Footer content={footerContent} />
+        <Nav />
       </div>
     </PageAnimationWrapper>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PageAnimationWrapper from '../PageAnimationWrapper';
 import Header from '../header/Header';
+import Nav from '../header/Nav';
 import PwaHeader from '../header/PwaHeader';
 import PageHeading from '../PageHeading';
 import Footer from '../Footer';
@@ -34,6 +35,7 @@ export default function SimpleListLayout({ title, children }: SimpleListLayoutPr
         {children}
       </Main>
       <Footer />
+      <Nav />
     </PageAnimationWrapper>
   );
 }

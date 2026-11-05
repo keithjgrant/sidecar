@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 const PageHeading = styled.h1<{ bleed?: boolean }>`
   align-self: stretch;
-  text-align: end;
   font-size: 2rem;
   color: var(--text-secondary);
 
