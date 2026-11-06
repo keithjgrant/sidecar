@@ -7,7 +7,7 @@ import NavTag from '../svg/NavTag';
 import NavBottles from '../svg/NavBottles';
 import NavStar from '../svg/NavStar';
 import NavHamburger from '../svg/NavHamburger';
-import useCollapsibleNav, { FLIP_MS } from './useCollapsibleNav';
+import useCollapsibleNav from './useCollapsibleNav';
 
 const Navbar = styled.nav<{ $collapsed: boolean }>`
   display: flex;
@@ -53,7 +53,6 @@ const itemStyles = `
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
-  transition: opacity 0.2s var(--ease-in);
 
   svg {
     width: 1.5rem;
@@ -73,36 +72,9 @@ const itemStyles = `
   }
 `;
 
-const fabStyles = css`
-  position: fixed;
-  left: max(0.75rem, env(safe-area-inset-left, 0px));
-  bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
-  z-index: 11;
-  flex: none;
-  width: 3rem;
-  height: 3rem;
-  padding: 0;
-  gap: 0;
-  border-radius: 50%;
-  background-color: var(--bg-card--secondary);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--box-shadow);
-  pointer-events: auto;
-  color: var(--text-primary);
-  opacity: 0.7;
-
-  svg {
-    width: 1.35rem;
-    height: 1.35rem;
-  }
-`;
-
 const NavLink = styled(Link)<{ $collapsed: boolean }>`
   ${itemStyles}
-  transition:
-    opacity 0.2s var(--ease-out),
-    border-radius ${FLIP_MS}ms var(--ease-out),
-    background-color 0.2s var(--ease-out);
+  transition: opacity 0.2s var(--ease-out);
 
   &:hover,
   &.active {
@@ -113,31 +85,37 @@ const NavLink = styled(Link)<{ $collapsed: boolean }>`
   ${(props) =>
     props.$collapsed &&
     css`
-      &:not(.active) {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      &.active {
-        ${fabStyles}
-        background-color: var(--GRAY-15);
-      }
+      opacity: 0;
+      pointer-events: none;
     `}
 `;
 
 /* FAB - Floating action button */
-const FallbackFab = styled.button<{ $visible: boolean }>`
-  ${fabStyles}
+const FabButton = styled.button<{ $visible: boolean }>`
+  position: fixed;
+  left: max(0.75rem, env(safe-area-inset-left, 0px));
+  bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  z-index: 11;
   display: grid;
-  place-content: center center;
+  place-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--GRAY-15);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  color: var(--text-primary);
   appearance: none;
   cursor: pointer;
   opacity: ${(props) => (props.$visible ? 0.7 : 0)};
-  transform: ${(props) => (props.$visible ? 'scale(1)' : 'scale(0.85)')};
-  transition:
-    opacity 0.25s var(--ease-out),
-    transform 0.25s var(--ease-out);
   pointer-events: ${(props) => (props.$visible ? 'auto' : 'none')};
+  transition: opacity 0.2s var(--ease-out);
+
+  svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
 `;
 
 const links = [
@@ -148,8 +126,19 @@ const links = [
   { to: '/favorites', label: 'Favorites', Icon: NavStar },
 ] as const;
 
+function iconForHref(href: string | null) {
+  if (!href) {
+    return NavHamburger;
+  }
+  const match = links.find(
+    ({ to }) => href === to || href.startsWith(`${to}/`),
+  );
+  return match?.Icon ?? NavHamburger;
+}
+
 export default function Nav() {
-  const { navRef, collapsed, expand, showFallbackFab } = useCollapsibleNav();
+  const { navRef, fabRef, collapsed, expand, activeHref } = useCollapsibleNav();
+  const FabIcon = iconForHref(activeHref);
 
   return (
     <Navbar
@@ -166,26 +155,23 @@ export default function Nav() {
           activeClassName="active"
           partiallyActive
           $collapsed={collapsed}
-          onClick={(event) => {
-            if (collapsed && event.currentTarget.classList.contains('active')) {
-              event.preventDefault();
-              expand();
-            }
-          }}
         >
           <Icon />
         </NavLink>
       ))}
-      <FallbackFab
+      <FabButton
+        ref={fabRef}
         type="button"
         aria-label="Show navigation"
-        aria-hidden={!showFallbackFab}
-        tabIndex={showFallbackFab ? 0 : -1}
-        $visible={showFallbackFab}
-        onClick={expand}
+        aria-hidden={!collapsed}
+        tabIndex={collapsed ? 0 : -1}
+        $visible={collapsed}
+        onClick={() => {
+          void expand();
+        }}
       >
-        <NavHamburger />
-      </FallbackFab>
+        <FabIcon />
+      </FabButton>
     </Navbar>
   );
 }

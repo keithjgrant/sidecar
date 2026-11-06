@@ -15,7 +15,7 @@ const COLLAPSE_MIN_Y = 10;
 const EXPAND_TOP_Y = 0;
 /* after expanding, EXPAND_SUPPRESS_MS delay prevents the header from collapsing immediately */
 const EXPAND_SUPPRESS_MS = 200;
-const FLIP_MS = 500; //320;
+const FLIP_MS = 320;
 const FLIP_EASING = 'cubic-bezier(0.33, 1, 0.68, 1)';
 
 function getScrollTop(target: Document | HTMLElement) {
@@ -46,45 +46,86 @@ function getActiveNavLink(nav: HTMLElement | null) {
   return nav?.querySelector<HTMLAnchorElement>('a.active') ?? null;
 }
 
+function centerDelta(from: DOMRect, to: DOMRect) {
+  return {
+    dx: from.left + from.width / 2 - (to.left + to.width / 2),
+    dy: from.top + from.height / 2 - (to.top + to.height / 2),
+    sx: from.width / Math.max(to.width, 1),
+    sy: from.height / Math.max(to.height, 1),
+  };
+}
+
 export { FLIP_MS };
 
 export default function useCollapsibleNav() {
   const [collapsed, setCollapsed] = useState(false);
-  const [hasActiveLink, setHasActiveLink] = useState(true);
+  const [activeHref, setActiveHref] = useState<string | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
-  const pendingFlip = useRef<DOMRect | null>(null);
+  const fabRef = useRef<HTMLButtonElement | null>(null);
+  const pendingFlipFrom = useRef<DOMRect | null>(null);
   const lastScrollYByTarget = useRef(new WeakMap<EventTarget, number>());
   const suppressCollapseUntil = useRef(0);
 
-  const runFlip = useCallback((nextCollapsed: boolean) => {
+  const collapse = useCallback(() => {
     const active = getActiveNavLink(navRef.current);
-    if (active) {
-      pendingFlip.current = active.getBoundingClientRect();
-    }
-    setHasActiveLink(Boolean(active));
-    setCollapsed(nextCollapsed);
+    pendingFlipFrom.current = active?.getBoundingClientRect() ?? null;
+    setActiveHref(active?.getAttribute('href') ?? null);
+    setCollapsed(true);
   }, []);
 
-  const expand = useCallback(() => {
+  const expand = useCallback(async () => {
     suppressCollapseUntil.current = Date.now() + EXPAND_SUPPRESS_MS;
-    runFlip(false);
-  }, [runFlip]);
+
+    const fab = fabRef.current;
+    const active = getActiveNavLink(navRef.current);
+    let animation: Animation | null = null;
+
+    if (fab && active) {
+      const first = fab.getBoundingClientRect();
+      const last = active.getBoundingClientRect();
+      const { dx, dy, sx, sy } = centerDelta(last, first);
+
+      animation = fab.animate(
+        [
+          { transform: 'none' },
+          { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
+        ],
+        { duration: FLIP_MS, easing: FLIP_EASING, fill: 'forwards' }
+      );
+
+      try {
+        await animation.finished;
+      } catch {
+        // Animation was cancelled (e.g. remount / rapid toggle).
+      }
+    }
+
+    setCollapsed(false);
+
+    // Drop the filled transform only after the FAB has faded out, so it
+    // doesn't snap back to the corner while still visible.
+    if (animation) {
+      window.setTimeout(() => animation.cancel(), 200);
+    }
+  }, []);
 
   useLayoutEffect(() => {
-    const active = getActiveNavLink(navRef.current);
-    const first = pendingFlip.current;
-    if (!active || !first) {
+    if (!collapsed) {
       return;
     }
-    pendingFlip.current = null;
 
-    const last = active.getBoundingClientRect();
-    const dx = first.left - last.left;
-    const dy = first.top - last.top;
-    const sx = first.width / Math.max(last.width, 1);
-    const sy = first.height / Math.max(last.height, 1);
+    const fab = fabRef.current;
+    const first = pendingFlipFrom.current;
+    pendingFlipFrom.current = null;
 
-    active.animate(
+    if (!fab || !first) {
+      return;
+    }
+
+    const last = fab.getBoundingClientRect();
+    const { dx, dy, sx, sy } = centerDelta(first, last);
+
+    fab.animate(
       [
         { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
         { transform: 'none' },
@@ -96,7 +137,7 @@ export default function useCollapsibleNav() {
   useEffect(() => {
     return globalHistory.listen(() => {
       setCollapsed(false);
-      setHasActiveLink(true);
+      setActiveHref(null);
       suppressCollapseUntil.current = 0;
       lastScrollYByTarget.current = new WeakMap();
     });
@@ -108,8 +149,7 @@ export default function useCollapsibleNav() {
       return;
     }
     nav.querySelectorAll<HTMLAnchorElement>('a').forEach((anchor) => {
-      const isActive = anchor.classList.contains('active');
-      if (collapsed && !isActive) {
+      if (collapsed) {
         anchor.setAttribute('aria-hidden', 'true');
         anchor.setAttribute('tabindex', '-1');
       } else {
@@ -131,7 +171,7 @@ export default function useCollapsibleNav() {
 
       if (collapsed) {
         if (y <= EXPAND_TOP_Y) {
-          expand();
+          void expand();
         }
         return;
       }
@@ -143,7 +183,7 @@ export default function useCollapsibleNav() {
       if (Date.now() < suppressCollapseUntil.current) {
         return;
       }
-      runFlip(true);
+      collapse();
     };
 
     document.addEventListener('scroll', onScroll, {
@@ -153,12 +193,13 @@ export default function useCollapsibleNav() {
     return () => {
       document.removeEventListener('scroll', onScroll, { capture: true });
     };
-  }, [collapsed, expand, runFlip]);
+  }, [collapsed, collapse, expand]);
 
   return {
     navRef,
+    fabRef,
     collapsed,
     expand,
-    showFallbackFab: collapsed && !hasActiveLink,
+    activeHref,
   };
 }
