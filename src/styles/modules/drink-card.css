@@ -61,10 +61,6 @@
         height: 1.5px;
         background-color: var(--accent-brand);
       }
-
-      @media (min-width: 35em) {
-        font-size: 2.6rem;
-      }
     }
   }
 

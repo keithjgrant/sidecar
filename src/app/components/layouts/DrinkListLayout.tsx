@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import DesktopHeader from '../header/DesktopHeader';
 import Nav from '../header/Nav';
 import PwaHeader from '../header/PwaHeader';
 import PageHeading from '../PageHeading';
@@ -12,7 +13,7 @@ const Main = styled.main`
   padding-bottom: 2rem;
 
   @media (min-width: 30em) {
-    max-width: 70em;
+    max-width: var(--content-max-width);
   }
 `;
 
@@ -33,6 +34,7 @@ export default function DrinkListLayout({
 }: DrinkListLayoutProps) {
   return (
     <div className="grow-wrapper">
+      <DesktopHeader />
       <PwaHeader title={title} />
       <Main className="stack">{children}</Main>
       <Footer />

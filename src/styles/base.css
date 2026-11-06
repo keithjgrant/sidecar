@@ -4,6 +4,7 @@
     https://fokus.dev/tools/uaplus/
   */
   html {
+    color-scheme: dark light;
     min-height: 100vh;
   }
 

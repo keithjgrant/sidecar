@@ -123,14 +123,15 @@ const links = [
   { to: '/drinks', label: 'Drinks', Icon: NavDrink },
   { to: '/find-a-drink', label: 'Find a Drink', Icon: NavCompass },
   { to: '/tags', label: 'Tags', Icon: NavTag },
-  { to: '/my-bar', label: 'My Bar', Icon: NavBottles },
   { to: '/favorites', label: 'Favorites', Icon: NavStar },
+  { to: '/my-bar', label: 'My Bar', Icon: NavBottles },
 ] as const;
 
 function isActivePath(pathname: string, to: string) {
   return pathname === to || pathname.startsWith(`${to}/`);
 }
 
+// TODO rename MobileNav
 export default function Nav() {
   const { pathname } = useLocation();
   const activeLinkRef = useRef<HTMLElement | null>(null);
@@ -153,9 +154,9 @@ export default function Nav() {
             // Gatsby Link forwards to <a>; types still treat Link as a class instance.
             ref={
               isActive
-                ? ((node: HTMLAnchorElement | null) => {
+                ? (((node: HTMLAnchorElement | null) => {
                     activeLinkRef.current = node;
-                  }) as never
+                  }) as never)
                 : undefined
             }
             to={to}

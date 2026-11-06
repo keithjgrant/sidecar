@@ -1,14 +1,12 @@
 @layer theme {
   :root {
-    /* --white: var(--GRAY-1);
-    --black: var(--GRAY-15); */
-
     /* Text */
     --text-primary: var(--GRAY-3);
     --text-secondary: var(--GRAY-6);
     --text-subtle: var(--GRAY-9);
     --text-accent: var(--ORANGE-5);
     --text-alt: var(--ORANGE-3);
+    --text-inverse: var(--GRAY-14);
 
     /* Backgrounds */
     /*
@@ -17,6 +15,7 @@
       --bg-shallow, --bg-shallower
      */
     --bg-body: var(--GRAY-12);
+    --bg-main: var(--GRAY-12);
     --bg-card: var(--GRAY-12);
     --bg-card--secondary: var(--GRAY-13);
     --bg-tile: var(--GRAY-11);
@@ -38,13 +37,17 @@
     --font-code: var(--FONT-MONO);
 
     --font-weight: 400;
-    --font-weight--bold: 700;
-    --font-weight--light: 300;
+    --font-weight-bold: 700;
+    --font-weight-light: 300;
 
     --font-size-sm: 0.8rem;
     --font-size-md: 1rem;
     --font-size-lg: 1.2rem;
     --font-size-xl: 1.8rem;
+
+    @media (width >= 560px) {
+      --font-size-xl: 2.6rem;
+    }
 
     /* Borders and spacing*/
     --border-radius: var(--SIZE-LG);
@@ -70,7 +73,13 @@
 
     --box-shadow: 2px 4px 6px var(--GRAY-13);
 
-    /* Sidecar-specific */
+    /* layout */
+    --content-max-width: 70em;
+
+    /*
+      Sidecar-specific
+    */
+
     --footer-height: 70px;
     @media (width >= 450) {
       --footer-height: 55px;
