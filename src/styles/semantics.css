@@ -49,7 +49,7 @@
       --font-size-xl: 2.6rem;
     }
 
-    /* Borders and spacing*/
+    /* Borders and spacing */
     --border-radius: var(--SIZE-LG);
     --border-radius-sm: var(--SIZE-MD);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);

@@ -10,34 +10,6 @@ import NavStar from '../svg/NavStar';
 import NavHamburger from '../svg/NavHamburger';
 import useCollapsibleNav from './useCollapsibleNav';
 
-const Navbar = styled.nav<{ $collapsed: boolean }>`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-  gap: 0.25rem;
-  margin: 0;
-  padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background-color: var(--bg-card--secondary);
-  border-top: 1px solid var(--border-color);
-  transition:
-    background-color 0.25s var(--ease-out),
-    border-color 0.25s var(--ease-out);
-
-  ${(props) =>
-    props.$collapsed &&
-    css`
-      background-color: transparent;
-      border-color: transparent;
-      pointer-events: none;
-    `}
-`;
-
 const itemStyles = `
   display: flex;
   flex: 0 1 50px;
@@ -132,7 +104,7 @@ function isActivePath(pathname: string, to: string) {
 }
 
 // TODO rename MobileNav
-export default function Nav() {
+export default function MobileNav() {
   const { pathname } = useLocation();
   const activeLinkRef = useRef<HTMLElement | null>(null);
   const { fabRef, collapsed, expand } = useCollapsibleNav(activeLinkRef);
@@ -141,10 +113,10 @@ export default function Nav() {
   const FabIcon = activeLink?.Icon ?? NavHamburger;
 
   return (
-    <Navbar
+    <nav
       aria-label="Primary"
-      className="page-wrapper__nav"
-      $collapsed={collapsed}
+      className="mobile-navbar"
+      data-collapsed={collapsed ? 'true' : null}
     >
       {links.map(({ to, label, Icon }) => {
         const isActive = to === activeLink?.to;
@@ -184,6 +156,6 @@ export default function Nav() {
       >
         <FabIcon />
       </FabButton>
-    </Navbar>
+    </nav>
   );
 }

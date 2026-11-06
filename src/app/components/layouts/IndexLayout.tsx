@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nav from '../header/Nav';
+import Nav from '../header/MobileNav';
 import PwaHeader from '../header/PwaHeader';
 import Footer from '../Footer';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PwaHeader from '../header/PwaHeader';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
-import Nav from '../header/Nav';
+import Nav from '../header/MobileNav';
 import Footer from '../Footer';
 
 const ContentWrapper = styled.div`

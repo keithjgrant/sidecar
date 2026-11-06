@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import DesktopHeader from '../header/DesktopHeader';
-import Nav from '../header/Nav';
+import MobileNav from '../header/MobileNav';
 import PwaHeader from '../header/PwaHeader';
 import PageHeading from '../PageHeading';
 import Footer from '../Footer';
+import useIsMobile from '../../lib/useIsMobile';
 
 const Main = styled.main`
   flex: 1;
@@ -32,13 +33,15 @@ export default function DrinkListLayout({
   title,
   children,
 }: DrinkListLayoutProps) {
+  const isMobile = useIsMobile();
+
   return (
     <div className="grow-wrapper">
-      <DesktopHeader />
+      {isMobile ? null : <DesktopHeader />}
       <PwaHeader title={title} />
       <Main className="stack">{children}</Main>
       <Footer />
-      <Nav />
+      {isMobile ? <MobileNav /> : null}
     </div>
   );
 }
