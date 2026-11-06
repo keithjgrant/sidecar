@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'gatsby';
+import { useLocation } from '@gatsbyjs/reach-router';
 import styled, { css } from 'styled-components';
 import NavDrink from '../svg/NavDrink';
 import NavCompass from '../svg/NavCompass';
@@ -126,39 +127,49 @@ const links = [
   { to: '/favorites', label: 'Favorites', Icon: NavStar },
 ] as const;
 
-function iconForHref(href: string | null) {
-  if (!href) {
-    return NavHamburger;
-  }
-  const match = links.find(
-    ({ to }) => href === to || href.startsWith(`${to}/`),
-  );
-  return match?.Icon ?? NavHamburger;
+function isActivePath(pathname: string, to: string) {
+  return pathname === to || pathname.startsWith(`${to}/`);
 }
 
 export default function Nav() {
-  const { navRef, fabRef, collapsed, expand, activeHref } = useCollapsibleNav();
-  const FabIcon = iconForHref(activeHref);
+  const { pathname } = useLocation();
+  const activeLinkRef = useRef<HTMLElement | null>(null);
+  const { fabRef, collapsed, expand } = useCollapsibleNav(activeLinkRef);
+
+  const activeLink = links.find(({ to }) => isActivePath(pathname, to));
+  const FabIcon = activeLink?.Icon ?? NavHamburger;
 
   return (
     <Navbar
-      ref={navRef}
       aria-label="Primary"
       className="page-wrapper__nav"
       $collapsed={collapsed}
     >
-      {links.map(({ to, label, Icon }) => (
-        <NavLink
-          key={to}
-          to={to}
-          aria-label={label}
-          activeClassName="active"
-          partiallyActive
-          $collapsed={collapsed}
-        >
-          <Icon />
-        </NavLink>
-      ))}
+      {links.map(({ to, label, Icon }) => {
+        const isActive = to === activeLink?.to;
+        return (
+          <NavLink
+            key={to}
+            // Gatsby Link forwards to <a>; types still treat Link as a class instance.
+            ref={
+              isActive
+                ? ((node: HTMLAnchorElement | null) => {
+                    activeLinkRef.current = node;
+                  }) as never
+                : undefined
+            }
+            to={to}
+            aria-label={label}
+            aria-hidden={collapsed || undefined}
+            tabIndex={collapsed ? -1 : undefined}
+            activeClassName="active"
+            partiallyActive
+            $collapsed={collapsed}
+          >
+            <Icon />
+          </NavLink>
+        );
+      })}
       <FabButton
         ref={fabRef}
         type="button"

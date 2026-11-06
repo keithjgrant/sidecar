@@ -4,6 +4,7 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  type RefObject,
 } from 'react';
 import { globalHistory } from '@gatsbyjs/reach-router';
 
@@ -27,7 +28,7 @@ function getScrollTop(target: Document | HTMLElement) {
 
 /** Window/document scroll or the page-wrapper main pane — ignore nested overflow. */
 function isPageScrollRoot(
-  target: EventTarget | null
+  target: EventTarget | null,
 ): target is Document | HTMLElement {
   if (target instanceof Document) {
     return true;
@@ -42,10 +43,6 @@ function isPageScrollRoot(
   );
 }
 
-function getActiveNavLink(nav: HTMLElement | null) {
-  return nav?.querySelector<HTMLAnchorElement>('a.active') ?? null;
-}
-
 function centerDelta(from: DOMRect, to: DOMRect) {
   return {
     dx: from.left + from.width / 2 - (to.left + to.width / 2),
@@ -57,27 +54,26 @@ function centerDelta(from: DOMRect, to: DOMRect) {
 
 export { FLIP_MS };
 
-export default function useCollapsibleNav() {
+export default function useCollapsibleNav(
+  activeLinkRef: RefObject<HTMLElement | null>,
+) {
   const [collapsed, setCollapsed] = useState(false);
-  const [activeHref, setActiveHref] = useState<string | null>(null);
-  const navRef = useRef<HTMLElement | null>(null);
   const fabRef = useRef<HTMLButtonElement | null>(null);
   const pendingFlipFrom = useRef<DOMRect | null>(null);
   const lastScrollYByTarget = useRef(new WeakMap<EventTarget, number>());
   const suppressCollapseUntil = useRef(0);
 
   const collapse = useCallback(() => {
-    const active = getActiveNavLink(navRef.current);
-    pendingFlipFrom.current = active?.getBoundingClientRect() ?? null;
-    setActiveHref(active?.getAttribute('href') ?? null);
+    pendingFlipFrom.current =
+      activeLinkRef.current?.getBoundingClientRect() ?? null;
     setCollapsed(true);
-  }, []);
+  }, [activeLinkRef]);
 
   const expand = useCallback(async () => {
     suppressCollapseUntil.current = Date.now() + EXPAND_SUPPRESS_MS;
 
     const fab = fabRef.current;
-    const active = getActiveNavLink(navRef.current);
+    const active = activeLinkRef.current;
     let animation: Animation | null = null;
 
     if (fab && active) {
@@ -90,7 +86,7 @@ export default function useCollapsibleNav() {
           { transform: 'none' },
           { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
         ],
-        { duration: FLIP_MS, easing: FLIP_EASING, fill: 'forwards' }
+        { duration: FLIP_MS, easing: FLIP_EASING, fill: 'forwards' },
       );
 
       try {
@@ -107,7 +103,7 @@ export default function useCollapsibleNav() {
     if (animation) {
       window.setTimeout(() => animation.cancel(), 200);
     }
-  }, []);
+  }, [activeLinkRef]);
 
   useLayoutEffect(() => {
     if (!collapsed) {
@@ -130,34 +126,17 @@ export default function useCollapsibleNav() {
         { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
         { transform: 'none' },
       ],
-      { duration: FLIP_MS, easing: FLIP_EASING }
+      { duration: FLIP_MS, easing: FLIP_EASING },
     );
   }, [collapsed]);
 
   useEffect(() => {
     return globalHistory.listen(() => {
       setCollapsed(false);
-      setActiveHref(null);
       suppressCollapseUntil.current = 0;
       lastScrollYByTarget.current = new WeakMap();
     });
   }, []);
-
-  useEffect(() => {
-    const nav = navRef.current;
-    if (!nav) {
-      return;
-    }
-    nav.querySelectorAll<HTMLAnchorElement>('a').forEach((anchor) => {
-      if (collapsed) {
-        anchor.setAttribute('aria-hidden', 'true');
-        anchor.setAttribute('tabindex', '-1');
-      } else {
-        anchor.removeAttribute('aria-hidden');
-        anchor.removeAttribute('tabindex');
-      }
-    });
-  }, [collapsed]);
 
   useEffect(() => {
     const onScroll = (event: Event) => {
@@ -196,10 +175,8 @@ export default function useCollapsibleNav() {
   }, [collapsed, collapse, expand]);
 
   return {
-    navRef,
     fabRef,
     collapsed,
     expand,
-    activeHref,
   };
 }
