@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Nav from '../header/MobileNav';
-import PwaHeader from '../header/PageTitle';
+import PageTitle from '../header/PageTitle';
 import Footer from '../Footer';
-
-const Main = styled.main`
-  flex: 1;
-`;
 
 const IndexGrid = styled.div`
   display: grid;
@@ -36,10 +32,10 @@ interface IndexLayoutProps {
 export default function IndexLayout({ title, children }: IndexLayoutProps) {
   return (
     <div className="grow-wrapper">
-      <PwaHeader title={title} />
-      <Main>
+      <PageTitle title={title} />
+      <main>
         <IndexGrid>{children}</IndexGrid>
-      </Main>
+      </main>
       <Footer />
       <Nav />
     </div>

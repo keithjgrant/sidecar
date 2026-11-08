@@ -4,6 +4,8 @@ import PageTitle from '../header/PageTitle';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
 import Nav from '../header/MobileNav';
 import Footer from '../Footer';
+import useIsMobile from '../../lib/useIsMobile';
+import DesktopHeader from '../header/DesktopHeader';
 
 const ContentWrapper = styled.div`
   flex: 1;
@@ -26,13 +28,16 @@ export default function CardLayout({
   footerContent,
   children,
 }: CardLayoutProps) {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="page-wrapper">
-      <div className="page-wrapper__main">
-        <PageTitle />
+    <div className="grow-wrapper">
+      {isMobile ? null : <DesktopHeader />}
+      <PageTitle />
+      <main>
         <ContentWrapper>{children}</ContentWrapper>
-        <Footer content={footerContent} />
-      </div>
+      </main>
+      <Footer content={footerContent} />
       <Nav />
     </div>
   );
