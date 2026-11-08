@@ -20,6 +20,10 @@
     --bg-card--secondary: var(--GRAY-13);
     --bg-tile: var(--GRAY-11);
     --bg-tile--secondary: var(--GRAY-13);
+    --bg-deep: var(--GRAY-13);
+    --bg-deeper: var(--GRAY-14);
+    --bg-shallow: var(--GRAY-11);
+    --bg-shallower: var(--GRAY-10);
 
     /* Accents and links */
     --accent-brand: var(--ORANGE-5);
@@ -76,6 +80,7 @@
 
     /* layout */
     --content-max-width: 70em;
+    --content-max-width-sm: 45em;
 
     /*
       Sidecar-specific

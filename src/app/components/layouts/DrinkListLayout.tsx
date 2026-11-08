@@ -6,17 +6,6 @@ import MobileNav from '../header/MobileNav';
 import Footer from '../Footer';
 import useIsMobile from '../../lib/useIsMobile';
 
-const Main = styled.main`
-  flex: 1;
-  width: calc(100vw - 2em);
-  margin: 0 auto;
-  padding-bottom: 2rem;
-
-  @media (min-width: 30em) {
-    max-width: var(--content-max-width);
-  }
-`;
-
 interface DrinkListLayoutProps {
   title: string;
   children: React.ReactNode;
@@ -32,7 +21,7 @@ export default function DrinkListLayout({
     <div className="grow-wrapper">
       {isMobile ? null : <DesktopHeader />}
       <PageTitle title={title} />
-      <Main className="stack">{children}</Main>
+      <main className="stack">{children}</main>
       <Footer />
       {isMobile ? <MobileNav /> : null}
     </div>

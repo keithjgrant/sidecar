@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PwaHeader from '../header/PageTitle';
+import PageTitle from '../header/PageTitle';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
 import Nav from '../header/MobileNav';
 import Footer from '../Footer';
@@ -29,7 +29,7 @@ export default function CardLayout({
   return (
     <div className="page-wrapper">
       <div className="page-wrapper__main">
-        <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
+        <PageTitle />
         <ContentWrapper>{children}</ContentWrapper>
         <Footer content={footerContent} />
       </div>

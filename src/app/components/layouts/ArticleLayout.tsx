@@ -1,20 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nav from '../header/MobileNav';
-import PwaHeader from '../header/PageTitle';
+import DesktopHeader from '../header/DesktopHeader';
+import PageTitle from '../header/PageTitle';
+import MobileNav from '../header/MobileNav';
 import Footer from '../Footer';
-
-const Main = styled.main`
-  flex: 1;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 1em 2rem;
-
-  @media (min-width: 500px) {
-    width: max-content;
-    min-width: 500px;
-  }
-`;
+import useIsMobile from '../../lib/useIsMobile';
 
 const Article = styled.article`
   max-width: 40em;
@@ -62,17 +52,15 @@ export interface ArticleLayoutProps {
 }
 
 export default function ArticleLayout({ title, children }: ArticleLayoutProps) {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="grow-wrapper">
-      <PwaHeader title={title} />
-      <Main className="stack">
-        <Article>
-          <Heading>{title}</Heading>
-          {children}
-        </Article>
-      </Main>
+    <div className="grow-wrapper grow-wrapper--article">
+      {isMobile ? null : <DesktopHeader />}
+      <PageTitle title={title} />
+      <main>{children}</main>
       <Footer />
-      <Nav />
+      {isMobile ? <MobileNav /> : null}
     </div>
   );
 }

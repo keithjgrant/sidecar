@@ -10,6 +10,7 @@
 @import './ingredient-list.css';
 @import './drink-substitutions.css';
 @import './bar-filter-notice.css';
+@import './footer.css';
 
 @layer modules {
   .button {

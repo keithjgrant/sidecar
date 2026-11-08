@@ -34,16 +34,14 @@ interface FooterProps {
 
 export default function Footer({ content, className }: FooterProps) {
   return (
-    <Wrapper className={className}>
-      <Split>
-        <div>
-          © 2018–{year} <a href="https://keithjgrant.com">Keith J. Grant</a>.
-          All&nbsp;rights&nbsp;reserved.
-        </div>
-        <div style={{ textAlign: 'right' }}>
-          {content || 'Please drink responsibly.'}
-        </div>
-      </Split>
-    </Wrapper>
+    <footer className="page-footer prose">
+      <p>
+        © 2018–{year} <a href="https://keithjgrant.com">Keith J. Grant</a>.
+        All&nbsp;rights&nbsp;reserved.
+      </p>
+      <p style={{ textAlign: 'right' }}>
+        {content || 'Please drink responsibly.'}
+      </p>
+    </footer>
   );
 }
