@@ -46,6 +46,7 @@
     --font-size-xl: 1.8rem;
 
     @media (width >= 560px) {
+      --font-size-lg: 1.6rem;
       --font-size-xl: 2.6rem;
     }
 
@@ -84,5 +85,10 @@
     @media (width >= 450) {
       --footer-height: 55px;
     }
+
+    --z-page-title: 2;
+    --z-alpha-heading: 1;
+    --z-alpha-rail: 1;
+    --z-alpha-hud: 2;
   }
 }

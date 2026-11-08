@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import DesktopHeader from '../header/DesktopHeader';
+import PageTitle from '../header/PageTitle';
 import MobileNav from '../header/MobileNav';
-import PwaHeader from '../header/PwaHeader';
-import PageHeading from '../PageHeading';
 import Footer from '../Footer';
 import useIsMobile from '../../lib/useIsMobile';
 
@@ -15,12 +14,6 @@ const Main = styled.main`
 
   @media (min-width: 30em) {
     max-width: var(--content-max-width);
-  }
-`;
-
-const Heading = styled(PageHeading)`
-  @media (display-mode: standalone) {
-    display: none;
   }
 `;
 
@@ -38,7 +31,7 @@ export default function DrinkListLayout({
   return (
     <div className="grow-wrapper">
       {isMobile ? null : <DesktopHeader />}
-      <PwaHeader title={title} />
+      <PageTitle title={title} />
       <Main className="stack">{children}</Main>
       <Footer />
       {isMobile ? <MobileNav /> : null}

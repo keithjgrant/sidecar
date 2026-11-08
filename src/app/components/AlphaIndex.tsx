@@ -9,7 +9,7 @@ const Rail = styled.nav`
   position: fixed;
   top: 50%;
   right: 0;
-  z-index: 20;
+  z-index: var(--z-alpha-rail);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +56,7 @@ const Hud = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 21;
+  z-index: var(--z-alpha-hud);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,7 @@ const Hud = styled.div`
 export const LetterHeading = styled.h2`
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: var(--z-alpha-heading);
   margin: 0 0 0.4em;
   padding: 0.35em 0.25em;
   color: var(--gray-8);

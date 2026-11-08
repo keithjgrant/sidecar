@@ -3,19 +3,6 @@ import styled from 'styled-components';
 import CaretLeft from '../svg/CaretLeft';
 import { long } from '../../lib/haptic';
 
-const Button = styled.button`
-  display: inline-block;
-  padding: 1rem 1.8rem 0.9rem;
-  border: 0;
-  background: transparent;
-  color: var(--brand-primary);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--white);
-  }
-`;
-
 interface BackButtonProps {
   alt?: string;
 }
@@ -48,12 +35,13 @@ export default function BackButton({ alt }: BackButtonProps) {
   };
 
   return (
-    <Button
+    <button
+      className="back-button"
       onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
       <CaretLeft title={alt} />
-    </Button>
+    </button>
   );
 }

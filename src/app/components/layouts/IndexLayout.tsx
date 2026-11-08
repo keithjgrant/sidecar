@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Nav from '../header/MobileNav';
-import PwaHeader from '../header/PwaHeader';
+import PwaHeader from '../header/PageTitle';
 import Footer from '../Footer';
 
 const Main = styled.main`

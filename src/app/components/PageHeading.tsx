@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 
+/* deprecated? */
 const PageHeading = styled.h1<{ bleed?: boolean }>`
   align-self: stretch;
   font-size: 2rem;

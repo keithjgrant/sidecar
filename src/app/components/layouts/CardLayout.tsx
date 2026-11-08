@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PwaHeader from '../header/PwaHeader';
+import PwaHeader from '../header/PageTitle';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
 import Nav from '../header/MobileNav';
 import Footer from '../Footer';
