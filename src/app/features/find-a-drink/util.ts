@@ -1,4 +1,4 @@
-// Shared utility functions for help-me-decide questions
+// Shared utility functions for find-a-drink questions
 
 /**
  * Check if any ingredient contains any of the search terms (case-insensitive)

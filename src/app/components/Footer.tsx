@@ -2,10 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.footer`
+  margin-block-start: var(--SIZE-XL);
   padding: 1rem;
-  border-top: 1px solid var(--gray-4);
-  color: var(--gray-6);
+  color: var(--text-subtle);
   font-size: 0.8rem;
+  background-color: var(--bg-card--secondary);
+  background-image: linear-gradient(
+    to bottom,
+    var(--bg-card),
+    var(--bg-card--secondary)
+  );
 
   a {
     color: inherit;
@@ -28,16 +34,14 @@ interface FooterProps {
 
 export default function Footer({ content, className }: FooterProps) {
   return (
-    <Wrapper className={className}>
-      <Split>
-        <div>
-          © 2018–{year} <a href="https://keithjgrant.com">Keith J. Grant</a>.
-          All&nbsp;rights&nbsp;reserved.
-        </div>
-        <div style={{ textAlign: 'right' }}>
-          {content || 'Please drink responsibly.'}
-        </div>
-      </Split>
-    </Wrapper>
+    <footer className="page-footer prose">
+      <p>
+        © 2018–{year} <a href="https://keithjgrant.com">Keith J. Grant</a>.
+        All&nbsp;rights&nbsp;reserved.
+      </p>
+      <p style={{ textAlign: 'right' }}>
+        {content || 'Please drink responsibly.'}
+      </p>
+    </footer>
   );
 }

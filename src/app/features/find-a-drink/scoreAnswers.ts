@@ -4,7 +4,7 @@ import type { DecideDrink, QuestionDef } from './types';
 export const SCORE_CUTOFF = 3;
 
 /**
- * Score drinks against answered Help Me Decide questions and drop weak matches.
+ * Score drinks against answered Find a Drink questions and drop weak matches.
  */
 export function scoreAndCutoff(
   drinks: DecideDrink[],

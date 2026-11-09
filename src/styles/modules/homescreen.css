@@ -1,0 +1,70 @@
+@layer modules {
+  .hero-parallax {
+    --_hero-height: 45svh;
+    perspective: 1px;
+    height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .hero-parallax__back {
+    position: absolute;
+    inset: 0;
+    transform: translateZ(-1px) scale(2);
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-parallax {
+      perspective: initial;
+    }
+
+    .hero-parallax__back {
+      transform: initial;
+    }
+  }
+
+  .hero-parallax__banner {
+    inline-size: 100%;
+    height: var(--_hero-height);
+    object-fit: cover;
+  }
+
+  .hero-parallax__front {
+    margin-block-start: var(--_hero-height);
+    padding-block-start: var(--space-xl);
+    position: absolute;
+    inset: 0;
+    transform: translateZ(0);
+    z-index: 1;
+  }
+
+  .hero-header {
+    position: absolute;
+    top: 10svh;
+    width: 50%;
+    text-align: center;
+    color: var(--font-primary);
+    z-index: 1;
+
+    & > h1 {
+      min-width: max-content;
+      margin-bottom: 0.8rem;
+      color: var(--accent-brand);
+    }
+
+    & > div {
+      margin-left: 1rem;
+    }
+
+    & svg {
+      display: inline-block;
+    }
+  }
+
+  .hero-image {
+    inline-size: 100%;
+    block-size: var(--_hero-height);
+    object-fit: cover;
+  }
+}

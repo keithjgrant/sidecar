@@ -1,0 +1,20 @@
+@layer modules {
+  .page-footer {
+    --_prose-flow: var(--space-xs);
+    margin-block-start: var(--space-xl);
+    padding: 1rem;
+    color: var(--text-subtle);
+    font-size: 0.8rem;
+    background-color: var(--bg-deep);
+    background-image: linear-gradient(
+      to bottom,
+      var(--bg-main),
+      var(--bg-deep)
+    );
+    text-align: end;
+
+    a {
+      color: inherit;
+    }
+  }
+}

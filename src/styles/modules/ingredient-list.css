@@ -1,0 +1,38 @@
+@layer modules {
+  .ingredient-list {
+    padding: var(--space-md);
+    padding-inline-start: var(--space-xl);
+    list-style-type: none;
+    line-height: 1.4;
+
+    > li {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0.15em;
+        left: -0.9em;
+        content: '• ';
+        color: var(--accent-brand);
+        line-height: 1;
+      }
+    }
+  }
+
+  .ingredient-list__garnish {
+    margin-top: 0.5em;
+
+    & strong {
+      margin-right: 0.4em;
+      color: var(--accent-brand);
+      font-size: 0.64em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}

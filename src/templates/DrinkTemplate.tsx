@@ -33,7 +33,9 @@ interface DrinkTemplateProps {
     };
     image?: {
       relativePath: string;
-      childImageSharp: { gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData };
+      childImageSharp: {
+        gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData;
+      };
     };
   };
 }
@@ -47,23 +49,23 @@ export default function DrinkTemplate({ data }: DrinkTemplateProps) {
   };
   const slug = drink.path.replace('/drinks/', '');
 
-  let photoCredit;
-  if (drink.image && drink.image.photographer) {
-    const name = drink.image.photographer.replace(' ', nbsp);
-    photoCredit = (
-      <span>
-        Photo by{' '}
-        {drink.image.creditUrl ? (
-          <a href={drink.image.creditUrl}>{name}</a>
-        ) : (
-          name
-        )}
-      </span>
-    );
-  }
+  // let photoCredit;
+  // if (drink.image && drink.image.photographer) {
+  //   const name = drink.image.photographer.replace(' ', nbsp);
+  //   photoCredit = (
+  //     <span>
+  //       Photo by{' '}
+  //       {drink.image.creditUrl ? (
+  //         <a href={drink.image.creditUrl}>{name}</a>
+  //       ) : (
+  //         name
+  //       )}
+  //     </span>
+  //   );
+  // }
 
   return (
-    <CardLayout drinkName={slug} footerContent={photoCredit}>
+    <CardLayout drinkName={slug}>
       <DrinkCard drink={drink} imageData={data.image} />
     </CardLayout>
   );
