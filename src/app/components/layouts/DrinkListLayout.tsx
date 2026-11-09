@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import DesktopHeader from '../header/DesktopHeader';
 import PageTitle from '../header/PageTitle';
 import MobileNav from '../header/MobileNav';

@@ -1,21 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import PageTitle from '../header/PageTitle';
-import FavoriteButton from '../../features/favorites/FavoriteButton';
-import Nav from '../header/MobileNav';
+import MobileNav from '../header/MobileNav';
 import Footer from '../Footer';
 import useIsMobile from '../../lib/useIsMobile';
 import DesktopHeader from '../header/DesktopHeader';
-
-const ContentWrapper = styled.div`
-  flex: 1;
-  padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0.5em;
-  align-items: center;
-  justify-content: center;
-`;
 
 interface CardLayoutProps {
   drinkName: string;
@@ -31,14 +20,12 @@ export default function CardLayout({
   const isMobile = useIsMobile();
 
   return (
-    <div className="grow-wrapper">
+    <div className="grow-wrapper grow-wrapper--drink-card">
       {isMobile ? null : <DesktopHeader />}
       <PageTitle />
-      <main>
-        <ContentWrapper>{children}</ContentWrapper>
-      </main>
+      <main>{children}</main>
       <Footer content={footerContent} />
-      <Nav />
+      {isMobile ? <MobileNav /> : null}
     </div>
   );
 }

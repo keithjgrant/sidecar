@@ -1,28 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nav from '../header/MobileNav';
+import DesktopHeader from '../header/DesktopHeader';
+import MobileNav from '../header/MobileNav';
 import PageTitle from '../header/PageTitle';
 import Footer from '../Footer';
-
-const IndexGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1rem auto 1rem;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 1em 2rem;
-
-  & > * {
-    grid-column: 2;
-  }
-
-  & > ul {
-    grid-column: 1 / -1;
-  }
-
-  @media (min-width: 800px) {
-    max-width: 800px;
-  }
-`;
+import useIsMobile from '../../lib/useIsMobile';
 
 interface IndexLayoutProps {
   title: string;
@@ -30,14 +12,15 @@ interface IndexLayoutProps {
 }
 
 export default function IndexLayout({ title, children }: IndexLayoutProps) {
+  const isMobile = useIsMobile();
+
   return (
     <div className="grow-wrapper">
+      {isMobile ? null : <DesktopHeader />}
       <PageTitle title={title} />
-      <main>
-        <IndexGrid>{children}</IndexGrid>
-      </main>
+      <main>{children}</main>
       <Footer />
-      <Nav />
+      {isMobile ? <MobileNav /> : null}
     </div>
   );
 }

@@ -15,11 +15,3 @@ const PageHeading = styled.h1<{ bleed?: boolean }>`
 `;
 
 export default PageHeading;
-
-const BrowserHeading = styled(PageHeading)`
-  @media (display-mode: standalone) {
-    display: none;
-  }
-`;
-
-export { BrowserHeading };

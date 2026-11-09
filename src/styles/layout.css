@@ -74,6 +74,10 @@
     }
   }
 
+  .grow-wrapper--drink-card > main {
+    inline-size: unset;
+  }
+
   .grow-wrapper--article > main {
     max-inline-size: var(--content-max-width-sm);
   }
