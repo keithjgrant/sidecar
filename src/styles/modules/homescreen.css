@@ -14,10 +14,12 @@
     overflow: hidden;
   }
 
-  .hero-parallax[data-ios='true'] {
-    perspective: initial;
+  @media (prefers-reduced-motion: reduce) {
+    .hero-parallax {
+      perspective: initial;
+    }
 
-    & .hero-parallax__back {
+    .hero-parallax__back {
       transform: initial;
     }
   }

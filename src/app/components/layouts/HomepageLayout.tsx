@@ -18,16 +18,8 @@ export default function HomepageLayout({
   heroImage,
   children,
 }: HomepageLayoutProps) {
-  let iOS = false;
-  if (typeof navigator !== 'undefined') {
-    iOS =
-      /iPad|iPhone|iPod/.test(navigator.platform) ||
-      (['iPhone', 'iPad', 'MacIntel'].includes(navigator.platform) &&
-        navigator.maxTouchPoints > 1);
-  }
-
   return (
-    <div className="hero-parallax" data-ios={iOS ? 'true' : null}>
+    <div className="hero-parallax">
       <div className="hero-parallax__back">
         <header className="hero-header">
           <h1>
