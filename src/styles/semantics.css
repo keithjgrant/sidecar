@@ -56,6 +56,7 @@
 
     /* Borders and spacing */
     --border-radius: var(--SIZE-LG);
+    --border-radius-lg: var(--SIZE-XL);
     --border-radius-sm: var(--SIZE-MD);
     --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
 

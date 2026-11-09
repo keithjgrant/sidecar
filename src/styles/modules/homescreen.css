@@ -30,6 +30,7 @@
 
   .hero-parallax__front {
     margin-block-start: var(--_hero-height);
+    padding-block-start: var(--space-xl);
     position: absolute;
     inset: 0;
     transform: translateZ(0);
