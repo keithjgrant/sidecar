@@ -5,59 +5,6 @@ import LogoSvg from '../header/LogoSvg';
 
 const nbsp = '\u00A0';
 
-const Banner = styled(GatsbyImage)`
-  width: 100%;
-  height: var(--hero-height);
-  object-fit: cover;
-`;
-
-const Header = styled.header`
-  position: absolute;
-  top: 10vh;
-  width: 50%;
-  text-align: center;
-  color: var(--white);
-  z-index: 1;
-
-  & > h1 {
-    min-width: max-content;
-    margin-bottom: 0.8rem;
-    color: var(--brand-primary);
-  }
-
-  & > div {
-    margin-left: 1rem;
-  }
-`;
-
-const Parallax = styled.div`
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-`;
-
-const Back = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateZ(-1px) scale(2);
-  overflow: hidden;
-`;
-
-const Front = styled.main`
-  margin-top: var(--hero-height);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateZ(0);
-  z-index: 1;
-`;
-
 interface HomepageLayoutProps {
   heroImage: {
     childImageSharp: {
@@ -80,9 +27,9 @@ export default function HomepageLayout({
   }
 
   return (
-    <Parallax style={iOS ? { perspective: 'initial' } : undefined}>
-      <Back style={iOS ? { transform: 'initial' } : undefined}>
-        <Header>
+    <div className="hero-parallax" data-ios={iOS ? 'true' : null}>
+      <div className="hero-parallax__back">
+        <header className="hero-header">
           <h1>
             <LogoSvg /> Sidecar
           </h1>
@@ -91,15 +38,16 @@ export default function HomepageLayout({
             <br />
             for the home bartender
           </div>
-        </Header>
-        <Banner
+        </header>
+        <GatsbyImage
+          className="hero-image"
           image={heroImage.childImageSharp.gatsbyImageData}
           alt=""
           loading="eager"
           objectFit="cover"
         />
-      </Back>
-      <Front>{children}</Front>
-    </Parallax>
+      </div>
+      <main className="hero-parallax__front">{children}</main>
+    </div>
   );
 }
