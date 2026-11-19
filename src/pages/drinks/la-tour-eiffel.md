@@ -29,7 +29,7 @@ intro:
 ---
 Chill a champagne flute in the freezer.
 
-Pour a splash of absinthe into the flute; swirl it around to coat teh inside of the
+Pour a splash of absinthe into the flute; swirl it around to coat the inside of the
 glass, then pour it out.
 
 Stir remaining ingredients with plenty of ice. Strain into the glass.
