@@ -18,17 +18,6 @@
       background-color 0.25s var(--ease-out),
       border-color 0.25s var(--ease-out);
 
-    &[data-collapsed='true'] {
-      background-color: transparent;
-      border-color: transparent;
-      pointer-events: none;
-
-      & > a {
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
-
     & > a {
       flex: 0 1 50px;
       display: flex;
@@ -48,6 +37,17 @@
         width: 1.5rem;
         height: 1.5rem;
         flex-shrink: 0;
+      }
+    }
+
+    &[data-collapsed='true'] {
+      background-color: transparent;
+      border-color: transparent;
+      pointer-events: none;
+
+      & > a {
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }
@@ -78,6 +78,7 @@
       pointer-events: auto;
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     svg {
       width: 1.35rem;
       height: 1.35rem;

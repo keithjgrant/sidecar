@@ -5,7 +5,9 @@
  */
 
 const COUNT_TAGS = false;
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
+const { execSync } = require('child_process');
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
@@ -87,5 +89,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: TagTemplate,
       context: { tag, contentPath: `/_tags/${tag}` },
     });
+  });
+};
+
+/* wire argot into build */
+exports.onPreBootstrap = () => {
+  execSync('npm run argot', { stdio: 'inherit' });
+};
+
+/* re-run argot when css changes */
+exports.onCreateDevServer = () => {
+  const stylesDir = path.join(__dirname, 'src/styles');
+  let timer;
+
+  fs.watch(stylesDir, { recursive: true }, (_event, filename) => {
+    if (!filename || filename.split(path.sep).includes('generated')) return;
+    if (!filename.endsWith('.css')) return;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      execSync('npm run argot', { stdio: 'inherit' });
+    }, 50);
   });
 };

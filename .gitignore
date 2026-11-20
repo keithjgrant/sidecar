@@ -54,9 +54,10 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
+# gatsby & build files
 .cache/
 public
+src/styles/generated/
 
 # Mac files
 .DS_Store

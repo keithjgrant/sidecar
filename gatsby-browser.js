@@ -3,4 +3,4 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import './src/styles/styles.css';
+import './src/styles/generated/styles.css';

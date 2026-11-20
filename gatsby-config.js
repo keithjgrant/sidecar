@@ -40,6 +40,14 @@ module.exports = {
       __key: 'pages',
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'css',
+        path: './src/styles/generated/',
+      },
+      __key: 'pages',
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Sidecar',
