@@ -69,7 +69,7 @@ export default function Explore({ drinks, imageMap }: ExploreProps) {
             <CollapseToggle isExpanded={isExpanded} onClick={toggle}>
               Filter
             </CollapseToggle>
-            <Link className="button" to="/help-me-decide">
+            <Link className="button" to="/find-a-drink">
               Help me decide
             </Link>
           </Controls>

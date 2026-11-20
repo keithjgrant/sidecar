@@ -1,0 +1,33 @@
+@layer modules {
+  .card-tabs {
+    display: flex;
+    margin-inline-start: var(--space-md);
+    --_card-tabs--label-color: var(--text-secondary);
+
+    > * {
+      margin-inline-start: var(--space-sm);
+      border: 1px solid var(--border-color);
+      border-top-width: 0;
+      border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+      padding: var(--space-md) var(--space-sm) var(--space-sm);
+      background-color: var(--bg-card);
+    }
+
+    > :empty {
+      display: none;
+    }
+
+    @media (min-width: 40em) {
+      flex-direction: column;
+      margin: 1em 0;
+
+      > * {
+        margin-left: 0;
+        margin-block-start: var(--space-xs);
+        border-top-width: 1px;
+        border-left: 0;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      }
+    }
+  }
+}

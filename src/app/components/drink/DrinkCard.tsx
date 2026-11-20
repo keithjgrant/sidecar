@@ -1,6 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import CocktailImage from './CocktailImage';
+// import CocktailImage from './CocktailImage'; // TODO?
 import DrinkTags from './DrinkTags';
 import ScaleIndicator from './ScaleIndicator';
 import PrepMethod from './PrepMethod';
@@ -8,161 +8,7 @@ import GlassType from './GlassType';
 import IngredientList from './IngredientList';
 import DrinkSubstitutions from './DrinkSubstitutions';
 import FavoriteButton from '../../features/favorites/FavoriteButton';
-import styled from 'styled-components';
 import type { Drink } from '../../types';
-
-const Main = styled.main`
-  padding-top: 2rem;
-  margin: 0;
-  line-height: 1.2;
-
-  @media (min-width: 25em) {
-    margin: 0 1em 1em;
-  }
-
-  @media (min-width: 30em) {
-    margin: 3rem 1rem;
-  }
-
-  @media (min-width: 40em) {
-    display: flex;
-  }
-
-  @media (display-mode: standalone) {
-    padding-top: 0;
-  }
-`;
-
-const Body = styled.div`
-  max-width: 40em;
-  border: 1px solid var(--card-border);
-  border-radius: var(--border-radius);
-  color: var(--white);
-  background-color: var(--card-bg);
-  background-image: linear-gradient(
-    to right,
-    hsl(315, 3.2%, 23%),
-    var(--gray-2)
-  );
-
-  @media (min-width: 30em) {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 1.62fr;
-    padding: 1em 1em 1em 2em;
-  }
-
-  @media (min-width: 40em) {
-    grid-gap: 2rem;
-    padding: 1em 2em;
-  }
-`;
-
-const Tabs = styled.div`
-  display: flex;
-
-  > * {
-    margin-left: 0.2em;
-    border: 1px solid var(--gray-4);
-    border-top-width: 0;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    padding: 0.5em;
-    background-color: var(--gray-2);
-  }
-
-  > :empty {
-    display: none;
-  }
-
-  @media (min-width: 40em) {
-    flex-direction: column;
-    margin: 1em 0;
-
-    > * {
-      margin-left: 0;
-      margin-top: 0.2em;
-      border-top-width: 1px;
-      border-left: 0;
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    }
-  }
-`;
-
-const Content = styled.div`
-  display: flex;
-  grid-column: 2;
-  flex-direction: column;
-  margin-top: 1.2rem;
-  padding: 0 1em 1em;
-
-  .e-instructions {
-    flex-grow: 1;
-  }
-
-  @media (min-width: 30em) {
-    margin-top: 0;
-    padding: 0;
-  }
-`;
-
-const TitleRow = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.5rem;
-`;
-
-const Title = styled.h1`
-  position: relative;
-  flex: 1;
-  min-width: 0;
-  margin-top: 0;
-  color: var(--white);
-  font-weight: normal;
-  font-size: 1.8rem;
-  line-height: 1.1;
-
-  &::after {
-    position: absolute;
-    bottom: -0.5em;
-    left: 0;
-    content: '';
-    width: 3em;
-    height: 4px;
-    background-color: var(--brand-primary);
-  }
-
-  @media (min-width: 35em) {
-    font-size: 2.6rem;
-  }
-`;
-
-const BrowserFavorite = styled.div`
-  flex-shrink: 0;
-  margin: -0.35rem -0.5rem 0 0;
-
-  @media (display-mode: standalone) {
-    /* hides because installed PWA shows favorite button in PwaHeader */
-    display: none;
-  }
-
-  button {
-    padding: 0.35rem 0.5rem;
-  }
-`;
-
-const Intro = styled.div`
-  padding-bottom: 1em;
-  border-bottom: 1px solid var(--gray-4);
-  color: var(--gray-7);
-`;
-
-const PublishDate = styled.div`
-  margin-top: 2rem;
-  color: var(--gray-6);
-  font-size: 0.8rem;
-  text-align: right;
-`;
 
 interface DrinkCardProps {
   drink: Drink;
@@ -177,39 +23,35 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
   const drinkName = drink.path.replace('/drinks/', '');
 
   return (
-    <Main className="h-recipe">
-      <Body>
-        <CocktailImage drink={drink} imageData={imageData} />
-        <Content>
-          <TitleRow>
-            <Title className="p-name">{drink.title}</Title>
-            <BrowserFavorite>
-              <FavoriteButton drinkName={drinkName} />
-            </BrowserFavorite>
-          </TitleRow>
-          <DrinkTags tags={drink.tags} />
-          {drink.intro ? (
-            <Intro className="p-summary">
-              <Markdown>{drink.intro}</Markdown>
-            </Intro>
-          ) : null}
-          <IngredientList
-            items={drink.ingredients}
-            garnish={drink.garnish}
-            isBeneathIntro={!!drink.intro}
-          />
-          <DrinkSubstitutions drink={drink} />
-          <div className="e-instructions">
-            <div dangerouslySetInnerHTML={{ __html: drink.content ?? '' }} />
+    <div className="drink-card h-recipe">
+      <div className="drink-card__body stack">
+        <div className="drink-card__header">
+          <h1 className="p-name">{drink.title}</h1>
+          <div className="drink-card__icon">
+            <FavoriteButton drinkName={drinkName} />
           </div>
-          {drink.date ? (
-            <PublishDate>
-              <time className="dt-published">Published {drink.date}</time>
-            </PublishDate>
-          ) : null}
-        </Content>
-      </Body>
-      <Tabs>
+        </div>
+        <DrinkTags tags={drink.tags} />
+        {drink.intro ? (
+          <div className="drink-intro prose p-summary">
+            <Markdown>{drink.intro}</Markdown>
+          </div>
+        ) : null}
+        <hr />
+        <IngredientList items={drink.ingredients} garnish={drink.garnish} />
+        <hr />
+        <DrinkSubstitutions drink={drink} />
+        <div
+          className="prose e-instructions"
+          dangerouslySetInnerHTML={{ __html: drink.content ?? '' }}
+        ></div>
+        {drink.date ? (
+          <div className="drink-card__date">
+            <time className="dt-published">Published {drink.date}</time>
+          </div>
+        ) : null}
+      </div>
+      <div className="card-tabs">
         <div>
           <ScaleIndicator value={drink.sweetness} label="Sweetness" />
         </div>
@@ -222,7 +64,7 @@ export default function DrinkCard({ drink, imageData }: DrinkCardProps) {
         <div>
           <PrepMethod tags={drink.tags} />
         </div>
-      </Tabs>
-    </Main>
+      </div>
+    </div>
   );
 }

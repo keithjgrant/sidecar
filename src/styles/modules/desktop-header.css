@@ -1,0 +1,47 @@
+@layer modules {
+  .desktop-header {
+    padding-block: var(--space-lg);
+    background-color: var(--accent-brand);
+  }
+
+  .desktop-header__grid {
+    max-inline-size: var(--content-max-width);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-lg);
+    align-items: baseline;
+  }
+
+  .header-logo {
+    & > a:any-link {
+      color: var(--text-inverse);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: var(--font-size-lg);
+    }
+
+    & svg {
+      display: inline-block;
+      height: 30px;
+      margin-inline-end: var(--space-md);
+    }
+  }
+
+  .desktop-nav {
+    padding-inline-start: unset;
+    list-style-type: none;
+    display: flex;
+    gap: var(--space-lg);
+
+    & li {
+      flex: 1 0 max-content;
+      text-align: center;
+    }
+
+    & a:any-link {
+      color: var(--text-inverse);
+      text-decoration: none;
+    }
+  }
+}

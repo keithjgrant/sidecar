@@ -2,18 +2,20 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import DrinkListLayout from '../app/components/layouts/DrinkListLayout';
 import Meta from '../app/components/Meta';
-import HelpMeDecide from '../app/features/help-me-decide/HelpMeDecide';
+import FindADrink from '../app/features/find-a-drink/FindADrink';
 
 import type { Drink } from '../app/types';
 
-interface HelpMeDecidePageProps {
+interface FindADrinkPageProps {
   data: {
     drinks: { edges: { node: { html: string; frontmatter: Drink } }[] };
     images: { edges: { node: { name: string; childImageSharp: unknown } }[] };
   };
 }
 
-export default function HelpMeDecidePage({ data: { drinks, images } }: HelpMeDecidePageProps) {
+export default function FindADrinkPage({
+  data: { drinks, images },
+}: FindADrinkPageProps) {
   const imageMap: Record<string, unknown> = {};
   if (images && images.edges) {
     images.edges.forEach(({ node: { name, childImageSharp } }) => {
@@ -21,8 +23,8 @@ export default function HelpMeDecidePage({ data: { drinks, images } }: HelpMeDec
     });
   }
   return (
-    <DrinkListLayout title="Help Me Decide">
-      <HelpMeDecide
+    <DrinkListLayout title="Find a Drink">
+      <FindADrink
         drinks={drinks.edges.map((item) => ({
           html: item.node.html,
           ...item.node.frontmatter,
@@ -79,4 +81,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head = () => <Meta title="Help Me Decide" />;
+export const Head = () => <Meta title="Find a Drink" />;

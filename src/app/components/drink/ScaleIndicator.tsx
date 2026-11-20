@@ -28,7 +28,7 @@ export default function ScaleIndicator({ value, label }: ScaleIndicatorProps) {
               C 548.427 319.451 507.932 343.644 462.446 370.287
               C 446.905 343.204 422.787 322.817 394 313.4
               C 412.295 261.744 421.925 235.919 439.798 186.327 Z"
-            fill="hsl(224, 5.5%, 79%)"
+            className="chart-1"
           />
           <path
             d="M 258.798 186.344
@@ -36,7 +36,7 @@ export default function ScaleIndicator({ value, label }: ScaleIndicatorProps) {
               C 427.43 219.292 411.751 263.781 393.798 313.344
               C 364.535 302.45 332.956 302.187 304.798 313.344
               C 285.851 261.923 276.751 235.908 258.798 186.344 Z"
-            fill="hsl(224, 7.5%, 61%)"
+            className="chart-2"
           />
           <path
             d="M 119.988 302.187
@@ -44,7 +44,7 @@ export default function ScaleIndicator({ value, label }: ScaleIndicatorProps) {
               C 270.635 219.557 287.066 263.774 305 313.344
               C 275.544 323.706 251.114 343.718 236.623 370.314
               C 189.151 342.937 165.506 328.775 119.988 302.187 Z"
-            fill="hsl(250, 7.5%, 40%)"
+            className="chart-3"
           />
           <path
             d="M 372.738 402.019

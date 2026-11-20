@@ -8,12 +8,12 @@ import Question from './Question';
 import Results from './Results';
 import type { DecideDrink } from './types';
 
-interface HelpMeDecideProps {
+interface FindADrinkProps {
   drinks: DecideDrink[];
   imageMap: Record<string, unknown>;
 }
 
-export default function HelpMeDecide({ drinks, imageMap }: HelpMeDecideProps) {
+export default function FindADrink({ drinks, imageMap }: FindADrinkProps) {
   const questions = useQuestions();
   const [answers, setAnswers] = useState<string[]>([]);
   const { drinks: candidateDrinks, isFiltering, isUnfilteredView } =

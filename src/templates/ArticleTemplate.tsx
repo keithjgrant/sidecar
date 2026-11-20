@@ -16,7 +16,10 @@ export default function ArticleTemplate({ data }: ArticleTemplateProps) {
   const { markdownRemark: post } = data;
   return (
     <ArticleLayout title={post.frontmatter.title}>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div
+        className="prose"
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      ></div>
     </ArticleLayout>
   );
 }

@@ -54,13 +54,8 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
-            date(formatString: "DD MMM YYYY")
             glass
-            image {
-              url
-              alt
-              align
-            }
+            tags
           }
         }
       }

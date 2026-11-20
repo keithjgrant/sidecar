@@ -1,21 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import PageAnimationWrapper from '../PageAnimationWrapper';
-import GrowWrapper from './GrowWrapper';
-import PwaHeader from '../header/PwaHeader';
-import FavoriteButton from '../../features/favorites/FavoriteButton';
-import Header from '../header/Header';
+import PageTitle from '../header/PageTitle';
+import MobileNav from '../header/MobileNav';
 import Footer from '../Footer';
-
-const ContentWrapper = styled.div`
-  flex: 1;
-  padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0.5em;
-  align-items: center;
-  justify-content: center;
-`;
+import useIsMobile from '../../lib/useIsMobile';
+import DesktopHeader from '../header/DesktopHeader';
 
 interface CardLayoutProps {
   drinkName: string;
@@ -23,15 +12,20 @@ interface CardLayoutProps {
   children: React.ReactNode;
 }
 
-export default function CardLayout({ drinkName, footerContent, children }: CardLayoutProps) {
+export default function CardLayout({
+  drinkName,
+  footerContent,
+  children,
+}: CardLayoutProps) {
+  const isMobile = useIsMobile();
+
   return (
-    <PageAnimationWrapper>
-      <GrowWrapper>
-        <PwaHeader controls={<FavoriteButton drinkName={drinkName} />} />
-        <Header />
-        <ContentWrapper>{children}</ContentWrapper>
-        <Footer content={footerContent} />
-      </GrowWrapper>
-    </PageAnimationWrapper>
+    <div className="grow-wrapper grow-wrapper--drink-card">
+      {isMobile ? null : <DesktopHeader />}
+      <PageTitle />
+      <main>{children}</main>
+      <Footer content={footerContent} />
+      {isMobile ? <MobileNav /> : null}
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
-import Nav from './Nav';
 
 const HeaderBar = styled.header`
   display: grid;
@@ -32,7 +31,6 @@ export default function Header({ isHome }: HeaderProps) {
   return (
     <HeaderBar>
       <Logo isHome={isHome} />
-      <Nav />
     </HeaderBar>
   );
 }

@@ -1,46 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
-import PageAnimationWrapper from '../PageAnimationWrapper';
-import GrowWrapper from './GrowWrapper';
-import Header from '../header/Header';
-import PwaHeader from '../header/PwaHeader';
-import PageHeading from '../PageHeading';
+import DesktopHeader from '../header/DesktopHeader';
+import PageTitle from '../header/PageTitle';
+import MobileNav from '../header/MobileNav';
 import Footer from '../Footer';
-
-const Main = styled.main`
-  flex: 1;
-  width: calc(100vw - 2em);
-  margin: 0 auto;
-  padding-bottom: 2rem;
-
-  @media (min-width: 30em) {
-    max-width: 70em;
-  }
-`;
-
-const Heading = styled(PageHeading)`
-  @media (display-mode: standalone) {
-    display: none;
-  }
-`;
+import useIsMobile from '../../lib/useIsMobile';
 
 interface DrinkListLayoutProps {
   title: string;
   children: React.ReactNode;
 }
 
-export default function DrinkListLayout({ title, children }: DrinkListLayoutProps) {
+export default function DrinkListLayout({
+  title,
+  children,
+}: DrinkListLayoutProps) {
+  const isMobile = useIsMobile();
+
   return (
-    <PageAnimationWrapper>
-      <GrowWrapper>
-        <PwaHeader title={title} />
-        <Header />
-        <Main>
-          <Heading>{title}</Heading>
-          {children}
-        </Main>
-        <Footer />
-      </GrowWrapper>
-    </PageAnimationWrapper>
+    <div className="grow-wrapper">
+      {isMobile ? null : <DesktopHeader />}
+      <PageTitle title={title} />
+      <main className="stack">{children}</main>
+      <Footer />
+      {isMobile ? <MobileNav /> : null}
+    </div>
   );
 }

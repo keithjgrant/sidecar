@@ -1,0 +1,34 @@
+@layer modules {
+  .homelink-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 4rem;
+    text-align: center;
+
+    & > div {
+      padding: 1rem 0.5rem;
+    }
+
+    & a {
+      display: inline-block;
+      padding: var(--space-lg) var(--space-xl);
+      min-inline-size: 15ch;
+      border-radius: var(--border-radius);
+      color: var(--font-primary);
+      text-decoration: none;
+      background-color: oklch(from var(--bg-shallow) l c h / 0.3);
+      backdrop-filter: blur(5px);
+
+      & svg {
+        display: inline-block;
+        height: 1.2em;
+        vertical-align: -0.25em;
+        margin-inline-end: var(--space-md);
+      }
+    }
+  }
+
+  .homelink-group__em {
+    grid-column: span 2;
+  }
+}

@@ -1,0 +1,58 @@
+@layer modules {
+  .drink-tags {
+    --_drink-tags--gap: var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-sm);
+    align-items: baseline;
+    padding-inline-start: 0;
+    list-style-type: none;
+
+    > li {
+      --_tag-color: var(--text-secondary);
+    }
+
+    :where(& > li > a, & > li > button) {
+      display: block;
+      padding: 4px 6px;
+      text-box: trim-both cap alphabetic;
+      background: transparent;
+      color: var(--_tag-color);
+      font-size: var(--font-size-sm);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--_tag-color);
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--text-primary);
+      }
+    }
+
+    & [data-tag-type='other'] {
+      --_tag-color: var(--accent-secondary);
+    }
+
+    & [data-tag-type='spirit'],
+    & [data-tag-type='liqueur'],
+    & [data-tag-type='amaro'] {
+      --_tag-color: var(--accent-brand);
+
+      ~ li[data-tag-type='other'] {
+        --_tag-color: var(--text-secondary);
+      }
+    }
+
+    & [data-tag-type='syrup'],
+    & [data-tag-type='flavor'],
+    & [data-tag-type='citrus'] {
+      --_tag-color: var(--accent-tertiary);
+    }
+  }
+
+  .drink-tags__toggle {
+    border-radius: 3px;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--text-secondary);
+  }
+}

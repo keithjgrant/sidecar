@@ -1,3 +1,4 @@
+/* UNUSED - old vars for reference */
 :root {
   --orange-hue: 29;
   --orange-4: hsl(var(--orange-hue), 80%, 40%);
@@ -27,8 +28,10 @@
 
   --border-radius: 0.3em;
 
-  --font-heading: Playfair Display, serif;
-  --font-body: Lato, sans-serif;
+  --font-heading: EB Garamond, Playfair Display, serif;
+  --font-body: Josefin Sans, Lato, sans-serif;
+
+  --font-display: var(--font-heading);
 
   /* stylelint-disable unit-whitelist */
   --fill-height: calc(100vh - 70px);

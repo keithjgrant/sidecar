@@ -34,6 +34,7 @@ ten-bottle-bar tag
 
 # TODO
 
+[] bug: filter drinks -> click Drinks: filter remains applied
 [] consider missing modern classics: Penicillin, Naked & Famous, Old Cuban, Gold Rush, Tommy's Margarita, Revolver (= mr brown?)
     [] Man About Town -> 2 rye, 1 sweet vermouth, 1 cynar w/ brandied cherry?
 [] add classics: Tom Collins, French 75!, mint julep, gimlet?, mojito, aviation

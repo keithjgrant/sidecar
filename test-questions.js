@@ -1,31 +1,31 @@
-// Test script to evaluate all help-me-decide questions
+// Test script to evaluate all find-a-drink questions
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
 // Import all question modules
 const lightOrDark =
-  require('./src/app/features/help-me-decide/questions/lightOrDark.js').default;
+  require('./src/app/features/find-a-drink/questions/lightOrDark.js').default;
 const sweetOrStiff =
-  require('./src/app/features/help-me-decide/questions/sweetOrStiff.js').default;
+  require('./src/app/features/find-a-drink/questions/sweetOrStiff.js').default;
 const refreshingOrIntense =
-  require('./src/app/features/help-me-decide/questions/refreshingOrIntense.js').default;
+  require('./src/app/features/find-a-drink/questions/refreshingOrIntense.js').default;
 const simpleOrElaborate =
-  require('./src/app/features/help-me-decide/questions/simpleOrElaborate.js').default;
+  require('./src/app/features/find-a-drink/questions/simpleOrElaborate.js').default;
 const boozyOrMild =
-  require('./src/app/features/help-me-decide/questions/boozyOrMild.js').default;
+  require('./src/app/features/find-a-drink/questions/boozyOrMild.js').default;
 const seasonalOrTimeless =
-  require('./src/app/features/help-me-decide/questions/seasonalOrTimeless.js').default;
+  require('./src/app/features/find-a-drink/questions/seasonalOrTimeless.js').default;
 const citrusyOrRich =
-  require('./src/app/features/help-me-decide/questions/citrusyOrRich.js').default;
+  require('./src/app/features/find-a-drink/questions/citrusyOrRich.js').default;
 const fruityOrHerbal =
-  require('./src/app/features/help-me-decide/questions/fruityOrHerbal.js').default;
+  require('./src/app/features/find-a-drink/questions/fruityOrHerbal.js').default;
 const smokyOrClean =
-  require('./src/app/features/help-me-decide/questions/smokyOrClean.js').default;
+  require('./src/app/features/find-a-drink/questions/smokyOrClean.js').default;
 const spicyOrMellow =
-  require('./src/app/features/help-me-decide/questions/spicyOrMellow.js').default;
+  require('./src/app/features/find-a-drink/questions/spicyOrMellow.js').default;
 const bitterOrSmooth =
-  require('./src/app/features/help-me-decide/questions/bitterOrSmooth.js').default;
+  require('./src/app/features/find-a-drink/questions/bitterOrSmooth.js').default;
 
 const allQuestions = [
   lightOrDark,

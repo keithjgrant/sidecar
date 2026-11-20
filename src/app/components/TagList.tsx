@@ -26,7 +26,7 @@ const LetterSection = styled.section`
 const TagLink = styled(Link)`
   display: block;
   padding: 0.5em 1em;
-  border: 1px solid var(--gray-4);
+  border: 1px solid var(--border-color);
   text-decoration: none;
 `;
 

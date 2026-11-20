@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import FeaturedBottleTile from './FeaturedBottleTile';
 import TileRow from './TileRow';
 import Footer from '../Footer';
+import NavDrink from '../svg/NavDrink';
+import NavCompass from '../svg/NavCompass';
+import NavTag from '../svg/NavTag';
+import NavStar from '../svg/NavStar';
+import NavBottles from '../svg/NavBottles';
 
 const nbsp = '\u00A0';
 
@@ -119,7 +124,39 @@ export default function HomeTiles({
   bottleImageMap,
 }: HomeTilesProps) {
   return (
-    <Card>
+    <div className="stack">
+      <div className="homelink-group">
+        <div className="homelink-group__em">
+          <Link to="/drinks">
+            <NavDrink />
+            All Drinks
+          </Link>
+        </div>
+        <div>
+          <Link to="/find-a-drink">
+            <NavCompass />
+            Find a Drink
+          </Link>
+        </div>
+        <div>
+          <Link to="/tags">
+            <NavTag />
+            Tags
+          </Link>
+        </div>
+        <div>
+          <Link to="/favorites">
+            <NavStar />
+            Favorites
+          </Link>
+        </div>
+        <div>
+          <Link to="/my-bar">
+            <NavBottles />
+            My Bar
+          </Link>
+        </div>
+      </div>
       <CardBoxDark>
         <MainLinks
           style={{ gridTemplateRows: '2fr 1fr 1fr', minHeight: '40vh' }}
@@ -155,6 +192,6 @@ export default function HomeTiles({
         <TileLink to="/about">About</TileLink>
       </CardBoxDark>
       <HomeFooter content={`Banner photo by Adam${nbsp}Jaime`} />
-    </Card>
+    </div>
   );
 }

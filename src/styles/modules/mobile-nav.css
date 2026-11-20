@@ -1,0 +1,86 @@
+@layer modules {
+  .mobile-navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: var(--bg-card--secondary);
+    border-top: 1px solid var(--border-color);
+    transition:
+      background-color 0.25s var(--ease-out),
+      border-color 0.25s var(--ease-out);
+
+    &[data-collapsed='true'] {
+      background-color: transparent;
+      border-color: transparent;
+      pointer-events: none;
+
+      & > a {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    & > a {
+      flex: 0 1 50px;
+      display: flex;
+      justify-content: center;
+      padding: 0.8rem 0.5rem;
+      color: var(--text-primary);
+      transition: opacity 0.2s var(--ease-out);
+
+      &:hover,
+      &.active {
+        background-color: var(--GRAY-15);
+        border-radius: 25px;
+      }
+
+      svg {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .fab-button {
+    position: fixed;
+    left: max(0.75rem, env(safe-area-inset-left, 0px));
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+    z-index: 11;
+    display: grid;
+    place-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--GRAY-15);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    color: var(--text-primary);
+    appearance: none;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s var(--ease-out);
+
+    &.is-visible {
+      opacity: 0.7;
+      pointer-events: auto;
+    }
+
+    svg {
+      width: 1.35rem;
+      height: 1.35rem;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@layer modules {
+  .bar-filter-notice {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65em 0.85em;
+    margin: 0 0 0.75rem;
+  }
+
+  .bar-filter-notice__toggle {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+
+  .bar-filter-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+    padding: 0.2em 0.55em 0.2em 0.4em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    svg {
+      width: 0.95em;
+      height: 0.95em;
+      flex-shrink: 0;
+    }
+  }
+}
