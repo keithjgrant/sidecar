@@ -1,89 +1,87 @@
-@layer base {
-  /* TODO:
-    https://css-tricks.com/taming-typography-modern-css-reset/
-    https://fokus.dev/tools/uaplus/
-  */
-  html {
-    color-scheme: dark light;
-    min-height: 100vh;
-  }
+/* TODO:
+  https://css-tricks.com/taming-typography-modern-css-reset/
+  https://fokus.dev/tools/uaplus/
+*/
+html {
+  color-scheme: dark light;
+  min-height: 100vh;
+}
 
+body {
+  margin: unset;
+  color: var(--text-primary);
+  background-color: var(--bg-body);
+  background-image: url(/images/paisley-left.svg);
+  background-size: 300px;
+  background-position: left calc(100vh - 515px);
+  background-repeat: no-repeat;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+@media (min-width: 600px) {
   body {
-    margin: unset;
-    color: var(--text-primary);
-    background-color: var(--bg-body);
-    background-image: url(/images/paisley-left.svg);
-    background-size: 300px;
-    background-position: left calc(100vh - 515px);
-    background-repeat: no-repeat;
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.5;
-    overflow-x: hidden;
+    background-size: 500px;
+    background-position: left calc(100vh - 880px);
   }
-  @media (min-width: 600px) {
-    body {
-      background-size: 500px;
-      background-position: left calc(100vh - 880px);
-    }
-  }
+}
 
-  a:any-link {
-    color: var(--text-accent);
-    font-weight: 400;
-    transition: color 0.2s linear;
-    text-decoration-color: var(--white);
-  }
-  a:hover {
-    color: var(--text-alt);
-    transition: none;
-  }
-  a:active {
-    color: var(--accent-brand-tertiary);
-  }
+a:any-link {
+  color: var(--text-accent);
+  font-weight: 400;
+  transition: color 0.2s linear;
+  text-decoration-color: var(--white);
+}
+a:hover {
+  color: var(--text-alt);
+  transition: none;
+}
+a:active {
+  color: var(--accent-brand-tertiary);
+}
 
-  h1,
-  h2,
-  h3 {
-    color: var(--gray-4);
-    font-family: var(--font-display);
-    font-weight: 400;
-    line-height: 1.2;
-  }
+h1,
+h2,
+h3 {
+  color: var(--gray-4);
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+}
 
-  button,
-  input,
-  select {
-    line-height: inherit;
-  }
+button,
+input,
+select {
+  line-height: inherit;
+}
 
-  label:hover {
-    user-select: none;
-  }
+label:hover {
+  user-select: none;
+}
 
-  select,
-  option,
-  input[type='checkbox'],
-  input[type='radio'],
-  button {
-    cursor: pointer;
-  }
+select,
+option,
+input[type='checkbox'],
+input[type='radio'],
+button {
+  cursor: pointer;
+}
 
-  svg {
-    fill: currentColor;
-    height: 1em;
-  }
+svg {
+  fill: currentColor;
+  height: 1em;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  hr {
-    border: 0;
-    border-top: 1px solid var(--border-color);
-  }
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+}
 
-  :focus {
-    outline: var(--focus-outline);
-  }
+:focus {
+  outline: var(--focus-outline);
 }

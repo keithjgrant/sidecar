@@ -1,8 +1,8 @@
 @layer reset, theme, base, layout, modules, utilities;
 
-@import './reset.css';
-@import './primitives.css';
-@import './semantics.css';
-@import './base.css';
-@import './layout.css';
-@import './modules/index.css';
+@import './reset.css' layer(reset);
+@import './primitives.css' layer(theme);
+@import './semantics.css' layer(theme);
+@import './base.css' layer(base);
+@import './layout.css' layer(layout);
+@import './modules/index.css' layer(modules);

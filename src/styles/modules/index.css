@@ -14,25 +14,23 @@
 @import './bar-filter-notice.css';
 @import './footer.css';
 
-@layer modules {
-  .button {
-    padding: var(--input-padding);
-    border: 1px solid var(--brand-primary);
-    border-radius: var(--border-radius);
-    background-color: var(--gray-dark);
-    color: var(--brand-primary);
-    font-weight: 400;
-    text-decoration: none;
-  }
-  .button:hover {
-    color: var(--white);
-  }
+.button {
+  padding: var(--input-padding);
+  border: 1px solid var(--brand-primary);
+  border-radius: var(--border-radius);
+  background-color: var(--gray-dark);
+  color: var(--brand-primary);
+  font-weight: 400;
+  text-decoration: none;
+}
+.button:hover {
+  color: var(--white);
+}
 
-  .footnote {
-    padding-top: 1em;
-    color: var(--gray-7);
-  }
-  .footnote a {
-    color: inherit;
-  }
+.footnote {
+  padding-top: 1em;
+  color: var(--gray-7);
+}
+.footnote a {
+  color: inherit;
 }
