@@ -1,6 +1,6 @@
 .desktop-header {
   padding-block: var(--space-lg);
-  background-color: var(--accent-brand);
+  background-color: var(--bg-brand);
 }
 
 .desktop-header__grid {

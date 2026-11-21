@@ -17,7 +17,7 @@ body {
   background-repeat: no-repeat;
   font-family: var(--font-body);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: var(--line-height-normal);
   overflow-x: hidden;
 }
 @media (min-width: 600px) {
@@ -28,17 +28,17 @@ body {
 }
 
 a:any-link {
-  color: var(--text-accent);
+  color: var(--text-interactive);
   font-weight: 400;
   transition: color 0.2s linear;
   text-decoration-color: var(--white);
 }
 a:hover {
-  color: var(--text-alt);
+  color: var(--text-interactive-hover);
   transition: none;
 }
 a:active {
-  color: var(--accent-brand-tertiary);
+  color: var(--accent-interactive-active);
 }
 
 h1,
@@ -47,7 +47,7 @@ h3 {
   color: var(--gray-4);
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: var(--line-height-tight);
 }
 
 button,

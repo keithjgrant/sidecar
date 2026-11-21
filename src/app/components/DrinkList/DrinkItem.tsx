@@ -15,7 +15,7 @@ const PreviewLink = styled(Link)`
   gap: var(--space-lg);
   height: 100%;
   border: 1px solid var(--border-color);
-  background: var(--bg-card);
+  background: var(--bg-main);
   color: inherit;
   text-decoration: none;
 
@@ -58,7 +58,7 @@ const TagPreview = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
-  color: var(--text-accent);
+  color: var(--text-interactive);
   font-size: var(--font-size-sm);
 
   & > li {

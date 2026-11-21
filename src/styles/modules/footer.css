@@ -4,8 +4,8 @@
   padding: 1rem;
   color: var(--text-subtle);
   font-size: 0.8rem;
-  background-color: var(--bg-deep);
-  background-image: linear-gradient(to bottom, var(--bg-main), var(--bg-deep));
+  background-color: var(--bg-inset);
+  background-image: linear-gradient(to bottom, var(--bg-main), var(--bg-inset));
   text-align: end;
 
   a {

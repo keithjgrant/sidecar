@@ -1,96 +1,128 @@
 :root {
-  /* Text */
-  --text-primary: var(--GRAY-3);
-  --text-secondary: var(--GRAY-6);
-  --text-subtle: var(--GRAY-9);
-  --text-accent: var(--ORANGE-5);
-  --text-alt: var(--ORANGE-3);
-  --text-inverse: var(--GRAY-14);
+  /* color — text */
+  --text-primary: var(--gray-3);
+  --text-secondary: var(--gray-6);
+  --text-subtle: var(--gray-9);
+  --text-interactive: var(--orange-5);
+  --text-interactive-hover: var(--orange-3);
+  --text-interactive-active: var(--indigo-5);
 
-  /* Backgrounds */
-  /*
-      TODO names?
-      --bg-deep, --bg-deeper
-      --bg-shallow, --bg-shallower
-     */
-  --bg-body: var(--GRAY-12);
-  --bg-main: var(--GRAY-12);
-  --bg-card: var(--GRAY-12);
-  --bg-card--secondary: var(--GRAY-13);
-  --bg-tile: var(--GRAY-11);
-  --bg-tile--secondary: var(--GRAY-13);
-  --bg-deep: var(--GRAY-13);
-  --bg-deeper: var(--GRAY-14);
-  --bg-shallow: var(--GRAY-11);
-  --bg-shallower: var(--GRAY-10);
+  --text-brand: var(--orange-5);
+  --text-brand-secondary: var(--cyan-4);
+  --text-brand-tertiary: var(--indigo-5); /* not in argot */
+  --text-success: ;
+  --text-warning: ;
+  --text-danger: ;
+  --text-info: ;
+  --text-disabled: ;
+  --text-inverse: var(--gray-14);
 
-  /* Accents and links */
-  --accent-brand: var(--ORANGE-5);
-  --accent-brand-secondary: var(--CYAN-4);
-  --accent-brand-tertiary: var(--INDIGO-5);
+  /* color — surfaces */
+  --bg-body: var(--gray-12);
+  --bg-main: var(--gray-12);
+  --bg-inset: var(--gray-13);
+  --bg-raised: var(--gray-11);
 
-  --success: ; /* TODO bg, text, border ? */
-  --warning: ;
-  --danger: ;
-  --info: ;
+  --bg-gradient-raised: ;
+  --bg-brand: var(--orange-5);
+  --bg-brand-secondary: ;
+  --bg-success: ;
+  --bg-warning: ;
+  --bg-danger: ;
+  --bg-info: ;
+  --bg-disabled: ;
+  --bg-inverse: ;
 
-  /* Fonts */
-  --font-display: var(--FONT-SERIF);
-  --font-body: var(--FONT-SANS-SERIF);
-  --font-code: var(--FONT-MONO);
+  /* color — borders */
+  --border-color: oklch(from var(--gray-4) l c h / 0.4);
+  --border-color-subtle: ;
+  --border-brand: var(--orange-5);
+  --border-brand-secondary: ;
+  --border-success: ;
+  --border-warning: ;
+  --border-danger: ;
+  --border-info: ;
 
-  --font-weight: 400;
-  --font-weight-bold: 700;
-  --font-weight-light: 300;
+  /* color — charts */
+  --chart-color-1: var(--gray-4);
+  --chart-color-2: var(--gray-7);
+  --chart-color-3: var(--gray-10);
 
+  /* typography */
+  --font-body: var(--font-sans-serif);
+  --font-display: var(--font-serif);
+  --font-mono: ;
+
+  --font-size-xs: ;
   --font-size-sm: 0.8rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.2rem;
   --font-size-xl: 1.8rem;
+  --font-size-xxl: 2.6rem;
 
+  /* TODO are these module decisions? */
   @media (width >= 560px) {
     --font-size-lg: 1.6rem;
     --font-size-xl: 2.6rem;
   }
 
-  /* Borders and spacing */
-  --border-radius: var(--SIZE-LG);
-  --border-radius-lg: var(--SIZE-XL);
-  --border-radius-sm: var(--SIZE-MD);
-  --border-color: oklch(from var(--GRAY-4) l c h / 0.4);
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 
-  --space-xs: var(--SIZE-XS);
-  --space-sm: var(--SIZE-SM);
-  --space-md: var(--SIZE-MD);
-  --space-lg: var(--SIZE-LG);
-  --space-xl: var(--SIZE-XL);
-  --space-xxl: var(--SIZE-XXL);
+  --line-height-normal: 1.5;
+  --line-height-tight: 1.2;
+  --letter-spacing-uppercase: ;
 
-  /* Motion */
+  /* spacing */
+  --space-xs: 0.1875em;
+  --space-sm: 0.3125em;
+  --space-md: 0.4375em;
+  --space-lg: 0.75em;
+  --space-xl: 1.5em;
+  --space-xxl: 3em;
+
+  /* borders */
+  --border-radius-sm: 7px;
+  --border-radius-md: 12px;
+  --border-radius: var(--border-radius-md); /* not in argot */
+  --border-radius-lg: 24px;
+
+  /* motion */
   --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
   --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
   --ease-linear: linear;
-
-  /* Charts */
-  --chart-color-1: var(--GRAY-4);
-  --chart-color-2: var(--GRAY-7);
-  --chart-color-3: var(--GRAY-10);
-
-  --box-shadow: 2px 4px 6px var(--GRAY-13);
+  --duration-fast: ;
+  --duration-normal: ;
 
   /* layout */
   --content-max-width: 70em;
-  --content-max-width-sm: 45em;
+  --content-max-width-sm: 45em; /* not in argot */
+  --overlay-max-width: ;
+
+  --z-menu: 100;
+  --z-sticky: 110;
+  --z-fixed: 120;
+  --z-drawer: 130;
+  --z-dialog: 140;
+  --z-popover: 150;
+  --z-tooltip: 160;
+  --z-toast: 170;
+
+  /* misc */
+  --focus-ring: ;
+  --box-shadow: 2px 4px 6px var(--gray-13);
 
   /*
-      Sidecar-specific
-    */
+    Legacy/Sidecar-specific
+  */
 
   --footer-height: 70px;
   @media (width >= 450px) {
     --footer-height: 55px;
   }
 
+  /* TODO: meld with -z-* vars above */
   --z-page-title: 2;
   --z-alpha-heading: 1;
   --z-alpha-rail: 1;

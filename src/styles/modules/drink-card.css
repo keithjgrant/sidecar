@@ -23,12 +23,13 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   color: var(--text-primary);
-  background-color: var(--bg-card);
+  background-color: var(--bg-inset);
   background-image: linear-gradient(
     to right,
-    color-mix(in oklch, var(--bg-card) 80%, black 20%),
-    var(--bg-card)
+    color-mix(in oklch, var(--bg-main) 80%, black 20%),
+    var(--bg-main)
   );
+  box-shadow: var(--box-shadow);
 
   @media (min-width: 30em) {
     padding: 1em 1em 1em 2em;
@@ -60,7 +61,7 @@
       content: '';
       width: calc(100% - 2em);
       height: 1.5px;
-      background-color: var(--accent-brand);
+      background-color: var(--bg-brand);
     }
   }
 }

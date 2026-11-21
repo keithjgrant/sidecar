@@ -49,7 +49,7 @@
   & > h1 {
     min-width: max-content;
     margin-bottom: 0.8rem;
-    color: var(--accent-brand);
+    color: var(--text-brand);
   }
 
   & > div {

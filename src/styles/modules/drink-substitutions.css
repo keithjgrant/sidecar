@@ -10,7 +10,7 @@
   }
 
   & li::marker {
-    color: var(--accent-brand);
+    color: var(--text-brand);
   }
 
   .drink-substitutions__header {

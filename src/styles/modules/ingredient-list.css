@@ -12,7 +12,7 @@
       top: 0.15em;
       left: -0.9em;
       content: '• ';
-      color: var(--accent-brand);
+      color: var(--text-brand);
       line-height: 1;
     }
   }
@@ -23,7 +23,7 @@
 
   & strong {
     margin-right: 0.4em;
-    color: var(--accent-brand);
+    color: var(--text-brand);
     font-size: 0.64em;
     font-weight: bold;
     text-transform: uppercase;

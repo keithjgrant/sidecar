@@ -27,8 +27,8 @@
   right: 0;
   left: 0;
   padding: var(--space-lg) var(--space-md);
-  border: 1px solid var(--accent-brand);
-  background: var(--bg-tile);
+  border: 1px solid var(--border-brand);
+  background: var(--bg-raised);
   color: var(--text-tile);
   text-align: center;
   text-box: trim-both cap alphabetic;

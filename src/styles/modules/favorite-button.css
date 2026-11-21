@@ -3,7 +3,7 @@
   padding: var(--space-sm);
   border: 0;
   background: transparent;
-  color: var(--accent-brand);
+  color: var(--text-brand);
   cursor: pointer;
 
   &:hover {

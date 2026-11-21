@@ -9,7 +9,7 @@
     border-top-width: 0;
     border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
     padding: var(--space-md) var(--space-sm) var(--space-sm);
-    background-color: var(--bg-card);
+    background-color: var(--bg-main);
   }
 
   > :empty {

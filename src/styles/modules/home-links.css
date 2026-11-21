@@ -15,7 +15,7 @@
     border-radius: var(--border-radius);
     color: var(--font-primary);
     text-decoration: none;
-    background-color: oklch(from var(--bg-shallow) l c h / 0.3);
+    background-color: oklch(from var(--bg-raised) l c h / 0.3);
     backdrop-filter: blur(5px);
 
     & svg {
